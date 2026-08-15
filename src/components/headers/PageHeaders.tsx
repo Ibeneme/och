@@ -1,0 +1,29 @@
+interface PageHeaderProps {
+  title?: string;
+  backgroundImage?: string;
+}
+
+export default function PageHeader({
+  title = "Page Header",
+  backgroundImage,
+}: PageHeaderProps) {
+  return (
+    <section
+      className="relative py-36 md:py-36 px-6 md:px-12 bg-[#07162C] overflow-hidden font-sans bg-cover bg-center"
+      style={
+        backgroundImage
+          ? { backgroundImage: `url(${backgroundImage})` }
+          : undefined
+      }
+    >
+      {backgroundImage && (
+        <div className="absolute inset-0 bg-[#07162C]/85 z-0" />
+      )}
+      <div className="max-w-5xl mx-auto text-center relative z-10 space-y-6">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+          {title}
+        </h1>
+      </div>
+    </section>
+  );
+}

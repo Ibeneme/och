@@ -66,42 +66,42 @@ const VALUES = [
 
 const THEME_STYLES: any = {
   navy: {
-    panel: "bg-[#0a1628] text-white",
-    tagColor: "text-slate-400",
-    labelAccent: "text-[#E4B95A]/80",
-    footer: "text-slate-400",
+    panel: "bg-[#0A2140] text-white",
+    tagColor: "text-slate-300",
+    labelAccent: "text-[#E4B95A]",
+    footer: "text-[#5B6B7C]",
   },
   amber: {
-    panel: "bg-[#E4B95A] text-[#0a1628]",
-    tagColor: "text-[#0a1628]",
-    labelAccent: "text-[#0a1628]",
-    footer: "text-[#E4B95A]",
+    panel: "bg-[#E4B95A] text-[#0A2140]",
+    tagColor: "text-[#0A2140]/80",
+    labelAccent: "text-[#0A2140]",
+    footer: "text-[#8A7B5C]",
   },
   emerald: {
-    panel: "bg-[#0a1628] text-white",
-    tagColor: "text-[#0a1628]",
-    labelAccent: "text-[#fff]",
-    footer: "text-[#0a1628]",
+    panel: "bg-[#0A2140] text-white",
+    tagColor: "text-slate-300",
+    labelAccent: "text-[#E4B95A]",
+    footer: "text-[#5B6B7C]",
   },
 };
 
 export default function CoreValuesSection() {
   return (
-    <section className="py-20 px-6 bg-[#faf8f2] flex items-center justify-center font-sans">
+    <section className="py-20 px-6 bg-[#FBF8F2] flex items-center justify-center ohh-sans">
       <div className="max-w-7xl mx-auto w-full">
         <div className="mb-14 max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#E4B95A]">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
             What We Stand On
           </span>
-          <h2 className="text-4xl md:text-8xl font-bold text-[#0a1628] mt-2 tracking-tight">
+          <h2 className="ohh-serif text-4xl md:text-5xl font-semibold text-[#0A2140] mt-2 tracking-tight">
             Our Core Values
           </h2>
-          <p className="text-slate-600 text-base md:text-lg mt-4 leading-relaxed">
+          <p className="text-[#5B6B7C] text-base md:text-lg mt-4 leading-relaxed">
             The principles that guide every interaction and plan of care.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-200 rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#EFE8D8] rounded-3xl overflow-hidden border border-[#EFE8D8]">
           {VALUES.map((value) => {
             const styles = THEME_STYLES[value.theme as any];
             const Icon = value.icon;
@@ -122,21 +122,21 @@ export default function CoreValuesSection() {
                       {value.tag}
                     </span>
                   </div>
-                  <div className="mt-7 text-xl font-extrabold tracking-tight leading-none">
+                  <div className="ohh-serif mt-7 text-2xl font-semibold tracking-tight leading-none">
                     {value.title}
                   </div>
                   <div
-                    className={`mt-3 text-xs uppercase tracking-wide ${styles.labelAccent}`}
+                    className={`mt-3 text-xs uppercase tracking-wide font-semibold ${styles.labelAccent}`}
                   >
                     {value.label}
                   </div>
                 </div>
                 <div className="px-7 py-7 flex-1 flex flex-col justify-between space-y-5">
-                  <p className="text-slate-700 text-sm leading-relaxed">
+                  <p className="text-[#3A4657] text-sm leading-relaxed">
                     {value.description}
                   </p>
                   <div
-                    className={`pt-4 border-t border-slate-100 text-[11px] font-bold uppercase tracking-wider ${styles.footer}`}
+                    className={`pt-4 border-t border-[#F0EBDD] text-[11px] font-bold uppercase tracking-wider ${styles.footer}`}
                   >
                     Core Value
                   </div>

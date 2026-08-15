@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import LeadershipPage from "@/components/about/leadership/Leadership";
-import BottomCTAAndFooter from "@/components/about/leadership/LeadershipCTA";
 import LeadershipHero from "@/components/about/leadership/LeadershipHero";
 import PageHeader from "@/components/headers/PageHeaders";
 
@@ -50,7 +49,6 @@ const Leadership = () => {
         </div>
         <LeadershipHero />
         <LeadershipPage />
-        <BottomCTAAndFooter />
       </div>
     </>
   );

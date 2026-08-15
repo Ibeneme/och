@@ -17,7 +17,6 @@ import {
   BookOpen,
   Info,
   UserCheck,
-  FileText,
 } from "lucide-react";
 
 const SteadyLine = ({ className = "" }: { className?: string }) => (
@@ -98,15 +97,15 @@ export const Navbar = () => {
   ];
 
   const specialtyServices = [
-    { href: "/services/wound-care", label: "Wound care management" },
+    { href: "/services/wound-care", label: "Wound care" },
     {
       href: "/services/chronic-disease-management",
       label: "Chronic disease care",
     },
     { href: "/services/medication-management", label: "Medication management" },
     { href: "/services/post-surgical-care", label: "Post-surgical care" },
-    { href: "/services/fall-prevention", label: "Fall prevention & safety" },
-    { href: "/services/veteran-care", label: "Veteran care services" },
+    { href: "/services/fall-prevention", label: "Fall prevention" },
+    { href: "/services/veteran-care", label: "Veteran care" },
   ];
 
   const supportiveServices = [
@@ -167,34 +166,21 @@ export const Navbar = () => {
     <header className="w-full ohh-sans sticky top-0 z-50">
       {/* ========== UTILITY BAR ========== */}
       <div className="bg-[#0A2140] text-white text-[11px] sm:text-[12px] py-2 px-3 sm:px-6 md:px-8 relative z-50">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-center sm:text-left">
-            <span className="inline-flex items-center gap-1.5 text-[#A8C0D4]">
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#7FA283]" />
-              Now serving new patients
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-1.5 text-[#A8C0D4]">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7FA283] opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7FA283]" />
             </span>
-            <span className="hidden sm:inline text-white/20">|</span>
-            <p className="hidden md:block text-white/65">
-              <span className="text-white/45">Operated by</span>{" "}
-              <span className="text-white font-medium">
-                JACOP Healthcare Services, Inc.
-              </span>
-            </p>
-          </div>
+            <span className="hidden sm:inline">Now serving new patients</span>
+            <span className="sm:hidden">New patients welcome</span>
+          </span>
 
-          <div className="flex items-center gap-3 sm:gap-5 flex-wrap justify-center">
+          <div className="flex items-center gap-4 sm:gap-5">
             <SteadyLine className="hidden lg:block w-14 h-3 opacity-90" />
             <a
-              href="tel:9723251598"
-              className="flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors"
-            >
-              <Phone size={13} strokeWidth={2.2} />
-              <span>(972) 325-1598</span>
-            </a>
-            <span className="text-white/20 hidden xs:inline">|</span>
-            <a
               href="/referrals"
-              className="text-white/80 hover:text-[#E4B95A] transition-colors font-medium flex items-center gap-1 group"
+              className="hidden xs:inline-flex items-center gap-1 text-white/75 hover:text-[#E4B95A] transition-colors font-medium group"
             >
               <span>Refer a patient</span>
               <ArrowRight
@@ -202,14 +188,23 @@ export const Navbar = () => {
                 className="group-hover:translate-x-0.5 transition-transform"
               />
             </a>
+            <a
+              href="tel:9723251598"
+              className="flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors"
+            >
+              <Phone size={13} strokeWidth={2.2} />
+              <span>(972) 325-1598</span>
+            </a>
           </div>
         </div>
       </div>
 
       {/* ========== MAIN NAV ========== */}
       <div
-        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-[#FBF8F2] border-b ${
-          isScrolled ? "py-2.5 border-[#E8DFCB]" : "py-3.5 border-[#F0E9D9]"
+        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-[#FBF8F2]/95 backdrop-blur-sm border-b ${
+          isScrolled
+            ? "py-2.5 border-[#E8DFCB] shadow-[0_1px_12px_rgba(10,33,64,0.06)]"
+            : "py-3.5 border-[#F0E9D9]"
         }`}
       >
         <nav
@@ -260,7 +255,7 @@ export const Navbar = () => {
               </button>
 
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                <div className="w-[920px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl border border-[#EFE8D8] overflow-hidden grid grid-cols-12 transition-all hover:shadow-xl">
+                <div className="w-[880px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl border border-[#EFE8D8] overflow-hidden grid grid-cols-12 shadow-xl shadow-[#0A2140]/[0.06]">
                   {/* Left panel */}
                   <div className="col-span-12 lg:col-span-3 bg-[#F7F1E6] p-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#EFE8D8]">
                     <div>
@@ -293,74 +288,76 @@ export const Navbar = () => {
                   </div>
 
                   {/* Link columns */}
-                  <div className="col-span-12 lg:col-span-9 p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="col-span-12 lg:col-span-9 p-6 flex flex-col gap-6">
                     {/* Clinical */}
                     <div>
-                      <div className="flex items-center gap-2 mb-3.5 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em] border-b border-[#F0EBDD] pb-2">
+                      <div className="flex items-center gap-2 mb-3 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em]">
                         <span>Clinical disciplines</span>
                       </div>
-                      <ul className="space-y-0.5">
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
                         {clinicalServices.map((item) => (
-                          <li key={item.href}>
-                            <a
-                              href={item.href}
-                              className="block py-2 px-2.5 rounded-lg hover:bg-[#FBF8F2] transition-colors group/item"
-                            >
-                              <div className="text-[13.5px] font-semibold text-[#2C3947] group-hover/item:text-[#0A2140]">
-                                {item.label}
-                              </div>
-                              <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
-                                {item.desc}
-                              </p>
-                            </a>
-                          </li>
+                          <a
+                            key={item.href}
+                            href={item.href}
+                            className="block py-2 px-2.5 rounded-lg hover:bg-[#FBF8F2] transition-colors group/item"
+                          >
+                            <div className="text-[13.5px] font-semibold text-[#2C3947] group-hover/item:text-[#0A2140]">
+                              {item.label}
+                            </div>
+                            <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
+                              {item.desc}
+                            </p>
+                          </a>
                         ))}
-                      </ul>
+                      </div>
                     </div>
 
-                    {/* Specialties */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-3.5 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em] border-b border-[#F0EBDD] pb-2">
-                        <Activity size={13} className="text-[#C89B3C]" />
-                        <span>Specialties</span>
-                      </div>
-                      <ul className="space-y-0.5">
-                        {specialtyServices.map((item) => (
-                          <li key={item.href}>
+                    <div className="h-px bg-[#F0EBDD]" />
+
+                    <div className="grid grid-cols-2 gap-8">
+                      {/* Specialties — compact pill grid */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-3 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em]">
+                          <Activity size={13} className="text-[#C89B3C]" />
+                          <span>Specialties</span>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {specialtyServices.map((item) => (
                             <a
+                              key={item.href}
                               href={item.href}
-                              className="block py-2 px-2.5 text-[13.5px] font-medium text-[#3A4657] hover:text-[#0A2140] hover:bg-[#FBF8F2] rounded-lg transition-colors"
+                              className="text-[12.5px] font-medium text-[#3A4657] hover:text-[#0A2140] bg-[#FBF8F2] hover:bg-[#F3ECDC] border border-[#F0EBDD] rounded-full px-3 py-1.5 transition-colors"
                             >
                               {item.label}
                             </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Supportive Care */}
-                    <div>
-                      <div className="flex items-center gap-2 mb-3.5 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em] border-b border-[#F0EBDD] pb-2">
-                        <Heart size={13} className="text-[#C89B3C]" />
-                        <span>Supportive care</span>
+                          ))}
+                        </div>
                       </div>
-                      <ul className="space-y-0.5">
-                        {supportiveServices.map((item) => (
-                          <li key={item.href}>
-                            <a
-                              href={item.href}
-                              className="flex items-center justify-between py-2 px-2.5 text-[13.5px] font-medium text-[#3A4657] hover:text-[#0A2140] hover:bg-[#FBF8F2] rounded-lg transition-colors"
-                            >
-                              <span>{item.label}</span>
-                              {item.badge && (
-                                <span className="text-[10px] bg-[#F3ECDC] text-[#8A7B5C] px-2 py-0.5 rounded-md font-bold tracking-wide">
-                                  {item.badge}
-                                </span>
-                              )}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
+
+                      {/* Supportive Care */}
+                      <div>
+                        <div className="flex items-center gap-2 mb-3 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em]">
+                          <Heart size={13} className="text-[#C89B3C]" />
+                          <span>Supportive care</span>
+                        </div>
+                        <ul className="space-y-0.5">
+                          {supportiveServices.map((item) => (
+                            <li key={item.href}>
+                              <a
+                                href={item.href}
+                                className="flex items-center justify-between py-1.5 px-2.5 -mx-2.5 text-[13px] font-medium text-[#3A4657] hover:text-[#0A2140] hover:bg-[#FBF8F2] rounded-lg transition-colors"
+                              >
+                                <span>{item.label}</span>
+                                {item.badge && (
+                                  <span className="text-[10px] bg-[#F3ECDC] text-[#8A7B5C] px-2 py-0.5 rounded-md font-bold tracking-wide">
+                                    {item.badge}
+                                  </span>
+                                )}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -378,7 +375,7 @@ export const Navbar = () => {
               </button>
 
               <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                <div className="w-72 bg-white rounded-2xl border border-[#EFE8D8] p-2 transition-all hover:shadow-xl">
+                <div className="w-72 bg-white rounded-2xl border border-[#EFE8D8] p-2 shadow-xl shadow-[#0A2140]/[0.06]">
                   {aboutLinks.map((item) => (
                     <a
                       key={item.href}
@@ -408,12 +405,7 @@ export const Navbar = () => {
             >
               Who we serve
             </a>
-            <a
-              href="/referrals"
-              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
-            >
-              Referrals
-            </a>
+
             <a
               href="/insurance-payment-options"
               className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
@@ -432,7 +424,7 @@ export const Navbar = () => {
               </button>
 
               <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                <div className="w-80 bg-white rounded-2xl border border-[#EFE8D8] p-2 transition-all hover:shadow-xl">
+                <div className="w-80 bg-white rounded-2xl border border-[#EFE8D8] p-2 shadow-xl shadow-[#0A2140]/[0.06]">
                   {resourceLinks.map((item) => (
                     <a
                       key={item.href}
@@ -461,7 +453,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-2.5">
             <a
               href="/contact#consultation"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-lg transition-all hover:shadow-md active:scale-[0.98]"
+              className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[#F5D78E] via-[#E4B95A] to-[#C89B3C] hover:from-[#F1CE7F] hover:via-[#D9A93F] hover:to-[#B88A30] text-[#0A2140] text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-lg transition-all hover:shadow-md active:scale-[0.98]"
             >
               <HeartHandshake size={16} />
               <span>Request care</span>
@@ -514,9 +506,9 @@ export const Navbar = () => {
         />
 
         <div
-          className={`absolute top-[105px] xs:top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-[#FBF8F2] rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top ${
+          className={`absolute top-[105px] xs:top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-[#FBF8F2] rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top shadow-2xl shadow-[#0A2140]/10 ${
             mobileMenuOpen
-              ? "translate-y-0 scale-100 opacity-100 hover:shadow-2xl"
+              ? "translate-y-0 scale-100 opacity-100"
               : "-translate-y-4 scale-[0.97] opacity-0"
           }`}
           style={{ maxHeight: "calc(100vh - 120px)" }}
@@ -556,7 +548,7 @@ export const Navbar = () => {
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   activeMobileDropdown === "services"
-                    ? "max-h-[1400px] opacity-150 pb-3 px-2"
+                    ? "max-h-[1400px] opacity-100 pb-3 px-2"
                     : "max-h-0 opacity-0"
                 }`}
               >
@@ -580,16 +572,18 @@ export const Navbar = () => {
                   <p className="font-bold text-[#8A7B5C] uppercase tracking-[0.1em] text-[10px] px-3 pt-1 pb-1">
                     Specialties
                   </p>
-                  {specialtyServices.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      onClick={closeMobileMenu}
-                      className="block p-2.5 text-[#3A4657] hover:text-[#0A2140] hover:bg-[#FBF8F2] rounded-lg font-medium transition-colors"
-                    >
-                      {s.label}
-                    </a>
-                  ))}
+                  <div className="flex flex-wrap gap-1.5 px-2.5 pb-1">
+                    {specialtyServices.map((s) => (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        onClick={closeMobileMenu}
+                        className="text-[12px] font-medium text-[#3A4657] hover:text-[#0A2140] bg-[#FBF8F2] hover:bg-white border border-[#F0EBDD] rounded-full px-3 py-1.5 transition-colors"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
 
                   <div className="h-px w-full bg-[#EFE8D8] my-2" />
 
@@ -673,17 +667,6 @@ export const Navbar = () => {
             </a>
 
             <a
-              href="/referrals"
-              onClick={closeMobileMenu}
-              className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
-            >
-              <div className="p-2 rounded-lg bg-white text-[#0A2140]">
-                <FileText size={17} />
-              </div>
-              Referrals
-            </a>
-
-            <a
               href="/insurance-payment-options"
               onClick={closeMobileMenu}
               className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
@@ -744,7 +727,7 @@ export const Navbar = () => {
               <a
                 href="/contact#consultation"
                 onClick={closeMobileMenu}
-                className="flex items-center justify-center gap-2 w-full text-center bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold py-3.5 rounded-xl transition-all active:scale-[0.98] hover:shadow-md"
+                className="flex items-center justify-center gap-2 w-full text-center bg-gradient-to-r from-[#F5D78E] via-[#E4B95A] to-[#C89B3C] hover:from-[#F1CE7F] hover:via-[#D9A93F] hover:to-[#B88A30] text-[#0A2140] font-bold py-3.5 rounded-xl transition-all active:scale-[0.98] hover:shadow-md"
               >
                 <HeartHandshake size={18} />
                 Request a care consultation

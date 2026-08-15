@@ -2,10 +2,11 @@ import { Helmet } from "react-helmet-async";
 import AboutTrustSection from "@/components/home_components/AboutTrustSection";
 import BrandPromiseBentoSection from "@/components/home_components/BrandPromiseBentoSection";
 import CoreServicesPage from "@/components/home_components/CoreSection";
-import InsurancePaymentGridSection from "@/components/home_components/InsurancePaymentGridSection";
 import OneCommunitySection from "@/components/home_components/OneCom";
 import ServiceAreaAndCtaSection from "@/components/home_components/ServiceAreaAndCtaSection";
 import Hero from "@/components/home_components/hero";
+import Scrollers from "@/components/home_components/Scrollers";
+import InsuranceTickerSection from "@/components/home_components/InsuranceTickerSection";
 
 const HomePage = () => {
   const schemaData = {
@@ -54,10 +55,11 @@ const HomePage = () => {
 
       <div>
         <Hero />
+        <InsuranceTickerSection />
         <AboutTrustSection />
         <BrandPromiseBentoSection />
         <CoreServicesPage />
-        <InsurancePaymentGridSection />
+        <Scrollers />
         <OneCommunitySection />
         <ServiceAreaAndCtaSection />
       </div>

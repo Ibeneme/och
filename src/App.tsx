@@ -40,7 +40,7 @@ const App = () => {
   return (
     <Router>
       <CustomCursor />
-      <div className="min-h-screen flex flex-col bg-[#FBF8F2] text-[#3A4657]">
+      <div className="min-h-screen flex flex-col bg-[#fff] text-[#3A4657]">
         <ScrollToTopOnRouteChange />
         <Navbar />
         <main className="flex-1">

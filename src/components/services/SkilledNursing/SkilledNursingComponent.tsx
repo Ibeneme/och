@@ -1,4 +1,3 @@
-
 import {
   HeartPulse,
   Activity,
@@ -8,13 +7,10 @@ import {
   BookOpen,
   Users,
   ShieldCheck,
-  ArrowRight,
   Phone,
 } from "lucide-react";
 
 export default function SkilledNursingPage() {
-
-
   return (
     <main className="min-h-screen bg-[#FAFAF8] text-slate-800">
       {/* ===== Hero Section ===== */}
@@ -267,8 +263,6 @@ export default function SkilledNursingPage() {
           </div>
         </div>
       </section>
-
-
     </main>
   );
 }

@@ -109,7 +109,7 @@ export default function ServicesLandingPage() {
   return (
     <main
       ref={pageRef}
-      className="bg-[#F3F1EC] min-h-screen pt-24 sm:pt-28 px-4 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform"
+      className="bg-[#fff] min-h-screen pt-24 sm:pt-28 px-4 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -226,16 +226,16 @@ export default function ServicesLandingPage() {
                     {pathway.actionType === "button" ? (
                       <button className="inline-flex items-center text-[13px] font-semibold text-slate-800 group-hover:text-amber-700 transition-colors cursor-pointer w-full pt-4 border-t border-amber-100 justify-between">
                         <span>{pathway.footerText}</span>
-                        <div className="w-7 h-7 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                        <div className="w-7 h-7 rounded-full bg-[#0000CD] text-[#fff] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                           <ArrowRight className="w-3.5 h-3.5" />
                         </div>
                       </button>
                     ) : pathway.actionType === "cta" ? (
                       <a
-                        href="#pediatric-updates"
-                        className="w-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-semibold px-5 py-3 rounded-xl text-[13px] transition-colors text-center cursor-pointer block border border-amber-600"
+                        href="/services/pediatric-services"
+                        className="w-full bg-[#0000CD] text-[#fff] font-semibold px-5 py-3 rounded-xl text-[13px] transition-colors text-center cursor-pointer block"
                       >
-                        Sign up for email updates
+                        Request Care
                       </a>
                     ) : (
                       <div className="pt-4 border-t border-amber-100 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">

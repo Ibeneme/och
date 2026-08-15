@@ -5,10 +5,9 @@ import {
     HeartHandshake,
     BadgeDollarSign,
     Compass,
-    ShieldCheck,
+
     Phone,
-    CheckCircle2,
-    ArrowRight,
+ 
   } from "lucide-react";
   
   export default function MedicalSocialServicesComponent() {

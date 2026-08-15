@@ -8,7 +8,6 @@ import {
   FileText,
   ShieldCheck,
   Phone,
-  ArrowRight,
 } from "lucide-react";
 
 export default function PhysicalTherapyComponent() {

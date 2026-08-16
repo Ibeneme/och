@@ -24,7 +24,7 @@ const SERVICE_AREAS = [
 
 export default function OneCommunityContact() {
   return (
-    <section className="relative bg-[#0F172A] text-slate-100 py-20 lg:py-28 px-4 sm:px-6 lg:px-8 font-sans overflow-hidden">
+    <section className="relative bg-[#0F172A] text-slate-100 py-20 lg:py-28 px-4 sm:px-6 lg:px-8  overflow-hidden">
       {/* Soft gold vignette */}
       <div
         className="pointer-events-none absolute inset-0"

@@ -52,11 +52,11 @@ export default function OneCommunityContact() {
       <div className="max-w-6xl mx-auto space-y-16 relative z-10">
         {/* Heading */}
         <div className="space-y-5 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-black uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest">
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
             One Community Home Health
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
             Reach a real person.
           </h1>
           <p className="text-slate-300 text-lg leading-relaxed font-medium max-w-2xl">
@@ -79,7 +79,7 @@ export default function OneCommunityContact() {
               <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                 Call intake
               </div>
-              <div className="text-xl font-black text-white group-hover:text-yellow-400 transition-colors">
+              <div className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
                 972-325-1598
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function OneCommunityContact() {
               <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                 Fax a referral
               </div>
-              <div className="text-xl font-black text-white">972-674-2923</div>
+              <div className="text-xl font-bold text-white">972-674-2923</div>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export default function OneCommunityContact() {
               <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
                 Email us
               </div>
-              <div className="text-xl font-black text-white group-hover:text-yellow-400 transition-colors truncate">
+              <div className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors truncate">
                 info@onechh.com
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function OneCommunityContact() {
           <div className="lg:col-span-2 rounded-3xl bg-white/[0.04] p-8 sm:p-10 space-y-8">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h2 className="text-xl font-black text-white tracking-tight">
+                <h2 className="text-xl font-bold text-white tracking-tight">
                   Office &amp; Administration
                 </h2>
                 <p className="text-sm text-slate-400 mt-1.5 font-medium">
@@ -196,7 +196,7 @@ export default function OneCommunityContact() {
               <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center mb-6">
                 <UserCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-xl font-black text-white tracking-tight">
+              <h3 className="text-xl font-bold text-white tracking-tight">
                 Join our care team
               </h3>
               <p className="text-slate-400 text-sm mt-3 leading-relaxed font-medium">
@@ -222,7 +222,7 @@ export default function OneCommunityContact() {
             <div className="w-12 h-12 rounded-2xl bg-[#0F172A]/10 flex items-center justify-center">
               <Stethoscope className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Referring a patient?
             </h3>
             <p className="text-[#0F172A]/80 text-base leading-relaxed font-medium">
@@ -237,7 +237,7 @@ export default function OneCommunityContact() {
 
           <a
             href="tel:9723251598"
-            className="w-full lg:w-auto flex-shrink-0 py-4 px-8 rounded-full bg-[#0F172A] text-white font-extrabold flex items-center justify-center gap-2 hover:bg-black transition-colors group"
+            className="w-full lg:w-auto flex-shrink-0 py-4 px-8 rounded-full bg-[#0F172A] text-white font-extrabold flex items-center justify-center gap-2 hover:bg-bold transition-colors group"
           >
             <span>Refer a patient — 972-325-1598</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

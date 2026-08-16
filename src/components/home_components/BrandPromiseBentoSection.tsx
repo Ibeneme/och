@@ -80,7 +80,7 @@ export default function ServicesLandingPage() {
                 <span className="w-2 h-2 rounded-full bg-[#E4B95A]" />
                 Who We Serve
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.08]">
+              <h1 className=" text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.08]">
                 Compassionate care tailored for every stage of life
                 <span className="text-[#E4B95A]">.</span>
               </h1>
@@ -147,7 +147,7 @@ export default function ServicesLandingPage() {
                       </div>
 
                       <div>
-                        <h3 className="font-serif text-2xl font-semibold tracking-tight text-white mb-3">
+                        <h3 className=" text-2xl font-semibold tracking-tight text-white mb-3">
                           {pathway.title}
                         </h3>
                         <p className="text-sm text-white/75 font-medium leading-relaxed">

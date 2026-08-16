@@ -150,7 +150,7 @@ export const Footer = () => {
           </a>
           <a
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#07162C] text-sm font-bold py-3.5 px-6 rounded-xl transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-[#0F6DF9] text-[#fff] text-sm font-bold py-3.5 px-6 rounded-xl transition-colors"
           >
             <HeartHandshake size={16} />
             Request a care consultation

@@ -100,27 +100,27 @@ export default function PageHeader({
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/50 to-[#0F172A]/40 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A2140]/90 via-[#0A2140]/50 to-[#0A2140]/40 z-[1]" />
 
       {/* Animated background orbs */}
       <div className="absolute inset-0 z-[2] overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 rounded-full bg-yellow-400/20 blur-[100px] animate-[float_8s_ease-in-out_infinite]" />
-        <div className="absolute -bottom-32 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-full bg-yellow-500/15 blur-[120px] animate-[float_10s_ease-in-out_infinite_reverse]" />
-        <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-48 h-48 rounded-full bg-yellow-400/10 blur-[80px] animate-[pulse_6s_ease-in-out_infinite]" />
-        <div className="absolute top-[20%] left-[15%] w-2 h-2 rounded-full bg-yellow-400/60 animate-[float_5s_ease-in-out_infinite]" />
-        <div className="absolute top-[35%] right-[20%] w-1.5 h-1.5 rounded-full bg-yellow-300/50 animate-[float_7s_ease-in-out_infinite_reverse]" />
-        <div className="absolute bottom-[30%] left-[25%] w-1 h-1 rounded-full bg-yellow-400/40 animate-[float_6s_ease-in-out_infinite]" />
-        <div className="absolute top-[60%] right-[30%] w-2 h-2 rounded-full bg-yellow-200/30 animate-[float_9s_ease-in-out_infinite_reverse]" />
+        <div className="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 rounded-full bg-[#E4B95A]/20 blur-[100px] animate-[float_8s_ease-in-out_infinite]" />
+        <div className="absolute -bottom-32 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-full bg-[#C89B3C]/15 blur-[120px] animate-[float_10s_ease-in-out_infinite_reverse]" />
+        <div className="absolute top-1/2 right-[10%] -translate-y-1/2 w-48 h-48 rounded-full bg-[#E4B95A]/10 blur-[80px] animate-[pulse_6s_ease-in-out_infinite]" />
+        <div className="absolute top-[20%] left-[15%] w-2 h-2 rounded-full bg-[#E4B95A]/60 animate-[float_5s_ease-in-out_infinite]" />
+        <div className="absolute top-[35%] right-[20%] w-1.5 h-1.5 rounded-full bg-[#D9A93F]/50 animate-[float_7s_ease-in-out_infinite_reverse]" />
+        <div className="absolute bottom-[30%] left-[25%] w-1 h-1 rounded-full bg-[#E4B95A]/40 animate-[float_6s_ease-in-out_infinite]" />
+        <div className="absolute top-[60%] right-[30%] w-2 h-2 rounded-full bg-[#F3ECDC]/30 animate-[float_9s_ease-in-out_infinite_reverse]" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 space-y-5">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-yellow-400 font-bold text-xs tracking-wider uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#E4B95A] font-medium text-xs tracking-wider uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E4B95A] animate-pulse" />
           One Community Home Health
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] drop-shadow-md">
+        <h1 className="ohh-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] drop-shadow-md">
           {title}
         </h1>
       </div>

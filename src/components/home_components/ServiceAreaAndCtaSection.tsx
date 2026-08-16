@@ -193,7 +193,7 @@ export default function OneCommunityContact() {
             </div>
 
             <a
-              href="#careers"
+              href="/careers"
               className="w-full py-3.5 px-5 rounded-xl bg-white/[0.06] hover:bg-[#C89B3C] hover:text-slate-950 text-white text-sm font-semibold flex items-center justify-between transition-colors border border-white/10 group"
             >
               <span>Apply as a CNA</span>

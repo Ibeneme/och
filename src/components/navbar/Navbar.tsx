@@ -167,26 +167,22 @@ export const Navbar = () => {
       {/* ========== UTILITY BAR ========== */}
       <div className="bg-[#0A2140] text-white text-[11px] sm:text-[12px] py-2 px-3 sm:px-6 md:px-8 relative z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-1.5 text-[#A8C0D4]">
-            <span className="relative flex h-1.5 w-1.5">
+          <span className="inline-flex items-center gap-1.5 text-[#A8C0D4] truncate">
+            <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7FA283] opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7FA283]" />
             </span>
-            <span className="hidden sm:inline">
-              One Community Home Health is a DBA of JACOP Healthcare Services,
-              Inc. Serving Clients Since 2010
-            </span>
-            <span className="sm:hidden font-medium">
+            <span className="truncate">
               One Community Home Health is a DBA of JACOP Healthcare Services,
               Inc. Serving Clients Since 2010
             </span>
           </span>
 
-          <div className="flex items-center gap-4 sm:gap-5">
+          <div className="flex items-center gap-4 sm:gap-5 flex-shrink-0">
             <SteadyLine className="hidden lg:block w-14 h-3 opacity-90" />
             <a
               href="/referrals"
-              className="inline-flex items-center gap-1 text-white/75 hover:text-[#E4B95A] transition-colors font-medium group"
+              className="inline-flex items-center gap-1 text-white/75 hover:text-[#E4B95A] transition-colors font-medium group whitespace-nowrap"
             >
               <span>Refer a patient</span>
               <ArrowRight
@@ -196,7 +192,7 @@ export const Navbar = () => {
             </a>
             <a
               href="tel:9723251598"
-              className="hidden sm:inline-flex flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors whitespace-nowrap"
             >
               <Phone size={13} strokeWidth={2.2} />
               <span>(972) 325-1598</span>
@@ -207,7 +203,7 @@ export const Navbar = () => {
 
       {/* ========== MAIN NAV ========== */}
       <div
-        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-[#fff] backdrop-blur-sm border-b ${
+        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-white backdrop-blur-sm border-b ${
           isScrolled
             ? "py-2.5 border-[#E8DFCB] shadow-[0_1px_12px_rgba(10,33,64,0.06)]"
             : "py-3.5 border-[#F0E9D9]"
@@ -300,7 +296,7 @@ export const Navbar = () => {
                       <div className="flex items-center gap-2 mb-3 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em]">
                         <span>Clinical disciplines</span>
                       </div>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-0.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5">
                         {clinicalServices.map((item) => (
                           <a
                             key={item.href}
@@ -320,8 +316,8 @@ export const Navbar = () => {
 
                     <div className="h-px bg-[#F0EBDD]" />
 
-                    <div className="grid grid-cols-2 gap-8">
-                      {/* Specialties — compact pill grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                      {/* Specialties */}
                       <div>
                         <div className="flex items-center gap-2 mb-3 text-[11px] font-bold text-[#0A2140] uppercase tracking-[0.12em]">
                           <Activity size={13} className="text-[#C89B3C]" />
@@ -407,14 +403,14 @@ export const Navbar = () => {
 
             <a
               href="/who-we-serve/seniors"
-              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
+              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors whitespace-nowrap"
             >
               Who we serve
             </a>
 
             <a
               href="/insurance-payment-options"
-              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
+              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors whitespace-nowrap"
             >
               Insurance & payment
             </a>
@@ -459,7 +455,7 @@ export const Navbar = () => {
           <div className="flex items-center gap-2.5">
             <a
               href="/contact"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#0A2140]  text-[#fff] text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-full transition-all  active:scale-[0.98]"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#0A2140] text-white text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-full transition-all active:scale-[0.98] whitespace-nowrap"
             >
               <HeartHandshake size={16} />
               <span>Request care</span>
@@ -512,7 +508,7 @@ export const Navbar = () => {
         />
 
         <div
-          className={`absolute top-[105px] xs:top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-[#fff] rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top shadow-2xl shadow-[#0A2140]/10 ${
+          className={`absolute top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-white rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top shadow-2xl shadow-[#0A2140]/10 ${
             mobileMenuOpen
               ? "translate-y-0 scale-100 opacity-100"
               : "-translate-y-4 scale-[0.97] opacity-0"
@@ -525,7 +521,7 @@ export const Navbar = () => {
               onClick={closeMobileMenu}
               className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
             >
-              <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+              <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                 <Home size={17} />
               </div>
               Home
@@ -538,7 +534,7 @@ export const Navbar = () => {
                 className="flex justify-between items-center w-full p-3.5 font-semibold text-[#2C3947] hover:bg-white transition-colors rounded-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+                  <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                     <Stethoscope size={17} />
                   </div>
                   Services
@@ -622,7 +618,7 @@ export const Navbar = () => {
                 className="flex justify-between items-center w-full p-3.5 font-semibold text-[#2C3947] hover:bg-white transition-colors rounded-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+                  <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                     <Info size={17} />
                   </div>
                   About us
@@ -666,7 +662,7 @@ export const Navbar = () => {
               onClick={closeMobileMenu}
               className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
             >
-              <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+              <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                 <Shield size={17} />
               </div>
               Who we serve
@@ -677,7 +673,7 @@ export const Navbar = () => {
               onClick={closeMobileMenu}
               className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
             >
-              <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+              <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                 <CreditCard size={17} />
               </div>
               Insurance & payment
@@ -690,7 +686,7 @@ export const Navbar = () => {
                 className="flex justify-between items-center w-full p-3.5 font-semibold text-[#2C3947] hover:bg-white transition-colors rounded-xl"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-white text-[#0A2140]">
+                  <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
                     <BookOpen size={17} />
                   </div>
                   Resources
@@ -733,7 +729,7 @@ export const Navbar = () => {
               <a
                 href="/contact#consultation"
                 onClick={closeMobileMenu}
-                className="flex items-center justify-center gap-2 w-full text-center bg-[#0A2140] text-[#fff] font-bold py-3.5 rounded-full transition-all active:scale-[0.98] hover:shadow-md"
+                className="flex items-center justify-center gap-2 w-full text-center bg-[#0A2140] text-white font-bold py-3.5 rounded-full transition-all active:scale-[0.98] hover:shadow-md"
               >
                 <HeartHandshake size={18} />
                 Request a care consultation

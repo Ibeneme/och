@@ -235,7 +235,7 @@ export default function CoreServicesPage() {
         </div>
 
         {/* Action Banner Card */}
-        <div className="rounded-[28px] bg-[#0F172A] text-white p-8 sm:p-12 mb-20 relative overflow-hidden">
+        <div className="rounded-[28px] bg-[#051122] text-white p-8 sm:p-12 mb-20 relative overflow-hidden">
           <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-amber-500/30 mb-4">

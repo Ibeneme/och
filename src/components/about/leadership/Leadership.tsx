@@ -45,7 +45,7 @@ export default function LeadershipPage() {
             <div>
               <h1 className="ohh-serif font-semibold text-[clamp(34px,4vw,50px)] leading-[1.08] tracking-tight text-[#0A2140]">
                 Angela Ananti,{" "}
-                <span className="text-[#C89B3C] italic font-medium">
+                <span className="text-[#C89B3C] font-medium">
                   BSN, RN
                 </span>
               </h1>
@@ -311,43 +311,6 @@ export default function LeadershipPage() {
                 caregivers, and uplifting every employee on the care team.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Closing CTA ===== */}
-      <section className="py-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div className="relative bg-[#0A2140] rounded-[2rem] p-8 sm:p-14 text-center space-y-6 overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 60% at 50% 20%, rgba(228,185,90,0.08), transparent 70%)",
-            }}
-          />
-
-          <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-white relative z-10">
-            Experience nurse-led care that feels like home
-          </h2>
-
-          <p className="text-white/60 max-w-2xl mx-auto text-base relative z-10">
-            Talk with our team about your needs, coverage options, and next
-            steps across the Dallas-Fort Worth Metroplex.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
-            <a
-              href="/contact"
-              className="bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold px-8 py-4 rounded-xl transition-colors text-sm"
-            >
-              Request a consultation
-            </a>
-            <a
-              href="/referrals"
-              className="bg-white/10 hover:bg-white/15 text-white font-semibold px-8 py-4 rounded-xl transition-colors text-sm"
-            >
-              Refer a patient
-            </a>
           </div>
         </div>
       </section>

@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
 import {
   ShieldCheck,
   Award,
@@ -10,11 +8,7 @@ import {
   FileCheck,
   Building2,
   WalletCards,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export interface InsuranceItem {
   title: string;
@@ -121,190 +115,88 @@ const getInsuranceIcon = (title: string) => {
 };
 
 export default function Scrollers(): React.JSX.Element {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Duplicate cards to create an infinite loop effect seamlessly
-  const duplicatedCards = [
-    ...insuranceLines,
-    ...insuranceLines,
-    ...insuranceLines,
-  ];
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    isPaused;
-
-    let tween: gsap.core.Tween;
-
-    const playMarquee = () => {
-      const singleSetWidth = track.scrollWidth / 3;
-      tween = gsap.to(track, {
-        x: `-=${singleSetWidth}`,
-        duration: 35,
-        ease: "none",
-        repeat: -1,
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % singleSetWidth),
-        },
-      });
-    };
-
-    playMarquee();
-
-    return () => {
-      if (tween) tween.kill();
-    };
-  }, []);
-
-  const scrollByCard = (direction: "left" | "right") => {
-    const track = trackRef.current;
-    if (!track) return;
-    const cardElement = track.children[0] as HTMLElement;
-    if (!cardElement) return;
-
-    const cardWidth = cardElement.offsetWidth + 24; // width + gap
-    const delta = direction === "right" ? cardWidth : -cardWidth;
-
-    gsap.to(track, {
-      x: `+=${delta}`,
-      duration: 0.6,
-      ease: "power2.out",
-    });
-
-    setCurrentIndex((prev) => {
-      if (direction === "right") {
-        return (prev + 1) % insuranceLines.length;
-      } else {
-        return (prev - 1 + insuranceLines.length) % insuranceLines.length;
-      }
-    });
-  };
-
   return (
-    <section
-      ref={containerRef}
-      className="relative w-full bg-slate-950 font-sans overflow-hidden border-t border-b border-slate-800 py-24"
-    >
+    <section className="relative w-full bg-[#051122] font-sans border-t border-b border-slate-800 py-24">
       {/* Background Glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(228,185,90,0.06), transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 15% 20%, rgba(228,185,90,0.06), transparent 70%)",
         }}
       />
 
-      <div className="relative z-10 w-full flex flex-col items-center">
-        {/* Section Header */}
-        <div className="text-center pt-12 pb-14 max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Flexible payment <span className="text-[#E4B95A]">options.</span>
-          </h2>
-          <p className="mt-5 text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Review our accepted insurance providers, managed care plans, and
-            private payment structures tailored to support your care journey.
-          </p>
-
-          {/* Manual Control Buttons */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={() => scrollByCard("left")}
-              aria-label="Previous insurance plan"
-              className="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 text-white flex items-center justify-center hover:bg-slate-800 hover:border-[#E4B95A]/50 transition-all focus:outline-none focus:ring-2 focus:ring-[#E4B95A]"
-            >
-              <ChevronLeft className="w-5 h-5 text-[#E4B95A]" />
-            </button>
-            <span className="text-xs font-bold tracking-widest uppercase text-slate-400">
-              Explore Plans ({currentIndex + 1} / {insuranceLines.length})
-            </span>
-            <button
-              onClick={() => scrollByCard("right")}
-              aria-label="Next insurance plan"
-              className="w-12 h-12 rounded-full bg-slate-900 border border-slate-800 text-white flex items-center justify-center hover:bg-slate-800 hover:border-[#E4B95A]/50 transition-all focus:outline-none focus:ring-2 focus:ring-[#E4B95A]"
-            >
-              <ChevronRight className="w-5 h-5 text-[#E4B95A]" />
-            </button>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-12 gap-12">
+          {/* Sticky intro rail — replaces the centered header + marquee controls */}
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-16">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#E4B95A] bg-[#E4B95A]/10 px-3.5 py-1.5 rounded-full mb-5">
+                Coverage & payment
+              </span>
+              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-5">
+                Flexible payment{" "}
+                <span className="text-[#E4B95A]">options.</span>
+              </h2>
+              <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8">
+                Review our accepted insurance providers, managed care plans, and
+                private payment structures tailored to support your care
+                journey.
+              </p>
+              <div className="hidden lg:block h-px w-16 bg-slate-800 mb-8" />
+              <p className="text-xs md:text-sm text-slate-500 tracking-wide leading-relaxed">
+                Coverage and authorization vary by plan, product, eligibility,
+                service, and location.
+              </p>
+            </div>
           </div>
-        </div>
 
-        {/* Endless Horizontal Marquee Track */}
-        <div
-          className="w-full overflow-hidden py-4 cursor-grab active:cursor-grabbing select-none"
-          onMouseEnter={() => {
-            setIsPaused(true);
-            gsap.to(trackRef.current, {
-              timeScale: 0,
-              duration: 0.5,
-              overwrite: "auto",
-            });
-          }}
-          onMouseLeave={() => {
-            setIsPaused(false);
-            gsap.to(trackRef.current, {
-              timeScale: 1,
-              duration: 1,
-              overwrite: "auto",
-            });
-          }}
-        >
-          <div
-            ref={trackRef}
-            className="flex gap-6 w-max pl-6 will-change-transform"
-          >
-            {duplicatedCards.map((item, idx) => {
-              const Icon = getInsuranceIcon(item.title);
-              return (
-                <div
-                  key={`${item.title}-${idx}`}
-                  className={`w-[340px] sm:w-[420px] md:w-[480px] shrink-0 ${item.bgClass} rounded-[2rem] p-8 md:p-10 min-h-[400px] flex flex-col justify-between border ${item.accentBorderClass} overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.02]`}
-                >
-                  {/* Top Badge & Icon */}
-                  <div className="flex items-center justify-between border-b border-current/15 pb-6">
-                    <div
-                      className={`w-12 h-12 rounded-2xl bg-black/25 flex items-center justify-center border border-current/20 ${item.textClass}`}
-                    >
-                      <Icon className="w-5 h-5" />
+          {/* Card grid — replaces the auto-scrolling horizontal marquee */}
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 gap-5">
+              {insuranceLines.map((item) => {
+                const Icon = getInsuranceIcon(item.title);
+                return (
+                  <div
+                    key={item.title}
+                    className={`${item.bgClass} rounded-[1.75rem] p-6 md:p-7 flex flex-col justify-between min-h-[260px] border ${item.accentBorderClass} overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.02]`}
+                  >
+                    {/* Top Badge & Icon */}
+                    <div className="flex items-center justify-between border-b border-current/15 pb-5">
+                      <div
+                        className={`w-11 h-11 rounded-2xl bg-black/25 flex items-center justify-center border border-current/20 ${item.textClass}`}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span
+                        className={`px-3.5 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider border ${item.badgeBgClass}`}
+                      >
+                        {item.badge}
+                      </span>
                     </div>
-                    <span
-                      className={`px-4 py-1.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider border ${item.badgeBgClass}`}
-                    >
-                      {item.badge}
-                    </span>
-                  </div>
 
-                  {/* Title */}
-                  <div className="my-6">
-                    <h3
-                      className={`text-2xl md:text-4xl font-bold tracking-tight leading-tight ${item.textClass}`}
-                    >
-                      {item.title}
-                    </h3>
-                  </div>
+                    {/* Title */}
+                    <div className="my-5">
+                      <h3
+                        className={`text-xl md:text-2xl font-bold tracking-tight leading-tight ${item.textClass}`}
+                      >
+                        {item.title}
+                      </h3>
+                    </div>
 
-                  {/* Description */}
-                  <div className="pt-6 border-t border-current/15">
-                    <p
-                      className={`text-sm md:text-base font-medium leading-relaxed opacity-90 ${item.textClass}`}
-                    >
-                      {item.description}
-                    </p>
+                    {/* Description */}
+                    <div className="pt-5 border-t border-current/15">
+                      <p
+                        className={`text-sm font-medium leading-relaxed opacity-90 ${item.textClass}`}
+                      >
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-
-        {/* Mandatory Coverage & Authorization Disclaimer */}
-        <div className="mt-16 max-w-3xl text-center px-4">
-          <p className="text-xs md:text-sm text-slate-500 tracking-wide leading-relaxed">
-            Coverage and authorization vary by plan, product, eligibility,
-            service, and location.
-          </p>
         </div>
       </div>
     </section>

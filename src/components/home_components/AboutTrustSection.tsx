@@ -83,17 +83,17 @@ export default function AboutTrustSection() {
               <span>Serving clients since 2010</span>
             </div>
 
-            <h2 className="ohh-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-[#0A2140] tracking-tight max-w-4xl leading-[1.15]">
+            <h2 className="ohh-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-[#051122] tracking-tight max-w-4xl leading-[1.15]">
               A trusted legacy of{" "}
               <span className="text-[#C89B3C]">compassionate care.</span>
             </h2>
 
             <p className="text-base sm:text-lg text-[#5B6B7C] leading-relaxed font-normal max-w-2xl mx-auto">
-              <strong className="text-[#0A2140] font-semibold">
+              <strong className="text-[#051122] font-semibold">
                 JACOP Healthcare Services, Inc.
               </strong>
               , serving clients since 2010, is now doing business as{" "}
-              <strong className="text-[#0A2140] font-semibold">
+              <strong className="text-[#051122] font-semibold">
                 One Community Home Health
               </strong>
               — carrying our nurse-founded care legacy forward under a clearer,
@@ -115,17 +115,17 @@ export default function AboutTrustSection() {
                   </span>
                 </div>
 
-                <h3 className="ohh-serif text-2xl sm:text-3xl font-semibold text-[#0A2140] tracking-tight">
+                <h3 className="ohh-serif text-2xl sm:text-3xl font-semibold text-[#051122] tracking-tight">
                   Helping you stay where you belong
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="group bg-white p-5 rounded-2xl border border-[#F0E9D9] hover:border-[#E4B95A] transition-colors flex flex-col justify-between space-y-4">
-                    <div className="w-10 h-10 bg-[#F3ECDC] rounded-xl flex items-center justify-center text-[#0A2140] group-hover:bg-[#0A2140] group-hover:text-[#E4B95A] transition-colors">
+                    <div className="w-10 h-10 bg-[#F3ECDC] rounded-xl flex items-center justify-center text-[#051122] group-hover:bg-[#051122] group-hover:text-[#E4B95A] transition-colors">
                       <ShieldCheck className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-[#0A2140] text-sm">
+                      <h4 className="font-semibold text-[#051122] text-sm">
                         Nurse-founded
                       </h4>
                       <p className="text-[#5B6B7C] text-xs mt-1 leading-relaxed">
@@ -136,11 +136,11 @@ export default function AboutTrustSection() {
                   </div>
 
                   <div className="group bg-white p-5 rounded-2xl border border-[#F0E9D9] hover:border-[#E4B95A] transition-colors flex flex-col justify-between space-y-4">
-                    <div className="w-10 h-10 bg-[#F3ECDC] rounded-xl flex items-center justify-center text-[#0A2140] group-hover:bg-[#0A2140] group-hover:text-[#E4B95A] transition-colors">
+                    <div className="w-10 h-10 bg-[#F3ECDC] rounded-xl flex items-center justify-center text-[#051122] group-hover:bg-[#051122] group-hover:text-[#E4B95A] transition-colors">
                       <HeartHandshake className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-[#0A2140] text-sm">
+                      <h4 className="font-semibold text-[#051122] text-sm">
                         Community focused
                       </h4>
                       <p className="text-[#5B6B7C] text-xs mt-1 leading-relaxed">
@@ -162,7 +162,7 @@ export default function AboutTrustSection() {
             </div>
 
             {/* Right Column: Mission & Narrative Card (Span 5) */}
-            <div className="lg:col-span-5 bg-[#0A2140] p-8 sm:p-10 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden">
+            <div className="lg:col-span-5 bg-[#051122] p-8 sm:p-10 rounded-[2.5rem] flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-6 relative z-10">
                 <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-[#E4B95A] px-3 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
                   <BookOpenText className="w-3.5 h-3.5" />
@@ -194,7 +194,7 @@ export default function AboutTrustSection() {
 
                 <a
                   href="/about-us"
-                  className="group inline-flex items-center justify-center gap-2 bg-[#ffffff21] hover:bg-[#D9A93F] text-[#fff] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl transition-colors shrink-0"
+                  className="group inline-flex items-center justify-center gap-2 bg-[#0F6DF9] hover:bg-[#D9A93F] text-[#fff] font-bold text-xs sm:text-sm px-6 py-3.5 rounded-[120px] transition-colors shrink-0"
                 >
                   <span>Read our full story</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

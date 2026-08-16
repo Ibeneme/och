@@ -162,7 +162,7 @@ export default function HeroSection() {
             className="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-tight tracking-tight mb-5 drop-shadow-sm"
           >
             Helping you stay where you belong{" "}
-            <span className="text-[yellow]">.</span>
+            <span className="text-[#0F6DF9]">.</span>
           </motion.h1>
 
           <motion.p
@@ -186,8 +186,8 @@ export default function HeroSection() {
             className="flex flex-wrap items-center gap-3 sm:gap-4 mb-12 md:mb-16"
           >
             <a
-              href="/contact#consultation"
-              className="inline-flex items-center gap-2 bg-[yellow] hover:bg-[#FBBF24] text-[#0F172A] text-[14.5px] font-bold px-6 py-3.5 rounded-full transition-all hover:shadow-lg active:scale-[0.98]"
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-[#0F6DF9] hover:bg-[#FBBF24] text-[#fff] text-[14.5px] font-bold px-6 py-3.5 rounded-full transition-all hover:shadow-lg active:scale-[0.98]"
             >
               Request Care <ArrowRight size={15} />
             </a>

@@ -355,7 +355,7 @@ export default function WhoWeServePage() {
                 </ul>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors w-fit"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0F6DF9] text-[#fff] font-bold rounded-xl transition-colors w-fit"
                 >
                   <span>Stay updated</span>
                   <ArrowRight size={16} />
@@ -363,7 +363,7 @@ export default function WhoWeServePage() {
               </div>
               <div className="relative min-h-[280px] lg:min-h-full">
                 <img
-                  src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=1200&q=80"
+                  src="https://plus.unsplash.com/premium_photo-1747608208489-4b68e2433588?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2hpbGRjYXJlfGVufDB8fDB8fHww"
                   alt="Pediatric care coming soon"
                   className="absolute inset-0 w-full h-full object-cover"
                 />

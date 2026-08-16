@@ -13,128 +13,116 @@ export default function PediatricServicesComp() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-slate-800 font-sans">
-      <section className="relative bg-[#0F172A] text-white overflow-hidden">
+    <div className="min-h-screen bg-[#FDFCF7] text-slate-800 font-sans selection:bg-[#D4AF37] selection:text-[#0F172A]">
+      <section className="relative bg-[#0A0F1D] text-white overflow-hidden py-24 lg:py-36">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=80"
+            src="https://images.unsplash.com/photo-1502781252888-914d6aadf720?auto=format&fit=crop&w=2000&q=80"
             alt="Pediatric services coming soon"
-            className="w-full h-full object-cover opacity-15"
+            className="w-full h-full object-cover opacity-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1D] via-[#0A0F1D]/90 to-transparent" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 text-[#F59E0B] font-medium text-xs tracking-wider uppercase mb-6 border border-amber-500/30">
-              <span className="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse" />
+
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D4AF37]/15 text-[#D4AF37] font-semibold text-xs tracking-widest uppercase mb-8">
+              <span className="w-2 h-2 bg-[#D4AF37]" />
               Coming Soon
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-              Pediatric Services{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-                Are Coming Soon
-              </span>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
+              Pediatric Care <br />
+              <span className="text-[#D4AF37]">On The Horizon</span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              One Community Home Health is preparing to expand its services to
-              support children and their families. Pediatric services are not
-              currently available.
+            <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10">
+              One Community Home Health is preparing to expand its expert
+              clinical care to support children and their families. Please note
+              that pediatric services are not currently available.
             </p>
             <a
               href="#email-signup"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all text-sm"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-[#0A0F1D] font-bold text-sm hover:bg-[#C59B27] transition-colors"
             >
-              <Mail size={16} /> Join Email Update List
+              <Mail size={16} /> Join Update List
             </a>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-12  border border-slate-100 space-y-8">
-            <div className="flex items-center gap-4 p-4 bg-amber-50 rounded-2xl border border-amber-100">
-              <div className="w-12 h-12 bg-[#F59E0B] text-[#0F172A] rounded-xl flex items-center justify-center shrink-0">
-                <Bell size={24} />
+      <section className="py-24 lg:py-32 bg-[#FDFCF7]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-5 space-y-8">
+              <div className="flex items-center gap-4 text-[#D4AF37]">
+                <Bell size={28} strokeWidth={2} />
+                <span className="text-xs font-bold tracking-widest uppercase text-slate-500">
+                  Program Notice
+                </span>
               </div>
-              <div>
-                <h2 className="text-lg font-bold text-[#0F172A]">
-                  Pediatric Service Is Coming Soon
-                </h2>
-                <p className="text-xs text-slate-600">
-                  We are expanding our care offerings to pediatric patients.
-                  Please note that services for children are not currently
-                  available.
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                Family-Centered Pediatric Support Coming to Your Community
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base font-light leading-relaxed">
+                We are actively developing our specialized pediatric care
+                programs to bring our trusted standards of home health
+                excellence directly to young patients who require unique,
+                dedicated medical attention.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 bg-[#F4F2EC] p-8 sm:p-14 space-y-10">
+              <div className="space-y-3">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+                  Stay Informed
+                </span>
+                <h3 className="text-2xl font-bold text-slate-900">
+                  Be First to Know When We Launch
+                </h3>
+                <p className="text-sm text-slate-600 font-light">
+                  Pediatric services are not currently available. Sign up below
+                  to receive official program releases and launch announcements
+                  directly in your inbox.
                 </p>
               </div>
-            </div>
 
-            <div className="space-y-4">
-              <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
-                Program Preview
-              </span>
-              <h3 className="text-2xl font-extrabold text-[#0F172A]">
-                Expanding Family-Centered Care at Home
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                One Community Home Health is preparing to expand its services to
-                support children and their families. Our future pediatric care
-                programs will bring the same high standards of clinical
-                excellence and compassionate in-home support to young patients
-                requiring specialized medical attention in familiar home
-                environments.
-              </p>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Pediatric services are not currently available. We invite you to
-                join our email list below to receive updates as program
-                information becomes available.
-              </p>
-            </div>
-
-            <div id="email-signup" className="pt-6 border-t border-slate-100">
-              {emailSubmitted ? (
-                <div className="bg-amber-50 p-6 rounded-2xl text-center space-y-3">
-                  <div className="w-12 h-12 bg-[#F59E0B] text-[#0F172A] rounded-full flex items-center justify-center mx-auto">
-                    <CheckCircle2 size={24} />
-                  </div>
-                  <h4 className="font-bold text-[#0F172A] text-base">
-                    You're on the list!
-                  </h4>
-                  <p className="text-xs text-slate-600 max-w-sm mx-auto">
-                    Thank you for signing up. We will notify you at{" "}
-                    <span className="font-semibold">{emailInput}</span> as soon
-                    as our pediatric program information is released.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleEmailSubmit} className="space-y-4">
-                  <div>
-                    <h4 className="font-bold text-[#0F172A] text-base mb-1">
-                      Stay Updated on Pediatric Care
+              <div id="email-signup">
+                {emailSubmitted ? (
+                  <div className="py-8 space-y-4 text-center">
+                    <div className="w-12 h-12 bg-[#D4AF37] text-[#0A0F1D] flex items-center justify-center mx-auto">
+                      <CheckCircle2 size={24} />
+                    </div>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      You're on the list
                     </h4>
-                    <p className="text-xs text-slate-600">
-                      Enter your email address to receive launch updates and
-                      program announcements.
+                    <p className="text-xs text-slate-600 max-w-sm mx-auto font-light">
+                      Thank you. We will send updates to{" "}
+                      <span className="font-semibold text-slate-900">
+                        {emailInput}
+                      </span>{" "}
+                      as soon as our pediatric program details are finalized.
                     </p>
                   </div>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      required
-                      placeholder="Enter your email address..."
-                      value={emailInput}
-                      onChange={(e) => setEmailInput(e.target.value)}
-                      className="flex-1 px-4 py-3 bg-slate-50 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#F59E0B]"
-                    />
+                ) : (
+                  <form onSubmit={handleEmailSubmit} className="space-y-6">
+                    <div>
+                      <input
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
+                        value={emailInput}
+                        onChange={(e) => setEmailInput(e.target.value)}
+                        className="w-full px-5 py-4 bg-white text-sm text-slate-800 placeholder-slate-400 focus:outline-none"
+                      />
+                    </div>
                     <button
                       type="submit"
-                      className="px-6 py-3 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all text-sm flex items-center justify-center gap-2 shrink-0"
+                      className="w-full sm:w-auto px-8 py-4 bg-[#D4AF37] hover:bg-[#C59B27] text-[#0A0F1D] font-bold text-sm transition-colors flex items-center justify-center gap-2"
                     >
                       Sign Up for Updates <ArrowRight size={16} />
                     </button>
-                  </div>
-                </form>
-              )}
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>

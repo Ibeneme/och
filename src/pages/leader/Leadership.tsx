@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import LeadershipPage from "@/components/about/leadership/Leadership";
-import LeadershipHero from "@/components/about/leadership/LeadershipHero";
+//import LeadershipHero from "@/components/about/leadership/LeadershipHero";
 import PageHeader from "@/components/headers/PageHeaders";
 
 const Leadership = () => {
@@ -47,7 +47,7 @@ const Leadership = () => {
           JACOP Healthcare Services, Inc., serving clients since 2010, is now
           doing business as One Community Home Health.
         </div>
-        <LeadershipHero />
+        {/* <LeadershipHero /> */}
         <LeadershipPage />
       </div>
     </>

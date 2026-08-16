@@ -33,6 +33,25 @@ export default function ReferralsPage() {
     setSubmitted(true);
   };
 
+  const steps = [
+    {
+      title: "Information Review",
+      desc: "Our intake department reviews submitted patient data, primary diagnoses, and clinical notes for completeness.",
+    },
+    {
+      title: "Insurance Verification",
+      desc: "We verify coverage eligibility, benefits, and authorization requirements with Medicare, Medicaid, or private insurance providers.",
+    },
+    {
+      title: "Physician Coordination",
+      desc: "We coordinate with the referring physician to confirm orders, establish the plan of care, and secure required signatures.",
+    },
+    {
+      title: "Initiation of Care",
+      desc: "Upon approval, we contact the patient or family to schedule the preferred start-of-care date and dispatch the care team.",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-[#FAFAF8] text-slate-800">
       {/* ===== Hero Section ===== */}
@@ -80,11 +99,93 @@ export default function ReferralsPage() {
         </div>
       </section>
 
-      {/* ===== Referral Partners & Submitter Overview ===== */}
+      {/* ===== Main content — sticky sidebar (quick contact) + main column ===== */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
+          <div className="grid lg:grid-cols-12 gap-12">
+            {/* Sticky left rail: quick referral methods, present throughout the page */}
+            <aside id="methods" className="lg:col-span-4">
+              <div className="lg:sticky lg:top-10 space-y-4">
+                <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
+                  Secure Transmission
+                </span>
+                <h2 className="text-xl font-extrabold text-[#0F172A] mb-1">
+                  Referral Methods
+                </h2>
+                <p className="text-slate-600 text-sm mb-2">
+                  Prefer not to use the online portal? Send referral
+                  documentation through any of these direct channels.
+                </p>
+
+                <div className="bg-white rounded-3xl p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 shrink-0 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#0F172A] mb-1">
+                      Email Referral
+                    </h3>
+                    <a
+                      href="mailto:info@onechh.com"
+                      className="text-sm font-bold text-[#F59E0B] hover:text-[#D97706] transition-colors"
+                    >
+                      info@onechh.com &rarr;
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-3xl p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 shrink-0 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center">
+                    <Printer size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#0F172A] mb-1">
+                      Secure Fax
+                    </h3>
+                    <div className="text-sm font-bold text-[#0F172A]">
+                      972-674-2923
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-3xl p-6 flex items-start gap-4">
+                  <div className="w-11 h-11 shrink-0 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#0F172A] mb-1">
+                      Phone Intake
+                    </h3>
+                    <a
+                      href="tel:9723251598"
+                      className="text-sm font-bold text-[#F59E0B] hover:text-[#D97706] transition-colors"
+                    >
+                      (972) 325-1598 &rarr;
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-[#0F172A] rounded-3xl p-6">
+                  <h3 className="font-bold text-sm text-white mb-1">
+                    Printable Referral Form
+                  </h3>
+                  <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                    Prefer paper? Download our PDF referral template to complete
+                    and fax.
+                  </p>
+                  <button
+                    onClick={() => alert("Referral form download initialized.")}
+                    className="w-full px-5 py-3 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all text-xs"
+                  >
+                    Download PDF Referral Form
+                  </button>
+                </div>
+              </div>
+            </aside>
+
+            {/* Main column: who may refer, clinical scope, process — stacked in reading order */}
+            <div className="lg:col-span-8 space-y-16">
+              {/* Who may submit */}
               <div>
                 <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
                   Partner Network
@@ -97,40 +198,26 @@ export default function ReferralsPage() {
                   ensure patients experience smooth transitions from
                   institutional settings to the comfort of home.
                 </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "Physicians & Providers",
+                    "Hospitals & Health Systems",
+                    "Case Managers & Discharge Planners",
+                    "Social Workers & Care Coordinators",
+                    "Patients, Family Members & Authorized Representatives",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center gap-2 bg-white px-4 py-2.5 rounded-full text-sm font-medium text-slate-700"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4 text-sm font-medium text-slate-700">
-                <div className="bg-white p-4 rounded-2xl flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  Physicians & Providers
-                </div>
-                <div className="bg-white p-4 rounded-2xl flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  Hospitals & Health Systems
-                </div>
-                <div className="bg-white p-4 rounded-2xl flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  Case Managers & Discharge Planners
-                </div>
-                <div className="bg-white p-4 rounded-2xl flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  Social Workers & Care Coordinators
-                </div>
-                <div className="bg-white p-4 rounded-2xl flex items-center gap-3 sm:col-span-2">
-                  <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
-                  Patients, Family Members & Authorized Representatives
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 space-y-6">
-              <div className="overflow-hidden rounded-3xl h-64">
-                <img
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
-                  alt="Healthcare professional reviewing clinical data"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              {/* Clinical scope */}
               <div className="bg-white rounded-3xl p-8 sm:p-10">
                 <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
                   Clinical Scope
@@ -143,7 +230,7 @@ export default function ReferralsPage() {
                   clinical support for various recovery and long-term management
                   needs:
                 </p>
-                <ul className="space-y-3 text-sm text-slate-700">
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-slate-700">
                   <li className="flex items-start gap-2.5">
                     <ArrowRight
                       size={16}
@@ -176,7 +263,7 @@ export default function ReferralsPage() {
                       Chronic disease oversight (diabetes, cardiac, respiratory)
                     </span>
                   </li>
-                  <li className="flex items-start gap-2.5">
+                  <li className="flex items-start gap-2.5 sm:col-span-2">
                     <ArrowRight
                       size={16}
                       className="text-[#F59E0B] shrink-0 mt-1"
@@ -187,184 +274,38 @@ export default function ReferralsPage() {
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ===== Referral Methods & Direct Contacts ===== */}
-      <section id="methods" className="py-20 bg-slate-100/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
-              Secure Transmission
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2 mb-4">
-              Alternative Referral Methods
-            </h2>
-            <p className="text-slate-600 text-sm">
-              If you prefer not to use our online portal, you can securely send
-              referral documentation using any of the direct channels below.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between">
+              {/* Process — vertical numbered timeline instead of a 4-col grid */}
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center mb-6">
-                  <Mail size={24} />
+                <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
+                  Workflow & Steps
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2 mb-4">
+                  Referral Review & Insurance Verification Process
+                </h2>
+                <p className="text-slate-600 text-sm mb-8">
+                  We streamline every referral to ensure quick evaluation and
+                  seamless initiation of care.
+                </p>
+
+                <div className="relative pl-10">
+                  <div className="absolute left-[15px] top-2 bottom-2 w-px bg-slate-200" />
+                  <div className="space-y-8">
+                    {steps.map((step, idx) => (
+                      <div key={step.title} className="relative">
+                        <div className="absolute -left-10 top-0 w-8 h-8 rounded-full bg-[#F59E0B] text-[#0F172A] flex items-center justify-center font-black text-xs">
+                          {idx + 1}
+                        </div>
+                        <h3 className="font-bold text-[#0F172A] mb-1 text-base">
+                          {step.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed max-w-xl">
+                          {step.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg text-[#0F172A] mb-2">
-                  Email Referral
-                </h3>
-                <p className="text-xs text-slate-600 mb-6 leading-relaxed">
-                  Send patient demographics, clinical notes, and orders directly
-                  to our secure intake email.
-                </p>
-              </div>
-              <a
-                href="mailto:info@onechh.com"
-                className="text-sm font-bold text-[#F59E0B] hover:text-[#D97706] transition-colors"
-              >
-                info@onechh.com &rarr;
-              </a>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center mb-6">
-                  <Printer size={24} />
-                </div>
-                <h3 className="font-bold text-lg text-[#0F172A] mb-2">
-                  Secure Fax
-                </h3>
-                <p className="text-xs text-slate-600 mb-6 leading-relaxed">
-                  Transmit physician orders and clinical summaries straight to
-                  our dedicated intake fax line.
-                </p>
-              </div>
-              <div className="text-sm font-bold text-[#0F172A]">
-                972-674-2923
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center mb-6">
-                  <Phone size={24} />
-                </div>
-                <h3 className="font-bold text-lg text-[#0F172A] mb-2">
-                  Phone Intake
-                </h3>
-                <p className="text-xs text-slate-600 mb-6 leading-relaxed">
-                  Speak directly with our intake coordination team to discuss
-                  patient eligibility and service readiness.
-                </p>
-              </div>
-              <a
-                href="tel:9723251598"
-                className="text-sm font-bold text-[#F59E0B] hover:text-[#D97706] transition-colors"
-              >
-                (972) 325-1598 &rarr;
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-lg font-bold text-[#0F172A] mb-1">
-                Download Printable Referral Form
-              </h3>
-              <p className="text-xs text-slate-600">
-                Prefer filling out a paper form? Download our PDF referral
-                template to complete and fax.
-              </p>
-            </div>
-            <button
-              onClick={() => alert("Referral form download initialized.")}
-              className="px-6 py-3.5 bg-[#0F172A] hover:bg-slate-800 text-white font-bold rounded-xl transition-all text-xs shrink-0"
-            >
-              Download PDF Referral Form
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Referral Process & Workflow ===== */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
-              Workflow & Steps
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2 mb-4">
-              Referral Review & Insurance Verification Process
-            </h2>
-            <p className="text-slate-600 text-sm">
-              We streamline every referral to ensure quick evaluation and
-              seamless initiation of care.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-3xl flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider block mb-2">
-                  Step 01
-                </span>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-base">
-                  Information Review
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Our intake department reviews submitted patient data, primary
-                  diagnoses, and clinical notes for completeness.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider block mb-2">
-                  Step 02
-                </span>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-base">
-                  Insurance Verification
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  We verify coverage eligibility, benefits, and authorization
-                  requirements with Medicare, Medicaid, or private insurance
-                  providers.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider block mb-2">
-                  Step 03
-                </span>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-base">
-                  Physician Coordination
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  We coordinate with the referring physician to confirm orders,
-                  establish the plan of care, and secure required signatures.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider block mb-2">
-                  Step 04
-                </span>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-base">
-                  Initiation of Care
-                </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Upon approval, we contact the patient or family to schedule
-                  the preferred start-of-care date and dispatch the care team.
-                </p>
               </div>
             </div>
           </div>

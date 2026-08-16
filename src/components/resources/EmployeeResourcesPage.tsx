@@ -1,200 +1,275 @@
+import {
+  BookOpen,
+  ShieldAlert,
+  Users,
+  Wallet,
+  Clock,
+  ShieldCheck,
+  AlertTriangle,
+  ExternalLink,
+  HeartPulse,
+  Briefcase,
+  ClipboardList,
+  Pill,
+  Lock,
+  Scale,
+} from "lucide-react";
+
+const escalationMatrix = [
+  {
+    label: "Life-threatening emergency",
+    desc: "Call 911 immediately for severe life-threatening medical emergencies.",
+    action: "Dial 911",
+    tone: "emergency",
+  },
+  {
+    label: "Urgent clinical need",
+    desc: "Use the 24/7 on-call clinical extension for immediate patient needs.",
+    action: "On-call line",
+    tone: "urgent",
+  },
+  {
+    label: "Routine incidents",
+    desc: "Submit official logs through standard agency reporting workflows.",
+    action: "Documentation portal",
+    tone: "routine",
+  },
+  {
+    label: "HR & payroll",
+    desc: "Contact the administrative desk during standard operating hours.",
+    action: "Mon–Fri, 9 AM–5 PM",
+    tone: "routine",
+  },
+  {
+    label: "Compliance",
+    desc: "Report ethics, safety, or confidentiality concerns directly.",
+    action: "Compliance officer",
+    tone: "routine",
+  },
+];
+
+const evvSteps = [
+  {
+    icon: Clock,
+    title: "Clock in / out",
+    desc: "Use the official HHAeXchange mobile application or telephony system at the exact location of service delivery.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "EVV reminders",
+    desc: "Keep device GPS services enabled. Confirm visit tasks and applicable service codes before final submission.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Missed visits",
+    desc: "If a recording error or missed check-in happens, notify administration immediately and submit a manual adjustment ticket.",
+  },
+];
+
+const incidentTypes = [
+  {
+    icon: HeartPulse,
+    title: "Patient incidents",
+    desc: "Report sudden clinical changes, falls, or unexpected adverse events immediately to clinical supervision.",
+  },
+  {
+    icon: Briefcase,
+    title: "Employee injuries",
+    desc: "Report workplace injuries sustained on duty directly to HR and management immediately for proper documentation.",
+  },
+  {
+    icon: ShieldAlert,
+    title: "Safety hazards",
+    desc: "Identify and report environmental risks in client homes or workplaces threatening staff or client well-being.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Missed visits",
+    desc: "Document and report any unfulfilled or missed visits immediately to ensure unbroken continuity of care.",
+  },
+  {
+    icon: Pill,
+    title: "Medication flags",
+    desc: "Report discrepancies, missed doses, or adverse reactions involving medications instantly to clinical leadership.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Abuse & neglect",
+    desc: "Suspected abuse, exploitation, or neglect must be reported instantly to state authorities and agency compliance.",
+  },
+  {
+    icon: Lock,
+    title: "Privacy & HIPAA",
+    desc: "Report potential privacy breaches, unauthorized disclosures, or data vulnerabilities without delay.",
+  },
+  {
+    icon: Scale,
+    title: "Ethics & billing",
+    desc: "Voice concerns regarding billing precision, regulatory standards, or unethical practices securely.",
+  },
+];
+
+const toneStyles: Record<string, { bg: string; label: string }> = {
+  emergency: { bg: "bg-[#3E1424]", label: "text-[#F3A8C0]" },
+  urgent: { bg: "bg-[#3E2A14]", label: "text-[#F0C48A]" },
+  routine: { bg: "bg-white/5", label: "text-white/80" },
+};
+
 export default function EmployeeResourcesPage() {
   return (
-    <main className="min-h-screen bg-[#070B14] text-slate-100 selection:bg-yellow-500 selection:text-slate-950">
-      {/* ===== Brutalist Hero Section with Asymmetric Grid & Marquee vibe ===== */}
-      <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-32">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-yellow-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
-
+    <main className="min-h-screen bg-white text-[#3A4657] ohh-sans">
+      {/* ===== Hero ===== */}
+      <section className="relative overflow-hidden bg-[#0A2140] text-white pt-24 pb-20 lg:pt-28 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-8">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-slate-900/80 rounded-lg text-yellow-400 font-mono text-xs uppercase tracking-widest mb-8">
-                <span className="w-2 h-2 bg-yellow-400 animate-ping rounded-full" />
-                ONE_COMMUNITY_STAFF_HUB_2026
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#E4B95A] font-semibold text-xs tracking-wider uppercase mb-8">
+                <span className="w-2 h-2 rounded-full bg-[#E4B95A] animate-pulse" />
+                Staff resource hub
               </div>
 
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.95] mb-8">
-                Employee <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500">
-                  Resources
-                </span>
+              <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6 tracking-tight">
+                Employee <span className="text-[#E4B95A]">Resources</span>
               </h1>
 
-              <p className="text-lg sm:text-xl text-slate-400 font-light max-w-2xl leading-relaxed mb-10">
-                Direct tactical access for One Community Home Health personnel.
-                Review protocols, access verification tools, and administrative
-                routing without friction.
+              <p className="text-lg text-white/70 max-w-xl leading-relaxed mb-10">
+                A single, friction-free place for One Community Home Health
+                staff to review policies, access verification tools, and find
+                the right administrative contact.
               </p>
 
-              <div className="flex flex-wrap gap-4 font-mono text-sm">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="#handbook"
-                  className="px-8 py-5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold uppercase tracking-wider rounded-lg transition-all transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors"
                 >
-                  - Handbook & Docs
+                  <BookOpen size={16} />
+                  Handbook & docs
                 </a>
                 <a
                   href="#reporting"
-                  className="px-8 py-5 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold uppercase tracking-wider rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl transition-colors"
                 >
-                  - Protocols & Safety
+                  <ShieldAlert size={16} />
+                  Protocols & safety
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-slate-900/50 p-8 rounded-xl font-mono text-xs space-y-4 backdrop-blur-md">
-              <div className="text-yellow-400 font-bold uppercase tracking-widest pb-3 border-b border-slate-800 flex justify-between items-center">
-                <span>System Status</span>
+            <div className="lg:col-span-5 bg-white/5 rounded-3xl p-8 space-y-5">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#E4B95A]">
+                  Quick status
+                </span>
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
               </div>
-              <div className="text-slate-400 space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Node:</span>
-                  <span className="text-slate-200">Dallas HQ-01</span>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-center justify-between">
+                  <span className="text-white/50">Home office</span>
+                  <span className="text-white font-medium">Dallas HQ</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">EVV Engine:</span>
-                  <span className="text-emerald-400">HHAeXchange Online</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-white/50">EVV system</span>
+                  <span className="text-emerald-400 font-medium">
+                    HHAeXchange — online
+                  </span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Protocol Level:</span>
-                  <span className="text-yellow-400">Standard Active</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-white/50">Support level</span>
+                  <span className="text-[#E4B95A] font-medium">Standard</span>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-800 text-slate-500 text-[11px]">
+              <p className="text-white/40 text-xs leading-relaxed pt-2">
                 Unauthorized distribution of internal clinical documents is
                 strictly prohibited under HIPAA guidelines.
-              </div>
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Priority Escalation Clarity Strip (Asymmetric Bento Flow) ===== */}
-      <section className="bg-slate-950 py-12">
+      {/* ===== Escalation Matrix Strip ===== */}
+      <section className="bg-[#0A2140] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-xs uppercase font-mono tracking-widest text-yellow-400 font-bold">
-              [01] Incident & Escalation Routing Matrix
+            <h2 className="ohh-serif text-lg sm:text-xl font-semibold text-white">
+              Who to contact, and when
             </h2>
-            <span className="text-slate-600 font-mono text-xs">
-              Priority Index 1-5
+            <span className="text-white/40 text-xs font-medium hidden sm:inline">
+              5 priority levels
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs">
-            <div className="bg-red-950/20 p-6 rounded-lg flex flex-col justify-between group hover:bg-red-950/40 transition-colors">
-              <div>
-                <span className="text-red-400 font-bold block mb-3 text-sm tracking-wide">
-                  01 - LIFE EMERGENCY
-                </span>
-                <p className="text-slate-400 font-sans text-xs leading-relaxed">
-                  Call 911 immediately for severe life-threatening medical
-                  emergencies.
-                </p>
-              </div>
-              <div className="mt-6 text-[10px] text-red-400/70 uppercase">
-                Action: Dial 911
-              </div>
-            </div>
-
-            <div className="bg-yellow-950/20 p-6 rounded-lg flex flex-col justify-between group hover:bg-yellow-950/40 transition-colors">
-              <div>
-                <span className="text-yellow-400 font-bold block mb-3 text-sm tracking-wide">
-                  02 - URGENT CLINICAL
-                </span>
-                <p className="text-slate-400 font-sans text-xs leading-relaxed">
-                  Utilize the 24/7 on-call clinical extension for immediate
-                  patient needs.
-                </p>
-              </div>
-              <div className="mt-6 text-[10px] text-yellow-400/70 uppercase">
-                Action: On-Call Line
-              </div>
-            </div>
-
-            <div className="bg-slate-900/60 p-6 rounded-lg flex flex-col justify-between group hover:bg-slate-900 transition-colors">
-              <div>
-                <span className="text-slate-200 font-bold block mb-3 text-sm tracking-wide">
-                  03 - ROUTINE INCIDENTS
-                </span>
-                <p className="text-slate-400 font-sans text-xs leading-relaxed">
-                  Submit official logs through standard agency reporting
-                  workflows.
-                </p>
-              </div>
-              <div className="mt-6 text-[10px] text-slate-500 uppercase">
-                Action: Documentation Portal
-              </div>
-            </div>
-
-            <div className="bg-slate-900/60 p-6 rounded-lg flex flex-col justify-between group hover:bg-slate-900 transition-colors">
-              <div>
-                <span className="text-slate-200 font-bold block mb-3 text-sm tracking-wide">
-                  04 - HR & PAYROLL
-                </span>
-                <p className="text-slate-400 font-sans text-xs leading-relaxed">
-                  Contact administrative desk during standard operating hours.
-                </p>
-              </div>
-              <div className="mt-6 text-[10px] text-slate-500 uppercase">
-                Action: Mon-Fri, 9AM-5PM
-              </div>
-            </div>
-
-            <div className="bg-slate-900/60 p-6 rounded-lg flex flex-col justify-between group hover:bg-slate-900 transition-colors">
-              <div>
-                <span className="text-slate-200 font-bold block mb-3 text-sm tracking-wide">
-                  05 - COMPLIANCE
-                </span>
-                <p className="text-slate-400 font-sans text-xs leading-relaxed">
-                  Report ethics, safety, or confidentiality concerns directly.
-                </p>
-              </div>
-              <div className="mt-6 text-[10px] text-slate-500 uppercase">
-                Action: Compliance Officer
-              </div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+            {escalationMatrix.map((item, idx) => {
+              const tone = toneStyles[item.tone];
+              return (
+                <div
+                  key={item.label}
+                  className={`${tone.bg} p-6 rounded-2xl flex flex-col justify-between`}
+                >
+                  <div>
+                    <span className="text-[11px] font-bold text-white/40 block mb-2">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={`${tone.label} font-bold block mb-2 text-sm leading-snug`}
+                    >
+                      {item.label}
+                    </span>
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div
+                    className={`${tone.label} mt-5 text-[11px] font-semibold uppercase tracking-wide`}
+                  >
+                    {item.action}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ===== Section 1: Employee Handbook ===== */}
-      <section id="handbook" className="py-24 bg-[#0B101D] text-slate-100">
+      {/* ===== Employee Handbook ===== */}
+      <section id="handbook" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-block font-mono text-yellow-400 text-xs uppercase tracking-widest bg-yellow-400/10 px-3 py-1 rounded-lg">
-                DOCUMENTATION_HUB - v2026.1
-              </div>
-              <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white">
-                Employee Handbook
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#C89B3C] bg-[#F3ECDC] px-3.5 py-1.5 rounded-full">
+                Current handbook — 2026
+              </span>
+              <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140]">
+                Employee handbook
               </h2>
-              <p className="text-slate-400 text-base leading-relaxed font-light">
+              <p className="text-[#5B6B7C] leading-relaxed">
                 Review the latest agency policies, professional conduct code,
-                benefits matrix, and operational guidelines. All active field
-                and office staff are required to maintain familiarity with
-                current handbook clauses.
+                benefits, and operational guidelines. All active field and
+                office staff are required to stay familiar with current handbook
+                clauses.
               </p>
 
-              <div className="bg-[#05080F] p-8 rounded-xl space-y-4 font-mono text-sm">
-                <div className="flex justify-between pb-3 border-b border-slate-800">
-                  <span className="text-slate-500">Effective Date:</span>
-                  <span className="text-white font-bold">January 1, 2026</span>
+              <div className="bg-[#FBF8F2] p-6 rounded-2xl space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-[#8A93A0]">Effective date</span>
+                  <span className="text-[#0A2140] font-semibold">
+                    January 1, 2026
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Compliance Status:</span>
-                  <span className="text-yellow-400 font-bold">
-                    Mandatory Acknowledgment
+                  <span className="text-[#8A93A0]">Status</span>
+                  <span className="text-[#C89B3C] font-semibold">
+                    Mandatory acknowledgment
                   </span>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-4 pt-4 font-mono text-sm">
+              <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => alert("Handbook download initialized.")}
-                  className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold uppercase rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-white font-bold rounded-xl transition-colors"
                 >
                   Download PDF
                 </button>
@@ -202,187 +277,145 @@ export default function EmployeeResourcesPage() {
                   onClick={() =>
                     alert("Acknowledgment form instructions dispatched via HR.")
                   }
-                  className="px-8 py-4 bg-[#05080F] hover:bg-slate-900 text-white font-bold uppercase rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-xl transition-colors"
                 >
-                  Acknowledgment Info
+                  Acknowledgment info
                 </button>
               </div>
             </div>
 
-            <div className="lg:col-span-5 bg-gradient-to-br from-yellow-500 to-yellow-600 text-slate-950 p-10 rounded-2xl flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-[#0A2140] text-white p-10 rounded-3xl flex flex-col justify-between">
               <div>
-                <span className="font-mono text-xs uppercase tracking-widest font-bold bg-slate-950/10 px-3 py-1 rounded-lg inline-block mb-6">
-                  NOTICE - ACKNOWLEDGMENT
+                <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#E4B95A] bg-white/10 px-3 py-1.5 rounded-full mb-6">
+                  Acknowledgment notice
                 </span>
-                <h3 className="text-2xl font-black uppercase tracking-tight mb-4">
-                  Important Confirmation Notice
+                <h3 className="ohh-serif text-2xl font-semibold mb-4">
+                  Please confirm you've read the latest release
                 </h3>
-                <p className="text-sm leading-relaxed font-medium mb-8">
-                  When updated acknowledgment releases are deployed, staff will
-                  receive direct notifications with instructions to sign and
-                  return confirmation of receipt to management or HR
-                  immediately.
+                <p className="text-white/70 text-sm leading-relaxed">
+                  When updated acknowledgment releases are deployed, staff
+                  receive a direct notification with instructions to sign and
+                  return confirmation of receipt to management or HR.
                 </p>
               </div>
-              <div className="font-mono text-xs uppercase tracking-wider text-slate-950/70 pt-6 border-t border-slate-950/20">
+              <p className="text-white/40 text-xs uppercase tracking-wide pt-8 mt-8">
                 Direct inquiries to administration during operating hours.
-              </div>
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Section 2: HR and Payroll Support (Clean White Transition Section) ===== */}
-      <section className="py-24 bg-white text-slate-900">
+      {/* ===== HR & Payroll ===== */}
+      <section className="py-24 bg-[#FBF8F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
-            <div className="inline-block font-mono text-yellow-700 text-xs uppercase tracking-widest bg-yellow-100 px-3 py-1 rounded-lg mb-4">
-              SUPPORT_CHANNELS - DIRECT
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-slate-950 mb-6">
-              HR & Payroll Support
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#C89B3C] bg-white px-3.5 py-1.5 rounded-full mb-4">
+              Direct support channels
+            </span>
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] mb-4">
+              HR & payroll support
             </h2>
-            <p className="text-slate-600 text-base font-light">
+            <p className="text-[#5B6B7C]">
               For inquiries regarding benefits adjustments, payroll queries, tax
-              withholding, or employment verification, utilize the designated
-              administrative desks below.
+              withholding, or employment verification, use the administrative
+              desks below.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 font-mono">
-            {/* HR Support Card */}
-            <div className="bg-slate-50 p-10 rounded-2xl flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
-                  <h3 className="text-lg font-bold text-slate-950 uppercase tracking-wider">
-                    Human Resources Desk
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                icon: Users,
+                title: "Human Resources desk",
+                ext: "972-325-1598 ext. HR",
+                email: "hr@onechh.com",
+              },
+              {
+                icon: Wallet,
+                title: "Payroll support desk",
+                ext: "972-325-1598 ext. Payroll",
+                email: "payroll@onechh.com",
+              },
+            ].map((desk) => (
+              <div
+                key={desk.title}
+                className="bg-white p-8 sm:p-10 rounded-3xl flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-11 h-11 rounded-2xl bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center mb-5">
+                    <desk.icon size={20} />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0A2140] mb-5">
+                    {desk.title}
                   </h3>
-                  <span className="w-2.5 h-2.5 bg-yellow-500 rounded-full" />
-                </div>
-                <div className="space-y-4 text-sm text-slate-700 mb-8">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Phone Ext:</span>
-                    <span className="text-slate-900 font-bold">
-                      [972-325-1598 xHR]
-                    </span>
+                  <div className="space-y-3 text-sm mb-6">
+                    <div className="flex justify-between">
+                      <span className="text-[#8A93A0]">Phone</span>
+                      <span className="text-[#0A2140] font-semibold">
+                        {desk.ext}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-[#8A93A0]">Email</span>
+                      <span className="text-[#C89B3C] font-medium">
+                        {desk.email}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Direct Email:</span>
-                    <span className="text-yellow-600 font-medium">
-                      hr@onechh.com
+                  <div className="p-4 bg-[#FBF8F2] rounded-xl text-xs text-[#5B6B7C]">
+                    <span className="text-[#8A93A0] block mb-1">
+                      Operating window
                     </span>
+                    Monday – Friday | 9:00 AM – 5:00 PM CST
                   </div>
-                </div>
-                <div className="p-4 bg-slate-100 rounded-lg text-xs text-slate-600">
-                  <span className="text-slate-400 block mb-1">
-                    Operating Window:
-                  </span>
-                  Monday – Friday | 9:00 AM – 5:00 PM CST
                 </div>
               </div>
-            </div>
-
-            {/* Payroll Support Card */}
-            <div className="bg-slate-50 p-10 rounded-2xl flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
-                  <h3 className="text-lg font-bold text-slate-950 uppercase tracking-wider">
-                    Payroll Support Desk
-                  </h3>
-                  <span className="w-2.5 h-2.5 bg-yellow-500 rounded-full" />
-                </div>
-                <div className="space-y-4 text-sm text-slate-700 mb-8">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Phone Ext:</span>
-                    <span className="text-slate-900 font-bold">
-                      [972-325-1598 xPayroll]
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Direct Email:</span>
-                    <span className="text-yellow-600 font-medium">
-                      payroll@onechh.com
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4 bg-slate-100 rounded-lg text-xs text-slate-600">
-                  <span className="text-slate-400 block mb-1">
-                    Operating Window:
-                  </span>
-                  Monday – Friday | 9:00 AM – 5:00 PM CST
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== Section 3: HHAeXchange & EVV ===== */}
-      <section className="py-24 bg-[#070B14]">
+      {/* ===== HHAeXchange & EVV ===== */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 p-10 sm:p-16 rounded-2xl">
+          <div className="bg-[#0A2140] p-10 sm:p-16 rounded-3xl">
             <div className="max-w-3xl mb-12">
-              <div className="inline-block font-mono text-yellow-400 text-xs uppercase tracking-widest bg-yellow-400/10 px-3 py-1 rounded-lg mb-4">
-                COMPLIANCE - EVV PROTOCOL
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-4">
-                HHAeXchange Instructions & Login
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#E4B95A] bg-white/10 px-3.5 py-1.5 rounded-full mb-4">
+                EVV compliance
+              </span>
+              <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-white mb-4">
+                HHAeXchange instructions & login
               </h2>
-              <p className="text-slate-400 text-sm font-light">
-                Precise electronic visit verification (EVV) clock-in and
-                clock-out tracking is strictly required for regulatory
-                compliance and timely payroll disbursement.
+              <p className="text-white/60 text-sm leading-relaxed">
+                Accurate electronic visit verification (EVV) clock-in and
+                clock-out tracking is required for regulatory compliance and
+                timely payroll disbursement.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12 font-mono">
-              <div className="bg-slate-950 p-8 rounded-xl">
-                <span className="text-yellow-400 text-xs font-bold block mb-3">
-                  01 - TRACKING
-                </span>
-                <h4 className="font-bold text-white mb-2 text-sm uppercase">
-                  Clock-In / Out
-                </h4>
-                <p className="text-xs text-slate-400 font-sans leading-relaxed">
-                  Use the official HHAeXchange mobile application or telephony
-                  system at the exact geographic location of service delivery.
-                </p>
-              </div>
-
-              <div className="bg-slate-950 p-8 rounded-xl">
-                <span className="text-yellow-400 text-xs font-bold block mb-3">
-                  02 - VERIFY
-                </span>
-                <h4 className="font-bold text-white mb-2 text-sm uppercase">
-                  EVV Reminders
-                </h4>
-                <p className="text-xs text-slate-400 font-sans leading-relaxed">
-                  Ensure device GPS services remain enabled. Confirm visit tasks
-                  and applicable service codes before final submission.
-                </p>
-              </div>
-
-              <div className="bg-slate-950 p-8 rounded-xl">
-                <span className="text-yellow-400 text-xs font-bold block mb-3">
-                  03 - CORRECTION
-                </span>
-                <h4 className="font-bold text-white mb-2 text-sm uppercase">
-                  Missed Visits
-                </h4>
-                <p className="text-xs text-slate-400 font-sans leading-relaxed">
-                  In case of recording errors or missed check-ins, notify
-                  administration immediately and submit manual adjustment
-                  tickets.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              {evvSteps.map((step) => (
+                <div key={step.title} className="bg-white/5 p-8 rounded-2xl">
+                  <div className="w-10 h-10 rounded-xl bg-white/10 text-[#E4B95A] flex items-center justify-center mb-4">
+                    <step.icon size={18} />
+                  </div>
+                  <h4 className="font-semibold text-white mb-2 text-sm">
+                    {step.title}
+                  </h4>
+                  <p className="text-xs text-white/60 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-6 p-8 bg-yellow-500/10 rounded-xl border-l-4 border-yellow-400">
+            <div className="flex flex-wrap items-center justify-between gap-6 p-8 bg-[#E4B95A]/10 rounded-2xl">
               <div>
-                <h4 className="font-bold text-white text-base uppercase font-mono tracking-tight">
-                  Ready to access HHAeXchange Portal?
+                <h4 className="font-semibold text-white text-base">
+                  Ready to access the HHAeXchange portal?
                 </h4>
-                <p className="text-xs text-slate-400 font-sans mt-1">
+                <p className="text-xs text-white/60 mt-1">
                   Launch the official portal login or mobile application
                   documentation guide.
                 </p>
@@ -391,118 +424,83 @@ export default function EmployeeResourcesPage() {
                 href="https://ha.hhaexchange.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-extrabold uppercase font-mono text-xs tracking-wider rounded-lg transition-all"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors text-sm shrink-0"
               >
-                Launch Portal →
+                Launch portal
+                <ExternalLink size={15} />
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Section 4: Incident Reporting & Compliance (White Section to Blend) ===== */}
-      <section id="reporting" className="py-24 bg-white text-slate-900">
+      {/* ===== Incident Reporting & Compliance ===== */}
+      <section id="reporting" className="py-24 bg-[#FBF8F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
-            <div className="inline-block font-mono text-yellow-700 text-xs uppercase tracking-widest bg-yellow-100 px-3 py-1 rounded-lg mb-4">
-              SAFETY - ACCOUNTABILITY MATRIX
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-slate-950 mb-4">
-              Incident Reporting & Protocols
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#C89B3C] bg-white px-3.5 py-1.5 rounded-full mb-4">
+              Safety & accountability
+            </span>
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] mb-4">
+              Incident reporting & protocols
             </h2>
-            <p className="text-slate-600 text-base font-light">
-              Personnel must strictly adhere to established reporting channels
-              for all safety incidents, hazards, or compliance flags. Review the
-              protocol matrix below.
+            <p className="text-[#5B6B7C]">
+              Personnel should follow the established reporting channels below
+              for all safety incidents, hazards, or compliance flags.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {[
-              {
-                title: "Patient Incidents",
-                desc: "Report sudden clinical changes, falls, or unexpected adverse events immediately to clinical supervision.",
-              },
-              {
-                title: "Employee Injuries",
-                desc: "Report workplace injuries sustained on duty directly to HR and management immediately for proper documentation.",
-              },
-              {
-                title: "Safety Hazards",
-                desc: "Identify and report environmental risks in client homes or workplaces threatening staff or client well-being.",
-              },
-              {
-                title: "Missed Visits",
-                desc: "Document and report any unfulfilled or missed visits immediately to ensure unbroken continuity of care.",
-              },
-              {
-                title: "Medication Flags",
-                desc: "Report discrepancies, missed doses, or adverse reactions involving medications instantly to clinical leadership.",
-              },
-              {
-                title: "Abuse & Neglect",
-                desc: "Suspected abuse, exploitation, or neglect must be reported instantly to state authorities and agency compliance.",
-              },
-              {
-                title: "Privacy & HIPAA",
-                desc: "Report potential privacy breaches, unauthorized disclosures, or data vulnerabilities without delay.",
-              },
-              {
-                title: "Ethics & Billing",
-                desc: "Voice concerns regarding billing precision, regulatory standards, or unethical practices securely.",
-              },
-            ].map((item, idx) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {incidentTypes.map((item) => (
               <div
-                key={idx}
-                className="bg-slate-50 p-8 rounded-xl flex flex-col justify-between hover:bg-slate-100/80 transition-colors"
+                key={item.title}
+                className="bg-white p-7 rounded-2xl hover:bg-white/70 transition-colors"
               >
-                <div>
-                  <span className="font-mono text-xs text-yellow-700 block mb-2 font-bold">
-                    [REF_0{idx + 1}]
-                  </span>
-                  <h4 className="font-bold text-slate-950 mb-3 text-base uppercase tracking-tight">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-slate-600 font-sans leading-relaxed">
-                    {item.desc}
-                  </p>
+                <div className="w-10 h-10 rounded-xl bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center mb-4">
+                  <item.icon size={18} />
                 </div>
+                <h4 className="font-semibold text-[#0A2140] mb-2 text-sm">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-[#5B6B7C] leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
 
           {/* Emergency Notice Banner */}
-          <div className="bg-slate-950 text-slate-100 p-10 sm:p-12 rounded-2xl font-mono">
-            <h3 className="text-lg font-bold mb-6 text-yellow-400 uppercase tracking-widest">
-              - Emergency vs. Routine Protocol Reference
+          <div className="bg-[#0A2140] text-white p-10 sm:p-12 rounded-3xl">
+            <h3 className="ohh-serif text-lg font-semibold mb-6 text-[#E4B95A]">
+              Emergency vs. routine protocol reference
             </h3>
-            <div className="grid sm:grid-cols-3 gap-8 text-xs text-slate-300">
-              <div className="bg-slate-900 p-6 rounded-xl space-y-2">
-                <strong className="text-red-400 block text-sm uppercase font-bold">
-                  Medical Emergencies
+            <div className="grid sm:grid-cols-3 gap-6 text-sm">
+              <div className="bg-[#3E1424] p-6 rounded-2xl space-y-2">
+                <strong className="text-[#F3A8C0] block text-sm font-semibold">
+                  Medical emergencies
                 </strong>
-                <p className="font-sans text-slate-400 leading-relaxed">
+                <p className="text-white/60 leading-relaxed text-xs">
                   For any immediate life-threatening situation involving a
                   patient or staff member, dial{" "}
                   <strong className="text-white">911</strong> immediately.
                 </p>
               </div>
-              <div className="bg-slate-900 p-6 rounded-xl space-y-2">
-                <strong className="text-yellow-400 block text-sm uppercase font-bold">
-                  Urgent Clinical Needs
+              <div className="bg-[#3E2A14] p-6 rounded-2xl space-y-2">
+                <strong className="text-[#F0C48A] block text-sm font-semibold">
+                  Urgent clinical needs
                 </strong>
-                <p className="font-sans text-slate-400 leading-relaxed">
+                <p className="text-white/60 leading-relaxed text-xs">
                   Active patients maintain access to a 24/7 on-call clinical
-                  extension. (Note: This does not replace 911).
+                  extension. This does not replace 911.
                 </p>
               </div>
-              <div className="bg-slate-900 p-6 rounded-xl space-y-2">
-                <strong className="text-white block text-sm uppercase font-bold">
-                  Routine & HR Matters
+              <div className="bg-white/5 p-6 rounded-2xl space-y-2">
+                <strong className="text-white block text-sm font-semibold">
+                  Routine & HR matters
                 </strong>
-                <p className="font-sans text-slate-400 leading-relaxed">
+                <p className="text-white/60 leading-relaxed text-xs">
                   Submit standard incident logs, HR queries, or tickets during
-                  regular operating hours (Monday–Friday, 9:00 AM – 5:00 PM).
+                  regular operating hours (Monday–Friday, 9 AM–5 PM).
                 </p>
               </div>
             </div>

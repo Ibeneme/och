@@ -173,11 +173,12 @@ export const Navbar = () => {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7FA283]" />
             </span>
             <span className="hidden sm:inline">
-              Now serving new patients | Operated by JACOP Healthcare Services,
-              Inc.
+              One Community Home Health is a DBA of JACOP Healthcare Services,
+              Inc. Serving Clients Since 2010
             </span>
             <span className="sm:hidden font-medium">
-              Operated by JACOP Healthcare Services, Inc.
+              One Community Home Health is a DBA of JACOP Healthcare Services,
+              Inc. Serving Clients Since 2010
             </span>
           </span>
 
@@ -185,7 +186,7 @@ export const Navbar = () => {
             <SteadyLine className="hidden lg:block w-14 h-3 opacity-90" />
             <a
               href="/referrals"
-              className="hidden xs:inline-flex items-center gap-1 text-white/75 hover:text-[#E4B95A] transition-colors font-medium group"
+              className="inline-flex items-center gap-1 text-white/75 hover:text-[#E4B95A] transition-colors font-medium group"
             >
               <span>Refer a patient</span>
               <ArrowRight

@@ -43,11 +43,11 @@ export default function OneCommunityContact() {
       <div className="max-w-6xl mx-auto space-y-14 relative z-10">
         {/* Eyebrow + Heading */}
 
-        <div className="max-w-7xl mx-auto pt-4 pb-10 overflow-hidden">
+        {/* <div className="max-w-7xl mx-auto pt-4 pb-10 overflow-hidden">
           <h2 className="ohh-serif text-[13vw] lg:text-[11vw] font-bold tracking-tighter leading-none text-white/35 select-none whitespace-nowrap text-right">
             Contact Us
           </h2>
-        </div>
+        </div> */}
 
         <div className="space-y-5 max-w-3xl">
           <div className="inline-flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">

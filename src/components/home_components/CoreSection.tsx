@@ -251,8 +251,8 @@ export default function CoreServicesPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a
-                href="#consultation"
-                className="bg-[#0000CD] active:bg-amber-600 text-white font-semibold px-6 py-3.5 rounded-xl text-[14px] transition-colors inline-flex items-center gap-2  cursor-pointer"
+                href="/contact"
+                className="bg-[#fff] active:bg-amber-600 text-[#000] font-semibold px-6 py-3.5 rounded-xl text-[14px] transition-colors inline-flex items-center gap-2  cursor-pointer"
               >
                 <PhoneCall className="w-4 h-4" /> Request Free Consultation
               </a>

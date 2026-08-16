@@ -3,7 +3,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import Footer from "./components/navbar/Footer";
 import HomePage from "./pages/home/page";
 import NotFound from "./components/navbar/NotFound";
-import { CustomCursor } from "./CustomCursor";
+// import { CustomCursor } from "./CustomCursor";
 import AboutPage from "./pages/about/About";
 import Leadership from "./pages/leader/Leadership";
 import CareersPage from "./components/careers/page";
@@ -39,7 +39,7 @@ import { ScrollToTopOnRouteChange } from "./components/ScrollToTop/ScrollToTopOn
 const App = () => {
   return (
     <Router>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <div className="min-h-screen flex flex-col bg-[#fff] text-[#3A4657]">
         <ScrollToTopOnRouteChange />
         <Navbar />

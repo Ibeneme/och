@@ -172,8 +172,13 @@ export const Navbar = () => {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7FA283] opacity-60" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7FA283]" />
             </span>
-            <span className="hidden sm:inline">Now serving new patients</span>
-            <span className="sm:hidden">New patients welcome</span>
+            <span className="hidden sm:inline">
+              Now serving new patients | Operated by JACOP Healthcare Services,
+              Inc.
+            </span>
+            <span className="sm:hidden font-medium">
+              Operated by JACOP Healthcare Services, Inc.
+            </span>
           </span>
 
           <div className="flex items-center gap-4 sm:gap-5">
@@ -190,7 +195,7 @@ export const Navbar = () => {
             </a>
             <a
               href="tel:9723251598"
-              className="flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors"
+              className="hidden sm:inline-flex flex items-center gap-1.5 font-semibold text-[#E4B95A] hover:text-[#F1CE7F] transition-colors"
             >
               <Phone size={13} strokeWidth={2.2} />
               <span>(972) 325-1598</span>
@@ -201,7 +206,7 @@ export const Navbar = () => {
 
       {/* ========== MAIN NAV ========== */}
       <div
-        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-[#FBF8F2]/95 backdrop-blur-sm border-b ${
+        className={`px-3 sm:px-6 md:px-8 transition-all duration-300 relative z-50 bg-[#fff] backdrop-blur-sm border-b ${
           isScrolled
             ? "py-2.5 border-[#E8DFCB] shadow-[0_1px_12px_rgba(10,33,64,0.06)]"
             : "py-3.5 border-[#F0E9D9]"
@@ -452,8 +457,8 @@ export const Navbar = () => {
           {/* Right side actions */}
           <div className="flex items-center gap-2.5">
             <a
-              href="/contact#consultation"
-              className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-[#F5D78E] via-[#E4B95A] to-[#C89B3C] hover:from-[#F1CE7F] hover:via-[#D9A93F] hover:to-[#B88A30] text-[#0A2140] text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-lg transition-all hover:shadow-md active:scale-[0.98]"
+              href="/contact"
+              className="hidden sm:inline-flex items-center gap-2 bg-[#0A2140]  text-[#fff] text-[13px] font-bold px-4 md:px-5 py-2.5 rounded-full transition-all  active:scale-[0.98]"
             >
               <HeartHandshake size={16} />
               <span>Request care</span>
@@ -506,7 +511,7 @@ export const Navbar = () => {
         />
 
         <div
-          className={`absolute top-[105px] xs:top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-[#FBF8F2] rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top shadow-2xl shadow-[#0A2140]/10 ${
+          className={`absolute top-[105px] xs:top-[90px] sm:top-[95px] inset-x-3 sm:inset-x-6 bg-[#fff] rounded-2xl border border-[#EFE8D8] overflow-hidden flex flex-col transition-all duration-300 transform origin-top shadow-2xl shadow-[#0A2140]/10 ${
             mobileMenuOpen
               ? "translate-y-0 scale-100 opacity-100"
               : "-translate-y-4 scale-[0.97] opacity-0"
@@ -727,7 +732,7 @@ export const Navbar = () => {
               <a
                 href="/contact#consultation"
                 onClick={closeMobileMenu}
-                className="flex items-center justify-center gap-2 w-full text-center bg-gradient-to-r from-[#F5D78E] via-[#E4B95A] to-[#C89B3C] hover:from-[#F1CE7F] hover:via-[#D9A93F] hover:to-[#B88A30] text-[#0A2140] font-bold py-3.5 rounded-xl transition-all active:scale-[0.98] hover:shadow-md"
+                className="flex items-center justify-center gap-2 w-full text-center bg-[#0A2140] text-[#fff] font-bold py-3.5 rounded-full transition-all active:scale-[0.98] hover:shadow-md"
               >
                 <HeartHandshake size={18} />
                 Request a care consultation

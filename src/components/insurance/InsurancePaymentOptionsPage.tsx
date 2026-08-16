@@ -36,9 +36,9 @@ export const insuranceLines: InsuranceItem[] = [
     description:
       "Dedicated home care support serving eligible adults with disabilities and adults age 65 or older under the STAR+PLUS program.",
     badge: "In-network coverage",
-    bgClass: "bg-[#123B3E]",
-    textClass: "text-[#8FE0DA]",
-    badgeBgClass: "bg-white/10 text-[#8FE0DA]",
+    bgClass: "bg-[#0F2A4D]",
+    textClass: "text-[#A9C6F0]",
+    badgeBgClass: "bg-white/10 text-[#A9C6F0]",
   },
   {
     title: "Molina Healthcare",
@@ -63,9 +63,9 @@ export const insuranceLines: InsuranceItem[] = [
     description:
       "Formerly Amerigroup; active network participation using the current Wellpoint name and designation.",
     badge: "In-network coverage",
-    bgClass: "bg-[#12301F]",
-    textClass: "text-[#9FE6B8]",
-    badgeBgClass: "bg-white/10 text-[#9FE6B8]",
+    bgClass: "bg-[#17324F]",
+    textClass: "text-[#8FB8E0]",
+    badgeBgClass: "bg-white/10 text-[#8FB8E0]",
   },
   {
     title: "Aetna",

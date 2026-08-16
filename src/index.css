@@ -55,13 +55,6 @@
   --color-card-bg: #072248;
 }
 
-@theme {
-  --font-sans: 'Parkinsans', sans-serif;
-  --color-primary: var(--color-primary);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-bg-dark: var(--color-bg-dark);
-  --color-card-bg: var(--color-card-bg);
-}
 
 
 body {

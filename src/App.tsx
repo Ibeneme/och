@@ -39,6 +39,8 @@ import { ScrollToTopOnRouteChange } from "./components/ScrollToTop/ScrollToTopOn
 const App = () => {
   return (
     <Router>
+
+      
       {/* <CustomCursor /> */}
       <div className="min-h-screen flex flex-col bg-[#fff] text-[#3A4657]">
         <ScrollToTopOnRouteChange />

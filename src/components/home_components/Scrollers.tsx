@@ -131,12 +131,12 @@ export default function Scrollers(): React.JSX.Element {
           {/* Sticky intro rail — replaces the centered header + marquee controls */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-16">
-              <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#E4B95A] bg-[#E4B95A]/10 px-3.5 py-1.5 rounded-full mb-5">
+              <span className="inline-block text-xs font-bold tracking-widest uppercase text-yellow-400 bg-yellow-400/10 px-3.5 py-1.5 rounded-full mb-5">
                 Coverage & payment
               </span>
               <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-5">
                 Flexible payment{" "}
-                <span className="text-[#E4B95A]">options.</span>
+                <span className="text-yellow-400">options.</span>
               </h2>
               <p className="text-base md:text-lg text-slate-400 leading-relaxed mb-8">
                 Review our accepted insurance providers, managed care plans, and
@@ -159,7 +159,7 @@ export default function Scrollers(): React.JSX.Element {
                 return (
                   <div
                     key={item.title}
-                    className={`${item.bgClass} rounded-[1.75rem] p-6 md:p-7 flex flex-col justify-between min-h-[260px] border ${item.accentBorderClass} overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-[1.02]`}
+                    className={`${item.bgClass} rounded-[1.75rem] p-6 md:p-7 flex flex-col justify-between min-h-[260px] border ${item.accentBorderClass} overflow-hidden transition-transform duration-300 hover:scale-[1.02]`}
                   >
                     {/* Top Badge & Icon */}
                     <div className="flex items-center justify-between border-b border-current/15 pb-5">

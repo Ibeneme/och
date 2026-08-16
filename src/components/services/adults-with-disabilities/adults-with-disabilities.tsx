@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   Activity,
   UserCheck,
@@ -6,59 +8,127 @@ import {
   BookOpen,
   Star,
   Phone,
+  ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
+
+const services = [
+  {
+    icon: Activity,
+    title: "Skilled Clinical Care",
+    desc: "Professional nursing interventions, health monitoring, and specialized clinical treatments.",
+  },
+  {
+    icon: UserCheck,
+    title: "Personal-Care Support",
+    desc: "Respectful assistance with daily hygiene, dressing, grooming, and personal routines.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Therapy Services",
+    desc: "Physical, occupational, and speech therapy to enhance functional mobility and communication.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Independence with Daily Activities",
+    desc: "Empowering clients to perform daily tasks with confidence and appropriate adaptive support.",
+  },
+  {
+    icon: BookOpen,
+    title: "Caregiver Education",
+    desc: "Guidance and training for family members and support networks on safe handling and care techniques.",
+  },
+  {
+    icon: Activity,
+    title: "Chronic-Condition Support",
+    desc: "Targeted symptom tracking and clinical management for long-term health conditions.",
+  },
+];
 
 export default function AdultsWithDisabilitiesComp() {
   return (
-    <div className="min-h-screen bg-[#FAFAF8] text-slate-800 font-sans">
-      <section className="relative bg-[#0F172A] text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=2000&q=80"
-            alt="Adults with disabilities home care"
-            className="w-full h-full object-cover opacity-15"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#F59E0B] font-medium text-xs tracking-wider uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse" />
-              Specialized Clinical Discipline
+    <main className="min-h-screen bg-[#FBF8F2] text-[#3A4657] ohh-sans">
+      {/* ===== Hero Section ===== */}
+      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
+                Specialized clinical discipline
+              </div>
+
+              <div className="text-xs text-[#8A7B5C] font-medium tracking-wide">
+                JACOP Healthcare Services, Inc., serving clients since 2010, is
+                now doing business as One Community Home Health.
+              </div>
+
+              <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0A2140] tracking-tight leading-[1.1]">
+                Services for adults with{" "}
+                <span className="text-[#C89B3C]">disabilities</span>
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#5B6B7C] leading-relaxed max-w-2xl">
+                Dignified, professional clinical care, therapy, and personal
+                support designed to promote independence, safety, and quality of
+                life at home.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <a
+                  href="tel:9723251598"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-full transition-colors group"
+                >
+                  <Phone size={16} />
+                  <span>Call (972) 325-1598</span>
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-full transition-colors"
+                >
+                  <span>Request a consultation</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-              Services for Adults with{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-                Disabilities
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Dignified, professional clinical care, therapy, and personal
-              support designed to promote independence, safety, and quality of
-              life at home.
-            </p>
-            <a
-              href="tel:9723251598"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all text-sm"
-            >
-              <Phone size={16} /> Call (972) 325-1598
-            </a>
+
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-3xl p-2 overflow-hidden">
+                <div className="relative h-[300px] rounded-[20px] overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1000&q=80"
+                    alt="Adults with disabilities home care"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6 space-y-3">
+                  <h3 className="ohh-serif text-lg font-semibold text-[#0A2140]">
+                    Dignity, safety & independence
+                  </h3>
+                  <p className="text-sm text-[#5B6B7C] leading-relaxed">
+                    Personalized care that respects dignity while maximizing
+                    everyday independence.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20">
+      {/* ===== Overview Section ===== */}
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div>
-                <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
-                  Dignity, Safety & Independence
+            <div className="lg:col-span-6 space-y-8">
+              <div className="space-y-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+                  Dignity, safety & independence
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2 mb-4">
-                  Comprehensive In-Home Support for Adults with Disabilities
+                <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+                  Comprehensive in-home support for adults with disabilities
                 </h2>
-                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                <p className="text-[#5B6B7C] text-base leading-relaxed">
                   Living with a disability requires personalized care that
                   respects personal dignity while maximizing everyday
                   independence. Our skilled clinical team, therapists, and
@@ -67,7 +137,8 @@ export default function AdultsWithDisabilitiesComp() {
                   management at home.
                 </p>
               </div>
-              <div className="grid sm:grid-cols-2 gap-4 text-sm font-medium text-slate-700">
+
+              <div className="grid sm:grid-cols-2 gap-4 text-sm font-semibold text-[#0A2140]">
                 {[
                   "Skilled Clinical Care",
                   "Personal-Care Support",
@@ -76,20 +147,21 @@ export default function AdultsWithDisabilitiesComp() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="bg-white p-4 rounded-2xl flex items-center gap-3"
+                    className="bg-[#FBF8F2] p-4 rounded-2xl flex items-center gap-3"
                   >
-                    <span className="w-2 h-2 rounded-full bg-[#F59E0B]" />
+                    <CheckCircle2 className="text-[#C89B3C] w-5 h-5 flex-shrink-0" />
                     {item}
                   </div>
                 ))}
               </div>
             </div>
+
             <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-3xl ">
+              <div className="overflow-hidden rounded-3xl">
                 <img
                   src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80"
                   alt="Care for adults with disabilities"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </div>
@@ -97,81 +169,55 @@ export default function AdultsWithDisabilitiesComp() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-100/50">
+      {/* ===== Scope of Services ===== */}
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
-              Service Scope
+          <div className="max-w-3xl mb-14 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+              Service scope
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2 mb-4">
-              Adult Disability Care Services
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+              Adult disability care services
             </h2>
-            <p className="text-slate-600 text-sm">
+            <p className="text-[#5B6B7C] text-base">
               Our specialized care programs focus on clinical excellence, daily
               independence, and holistic well-being.
             </p>
           </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Activity,
-                title: "Skilled Clinical Care",
-                desc: "Professional nursing interventions, health monitoring, and specialized clinical treatments.",
-              },
-              {
-                icon: UserCheck,
-                title: "Personal-Care Support",
-                desc: "Respectful assistance with daily hygiene, dressing, grooming, and personal routines.",
-              },
-              {
-                icon: HeartPulse,
-                title: "Therapy Services",
-                desc: "Physical, occupational, and speech therapy to enhance functional mobility and communication.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Independence with Daily Activities",
-                desc: "Empowering clients to perform daily tasks with confidence and appropriate adaptive support.",
-              },
-              {
-                icon: BookOpen,
-                title: "Caregiver Education",
-                desc: "Guidance and training for family members and support networks on safe handling and care techniques.",
-              },
-              {
-                icon: Activity,
-                title: "Chronic-Condition Support",
-                desc: "Targeted symptom tracking and clinical management for long-term health conditions.",
-              },
-            ].map(({ icon: Icon, title, desc }) => (
+            {services.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="bg-white p-6 rounded-3xl  transition-shadow"
+                className="bg-white rounded-3xl p-7 flex flex-col transition-colors hover:bg-[#F3ECDC]/40"
               >
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center mb-4">
-                  <Icon size={24} />
+                <div className="w-12 h-12 rounded-2xl bg-[#0A2140] text-[#E4B95A] flex items-center justify-center mb-5">
+                  <Icon size={22} />
                 </div>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-base">
+                <h3 className="ohh-serif font-bold text-[#0A2140] mb-2.5 text-lg tracking-tight">
                   {title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{desc}</p>
+                <p className="text-sm text-[#5B6B7C] leading-relaxed">{desc}</p>
               </div>
             ))}
-            <div className="bg-white p-6 rounded-3xl md:col-span-2 lg:col-span-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-[#F59E0B] flex items-center justify-center mb-4">
-                <Star size={24} />
+
+            <div className="md:col-span-2 lg:col-span-3 bg-[#0A2140] rounded-3xl p-8 lg:p-10 flex flex-col sm:flex-row sm:items-center gap-6">
+              <div className="w-14 h-14 rounded-2xl bg-white/10 text-[#E4B95A] flex items-center justify-center shrink-0">
+                <Star size={26} />
               </div>
-              <h3 className="font-bold text-[#0F172A] mb-2 text-base">
-                Dignity, Safety, and Quality of Life
-              </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                A holistic commitment to safeguarding personal autonomy,
-                physical safety, and overall happiness at home.
-              </p>
+              <div className="flex-1">
+                <h3 className="ohh-serif font-bold text-white mb-2 text-xl tracking-tight">
+                  Dignity, safety, and quality of life
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed max-w-3xl">
+                  A holistic commitment to safeguarding personal autonomy,
+                  physical safety, and overall happiness at home.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

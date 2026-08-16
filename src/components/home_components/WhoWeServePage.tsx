@@ -113,14 +113,14 @@ export default function WhoWeServePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <a
               href="tel:9723251598"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-full transition-colors"
             >
               <Phone size={18} />
               <span>Call 972-325-1598</span>
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-xl transition-colors backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-full transition-colors backdrop-blur-sm"
             >
               <span>Contact our team</span>
               <ArrowRight size={18} />
@@ -130,7 +130,7 @@ export default function WhoWeServePage() {
           {/* Commitment Strip under hero */}
           <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl p-6 sm:p-8 text-left">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#E4B95A]/15 text-[#E4B95A] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-[#E4B95A]/15 text-[#E4B95A] flex items-center justify-center">
                 <ShieldCheck size={22} />
               </div>
               <div>
@@ -355,7 +355,7 @@ export default function WhoWeServePage() {
                 </ul>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0F6DF9] text-[#fff] font-bold rounded-xl transition-colors w-fit"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0F6DF9] text-[#fff] font-bold rounded-full transition-colors w-fit"
                 >
                   <span>Stay updated</span>
                   <ArrowRight size={16} />

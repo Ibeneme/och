@@ -141,14 +141,14 @@ export default function EmployeeResourcesPage() {
               <div className="flex flex-wrap gap-4">
                 <a
                   href="#handbook"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-full transition-colors"
                 >
                   <BookOpen size={16} />
                   Handbook & docs
                 </a>
                 <a
                   href="#reporting"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-full transition-colors"
                 >
                   <ShieldAlert size={16} />
                   Protocols & safety
@@ -269,7 +269,7 @@ export default function EmployeeResourcesPage() {
               <div className="flex flex-wrap gap-4 pt-2">
                 <button
                   onClick={() => alert("Handbook download initialized.")}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-white font-bold rounded-xl transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-white font-bold rounded-full transition-colors"
                 >
                   Download PDF
                 </button>
@@ -277,7 +277,7 @@ export default function EmployeeResourcesPage() {
                   onClick={() =>
                     alert("Acknowledgment form instructions dispatched via HR.")
                   }
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-xl transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-full transition-colors"
                 >
                   Acknowledgment info
                 </button>
@@ -363,7 +363,7 @@ export default function EmployeeResourcesPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="p-4 bg-[#FBF8F2] rounded-xl text-xs text-[#5B6B7C]">
+                  <div className="p-4 bg-[#FBF8F2] rounded-full text-xs text-[#5B6B7C]">
                     <span className="text-[#8A93A0] block mb-1">
                       Operating window
                     </span>
@@ -397,7 +397,7 @@ export default function EmployeeResourcesPage() {
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {evvSteps.map((step) => (
                 <div key={step.title} className="bg-white/5 p-8 rounded-2xl">
-                  <div className="w-10 h-10 rounded-xl bg-white/10 text-[#E4B95A] flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-white/10 text-[#E4B95A] flex items-center justify-center mb-4">
                     <step.icon size={18} />
                   </div>
                   <h4 className="font-semibold text-white mb-2 text-sm">
@@ -424,7 +424,7 @@ export default function EmployeeResourcesPage() {
                 href="https://ha.hhaexchange.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-xl transition-colors text-sm shrink-0"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-full transition-colors text-sm shrink-0"
               >
                 Launch portal
                 <ExternalLink size={15} />
@@ -456,7 +456,7 @@ export default function EmployeeResourcesPage() {
                 key={item.title}
                 className="bg-white p-7 rounded-2xl hover:bg-white/70 transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center mb-4">
                   <item.icon size={18} />
                 </div>
                 <h4 className="font-semibold text-[#0A2140] mb-2 text-sm">

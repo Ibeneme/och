@@ -12,7 +12,7 @@ export default function OneCommunitySection() {
   return (
     <section className="relative min-h-screen bg-[#F3F1EC] text-slate-900 py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Soft background glow matching gold theme */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C89B3C]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Top Badge & Header */}
@@ -45,7 +45,7 @@ export default function OneCommunitySection() {
                 gave our family complete peace of mind."
               </p>
               <div className="flex items-center space-x-3 pt-3 border-t border-amber-50">
-                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 font-bold flex items-center justify-center text-sm border border-amber-100">
+                <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-700 font-bold flex items-center justify-center text-sm border border-amber-100">
                   OC
                 </div>
                 <div>
@@ -64,7 +64,7 @@ export default function OneCommunitySection() {
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
               <div>
-                <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
                   <Award className="w-5 h-5" strokeWidth={1.75} />
                 </div>
                 <h3 className="fp-serif text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
@@ -79,7 +79,7 @@ export default function OneCommunitySection() {
 
             <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
               <div>
-                <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
                   <ShieldCheck className="w-5 h-5" strokeWidth={1.75} />
                 </div>
                 <h3 className="fp-serif text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
@@ -94,7 +94,7 @@ export default function OneCommunitySection() {
 
             <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
               <div>
-                <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
                   <HeartHandshake className="w-5 h-5" strokeWidth={1.75} />
                 </div>
                 <h3 className="fp-serif text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
@@ -109,7 +109,7 @@ export default function OneCommunitySection() {
 
             <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
               <div>
-                <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
                   <MessageCircle className="w-5 h-5" strokeWidth={1.75} />
                 </div>
                 <h3 className="fp-serif text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
@@ -130,7 +130,7 @@ export default function OneCommunitySection() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-xl text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-[#C89B3C]/30 mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-yellow-400/30 mb-4">
                 Our Core Mission
               </span>
               <h3 className="fp-serif text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-white">
@@ -145,14 +145,14 @@ export default function OneCommunitySection() {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
               <a
                 href="tel:9723251598"
-                className="w-full sm:w-auto bg-[#C89B3C] text-slate-950 font-semibold px-7 py-4 rounded-xl text-[14px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto bg-yellow-400 text-slate-950 font-semibold px-7 py-4 rounded-full text-[14px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
                 Call 972-325-1598
               </a>
               <button
                 onClick={() => alert("Opening free consultation request...")}
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl text-[14px] transition-colors inline-flex items-center justify-center gap-2 border border-white/20 backdrop-blur-sm cursor-pointer"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-full text-[14px] transition-colors inline-flex items-center justify-center gap-2 border border-white/20 backdrop-blur-sm cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
                 Request Free Consultation

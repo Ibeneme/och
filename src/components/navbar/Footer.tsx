@@ -143,14 +143,14 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
           <a
             href="tel:9723251598"
-            className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white text-sm font-semibold py-3.5 px-6 rounded-xl transition-colors"
+            className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-white/30 bg-white/5 hover:bg-white/10 text-white text-sm font-semibold py-3.5 px-6 rounded-full transition-colors"
           >
             <Phone size={16} className="text-[#E4B95A] shrink-0" />
             (972) 325-1598
           </a>
           <a
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-[#0F6DF9] text-[#fff] text-sm font-bold py-3.5 px-6 rounded-xl transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-[#D9A93F] text-[#07162C] text-sm font-bold py-3.5 px-6 rounded-full transition-colors"
           >
             <HeartHandshake size={16} />
             Request a care consultation

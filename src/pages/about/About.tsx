@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import CoreValuesSection from "@/components/about/Corevaluessection";
-import CommitmentCareSection from "@/components/about/HomeHealthSection";
-import LegacyMissionSection from "@/components/about/Legacy";
 import PageHeader from "@/components/headers/PageHeaders";
+import NewAbout from "@/components/about/Corevaluessection";
 
 const AboutPage = () => {
   const schemaData = {
@@ -44,9 +42,7 @@ const AboutPage = () => {
 
       <div>
         <PageHeader title="About US" />
-        <LegacyMissionSection />
-        <CoreValuesSection />
-        <CommitmentCareSection />
+        <NewAbout />
       </div>
     </>
   );

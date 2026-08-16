@@ -123,14 +123,14 @@ export default function InsurancePaymentOptionsPage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <a
                   href="tel:9723251598"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-xl transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-full transition-colors"
                 >
                   <Phone size={16} />
                   <span>Call (972) 325-1598</span>
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-xl transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-full transition-colors"
                 >
                   <span>Contact our team</span>
                   <ArrowRight size={16} />

@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { Phone, ArrowRight, Sparkles } from "lucide-react";
+import {
+  Phone,
+  ArrowRight,
+  Sparkles,
+  Briefcase,
+  Clock,
+  Check,
+} from "lucide-react";
 
 export default function CareersPage() {
   const stats = [
@@ -135,14 +142,14 @@ export default function CareersPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/careers/cna-home-health-aide-application"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-extrabold rounded-2xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-extrabold rounded-full transition-all"
                 >
                   <span>Join Our CNA / HHA Talent Network</span>
                   <ArrowRight size={18} />
                 </Link>
                 <a
                   href="tel:9723251598"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-2xl transition-all backdrop-blur-sm"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-full transition-all backdrop-blur-sm"
                 >
                   <Phone size={18} />
                   <span>Call 972-325-1598</span>
@@ -229,9 +236,10 @@ export default function CareersPage() {
                   </div>
                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#0A2140] shrink-0">
                     <span>Inquire / Apply</span>
-                    <span className="text-[#C89B3C] transition-transform duration-300 group-hover:translate-x-1.5">
-                      →
-                    </span>
+                    <ArrowRight
+                      size={14}
+                      className="text-[#C89B3C] transition-transform duration-300 group-hover:translate-x-1.5"
+                    />
                   </div>
                 </div>
               ))}
@@ -340,8 +348,8 @@ export default function CareersPage() {
                     key={item}
                     className="flex items-start gap-3 bg-white/5 rounded-2xl p-4"
                   >
-                    <span className="w-5 h-5 rounded-full bg-[#E4B95A] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-black text-xs">
-                      ✓
+                    <span className="w-5 h-5 rounded-full bg-[#E4B95A] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check size={12} strokeWidth={3} />
                     </span>
                     <span className="text-white/75 text-sm font-semibold">
                       {item}
@@ -352,7 +360,7 @@ export default function CareersPage() {
 
               <Link
                 to="/careers/cna-home-health-aide-application"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-extrabold rounded-2xl transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-extrabold rounded-full transition-all"
               >
                 <span>Apply to the Talent Network</span>
                 <ArrowRight size={18} />
@@ -382,8 +390,8 @@ export default function CareersPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white rounded-3xl p-8">
-              <div className="w-12 h-12 rounded-2xl bg-[#F3ECDC] text-[#C89B3C] flex items-center justify-center font-bold text-xl mb-5">
-                💼
+              <div className="w-12 h-12 rounded-full bg-[#F3ECDC] text-[#C89B3C] flex items-center justify-center mb-5">
+                <Briefcase size={22} />
               </div>
               <h3 className="text-xl font-extrabold text-[#0A2140] mb-2">
                 Competitive Compensation
@@ -394,8 +402,8 @@ export default function CareersPage() {
               </p>
             </div>
             <div className="bg-white rounded-3xl p-8">
-              <div className="w-12 h-12 rounded-2xl bg-[#F3ECDC] text-[#C89B3C] flex items-center justify-center font-bold text-xl mb-5">
-                🕒
+              <div className="w-12 h-12 rounded-full bg-[#F3ECDC] text-[#C89B3C] flex items-center justify-center mb-5">
+                <Clock size={22} />
               </div>
               <h3 className="text-xl font-extrabold text-[#0A2140] mb-2">
                 Flexible Scheduling
@@ -407,7 +415,7 @@ export default function CareersPage() {
             </div>
             <div className="bg-[#0A2140] rounded-3xl p-8 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#E4B95A]/20 text-[#E4B95A] flex items-center justify-center font-bold text-xl mb-5">
+                <div className="w-12 h-12 rounded-full bg-[#E4B95A]/20 text-[#E4B95A] flex items-center justify-center mb-5">
                   <Phone size={20} />
                 </div>
                 <h3 className="text-xl font-extrabold text-white mb-2">

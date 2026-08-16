@@ -76,13 +76,13 @@ export default function ServicesLandingPage() {
           {/* Sticky intro rail */}
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-28 space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#E4B95A] bg-white/10 w-fit">
-                <span className="w-2 h-2 rounded-full bg-[#E4B95A]" />
+              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-yellow-400 bg-white/10 w-fit">
+                <span className="w-2 h-2 rounded-full bg-yellow-400" />
                 Who We Serve
               </span>
               <h1 className="ohh-serif text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.08]">
                 Compassionate care tailored for every stage of life
-                <span className="text-[#E4B95A]">.</span>
+                <span className="text-yellow-400">.</span>
               </h1>
               <p className="text-base sm:text-lg text-white/70 font-medium leading-relaxed">
                 Professional, nurse-guided support delivered right to your
@@ -95,9 +95,9 @@ export default function ServicesLandingPage() {
                   <a
                     key={pathway.title}
                     href={`#pathway-${idx}`}
-                    className="flex items-center gap-3 text-sm font-bold text-white/60 hover:text-[#E4B95A] transition-colors"
+                    className="flex items-center gap-3 text-sm font-bold text-white/60 hover:text-yellow-400 transition-colors"
                   >
-                    <span className="text-[#E4B95A]/70 text-xs font-mono">
+                    <span className="text-yellow-400/70 text-xs font-mono">
                       0{idx + 1}
                     </span>
                     {pathway.title}
@@ -116,15 +116,15 @@ export default function ServicesLandingPage() {
                   <div
                     key={pathway.title}
                     id={`pathway-${idx}`}
-                    className="group relative rounded-[32px] p-8 flex flex-col justify-between scroll-mt-28 bg-[#0C213F]/50 border border-white/10 hover:border-white/20 transition-all duration-300 text-white shadow-xl shadow-black/20"
+                    className="group relative rounded-[32px] p-8 flex flex-col justify-between scroll-mt-28 bg-[#0C213F]/50 transition-all duration-300 text-white "
                   >
                     {/* Top Section: Icon & Badge */}
                     <div className="flex items-center justify-between mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-[#E4B95A]/10 text-[#E4B95A] flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-2xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center">
                         <Icon className="w-7 h-7" strokeWidth={1.75} />
                       </div>
                       {pathway.badge ? (
-                        <span className="text-[11px] font-black tracking-wider text-[#07162C] uppercase bg-[#E4B95A] px-3.5 py-1.5 rounded-full shadow-sm">
+                        <span className="text-[11px] font-black tracking-wider text-[#07162C] uppercase bg-yellow-400 px-3.5 py-1.5 rounded-full ">
                           {pathway.badge}
                         </span>
                       ) : (
@@ -136,7 +136,7 @@ export default function ServicesLandingPage() {
 
                     {/* Middle Section: Image banner + text details */}
                     <div className="space-y-6">
-                      <div className="relative h-44 w-full rounded-2xl overflow-hidden border border-white/10">
+                      <div className="relative h-44 w-full rounded-2xl overflow-hidden ">
                         <img
                           src={pathway.image}
                           alt={pathway.title}
@@ -157,28 +157,28 @@ export default function ServicesLandingPage() {
                     </div>
 
                     {/* Bottom Section: Actionable Footer */}
-                    <div className="pt-8 mt-8 border-t border-white/10">
+                    <div className="pt-8 mt-8 ">
                       {pathway.actionType === "button" ? (
                         <a
                           href={pathway.href}
-                          className="inline-flex items-center text-sm font-black text-white hover:text-[#E4B95A] transition-colors cursor-pointer w-full justify-between group/link"
+                          className="inline-flex items-center text-sm font-black text-white hover:text-yellow-400 transition-colors cursor-pointer w-full justify-between group/link"
                         >
                           <span>{pathway.footerText}</span>
-                          <div className="w-8 h-8 rounded-full bg-[#E4B95A] text-[#07162C] flex items-center justify-center transition-transform duration-300 group-hover/link:translate-x-1 shadow-sm">
+                          <div className="w-8 h-8 rounded-full bg-yellow-400 text-[#07162C] flex items-center justify-center transition-transform duration-300 group-hover/link:translate-x-1">
                             <ArrowRight className="w-4 h-4" />
                           </div>
                         </a>
                       ) : pathway.actionType === "cta" ? (
                         <a
                           href={pathway.href}
-                          className="w-full bg-[#E4B95A] hover:bg-[#D9A93F] text-[#07162C] font-bold px-6 py-3.5 rounded-xl text-sm transition-all text-center cursor-pointer block shadow-md shadow-[#E4B95A]/10 active:scale-[0.98]"
+                          className="w-full bg-yellow-400 hover:bg-[#D9A93F] text-[#07162C] font-bold px-6 py-3.5 rounded-full text-sm transition-all text-center cursor-pointer block active:scale-[0.98]"
                         >
                           Explore Pediatric Services
                         </a>
                       ) : (
                         <a
                           href={pathway.href}
-                          className="inline-flex items-center justify-between text-xs font-black tracking-widest text-[#E4B95A] uppercase w-full hover:underline"
+                          className="inline-flex items-center justify-between text-xs font-black tracking-widest text-yellow-400 uppercase w-full hover:underline"
                         >
                           <span>{pathway.footerText}</span>
                           <ArrowRight className="w-3.5 h-3.5" />

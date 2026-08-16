@@ -234,7 +234,7 @@ export default function AboutTrustSection() {
         {/* Content Over Parallax Video */}
         <div className="relative z-10 text-center max-w-6xl mx-auto px-6 text-white">
           <h2 className="ohh-serif text-4xl sm:text-8xl lg:text-9xl font-bold tracking-tight text-white drop-shadow-md">
-            One Community
+           <span></span> One Community
           </h2>
         </div>
       </section>

@@ -222,7 +222,7 @@ export default function InsuranceStackSection(): React.JSX.Element {
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08]">
               Flexible coverage options tailored for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+              <span className="text-yellow-400 ">
                 your care.
               </span>
             </h2>

@@ -98,7 +98,7 @@ export default function ServicesLandingPage() {
     if (!carouselRef.current) return;
     const cardWidth =
       carouselRef.current.querySelector(".lp-card")?.clientWidth || 320;
-    const gap = 20;
+    const gap = 24;
     const scrollAmount = cardWidth + gap;
     carouselRef.current.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -109,148 +109,136 @@ export default function ServicesLandingPage() {
   return (
     <main
       ref={pageRef}
-      className="bg-[#fff] min-h-screen pt-24 sm:pt-28 px-4 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform"
+      className="bg-[#0F172A] min-h-screen pt-24 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="lp-header text-center max-w-4xl mx-auto mb-14 sm:mb-16">
-          <span className="lp-eyebrow inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase bg-white border border-amber-200 text-amber-700 mb-7">
-            Who we serve
-          </span>
-          <h1 className="lp-heading fp-serif text-4xl sm:text-6xl lg:text-7xl leading-[1.1] font-bold tracking-tight text-slate-900 mb-6">
-            Compassionate care tailored for every stage of life{" "}
-            <span className="text-amber-700">.</span>
-          </h1>
-          <p className="lp-subhead text-base sm:text-[17px] text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            Professional, nurse-guided support delivered right to your doorstep.
-            Explore our dedicated care pathways designed to preserve
-            independence, dignity, and peace of mind.
-          </p>
+      <div className="max-w-7xl mx-auto">
+        {/* Modern Split Header */}
+        <div className="grid lg:grid-cols-12 gap-12 items-end mb-16 lg:mb-20">
+          <div className="lg:col-span-7 space-y-6">
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#C89B3C] bg-white/10">
+              <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
+              Who We Serve
+            </span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
+              Compassionate care tailored for every stage of life{" "}
+              <span className="text-[#C89B3C]">.</span>
+            </h1>
+          </div>
+          <div className="lg:col-span-5 flex flex-col justify-end">
+            <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed mb-8">
+              Professional, nurse-guided support delivered right to your
+              doorstep. Explore our dedicated care pathways designed to preserve
+              independence, dignity, and peace of mind.
+            </p>
+            {/* Carousel Controls integrated right into header */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => scrollCarousel("left")}
+                disabled={!canScrollLeft}
+                aria-label="Previous"
+                className={`w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center transition-all duration-200 ${
+                  canScrollLeft
+                    ? "text-white hover:bg-[#C89B3C] hover:text-[#0F172A] hover:border-[#C89B3C] cursor-pointer"
+                    : "text-slate-600 cursor-not-allowed opacity-40"
+                }`}
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => scrollCarousel("right")}
+                disabled={!canScrollRight}
+                aria-label="Next"
+                className={`w-12 h-12 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center transition-all duration-200 ${
+                  canScrollRight
+                    ? "text-white hover:bg-[#C89B3C] hover:text-[#0F172A] hover:border-[#C89B3C] cursor-pointer"
+                    : "text-slate-600 cursor-not-allowed opacity-40"
+                }`}
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Carousel Section — Who We Serve */}
-      <div className="max-w-6xl mx-auto lp-carousel-wrap mb-24 sm:mb-28">
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="fp-serif text-2xl sm:text-3xl font-medium text-slate-900 tracking-tight">
-            Our Care Pathways
-          </h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scrollCarousel("left")}
-              disabled={!canScrollLeft}
-              aria-label="Previous"
-              className={`w-10 h-10 rounded-full border border-amber-200 bg-white flex items-center justify-center transition-all duration-200 ${
-                canScrollLeft
-                  ? "text-slate-700 hover:border-amber-500 hover:text-amber-700 cursor-pointer"
-                  : "text-slate-300 cursor-not-allowed opacity-50"
-              }`}
-            >
-              <ArrowLeft className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => scrollCarousel("right")}
-              disabled={!canScrollRight}
-              aria-label="Next"
-              className={`w-10 h-10 rounded-full border border-amber-200 bg-white flex items-center justify-center transition-all duration-200 ${
-                canScrollRight
-                  ? "text-slate-700 hover:border-amber-500 hover:text-amber-700 cursor-pointer"
-                  : "text-slate-300 cursor-not-allowed opacity-50"
-              }`}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
+      {/* Edge-to-edge Horizontal Stream Grid */}
+      <div className="max-w-[1400px] mx-auto">
         <div
           ref={carouselRef}
-          className="flex gap-5 overflow-x-auto scroll-smooth pb-4 -mx-1 px-1 snap-x snap-mandatory scrollbar-hide"
+          className="flex gap-6 overflow-x-auto scroll-smooth pb-8 px-4 sm:px-6 lg:px-8 snap-x snap-mandatory scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {carePathways.map((pathway) => {
+          {carePathways.map((pathway, idx) => {
             const Icon = pathway.icon;
             return (
               <div
                 key={pathway.title}
-                className={`lp-card group relative flex-shrink-0 w-[280px] sm:w-[310px] snap-start rounded-[24px] border flex flex-col justify-between overflow-hidden transition-all duration-300 will-change-transform ${
+                className={`lp-card group relative flex-shrink-0 w-[300px] sm:w-[380px] snap-start rounded-[32px] p-8 flex flex-col justify-between transition-all duration-300 will-change-transform ${
                   pathway.isDark
-                    ? "bg-[#0F172A] text-white border-transparent"
-                    : "bg-white border-amber-100 hover:border-amber-300"
+                    ? "bg-[#1E293B] text-white"
+                    : "bg-[#162233] text-white"
                 }`}
               >
-                {/* Image Banner Header */}
-                <div className="relative h-44 w-full overflow-hidden">
-                  <img
-                    src={pathway.image}
-                    alt={pathway.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80" />
-
-                  {/* Floating Badge / Icon */}
-                  <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
-                    <div className="w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md border border-amber-200 text-amber-700 flex items-center justify-center">
-                      <Icon className="w-5 h-5" strokeWidth={1.75} />
-                    </div>
-                    {pathway.badge && (
-                      <span className="text-[10px] font-semibold tracking-wider text-white uppercase bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
-                        {pathway.badge}
-                      </span>
-                    )}
+                {/* Top Section: Icon & Badge */}
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-14 h-14 rounded-2xl bg-black/40 text-[#C89B3C] flex items-center justify-center">
+                    <Icon className="w-7 h-7" strokeWidth={1.75} />
                   </div>
+                  {pathway.badge ? (
+                    <span className="text-[11px] font-black tracking-wider text-[#0F172A] uppercase bg-[#C89B3C] px-3.5 py-1.5 rounded-full">
+                      {pathway.badge}
+                    </span>
+                  ) : (
+                    <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                      Pathway 0{idx + 1}
+                    </span>
+                  )}
                 </div>
 
-                {/* Content Body */}
-                <div className="p-6 flex flex-col flex-grow justify-between">
+                {/* Middle Section: Image banner + text details */}
+                <div className="space-y-6">
+                  <div className="relative h-48 w-full rounded-2xl overflow-hidden">
+                    <img
+                      src={pathway.image}
+                      alt={pathway.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/60 via-transparent to-transparent" />
+                  </div>
+
                   <div>
-                    <h3
-                      className={`fp-serif text-xl font-medium mb-2.5 tracking-tight ${
-                        pathway.isDark ? "text-white" : "text-slate-900"
-                      }`}
-                    >
+                    <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-3">
                       {pathway.title}
                     </h3>
-                    <p
-                      className={`text-[13.5px] leading-relaxed mb-6 ${
-                        pathway.isDark ? "text-slate-300" : "text-slate-500"
-                      }`}
-                    >
+                    <p className="text-sm sm:text-base text-slate-300 font-medium leading-relaxed opacity-90">
                       {pathway.description}
                     </p>
                   </div>
-
-                  {/* Footer Action */}
-                  <div className="mt-auto">
-                    {pathway.actionType === "button" ? (
-                      <button className="inline-flex items-center text-[13px] font-semibold text-slate-800 group-hover:text-amber-700 transition-colors cursor-pointer w-full pt-4 border-t border-amber-100 justify-between">
-                        <span>{pathway.footerText}</span>
-                        <div className="w-7 h-7 rounded-full bg-amber-400 text-[#fff] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                          <ArrowRight className="w-3.5 h-3.5" />
-                        </div>
-                      </button>
-                    ) : pathway.actionType === "cta" ? (
-                      <a
-                        href="/services/pediatric-services"
-                        className="w-full bg-[#ffffff21] text-[#fff] font-semibold px-5 py-3 rounded-xl text-[13px] transition-colors text-center cursor-pointer block"
-                      >
-                        Request Care
-                      </a>
-                    ) : (
-                      <div className="pt-4 border-t border-amber-100 text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
-                        {pathway.footerText}
-                      </div>
-                    )}
-                  </div>
                 </div>
 
-                {pathway.isDark && (
-                  <>
-                    <div className="absolute -right-8 -bottom-8 w-36 h-36 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-amber-400/5 rounded-full blur-2xl pointer-events-none" />
-                  </>
-                )}
+                {/* Bottom Section: Actionable Footer */}
+                <div className="pt-8 mt-8 border-t border-white/10">
+                  {pathway.actionType === "button" ? (
+                    <button className="inline-flex items-center text-sm font-black text-white group-hover:text-[#C89B3C] transition-colors cursor-pointer w-full justify-between">
+                      <span>{pathway.footerText}</span>
+                      <div className="w-8 h-8 rounded-full bg-[#C89B3C] text-[#0F172A] flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </button>
+                  ) : pathway.actionType === "cta" ? (
+                    <a
+                      href="/services/pediatric-services"
+                      className="w-full bg-[#C89B3C] text-[#0F172A] font-black px-6 py-3.5 rounded-xl text-sm transition-transform text-center cursor-pointer block hover:bg-amber-400"
+                    >
+                      Request Care
+                    </a>
+                  ) : (
+                    <div className="text-xs font-black tracking-widest text-[#C89B3C] uppercase">
+                      {pathway.footerText}
+                    </div>
+                  )}
+                </div>
               </div>
             );
           })}

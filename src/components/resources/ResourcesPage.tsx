@@ -1,5 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Phone,
+  ArrowRight,
+  ShieldCheck,
+  FileText,
+  Download,
+  Lock,
+  Users,
+  AlertCircle,
+  HelpCircle,
+  ChevronDown,
+} from "lucide-react";
 
 export default function ResourcesPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -38,90 +50,183 @@ export default function ResourcesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FAFAF8] text-slate-800">
+    <main className="min-h-screen bg-[#FBF8F2] text-[#3A4657] ohh-sans">
       {/* ===== Hero Section ===== */}
-      <section className="relative bg-[#0F172A] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#F59E0B] font-medium text-xs tracking-wider uppercase mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse" />
-              Patient & Family Support
+      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
+                Patient & Family Support
+              </div>
+
+              <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0A2140] tracking-tight leading-[1.1]">
+                Helpful <span className="text-[#C89B3C]">Resources</span> &
+                Information
+              </h1>
+
+              <p className="text-base sm:text-lg text-[#5B6B7C] leading-relaxed">
+                Access important patient rights, caregiver education, forms, and
+                compliance guidelines to help you navigate your home health
+                journey with confidence.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <a
+                  href="tel:9723251598"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-md transition-all"
+                >
+                  <Phone size={16} />
+                  <span>Call (972) 325-1598</span>
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-md transition-all"
+                >
+                  <span>Contact Our Team</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
-              Helpful{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-                Resources
-              </span>{" "}
-              & Information
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Access important patient rights, caregiver education, forms, and
-              compliance guidelines to help you navigate your home health
-              journey with confidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="tel:9723251598"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all"
-              >
-                Call 972-325-1598
-              </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl transition-all backdrop-blur-sm"
-              >
-                Contact Our Team
-              </Link>
+
+            {/* Hero Feature Card */}
+            <div className="lg:col-span-5">
+              <div className="bg-white rounded-md p-8 space-y-6">
+                <div className="flex items-center gap-3 pb-4">
+                  <div className="w-10 h-10 rounded-md bg-[#0A2140] text-[#E4B95A] flex items-center justify-center">
+                    <HelpCircle size={20} />
+                  </div>
+                  <div>
+                    <h3 className="ohh-serif text-lg font-semibold text-[#0A2140]">
+                      Navigation Support
+                    </h3>
+                    <p className="text-xs text-[#8A7B5C]">
+                      Guidance every step of the way
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 text-sm text-[#3A4657]">
+                  <li className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <span>
+                      Direct access to patient bill of rights & policies
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <span>
+                      Printable care checklists and preparation guides
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <span>Full HIPAA compliance and privacy transparency</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Trust Strip ===== */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+      {/* ===== Trust Strip Grid ===== */}
+      <section className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: "Patient Rights", sub: "Advocacy & Clarity" },
-              { label: "Caregiver Education", sub: "Empowering Families" },
-              { label: "Downloads & Forms", sub: "Easy Access" },
-              { label: "Privacy & Compliance", sub: "Trusted Standards" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col">
-                <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold">
-                  {item.sub}
-                </span>
-                <span className="text-sm font-bold text-[#0F172A] mt-0.5">
-                  {item.label}
-                </span>
-              </div>
-            ))}
+              {
+                label: "Patient Rights",
+                sub: "Advocacy & Clarity",
+                icon: ShieldCheck,
+                accentColor: "text-[#C89B3C]",
+                bgIcon: "bg-[#F3ECDC]",
+              },
+              {
+                label: "Caregiver Education",
+                sub: "Empowering Families",
+                icon: Users,
+                accentColor: "text-[#0A2140]",
+                bgIcon: "bg-[#EAEFF7]",
+              },
+              {
+                label: "Downloads & Forms",
+                sub: "Easy Access",
+                icon: Download,
+                accentColor: "text-[#0A2140]",
+                bgIcon: "bg-[#F3ECDC]",
+              },
+              {
+                label: "Privacy & Compliance",
+                sub: "Trusted Standards",
+                icon: Lock,
+                accentColor: "text-[#C89B3C]",
+                bgIcon: "bg-[#F7F1E6]",
+              },
+            ].map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group relative flex flex-col justify-between p-6 rounded-md bg-[#FBF8F2] hover:bg-[#F3ECDC]/40 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className={`w-10 h-10 rounded-md ${item.bgIcon} ${item.accentColor} flex items-center justify-center transition-transform group-hover:scale-105`}
+                    >
+                      <IconComponent size={20} />
+                    </div>
+                    <span className="text-[10px] font-mono text-[#8A7B5C] font-bold opacity-60">
+                      [0{idx + 1}]
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#8A7B5C] font-bold block">
+                      {item.sub}
+                    </span>
+                    <span className="text-base font-bold text-[#0A2140] mt-1 block ohh-serif">
+                      {item.label}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ===== Resource Categories Grid ===== */}
-      <section className="py-24">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
               Knowledge & Support
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mt-2 mb-4 tracking-tight">
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140]">
               Patient Guides & Information
             </h2>
-            <p className="text-slate-600 text-lg">
+            <p className="text-sm text-[#5B6B7C]">
               Find detailed overviews about home health care expectations, your
               rights as a patient, and how we protect your privacy.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 title: "Patient Rights & Responsibilities",
                 code: "PR",
-                img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#1B2333]",
+                textClass: "text-[#F5C77E]",
+                badgeBgClass: "bg-white/10 text-[#F5C77E]",
                 items: [
                   "Right to safe, high-quality, professional care",
                   "Involvement in your own plan of care and treatment decisions",
@@ -131,7 +236,9 @@ export default function ResourcesPage() {
               {
                 title: "Caregiver Education",
                 code: "CE",
-                img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#123B3E]",
+                textClass: "text-[#8FE0DA]",
+                badgeBgClass: "bg-white/10 text-[#8FE0DA]",
                 items: [
                   "Tips for managing medications and daily routines safely at home",
                   "Fall prevention and home safety adaptation checklists",
@@ -141,7 +248,9 @@ export default function ResourcesPage() {
               {
                 title: "Forms & Downloads",
                 code: "FD",
-                img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#211B3E]",
+                textClass: "text-[#B9AEFF]",
+                badgeBgClass: "bg-white/10 text-[#B9AEFF]",
                 items: [
                   "General inquiry and consultation request guides",
                   "Physician referral documentation guidelines",
@@ -151,7 +260,9 @@ export default function ResourcesPage() {
               {
                 title: "Privacy & HIPAA Compliance",
                 code: "HP",
-                img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#12301F]",
+                textClass: "text-[#9FE6B8]",
+                badgeBgClass: "bg-white/10 text-[#9FE6B8]",
                 items: [
                   "Notice of Privacy Practices safeguarding your health data",
                   "Secure handling guidelines for medical records",
@@ -161,7 +272,9 @@ export default function ResourcesPage() {
               {
                 title: "Nondiscrimination & Accessibility",
                 code: "ND",
-                img: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#331B3E]",
+                textClass: "text-[#E3AEE8]",
+                badgeBgClass: "bg-white/10 text-[#E3AEE8]",
                 items: [
                   "Equal access to services without regard to race, color, or origin",
                   "Language assistance services available for clear communication",
@@ -171,7 +284,9 @@ export default function ResourcesPage() {
               {
                 title: "Grievances & Feedback",
                 code: "GF",
-                img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80",
+                bgClass: "bg-[#14263E]",
+                textClass: "text-[#9FC7F5]",
+                badgeBgClass: "bg-white/10 text-[#9FC7F5]",
                 items: [
                   "Open channels to voice compliments, concerns, or complaints",
                   "Direct administrative oversight for prompt resolution",
@@ -181,37 +296,41 @@ export default function ResourcesPage() {
             ].map((cat, i) => (
               <div
                 key={i}
-                className="group bg-white rounded-3xl overflow-hidden transition-all duration-300 flex flex-col justify-between"
+                className={`${cat.bgClass} p-8 rounded-md flex flex-col justify-between space-y-6`}
               >
-                <div>
-                  <div className="aspect-[16/9] overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10" />
-                    <img
-                      src={cat.img}
-                      alt={cat.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute bottom-3 left-4 z-20 flex items-center gap-2">
-                      <span className="w-8 h-8 rounded-lg bg-[#F59E0B] text-[#0F172A] font-bold text-xs flex items-center justify-center">
-                        {cat.code}
-                      </span>
-                      <h3 className="text-lg font-bold text-white">
-                        {cat.title}
-                      </h3>
-                    </div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span
+                      className={`inline-block px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${cat.badgeBgClass}`}
+                    >
+                      Module [{cat.code}]
+                    </span>
+                    <span className="text-xs font-mono opacity-40 text-white">
+                      [0{i + 1}]
+                    </span>
                   </div>
-                  <div className="p-6">
-                    <ul className="space-y-3 text-slate-600 text-sm">
-                      {cat.items.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5">
-                          <span className="text-[#F59E0B] font-bold mt-0.5">
-                            •
-                          </span>
-                          <span className="leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+
+                  <h3
+                    className={`ohh-serif text-xl font-bold ${cat.textClass}`}
+                  >
+                    {cat.title}
+                  </h3>
+
+                  <ul className="space-y-3 text-slate-300 text-sm font-light">
+                    {cat.items.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <span className={`font-bold mt-0.5 ${cat.textClass}`}>
+                          •
+                        </span>
+                        <span className="leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>Resource Guide</span>
+                  <span className={cat.textClass}>Available</span>
                 </div>
               </div>
             ))}
@@ -220,16 +339,16 @@ export default function ResourcesPage() {
       </section>
 
       {/* ===== FAQ Accordion Section ===== */}
-      <section className="py-24 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#F59E0B] font-semibold tracking-widest uppercase text-xs">
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
               Common Questions
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] mt-2 mb-4 tracking-tight">
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140]">
               Frequently Asked Questions
             </h2>
-            <p className="text-slate-600 text-lg">
+            <p className="text-sm text-[#5B6B7C]">
               Click on a question below to find quick answers about our home
               health services and patient care policies.
             </p>
@@ -241,21 +360,25 @@ export default function ResourcesPage() {
               return (
                 <div
                   key={index}
-                  className="bg-[#FAFAF8] rounded-2xl overflow-hidden transition-all duration-300"
+                  className="bg-[#FBF8F2] rounded-md overflow-hidden transition-all duration-300 border border-[#F0EBDD]"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 focus:outline-none"
                   >
-                    <span className="font-bold text-[#0F172A] text-base sm:text-lg">
+                    <span className="font-bold text-[#0A2140] text-base sm:text-lg ohh-serif">
                       {faq.question}
                     </span>
-                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 text-[#0F172A] flex items-center justify-center font-bold text-sm transition-transform duration-300">
-                      {isOpen ? "-" : "+"}
+                    <span
+                      className={`flex-shrink-0 w-8 h-8 rounded-md bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center font-bold text-sm transition-transform duration-300 ${
+                        isOpen ? "rotate-180 bg-[#0A2140] text-[#E4B95A]" : ""
+                      }`}
+                    >
+                      <ChevronDown size={16} />
                     </span>
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <div className="px-6 pb-6 text-[#5B6B7C] text-sm sm:text-base leading-relaxed border-t border-[#F0EBDD] pt-4">
                       {faq.answer}
                     </div>
                   )}
@@ -266,65 +389,75 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* ===== Notices & Disclaimer Section ===== */}
-      <section className="py-24">
+      {/* ===== Notices & Disclaimer Cards ===== */}
+      <section className="pb-24 pt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-amber-50/70 rounded-3xl p-8 flex gap-6 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-amber-500 text-white font-bold flex items-center justify-center text-xl">
-                !
-              </div>
-              <div>
-                <h3 className="font-bold text-[#0F172A] mb-2 text-lg">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Urgent Assistance Box */}
+            <div className="bg-[#0A2140] text-white rounded-md p-8 sm:p-10 flex flex-col justify-between space-y-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 text-[#E4B95A] font-mono text-xs uppercase tracking-wider">
+                    <AlertCircle size={14} />
+                    <span>Urgent Assistance</span>
+                  </div>
+                  <span className="font-mono text-xs text-slate-400 opacity-60">
+                    [24_7_SUPPORT]
+                  </span>
+                </div>
+
+                <h3 className="ohh-serif text-2xl font-semibold text-white tracking-tight">
                   Need Immediate Assistance?
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+
+                <p className="text-slate-300 text-sm leading-relaxed font-light">
                   Current patients have access to a 24/7 on-call extension for
                   urgent clinical concerns. If you are experiencing a
                   life-threatening medical emergency, please call 911
                   immediately.
                 </p>
               </div>
-            </div>
-            <div className="bg-white rounded-3xl p-8">
-              <h3 className="font-bold text-[#0F172A] mb-2 text-lg">
-                Compliance & Legal Commitment
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                One Community Health operates fully under applicable state and
-                federal guidelines as a DBA of JACOP Healthcare Services, Inc.
-                (serving clients since 2010). All resources adhere to standard
-                healthcare compliance practices.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ===== Final CTA ===== */}
-      <section className="py-24 bg-[#0F172A] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-[#0F172A] to-slate-900" />
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight">
-            Have questions about our resources or care options?
-          </h2>
-          <p className="text-lg text-slate-300 mb-8">
-            Our team is available to help you understand your benefits, care
-            plans, and next steps.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="tel:9723251598"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[#F59E0B] hover:bg-[#FBBF24] text-[#0F172A] font-bold rounded-xl transition-all"
-            >
-              Call 972-325-1598
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl transition-all backdrop-blur-sm"
-            >
-              Contact Our Team
-            </Link>
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-400 relative z-10">
+                <span>Emergency Protocol</span>
+                <span className="text-[#E4B95A]">Call 911</span>
+              </div>
+            </div>
+
+            {/* Compliance Box */}
+            <div className="bg-white text-[#0A2140] rounded-md p-8 sm:p-10 flex flex-col justify-between space-y-6 border border-[#EFE8D8]">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F3ECDC] text-[#0A2140] font-mono text-xs uppercase tracking-wider">
+                    <FileText size={14} className="text-[#C89B3C]" />
+                    <span>Legal Commitment</span>
+                  </div>
+                  <span className="font-mono text-xs text-[#8A7B5C] opacity-60">
+                    [COMPLIANCE_03]
+                  </span>
+                </div>
+
+                <h3 className="ohh-serif text-2xl font-semibold text-[#0A2140] tracking-tight">
+                  Compliance & Legal Commitment
+                </h3>
+
+                <p className="text-[#5B6B7C] text-sm leading-relaxed font-light">
+                  One Community Health operates fully under applicable state and
+                  federal guidelines as a DBA of JACOP Healthcare Services, Inc.
+                  (serving clients since 2010). All resources adhere to standard
+                  healthcare compliance practices.
+                </p>
+              </div>
+
+              <div className="pt-6 border-t border-[#F0EBDD] flex items-center justify-between text-xs font-mono text-[#8A7B5C]">
+                <span>Operational Status</span>
+                <span className="text-[#0A2140] font-bold">
+                  Serving Since 2010
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

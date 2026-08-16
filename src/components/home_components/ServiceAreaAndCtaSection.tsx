@@ -50,8 +50,8 @@ export default function OneCommunityContact() {
         </div> */}
 
         <div className="space-y-5 max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-[0.2em]">
-            <span className="h-px w-8 bg-amber-400/60" />
+          <div className="inline-flex items-center gap-2 text-[#C89B3C] text-xs font-bold uppercase tracking-[0.2em]">
+            <span className="h-px w-8 bg-[#C89B3C]/60" />
             One Community Home Health
           </div>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold  text-white leading-[1.05]">
@@ -69,21 +69,21 @@ export default function OneCommunityContact() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <a
             href="tel:9723251598"
-            className="group flex flex-col justify-between p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-400/60 hover:bg-white/[0.06] transition-colors"
+            className="group flex flex-col justify-between p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#C89B3C]/60 hover:bg-white/[0.06] transition-colors"
           >
-            <Phone className="w-5 h-5 text-amber-400 mb-6" />
+            <Phone className="w-5 h-5 text-[#C89B3C] mb-6" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                 Call intake
               </div>
-              <div className="text-xl font-bold text-white mt-1 group-hover:text-amber-400 transition-colors">
+              <div className="text-xl font-bold text-white mt-1 group-hover:text-[#C89B3C] transition-colors">
                 972-325-1598
               </div>
             </div>
           </a>
 
           <div className="flex flex-col justify-between p-6 rounded-2xl bg-white/[0.04] border border-white/10">
-            <Printer className="w-5 h-5 text-amber-400 mb-6" />
+            <Printer className="w-5 h-5 text-[#C89B3C] mb-6" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                 Fax a referral
@@ -96,14 +96,14 @@ export default function OneCommunityContact() {
 
           <a
             href="mailto:info@onechh.com"
-            className="group flex flex-col justify-between p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-amber-400/60 hover:bg-white/[0.06] transition-colors"
+            className="group flex flex-col justify-between p-6 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#C89B3C]/60 hover:bg-white/[0.06] transition-colors"
           >
-            <Mail className="w-5 h-5 text-amber-400 mb-6" />
+            <Mail className="w-5 h-5 text-[#C89B3C] mb-6" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
                 Email us
               </div>
-              <div className="text-xl font-bold text-white mt-1 group-hover:text-amber-400 transition-colors truncate">
+              <div className="text-xl font-bold text-white mt-1 group-hover:text-[#C89B3C] transition-colors truncate">
                 info@onechh.com
               </div>
             </div>
@@ -122,12 +122,12 @@ export default function OneCommunityContact() {
                   A DBA of JACOP Healthcare Services, Inc.
                 </p>
               </div>
-              <Building2 className="w-5 h-5 text-amber-400 flex-shrink-0 mt-1" />
+              <Building2 className="w-5 h-5 text-[#C89B3C] flex-shrink-0 mt-1" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="flex gap-4">
-                <MapPin className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-[#C89B3C] flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-semibold text-slate-200">
                     Office location
@@ -136,7 +136,7 @@ export default function OneCommunityContact() {
                     href="https://maps.google.com/?q=3560+Quannah+Drive,+Grand+Prairie,+TX+75052"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-slate-400 mt-1 leading-relaxed block hover:text-amber-400 transition-colors"
+                    className="text-sm text-slate-400 mt-1 leading-relaxed block hover:text-[#C89B3C] transition-colors"
                   >
                     3560 Quannah Drive
                     <br />
@@ -146,7 +146,7 @@ export default function OneCommunityContact() {
               </div>
 
               <div className="flex gap-4">
-                <Clock className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-[#C89B3C] flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-semibold text-slate-200">
                     Administrative hours
@@ -154,7 +154,7 @@ export default function OneCommunityContact() {
                   <p className="text-sm text-slate-400 mt-1 leading-relaxed">
                     Mon–Fri, 9:00 AM – 5:00 PM
                   </p>
-                  <p className="text-xs text-amber-400/90 font-bold mt-1">
+                  <p className="text-xs text-[#C89B3C]/90 font-bold mt-1">
                     Office visits by appointment only
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default function OneCommunityContact() {
 
           <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-8 flex flex-col justify-between space-y-6">
             <div>
-              <UserCheck className="w-5 h-5 text-amber-400 mb-6" />
+              <UserCheck className="w-5 h-5 text-[#C89B3C] mb-6" />
               <h3 className="text-xl font-bold text-white">
                 Join our care team
               </h3>
@@ -194,7 +194,7 @@ export default function OneCommunityContact() {
 
             <a
               href="#careers"
-              className="w-full py-3.5 px-5 rounded-xl bg-white/[0.06] hover:bg-amber-400 hover:text-slate-950 text-white text-sm font-semibold flex items-center justify-between transition-colors border border-white/10 group"
+              className="w-full py-3.5 px-5 rounded-xl bg-white/[0.06] hover:bg-[#C89B3C] hover:text-slate-950 text-white text-sm font-semibold flex items-center justify-between transition-colors border border-white/10 group"
             >
               <span>Apply as a CNA</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -203,7 +203,7 @@ export default function OneCommunityContact() {
         </div>
 
         {/* Referral CTA */}
-        <div className="rounded-2xl bg-amber-400 text-slate-950 p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="rounded-2xl bg-[#C89B3C] text-slate-950 p-8 sm:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div className="space-y-4 max-w-xl">
             <Stethoscope className="w-6 h-6" />
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">

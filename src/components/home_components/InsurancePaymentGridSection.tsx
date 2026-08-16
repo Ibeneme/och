@@ -10,6 +10,7 @@ import {
   FileCheck,
   Building2,
   WalletCards,
+  ArrowUpRight,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,105 +19,83 @@ export interface InsuranceItem {
   title: string;
   description: string;
   badge: string;
-  reverse: boolean;
   bgClass: string;
   textClass: string;
   badgeBgClass: string;
-  accentBorderClass: string;
 }
 
-// A single coordinated family of deep, muted jewel tones — each card reads
-// as a distinct "brand," but none of them fight each other or the section's
-// navy background the way saturated defaults (lime, fuchsia, bright rose)
-// tend to.
 export const insuranceLines: InsuranceItem[] = [
   {
     title: "Medicare",
     description:
       "Comprehensive Medicare-certified home health services, provided subject to individual patient eligibility and documented medical necessity.",
     badge: "In-network coverage",
-    reverse: false,
-    bgClass: "bg-[#1B2333]",
-    textClass: "text-[#F5C77E]",
-    badgeBgClass: "bg-white/10 text-[#F5C77E] border-white/15",
-    accentBorderClass: "border-white/10",
+    bgClass: "bg-[#162233]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Texas Medicaid / STAR+PLUS",
     description:
       "Dedicated home care support serving eligible adults with disabilities and adults age 65 or older under the STAR+PLUS program.",
     badge: "In-network coverage",
-    reverse: true,
-    bgClass: "bg-[#123B3E]",
-    textClass: "text-[#8FE0DA]",
-    badgeBgClass: "bg-white/10 text-[#8FE0DA] border-white/15",
-    accentBorderClass: "border-white/10",
+    bgClass: "bg-[#15261C]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Molina Healthcare",
     description:
       "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care products.",
     badge: "In-network coverage",
-    reverse: false,
-    bgClass: "bg-[#211B3E]",
-    textClass: "text-[#B9AEFF]",
-    badgeBgClass: "bg-white/10 text-[#B9AEFF] border-white/15",
-    accentBorderClass: "border-white/10",
+    bgClass: "bg-[#1E1B2E]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Superior HealthPlan",
     description:
       "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care product lines.",
     badge: "In-network coverage",
-    reverse: true,
-    bgClass: "bg-[#3E1424]",
-    textClass: "text-[#F3A8C0]",
-    badgeBgClass: "bg-white/10 text-[#F3A8C0] border-white/15",
-    accentBorderClass: "border-white/10",
+    bgClass: "bg-[#241A22]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Wellpoint",
     description:
       "Formerly Amerigroup; active network participation using the current Wellpoint name and designation.",
     badge: "In-network coverage",
-    reverse: false,
-    bgClass: "bg-[#12301F]",
-    textClass: "text-[#9FE6B8]",
-    badgeBgClass: "bg-white/10 text-[#9FE6B8] border-white/15",
-    accentBorderClass: "border-white/10",
+    bgClass: "bg-[#1B2333]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Aetna",
     description:
       "Select HMO and private commercial insurance plan participation accepted upon verification.",
-    badge: "Accepted upon verification",
-    reverse: true,
-    bgClass: "bg-[#331B3E]",
-    textClass: "text-[#E3AEE8]",
-    badgeBgClass: "bg-white/10 text-[#E3AEE8] border-white/15",
-    accentBorderClass: "border-white/10",
+    badge: "Verification required",
+    bgClass: "bg-[#241B2A]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "VA Community Care",
     description:
       "Accepted when eligible veterans have secured the required VA referral, network authorization, or prior approval.",
-    badge: "Requires prior authorization",
-    reverse: false,
-    bgClass: "bg-[#14263E]",
-    textClass: "text-[#9FC7F5]",
-    badgeBgClass: "bg-white/10 text-[#9FC7F5] border-white/15",
-    accentBorderClass: "border-white/10",
+    badge: "Prior auth required",
+    bgClass: "bg-[#162A32]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
   {
     title: "Private Pay / Self-Pay",
     description:
       "Flexible private financial arrangements where custom rates and service availability are discussed during your personal consultation.",
-    badge: "Flexible arrangement",
-    reverse: true,
-    bgClass: "bg-[#3E2A14]",
-    textClass: "text-[#F0C48A]",
-    badgeBgClass: "bg-white/10 text-[#F0C48A] border-white/15",
-    accentBorderClass: "border-white/10",
+    badge: "Flexible option",
+    bgClass: "bg-[#2A2218]",
+    textClass: "text-white",
+    badgeBgClass: "bg-yellow-400 text-[#0F172A]",
   },
 ];
 
@@ -131,13 +110,9 @@ const getInsuranceIcon = (title: string) => {
   return WalletCards;
 };
 
-// How many "retired" cards get a visibly distinct depth before they're
-// treated as fully buried (keeps the fan from turning into mush past 4-5).
-const MAX_DEPTH = 5;
-
 export default function InsuranceStackSection(): React.JSX.Element {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const stackRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -156,46 +131,33 @@ export default function InsuranceStackSection(): React.JSX.Element {
 
     const ctx = gsap.context(() => {
       const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
-      if (!cards.length || !stackRef.current) return;
+      if (!cards.length || !trackRef.current) return;
 
       const n = cards.length;
       const progressState = { value: 0 };
 
-      cards.forEach((card) => gsap.set(card, { transformOrigin: "50% 100%" }));
+      cards.forEach((card) => gsap.set(card, { transformOrigin: "50% 0%" }));
 
-      // Every card's visual state is derived fresh from a single progress
-      // value on every update, instead of a chain of one-shot tweens.
-      // That's what was breaking: cards that had already "retired" once
-      // never moved again, so they all piled up on the exact same
-      // transform and read as one flat navy block.
       const applyStack = () => {
         cards.forEach((card, idx) => {
           const raw = progressState.value - idx;
 
           if (raw <= 0) {
-            // Card hasn't arrived yet — interpolate its entrance during
-            // the single unit of scroll immediately before it "lands".
             const enter = gsap.utils.clamp(0, 1, 1 + raw);
             gsap.set(card, {
-              yPercent: gsap.utils.interpolate(100, 0, enter),
-              y: 0,
-              scale: gsap.utils.interpolate(1.05, 1, enter),
-              rotate: 0,
-              filter: `brightness(${gsap.utils.interpolate(0.55, 1, enter)})`,
+              yPercent: gsap.utils.interpolate(120, 0, enter),
+              scale: gsap.utils.interpolate(0.9, 1, enter),
+              opacity: gsap.utils.interpolate(0, 1, enter),
+              rotateX: gsap.utils.interpolate(15, 0, enter),
             });
           } else {
-            // Card has arrived and is now receding into the stack as later
-            // cards land on top of it. Depth grows continuously so each
-            // layer settles slightly further back — a real fanned deck,
-            // capped so far-back cards don't shrink into nothing.
-            const depth = Math.min(raw, MAX_DEPTH);
-            const dir = idx % 2 === 0 ? -1 : 1;
+            const depth = Math.min(raw, 4);
             gsap.set(card, {
               yPercent: 0,
-              y: -depth * 14,
-              scale: 1 - depth * 0.045,
-              rotate: dir * depth * 1.25,
-              filter: `brightness(${Math.max(1 - depth * 0.12, 0.42)})`,
+              y: -depth * 28,
+              scale: 1 - depth * 0.05,
+              opacity: Math.max(1 - depth * 0.25, 0),
+              rotateX: depth * 4,
             });
           }
         });
@@ -210,10 +172,11 @@ export default function InsuranceStackSection(): React.JSX.Element {
       applyStack();
 
       const trigger = ScrollTrigger.create({
-        trigger: stackRef.current,
-        start: "top top",
-        end: () => `+=${(n - 1) * (window.innerHeight * 0.9)}`,
-        scrub: 1,
+        id: "insurance-stack-clean",
+        trigger: trackRef.current,
+        start: "top top+=100",
+        end: () => `+=${(n - 1) * 400}`,
+        scrub: 0.8,
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
@@ -224,8 +187,6 @@ export default function InsuranceStackSection(): React.JSX.Element {
         },
       });
 
-      // Layout can shift after fonts/images finish loading — recheck once
-      // things settle so the pin distance is measured correctly.
       const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 200);
 
       return () => {
@@ -238,129 +199,163 @@ export default function InsuranceStackSection(): React.JSX.Element {
   }, [reducedMotion]);
 
   const jumpToCard = (idx: number) => {
-    const trigger = ScrollTrigger.getById("insurance-stack");
+    const trigger = ScrollTrigger.getById("insurance-stack-clean");
     if (!trigger) return;
     const target =
       trigger.start +
       (idx / (insuranceLines.length - 1)) * (trigger.end - trigger.start);
-    gsap.to(window, { scrollTo: target, duration: 0.6, ease: "power2.out" });
+    gsap.to(window, { scrollTo: target, duration: 0.5, ease: "power2.out" });
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-slate-950 font-sans overflow-hidden border-t border-b border-slate-800 py-24"
+      className="relative w-full bg-[#0F172A] font-sans py-24 lg:py-32 overflow-hidden"
     >
-      {/* Single quiet vignette instead of multi-color bokeh — keeps the
-          section feeling clinical and controlled rather than decorative. */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(228,185,90,0.06), transparent 70%)",
-        }}
-      />
-
-      <div className="relative z-10 w-full flex flex-col items-center px-4 md:px-8 lg:px-12">
-        {/* Section Header */}
-        <div className="text-center pt-12 pb-16 max-w-3xl mx-auto">
-          <span className="inline-block text-[11px] md:text-xs font-bold uppercase tracking-[0.2em] text-[#E4B95A] bg-[#E4B95A]/10 px-4 py-2 rounded-full mb-5 border border-[#E4B95A]/20">
-            Accepted insurance & coverage pathways
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]">
-            Flexible payment <span className="text-[#E4B95A]">options.</span>
-          </h2>
-          <p className="mt-5 text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Review our accepted insurance providers, managed care plans, and
-            private payment structures tailored to support your care journey.
-          </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Layout */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center mb-16 lg:mb-24">
+          <div className="lg:col-span-7 space-y-6">
+            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-yellow-400 bg-white/10 px-4 py-2 rounded-full">
+              <span className="w-2 h-2 rounded-full bg-yellow-400" />
+              Insurance & Financial Pathways
+            </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08]">
+              Flexible coverage options tailored for{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+                your care.
+              </span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed">
+              We work directly with major public providers, managed care
+              organizations, and private structures to streamline your
+              authorization and ensure seamless access to care across DFW.
+            </p>
+          </div>
         </div>
 
-        {/* Pinned Stacking Area */}
-        <div className="relative w-full max-w-5xl xl:max-w-6xl flex items-center justify-center gap-6">
-          <div
-            ref={stackRef}
-            className="relative w-full h-[520px] md:h-[480px] flex items-center justify-center"
-          >
+        {/* Main Interface Grid: Interactive Stack + Navigation Menu (No Shadows / No Borders) */}
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Left Navigation Quick Menu */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-2 bg-slate-900/60 p-4 rounded-3xl backdrop-blur-md">
+            <div className="px-4 py-2 text-xs font-black uppercase tracking-wider text-slate-400">
+              Select Provider
+            </div>
             {insuranceLines.map((item, idx) => {
               const Icon = getInsuranceIcon(item.title);
+              const isActive = idx === activeIndex;
               return (
-                <div
-                  key={idx}
-                  ref={(el) => {
-                    cardsRef.current[idx] = el;
-                  }}
-                  className={`absolute inset-0 flex items-center justify-center will-change-transform ${
-                    reducedMotion ? "relative mb-6" : ""
-                  }`}
-                  style={{ zIndex: idx + 1 }}
-                >
-                  <div
-                    className={`relative w-full ${item.bgClass} rounded-[2rem] p-8 md:p-12 min-h-[440px] md:min-h-[460px] flex flex-col justify-between border ${item.accentBorderClass} overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]`}
-                  >
-                    {/* Top Badge & Icon */}
-                    <div className="flex items-center justify-between border-b border-current/15 pb-6">
-                      <div
-                        className={`w-12 h-12 rounded-2xl bg-black/25 flex items-center justify-center border border-current/20 ${item.textClass}`}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span
-                        className={`px-4 py-1.5 rounded-full text-[11px] md:text-xs font-bold uppercase tracking-wider border ${item.badgeBgClass}`}
-                      >
-                        {item.badge}
-                      </span>
-                    </div>
-
-                    {/* Title */}
-                    <div className="my-6">
-                      <h3
-                        className={`text-3xl md:text-5xl font-bold tracking-tight leading-tight ${item.textClass}`}
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <div className="pt-6 border-t border-current/15">
-                      <p
-                        className={`text-base md:text-xl font-medium leading-relaxed max-w-4xl opacity-90 ${item.textClass}`}
-                      >
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Progress rail — now clickable, jumps scroll position to the card */}
-          {!reducedMotion && (
-            <div className="hidden lg:flex flex-col gap-3 shrink-0">
-              {insuranceLines.map((item, idx) => (
                 <button
                   key={item.title}
                   type="button"
                   onClick={() => jumpToCard(idx)}
-                  aria-label={`Jump to ${item.title}`}
-                  aria-current={idx === activeIndex}
-                  className={`w-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E4B95A] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
-                    idx === activeIndex
-                      ? "h-8 bg-[#E4B95A]"
-                      : "h-2 bg-slate-700 hover:bg-slate-500"
+                  className={`flex items-center justify-between w-full p-3.5 rounded-2xl text-left transition-all ${
+                    isActive
+                      ? "bg-yellow-400 text-[#0F172A] font-black"
+                      : "text-slate-300 hover:bg-white/5 font-semibold"
                   }`}
-                />
-              ))}
+                >
+                  <div className="flex items-center gap-3 truncate">
+                    <Icon size={18} className="flex-shrink-0" />
+                    <span className="text-sm truncate">{item.title}</span>
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className={`flex-shrink-0 transition-transform ${
+                      isActive ? "opacity-100 rotate-45" : "opacity-40"
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Sticky Stacking Cards Stage */}
+          <div className="lg:col-span-8 relative">
+            <div
+              ref={trackRef}
+              className={`relative w-full ${
+                reducedMotion ? "flex flex-col gap-6" : "h-[460px] sm:h-[420px]"
+              }`}
+            >
+              {insuranceLines.map((item, idx) => {
+                const Icon = getInsuranceIcon(item.title);
+                return (
+                  <div
+                    key={idx}
+                    ref={(el) => {
+                      cardsRef.current[idx] = el;
+                    }}
+                    className={`will-change-transform ${
+                      reducedMotion
+                        ? "relative"
+                        : "absolute inset-0 flex items-start"
+                    }`}
+                    style={reducedMotion ? undefined : { zIndex: idx + 1 }}
+                  >
+                    <div
+                      className={`w-full ${item.bgClass} rounded-3xl p-8 sm:p-12 min-h-[380px] sm:min-h-[400px] flex flex-col justify-between`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-black/30 flex items-center justify-center text-yellow-400">
+                          <Icon size={24} />
+                        </div>
+                        <span
+                          className={`px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider ${item.badgeBgClass}`}
+                        >
+                          {item.badge}
+                        </span>
+                      </div>
+
+                      <div className="my-6 space-y-3">
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-base sm:text-lg font-medium text-slate-200 leading-relaxed max-w-2xl opacity-90">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-6 flex items-center justify-between text-xs font-bold text-slate-400">
+                        <span className="uppercase tracking-widest">
+                          Coverage Pathway #{idx + 1}
+                        </span>
+                        <span className="text-yellow-400">
+                          Dallas-Fort Worth Metroplex
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          )}
+          </div>
         </div>
 
-        {/* Mandatory Coverage & Authorization Disclaimer */}
-        <div className="mt-20 max-w-3xl text-center px-4">
-          <p className="text-xs md:text-sm text-slate-500 tracking-wide leading-relaxed">
-            Coverage and authorization vary by plan, product, eligibility,
-            service, and location.
+        {/* Mobile Indicator Bar */}
+        {!reducedMotion && (
+          <div className="mt-8 lg:hidden flex items-center justify-center gap-2">
+            {insuranceLines.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => jumpToCard(idx)}
+                aria-label={`Jump to slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  idx === activeIndex ? "w-8 bg-yellow-400" : "w-2 bg-slate-700"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Disclaimer Footer */}
+        <div className="mt-16 text-center max-w-2xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-400 tracking-wide leading-relaxed font-medium">
+            Coverage and authorization vary by plan, specific product lines,
+            medical necessity, and service location. Contact our team to confirm
+            active network status.
           </p>
         </div>
       </div>

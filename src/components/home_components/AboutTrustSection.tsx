@@ -205,7 +205,7 @@ export default function AboutTrustSection() {
         </div>
       </section>
 
-      {/* Full-Page Parallax Video Banner Section */}
+
       <section
         ref={parallaxSectionRef}
         className="relative w-full h-[50vh] sm:h-[65vh] overflow-hidden flex items-center justify-center"

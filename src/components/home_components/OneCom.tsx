@@ -12,7 +12,7 @@ export default function OneCommunitySection() {
   return (
     <section className="relative min-h-screen bg-[#F3F1EC] text-slate-900 py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Soft background glow matching gold theme */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C89B3C]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Top Badge & Header */}
@@ -130,7 +130,7 @@ export default function OneCommunitySection() {
 
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-xl text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-amber-500/30 mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-[#C89B3C]/30 mb-4">
                 Our Core Mission
               </span>
               <h3 className="fp-serif text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-white">
@@ -145,7 +145,7 @@ export default function OneCommunitySection() {
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
               <a
                 href="tel:9723251598"
-                className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 active:bg-amber-600 border border-amber-600 text-slate-950 font-semibold px-7 py-4 rounded-xl text-[14px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto bg-[#C89B3C] text-slate-950 font-semibold px-7 py-4 rounded-xl text-[14px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Phone className="w-4 h-4" />
                 Call 972-325-1598

@@ -1,22 +1,120 @@
 import { Link } from "react-router-dom";
-import Scrollers from "../home_components/Scrollers";
+
 import {
   ShieldCheck,
   Phone,
   ArrowRight,
-  AlertCircle,
-  FileText,
+
+  CheckCircle2,
+  Award,
+  Layers,
+  SlidersHorizontal,
+  Info,
+  ShieldAlert,
 } from "lucide-react";
+
+export interface InsuranceItem {
+  title: string;
+  description: string;
+  badge: string;
+  bgClass: string;
+  textClass: string;
+  badgeBgClass: string;
+  accentBorderClass: string;
+}
+
+export const insuranceLines: InsuranceItem[] = [
+  {
+    title: "Medicare",
+    description:
+      "Comprehensive Medicare-certified home health services, provided subject to individual patient eligibility and documented medical necessity.",
+    badge: "In-network coverage",
+    bgClass: "bg-[#1B2333]",
+    textClass: "text-[#F5C77E]",
+    badgeBgClass: "bg-white/10 text-[#F5C77E]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Texas Medicaid / STAR+PLUS",
+    description:
+      "Dedicated home care support serving eligible adults with disabilities and adults age 65 or older under the STAR+PLUS program.",
+    badge: "In-network coverage",
+    bgClass: "bg-[#123B3E]",
+    textClass: "text-[#8FE0DA]",
+    badgeBgClass: "bg-white/10 text-[#8FE0DA]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Molina Healthcare",
+    description:
+      "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care products.",
+    badge: "In-network coverage",
+    bgClass: "bg-[#211B3E]",
+    textClass: "text-[#B9AEFF]",
+    badgeBgClass: "bg-white/10 text-[#B9AEFF]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Superior HealthPlan",
+    description:
+      "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care product lines.",
+    badge: "In-network coverage",
+    bgClass: "bg-[#3E1424]",
+    textClass: "text-[#F3A8C0]",
+    badgeBgClass: "bg-white/10 text-[#F3A8C0]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Wellpoint",
+    description:
+      "Formerly Amerigroup; active network participation using the current Wellpoint name and designation.",
+    badge: "In-network coverage",
+    bgClass: "bg-[#12301F]",
+    textClass: "text-[#9FE6B8]",
+    badgeBgClass: "bg-white/10 text-[#9FE6B8]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Aetna",
+    description:
+      "Select HMO and private commercial insurance plan participation accepted upon verification.",
+    badge: "Accepted upon verification",
+    bgClass: "bg-[#331B3E]",
+    textClass: "text-[#E3AEE8]",
+    badgeBgClass: "bg-white/10 text-[#E3AEE8]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "VA Community Care",
+    description:
+      "Accepted when eligible veterans have secured the required VA referral, network authorization, or prior approval.",
+    badge: "Requires prior authorization",
+    bgClass: "bg-[#14263E]",
+    textClass: "text-[#9FC7F5]",
+    badgeBgClass: "bg-white/10 text-[#9FC7F5]",
+    accentBorderClass: "border-transparent",
+  },
+  {
+    title: "Private Pay / Self-Pay",
+    description:
+      "Flexible private financial arrangements where custom rates and service availability are discussed during your personal consultation.",
+    badge: "Flexible arrangement",
+    bgClass: "bg-[#3E2A14]",
+    textClass: "text-[#F0C48A]",
+    badgeBgClass: "bg-white/10 text-[#F0C48A]",
+    accentBorderClass: "border-transparent",
+  },
+];
 
 export default function InsurancePaymentOptionsPage() {
   return (
     <main className="min-h-screen bg-[#FBF8F2] text-[#3A4657] ohh-sans">
       {/* ===== Hero Section ===== */}
-      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-[#F0E9D9]">
+      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
                 <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
                 Coverage & Billing Support
               </div>
@@ -35,14 +133,14 @@ export default function InsurancePaymentOptionsPage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-2">
                 <a
                   href="tel:9723251598"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-md transition-all"
                 >
                   <Phone size={16} />
                   <span>Call (972) 325-1598</span>
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-md transition-all"
                 >
                   <span>Contact Our Team</span>
                   <ArrowRight size={16} />
@@ -52,9 +150,9 @@ export default function InsurancePaymentOptionsPage() {
 
             {/* Hero Feature Card */}
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl p-8 border border-[#EFE8D8] space-y-6">
-                <div className="flex items-center gap-3 pb-4 border-b border-[#F0EBDD]">
-                  <div className="w-10 h-10 rounded-xl bg-[#0A2140] text-[#E4B95A] flex items-center justify-center">
+              <div className="bg-white rounded-md p-8 space-y-6">
+                <div className="flex items-center gap-3 pb-4">
+                  <div className="w-10 h-10 rounded-md bg-[#0A2140] text-[#E4B95A] flex items-center justify-center">
                     <ShieldCheck size={20} />
                   </div>
                   <div>
@@ -100,70 +198,193 @@ export default function InsurancePaymentOptionsPage() {
       </section>
 
       {/* ===== Trust Strip Grid ===== */}
-      <section className="bg-white border-b border-[#F0E9D9] py-8">
+      <section className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: "Benefit Verification", sub: "Before Care Starts" },
-              { label: "Medicare-Certified", sub: "Trusted Quality" },
-              { label: "Multiple Sources", sub: "Flexible Options" },
-              { label: "Transparent Process", sub: "Zero Guesswork" },
-            ].map((item, idx) => (
+              {
+                label: "Benefit Verification",
+                sub: "Before Care Starts",
+                icon: CheckCircle2,
+                accentColor: "text-[#C89B3C]",
+                bgIcon: "bg-[#F3ECDC]",
+              },
+              {
+                label: "Medicare-Certified",
+                sub: "Trusted Quality",
+                icon: Award,
+                accentColor: "text-[#0A2140]",
+                bgIcon: "bg-[#EAEFF7]",
+              },
+              {
+                label: "Multiple Sources",
+                sub: "Flexible Options",
+                icon: Layers,
+                accentColor: "text-[#0A2140]",
+                bgIcon: "bg-[#F3ECDC]",
+              },
+              {
+                label: "Transparent Process",
+                sub: "Zero Guesswork",
+                icon: SlidersHorizontal,
+                accentColor: "text-[#C89B3C]",
+                bgIcon: "bg-[#F7F1E6]",
+              },
+            ].map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group relative flex flex-col justify-between p-6 rounded-md bg-[#FBF8F2] hover:bg-[#F3ECDC]/40 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className={`w-10 h-10 rounded-md ${item.bgIcon} ${item.accentColor} flex items-center justify-center transition-transform group-hover:scale-105`}
+                    >
+                      <IconComponent size={20} />
+                    </div>
+                    <span className="text-[10px] font-mono text-[#8A7B5C] font-bold opacity-60">
+                      [0{idx + 1}]
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] uppercase tracking-wider text-[#8A7B5C] font-bold block">
+                      {item.sub}
+                    </span>
+                    <span className="text-base font-bold text-[#0A2140] mt-1 block ohh-serif">
+                      {item.label}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Insurance Lines Grid ===== */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+              Accepted Coverage
+            </span>
+            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140]">
+              Our Insurance & Payment Plans
+            </h2>
+            <p className="text-sm text-[#5B6B7C]">
+              Review our supported insurance networks and flexible payment
+              arrangements below.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {insuranceLines.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col p-5 rounded-2xl bg-[#FBF8F2] border border-[#F0EBDD]"
+                className={`${item.bgClass} p-8 rounded-md flex flex-col justify-between space-y-6`}
               >
-                <span className="text-[10px] uppercase tracking-wider text-[#8A7B5C] font-bold">
-                  {item.sub}
-                </span>
-                <span className="text-sm font-bold text-[#0A2140] mt-1">
-                  {item.label}
-                </span>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span
+                      className={`inline-block px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${item.badgeBgClass}`}
+                    >
+                      {item.badge}
+                    </span>
+                    <span className="text-xs font-mono opacity-40 text-white">
+                      [0{idx + 1}]
+                    </span>
+                  </div>
+
+                  <h3
+                    className={`ohh-serif text-xl font-bold ${item.textClass}`}
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-slate-300 font-light leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>Verification Required</span>
+                  <span className={item.textClass}>Active Plan</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== Insurance Categories (Scrollers) ===== */}
-      <div className="py-8">
-        <Scrollers />
-      </div>
 
-      {/* ===== Notices & Disclaimer Cards ===== */}
-      <section className="pb-20 pt-6">
+      {/* ===== Notices & Disclaimer Cards (Redesigned Brutalist/Editorial Terminal Style) ===== */}
+      <section className="pb-24 pt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-[#F7F1E6] border border-[#EFE8D8] rounded-3xl p-8 flex gap-5 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#C89B3C] text-[#0A2140] font-bold flex items-center justify-center text-xl">
-                <AlertCircle size={22} />
-              </div>
-              <div>
-                <h3 className="ohh-serif font-bold text-[#0A2140] mb-2 text-lg">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Pending Notice Box */}
+            <div className="bg-[#0A2140] text-white rounded-md p-8 sm:p-10 flex flex-col justify-between space-y-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="space-y-4 relative z-10">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 text-[#E4B95A] font-mono text-xs uppercase tracking-wider">
+                    <Info size={14} />
+                    <span>Network Status Note</span>
+                  </div>
+                  <span className="font-mono text-xs text-slate-400 opacity-60">
+                    [SYS_NOTE_01]
+                  </span>
+                </div>
+
+                <h3 className="ohh-serif text-2xl font-semibold text-white tracking-tight">
                   Pending Insurance Relationships
                 </h3>
-                <p className="text-[#5B6B7C] text-sm leading-relaxed">
+
+                <p className="text-slate-300 text-sm leading-relaxed font-light">
                   UnitedHealthcare is not currently listed as an accepted plan.
                   It will only be shown once contracting and network
                   participation are fully confirmed.
                 </p>
               </div>
+
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-400 relative z-10">
+                <span>Status: In Review</span>
+                <span className="text-[#E4B95A]">Updated 2026</span>
+              </div>
             </div>
 
-            <div className="bg-white border border-[#EFE8D8] rounded-3xl p-8 flex gap-5 items-start">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#0A2140] text-[#E4B95A] font-bold flex items-center justify-center text-xl">
-                <FileText size={22} />
-              </div>
-              <div>
-                <h3 className="ohh-serif font-bold text-[#0A2140] mb-2 text-lg">
+            {/* Compliance Disclaimer Box */}
+            <div className="bg-white text-[#0A2140] rounded-md p-8 sm:p-10 flex flex-col justify-between space-y-6 border border-[#EFE8D8]">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#F3ECDC] text-[#0A2140] font-mono text-xs uppercase tracking-wider">
+                    <ShieldAlert size={14} className="text-[#C89B3C]" />
+                    <span>Regulatory Directive</span>
+                  </div>
+                  <span className="font-mono text-xs text-[#8A7B5C] opacity-60">
+                    [COMPLIANCE_02]
+                  </span>
+                </div>
+
+                <h3 className="ohh-serif text-2xl font-semibold text-[#0A2140] tracking-tight">
                   Important Compliance Disclaimer
                 </h3>
-                <p className="text-[#5B6B7C] text-sm leading-relaxed">
+
+                <p className="text-[#5B6B7C] text-sm leading-relaxed font-light">
                   Insurance participation can change dynamically. Acceptance of
                   a plan does not guarantee final coverage. Authorizations,
                   co-pays, deductibles, and clinical limitations must be
                   verified prior to care delivery.
                 </p>
+              </div>
+
+              <div className="pt-6 border-t border-[#F0EBDD] flex items-center justify-between text-xs font-mono text-[#8A7B5C]">
+                <span>Mandatory Check</span>
+                <span className="text-[#0A2140] font-bold">
+                  Texas Operating Standards
+                </span>
               </div>
             </div>
           </div>

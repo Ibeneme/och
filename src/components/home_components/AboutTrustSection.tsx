@@ -208,12 +208,12 @@ export default function AboutTrustSection() {
 
       <section
         ref={parallaxSectionRef}
-        className="relative w-full h-[50vh] sm:h-[65vh] overflow-hidden flex items-center justify-center"
+        className="relative w-full h-[60vh] sm:h-[65vh] overflow-hidden flex items-center justify-center"
       >
         {/* Parallax Background Video Container */}
         <div
           ref={parallaxBgRef}
-          className="absolute inset-0 -top-[0%] -bottom-[20%] w-full h-full will-change-transform pointer-events-none overflow-hidden"
+          className="absolute inset-0 -top-[0%] -bottom-[0%] w-full h-full will-change-transform pointer-events-none overflow-hidden"
         >
           <video
             ref={videoRef}
@@ -229,7 +229,7 @@ export default function AboutTrustSection() {
         </div>
 
         {/* Dark Gradient Overlay for Legibility & Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/40 to-black/30 z-[1]" />
 
         {/* Content Over Parallax Video */}
         <div className="relative z-10 text-center max-w-6xl mx-auto px-6 text-white">

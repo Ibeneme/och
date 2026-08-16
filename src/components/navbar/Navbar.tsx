@@ -140,10 +140,22 @@ export const Navbar = () => {
       desc: "Meet our executive leadership",
     },
     {
+      href: "/who-we-serve/seniors",
+      label: "Who we serve",
+      icon: Shield,
+      desc: "Seniors and the families we support",
+    },
+    {
       href: "/careers",
       label: "Careers & hiring",
       icon: Briefcase,
       desc: "Join our team of care professionals",
+    },
+    {
+      href: "/careers/cna-home-health-aide-application",
+      label: "CNA / Home Health Aide Application",
+      icon: UserCheck,
+      desc: "Apply to join our home health aide program",
     },
   ];
 
@@ -159,6 +171,18 @@ export const Navbar = () => {
       label: "Employee Resources",
       icon: UserCheck,
       desc: "Handbook, HR/payroll support, EVV, and reporting instructions",
+    },
+    {
+      href: "/contact",
+      label: "Contact us",
+      icon: Phone,
+      desc: "Get in touch or schedule a consultation",
+    },
+    {
+      href: "/referrals",
+      label: "Refer a patient",
+      icon: HeartHandshake,
+      desc: "Start a referral for someone in your care",
     },
   ];
 
@@ -366,9 +390,13 @@ export const Navbar = () => {
               </div>
             </div>
 
-            {/* ABOUT DROPDOWN */}
+            {/* ABOUT MEGA MENU — same shell as Services: branded left
+                panel + link column, instead of a plain list dropdown */}
             <div className="relative group">
-              <button className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors">
+              <button
+                aria-expanded="false"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
+              >
                 <span>About</span>
                 <ChevronDown
                   size={14}
@@ -377,36 +405,63 @@ export const Navbar = () => {
               </button>
 
               <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                <div className="w-72 bg-white rounded-2xl border border-[#EFE8D8] p-2 shadow-xl shadow-[#0A2140]/[0.06]">
-                  {aboutLinks.map((item) => (
+                <div className="w-[480px] xl:w-[560px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl border border-[#EFE8D8] overflow-hidden grid grid-cols-12 shadow-xl shadow-[#0A2140]/[0.06]">
+                  {/* Left panel */}
+                  <div className="col-span-12 sm:col-span-4 bg-[#F7F1E6] p-6 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-[#EFE8D8]">
+                    <div>
+                      <div className="w-10 h-10 rounded-full bg-[#0A2140] flex items-center justify-center mb-5 text-[#E4B95A]">
+                        <Heart size={18} />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A7B5C]">
+                        Who we are
+                      </span>
+                      <h3 className="ohh-serif text-[1.25rem] text-[#0A2140] font-semibold mt-2.5 leading-snug">
+                        Get to know our team
+                      </h3>
+                      <p className="text-[13px] text-[#5B6B7C] mt-3 leading-relaxed">
+                        Rooted in trust, led by clinicians who call this
+                        community home.
+                      </p>
+                    </div>
                     <a
-                      key={item.href}
-                      href={item.href}
-                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FBF8F2] transition-colors group/sub"
+                      href="/about-us"
+                      className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0A2140] hover:text-[#123258] transition-colors group/link w-max"
                     >
-                      <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140] group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A] transition-colors flex-shrink-0">
-                        <item.icon size={15} />
-                      </div>
-                      <div className="pt-0.5">
-                        <div className="text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
-                          {item.label}
-                        </div>
-                        <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
-                          {item.desc}
-                        </p>
-                      </div>
+                      <span className="border-b border-[#E4B95A] pb-0.5">
+                        Our full story
+                      </span>
+                      <ArrowRight
+                        size={14}
+                        className="group-hover/link:translate-x-1 transition-transform"
+                      />
                     </a>
-                  ))}
+                  </div>
+
+                  {/* Link column */}
+                  <div className="col-span-12 sm:col-span-8 p-4 flex flex-col justify-center gap-0.5">
+                    {aboutLinks.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FBF8F2] transition-colors group/sub"
+                      >
+                        <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140] group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A] transition-colors flex-shrink-0">
+                          <item.icon size={15} />
+                        </div>
+                        <div className="pt-0.5">
+                          <div className="text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
+                            {item.label}
+                          </div>
+                          <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-
-            <a
-              href="/who-we-serve/seniors"
-              className="px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors whitespace-nowrap"
-            >
-              Who we serve
-            </a>
 
             <a
               href="/insurance-payment-options"
@@ -415,9 +470,12 @@ export const Navbar = () => {
               Insurance & payment
             </a>
 
-            {/* RESOURCES DROPDOWN */}
+            {/* RESOURCES MEGA MENU — same shell as Services/About */}
             <div className="relative group">
-              <button className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors">
+              <button
+                aria-expanded="false"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors"
+              >
                 <span>Resources</span>
                 <ChevronDown
                   size={14}
@@ -425,27 +483,61 @@ export const Navbar = () => {
                 />
               </button>
 
-              <div className="absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
-                <div className="w-80 bg-white rounded-2xl border border-[#EFE8D8] p-2 shadow-xl shadow-[#0A2140]/[0.06]">
-                  {resourceLinks.map((item) => (
+              <div className="absolute top-full right-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:-top-3 before:left-0 before:w-full before:h-3">
+                <div className="w-[480px] xl:w-[560px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl border border-[#EFE8D8] overflow-hidden grid grid-cols-12 shadow-xl shadow-[#0A2140]/[0.06]">
+                  {/* Left panel */}
+                  <div className="col-span-12 sm:col-span-4 bg-[#F7F1E6] p-6 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-[#EFE8D8]">
+                    <div>
+                      <div className="w-10 h-10 rounded-full bg-[#0A2140] flex items-center justify-center mb-5 text-[#E4B95A]">
+                        <BookOpen size={18} />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A7B5C]">
+                        Support
+                      </span>
+                      <h3 className="ohh-serif text-[1.25rem] text-[#0A2140] font-semibold mt-2.5 leading-snug">
+                        Guides &amp; resources
+                      </h3>
+                      <p className="text-[13px] text-[#5B6B7C] mt-3 leading-relaxed">
+                        Forms, FAQs, and support for patients, families, and our
+                        care team.
+                      </p>
+                    </div>
                     <a
-                      key={item.href}
-                      href={item.href}
-                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FBF8F2] transition-colors group/sub"
+                      href="/resources"
+                      className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#0A2140] hover:text-[#123258] transition-colors group/link w-max"
                     >
-                      <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140] group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A] transition-colors flex-shrink-0">
-                        <item.icon size={15} />
-                      </div>
-                      <div className="pt-0.5">
-                        <div className="text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
-                          {item.label}
-                        </div>
-                        <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
-                          {item.desc}
-                        </p>
-                      </div>
+                      <span className="border-b border-[#E4B95A] pb-0.5">
+                        Browse all resources
+                      </span>
+                      <ArrowRight
+                        size={14}
+                        className="group-hover/link:translate-x-1 transition-transform"
+                      />
                     </a>
-                  ))}
+                  </div>
+
+                  {/* Link column */}
+                  <div className="col-span-12 sm:col-span-8 p-4 flex flex-col justify-center gap-0.5">
+                    {resourceLinks.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-[#FBF8F2] transition-colors group/sub"
+                      >
+                        <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140] group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A] transition-colors flex-shrink-0">
+                          <item.icon size={15} />
+                        </div>
+                        <div className="pt-0.5">
+                          <div className="text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
+                            {item.label}
+                          </div>
+                          <p className="text-[11.5px] text-[#8A93A0] mt-0.5 leading-snug">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -656,17 +748,6 @@ export const Navbar = () => {
                 </div>
               </div>
             </div>
-
-            <a
-              href="/who-we-serve/seniors"
-              onClick={closeMobileMenu}
-              className="flex items-center gap-3 p-3.5 rounded-xl font-semibold text-[#2C3947] hover:bg-white transition-colors"
-            >
-              <div className="p-2 rounded-lg bg-[#F3ECDC] text-[#0A2140]">
-                <Shield size={17} />
-              </div>
-              Who we serve
-            </a>
 
             <a
               href="/insurance-payment-options"

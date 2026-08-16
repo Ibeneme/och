@@ -363,7 +363,7 @@ export default function EmployeeResourcesPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="p-4 bg-[#FBF8F2] rounded-full text-xs text-[#5B6B7C]">
+                  <div className="p-4 bg-[#FBF8F2] rounded-xl text-xs text-[#5B6B7C]">
                     <span className="text-[#8A93A0] block mb-1">
                       Operating window
                     </span>

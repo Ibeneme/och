@@ -87,7 +87,7 @@ export default function SkilledNursingPage() {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
                 <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
-                Active clinical discipline
+                Actively Accepting Clients
               </div>
 
               <div className="text-xs text-[#8A7B5C] font-medium tracking-wide">

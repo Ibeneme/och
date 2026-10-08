@@ -36,7 +36,8 @@ export default function OneCommunityContact() {
       faxLabel: "Fax a referral",
       emailLabel: "Email us",
       officeTitle: "Office & Administration",
-      officeSubtitle: "A DBA of JACOP Healthcare Services, Inc.",
+      officeSubtitle:
+        "JACOP Healthcare Services, Inc., doing business as One Community Home Health",
       officeLocation: "Office location",
       adminHours: "Administrative hours",
       hoursText: "Mon–Fri, 9:00 AM – 5:00 PM",
@@ -56,7 +57,8 @@ export default function OneCommunityContact() {
       faxLabel: "Enviar referencia por fax",
       emailLabel: "Envíenos un correo electrónico",
       officeTitle: "Oficina y Administración",
-      officeSubtitle: "Un nombre comercial de JACOP Healthcare Services, Inc.",
+      officeSubtitle:
+        "JACOP Healthcare Services, Inc., doing business as One Community Home Health",
       officeLocation: "Ubicación de la oficina",
       adminHours: "Horario administrativo",
       hoursText: "Lun–Vie, 9:00 AM – 5:00 PM",

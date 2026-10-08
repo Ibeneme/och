@@ -22,7 +22,7 @@ export default function OneCommunitySection() {
       description:
         "Care that feels like home. Talk with our team about your needs, coverage, and next steps.",
       quote:
-        "\"Founder-led clinical leadership and responsive communication gave our family complete peace of mind.\"",
+        '"Founder-led clinical leadership and responsive communication gave our family complete peace of mind."',
       networkTitle: "The Family Care Network",
       reviewLabel: "Verified Client Review",
       card1Title: "Decades of Nursing Experience",
@@ -30,7 +30,7 @@ export default function OneCommunitySection() {
         "Founder-led clinical leadership backed by more than two decades of nursing experience.",
       card2Title: "A Proven Care Legacy",
       card2Desc:
-        "A care legacy serving clients since 2010, now presented under the One Community Home Health DBA.",
+        "A care legacy serving clients since 2010, now presented under JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
       card3Title: "Individualized Coordination",
       card3Desc:
         "Individualized care closely coordinated with physicians, families, and caregivers.",
@@ -38,8 +38,7 @@ export default function OneCommunitySection() {
       card4Desc:
         "Responsive communication and dedicated patient/caregiver education every step of the way.",
       missionBadge: "Our Core Mission",
-      missionHeading:
-        "A focus on recovery, safety, independence, and dignity.",
+      missionHeading: "A focus on recovery, safety, independence, and dignity.",
       missionDesc:
         "Care that feels like home. Talk with our team about your needs, coverage, and next steps.",
       callButton: "Call 972-325-1598",
@@ -53,7 +52,7 @@ export default function OneCommunitySection() {
       description:
         "Cuidado que se siente como en casa. Hable con nuestro equipo sobre sus necesidades, cobertura y próximos pasos.",
       quote:
-        "\"El liderazgo clínico dirigido por el fundador y la comunicación receptiva le dieron a nuestra familia total tranquilidad.\"",
+        '"El liderazgo clínico dirigido por el fundador y la comunicación receptiva le dieron a nuestra familia total tranquilidad."',
       networkTitle: "La Red de Cuidado Familiar",
       reviewLabel: "Reseña de Cliente Verificada",
       card1Title: "Décadas de Experiencia en Enfermería",
@@ -61,7 +60,7 @@ export default function OneCommunitySection() {
         "Liderazgo clínico dirigido por el fundador respaldado por más de dos décadas de experiencia en enfermería.",
       card2Title: "Un Legado de Cuidado Comprobado",
       card2Desc:
-        "Un legado de atención que atiende a clientes desde 2010, ahora presentado bajo el nombre comercial One Community Home Health.",
+        "Un legado de atención que atiende a clientes desde 2010, ahora presentado bajo JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
       card3Title: "Coordinación Individualizada",
       card3Desc:
         "Cuidado individualizado estrechamente coordinado con médicos, familias y cuidadores.",

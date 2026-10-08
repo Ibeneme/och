@@ -52,7 +52,9 @@ export default function WhoWeServePage() {
           ? "Apoyo centrado en la persona que promueve la dignidad, la independencia diaria y asistencia personalizada estructurada según necesidades únicas."
           : "Person-centered support that promotes dignity, everyday independence, and tailored assistance structured around unique personal needs.",
       footer:
-        language === "es" ? "Apoyo diario personalizado" : "Customized daily support",
+        language === "es"
+          ? "Apoyo diario personalizado"
+          : "Customized daily support",
       tag: language === "es" ? "Personalizado" : "Personalized",
       icon: HeartHandshake,
     },
@@ -82,7 +84,9 @@ export default function WhoWeServePage() {
           ? "Diseñado para ayudar a los adultos mayores a mantener su independencia y dignidad en casa. Apoyamos las rutinas diarias, movilidad, monitoreo de condiciones crónicas y gestión de medicamentos."
           : "Designed to help seniors maintain independence and dignity at home. We support daily routines, mobility, chronic condition monitoring, and medication management.",
       meta: [
-        language === "es" ? "Apoyo certificado por Medicare" : "Medicare-certified support",
+        language === "es"
+          ? "Apoyo certificado por Medicare"
+          : "Medicare-certified support",
         "DFW Metroplex",
       ],
       points:
@@ -113,7 +117,9 @@ export default function WhoWeServePage() {
           : "We proudly serve those who served our country. Through VA Community Care pathways, we help veterans access reliable in-home care tailored to their needs.",
       meta: [
         "VA Community Care",
-        language === "es" ? "Apoyo de autorización previa" : "Prior auth support",
+        language === "es"
+          ? "Apoyo de autorización previa"
+          : "Prior auth support",
       ],
       points:
         language === "es"
@@ -141,7 +147,10 @@ export default function WhoWeServePage() {
         language === "es"
           ? "Apoyamos a adultos con discapacidades físicas o del desarrollo para que puedan vivir con mayor autonomía, dignidad e independencia diaria en casa."
           : "We support adults with physical or developmental disabilities so they can live with greater autonomy, dignity, and everyday independence at home.",
-      meta: ["Medicaid / STAR+PLUS", language === "es" ? "Programas de Texas" : "Texas programs"],
+      meta: [
+        "Medicaid / STAR+PLUS",
+        language === "es" ? "Programas de Texas" : "Texas programs",
+      ],
       points:
         language === "es"
           ? [
@@ -238,7 +247,6 @@ export default function WhoWeServePage() {
     <main className="min-h-screen bg-white text-[#3A4657]">
       {/* ===== Hero ===== */}
       <section className="relative bg-[#0A2140] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-15" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A2140]/80 via-[#0A2140]/70 to-[#0A2140]" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
@@ -248,7 +256,8 @@ export default function WhoWeServePage() {
           </div>
 
           <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6 tracking-tight">
-            {t.titlePre} <span className="text-[#E4B95A]">{t.titleHighlight}</span>
+            {t.titlePre}{" "}
+            <span className="text-[#E4B95A]">{t.titleHighlight}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/75 mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -484,14 +493,7 @@ export default function WhoWeServePage() {
                   <ArrowRight size={16} />
                 </Link>
               </div>
-              <div className="relative min-h-[280px] lg:min-h-full">
-                <img
-                  src="https://plus.unsplash.com/premium_photo-1747608208489-4b68e2433588?w=900&auto=format&fit=crop&q=60"
-                  alt="Pediatric care coming soon"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2140]/80 via-[#0A2140]/20 to-transparent" />
-              </div>
+      
             </div>
           </div>
         </div>

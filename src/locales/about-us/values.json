@@ -1,0 +1,84 @@
+{
+  "en": {
+    "eyebrow": "What we stand on",
+    "title": "Our Core Values",
+    "subtitle": "The principles that guide every interaction and plan of care.",
+    "featuredTag": "(care)",
+    "featuredLabel": "why we start here",
+    "featuredTitle": "Compassion",
+    "featuredDesc": "Treating every patient and family with genuine empathy, warmth, and kindness — the value every other one is built on.",
+    "valuesList": [
+      {
+        "title": "Clinical Excellence",
+        "description": "Upholding rigorous standards of professional nursing and therapy to support safe, effective recovery.",
+        "tag": "(standard)",
+        "panel": "gold"
+      },
+      {
+        "title": "Respect",
+        "description": "Honoring the individuality, preferences, and dignity of every person in our care.",
+        "tag": "(dignity)",
+        "panel": "dark"
+      },
+      {
+        "title": "Reliability",
+        "description": "Providing dependable, responsive service that patients and referral partners can count on every day.",
+        "tag": "(daily)",
+        "panel": "dark"
+      },
+      {
+        "title": "Collaboration",
+        "description": "Partnering closely with physicians, families, and caregivers to build coordinated, personalized plans of care.",
+        "tag": "(team)",
+        "panel": "gold"
+      },
+      {
+        "title": "Community",
+        "description": "Serving our neighbors across the Dallas-Fort Worth Metroplex with deep dedication and local accountability.",
+        "tag": "(local)",
+        "panel": "dark"
+      }
+    ]
+  },
+  "es": {
+    "eyebrow": "Nuestros principios",
+    "title": "Nuestros Valores Fundamentales",
+    "subtitle": "Los principios que guían cada interacción y plan de atención.",
+    "featuredTag": "(cuidado)",
+    "featuredLabel": "por dónde empezamos",
+    "featuredTitle": "Compasión",
+    "featuredDesc": "Tratar a cada paciente y familia con genuina empatía, calidez y amabilidad.",
+    "valuesList": [
+      {
+        "title": "Excelencia Clínica",
+        "description": "Manteniendo rigurosos estándares profesionales.",
+        "tag": "(estándar)",
+        "panel": "gold"
+      },
+      {
+        "title": "Respeto",
+        "description": "Honrando la individualidad y dignidad de cada persona.",
+        "tag": "(dignidad)",
+        "panel": "dark"
+      },
+      {
+        "title": "Confiabilidad",
+        "description": "Servicio receptivo en el que los pacientes pueden confiar.",
+        "tag": "(diario)",
+        "panel": "dark"
+      },
+      {
+        "title": "Colaboración",
+        "description": "Asociación cercana con médicos y familias.",
+        "tag": "(equipo)",
+        "panel": "gold"
+      },
+      {
+        "title": "Comunidad",
+        "description": "Sirviendo a nuestros vecinos en todo el Metroplex de DFW.",
+        "tag": "(local)",
+        "panel": "dark"
+      }
+    ]
+  }
+}

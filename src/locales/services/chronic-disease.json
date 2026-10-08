@@ -1,0 +1,124 @@
+{
+  "en": {
+    "badge": "Active clinical discipline",
+    "titleMain": "Chronic disease management",
+    "titleHighlight": "care at home",
+    "description": "Expert clinical support and monitoring designed to help you manage long-term health conditions, prevent complications, and maintain stability at home.",
+    "requestCare": "Request care & consultation",
+    "cardTitle": "Proactive stability",
+    "cardDesc": "Expert clinical support to maintain long-term health and wellness.",
+    "overviewTag": "Proactive health maintenance",
+    "overviewTitle": "Long-term stability through skilled clinical guidance",
+    "overviewDesc": "Living with a chronic condition requires careful monitoring, education, and consistent clinical support. Our skilled nursing and therapy teams partner with your physician to provide comprehensive in-home care plans.",
+    "features": [
+      "Skilled Nursing Oversight",
+      "Regular Symptom Monitoring",
+      "Medication Education & Support",
+      "Personalized Care Plans"
+    ],
+    "servicesTag": "Specialized care areas",
+    "servicesTitle": "Chronic disease management scope",
+    "servicesDesc": "Our targeted programs provide comprehensive support across a wide range of chronic conditions to ensure safety and quality of life.",
+    "servicesList": [
+      {
+        "title": "Diabetes Management",
+        "desc": "Blood glucose monitoring, dietary guidance, and insulin management education to maintain stable levels."
+      },
+      {
+        "title": "Heart Disease Support",
+        "desc": "Cardiovascular tracking, fluid restriction monitoring, and lifestyle management for cardiac conditions."
+      },
+      {
+        "title": "Hypertension Care",
+        "desc": "Regular blood pressure checks, medication compliance monitoring, and risk reduction strategies."
+      },
+      {
+        "title": "COPD & Respiratory Support",
+        "desc": "Oxygen therapy guidance, breathing techniques, and symptom tracking for chronic respiratory illnesses."
+      },
+      {
+        "title": "Stroke Recovery Support",
+        "desc": "Coordinated nursing and therapy interventions to support post-stroke rehabilitation and independence."
+      },
+      {
+        "title": "Neurological Conditions",
+        "desc": "Specialized care and symptom management for progressive neurological disorders and related needs."
+      },
+      {
+        "title": "Medication Education",
+        "desc": "Clear instruction on proper dosages, administration schedules, side effects, and adherence tracking."
+      },
+      {
+        "title": "Symptom Monitoring",
+        "desc": "Consistent clinical observation and vital sign tracking to detect early warning signs and changes in status."
+      },
+      {
+        "title": "Hospitalization Prevention",
+        "desc": "Proactive intervention strategies and patient education designed to reduce emergency room visits and hospital readmissions."
+      }
+    ],
+    "ctaTitle": "Managing a long-term condition?",
+    "ctaDesc": "Talk to our team about a care plan tailored to your diagnosis."
+  },
+  "es": {
+    "badge": "Disciplina clínica activa",
+    "titleMain": "Manejo de enfermedades crónicas",
+    "titleHighlight": "en el hogar",
+    "description": "Apoyo clínico experto y monitoreo diseñado para ayudarle a manejar condiciones de salud a largo plazo, prevenir complicaciones y mantener la estabilidad en casa.",
+    "requestCare": "Solicitar atención y consulta",
+    "cardTitle": "Estabilidad proactiva",
+    "cardDesc": "Apoyo clínico experto para mantener la salud y el bienestar a largo plazo.",
+    "overviewTag": "Mantenimiento proactivo de la salud",
+    "overviewTitle": "Estabilidad a largo plazo mediante orientación clínica especializada",
+    "overviewDesc": "Vivir con una condición crónica requiere un monitoreo cuidadoso, educación y apoyo clínico constante. Nuestros equipos se asocian con su médico para proporcionar planes integrales.",
+    "features": [
+      "Supervisión de Enfermería Especializada",
+      "Monitoreo Regular de Síntomas",
+      "Educación y Apoyo sobre Medicamentos",
+      "Planes de Cuidado Personalizados"
+    ],
+    "servicesTag": "Áreas de atención especializada",
+    "servicesTitle": "Alcance de la gestión de enfermedades crónicas",
+    "servicesDesc": "Nuestros programas específicos proporcionan un apoyo integral en una amplia gama de afecciones crónicas.",
+    "servicesList": [
+      {
+        "title": "Manejo de Diabetes",
+        "desc": "Monitoreo de glucosa en sangre, orientación dietética y educación sobre el manejo de insulina."
+      },
+      {
+        "title": "Apoyo para Enfermedades Cardíacas",
+        "desc": "Seguimiento cardiovascular, monitoreo de restricciones de líquidos y manejo del estilo de vida."
+      },
+      {
+        "title": "Cuidado de Hipertensión",
+        "desc": "Controles regulares de presión arterial, monitoreo de cumplimiento y estrategias de reducción de riesgos."
+      },
+      {
+        "title": "EPOC y Apoyo Respiratorio",
+        "desc": "Guía de terapia de oxígeno, técnicas de respiración y seguimiento de síntomas."
+      },
+      {
+        "title": "Apoyo en Recuperación de Accidente Cerebrovascular",
+        "desc": "Intervenciones coordinadas de enfermería y terapia."
+      },
+      {
+        "title": "Condiciones Neurológicas",
+        "desc": "Cuidado especializado y manejo de síntomas para trastornos neurológicos progresivos."
+      },
+      {
+        "title": "Educación sobre Medicamentos",
+        "desc": "Instrucción clara sobre dosis adecuadas, horarios y seguimiento de adherencia."
+      },
+      {
+        "title": "Monitoreo de Síntomas",
+        "desc": "Observación clínica constante para detectar signos de advertencia tempranos."
+      },
+      {
+        "title": "Prevención de Hospitalización",
+        "desc": "Estrategias de intervención proactiva para reducir visitas a urgencias y reingresos hospitalarios."
+      }
+    ],
+    "ctaTitle": "¿Maneja una condición a largo plazo?",
+    "ctaDesc": "Hable con nuestro equipo sobre un plan de atención adaptado a su diagnóstico."
+  }
+}

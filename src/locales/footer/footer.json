@@ -1,0 +1,203 @@
+{
+  "banner": {
+    "title": {
+      "en": "Now accepting new patients",
+      "es": "Ahora aceptando nuevos pacientes"
+    },
+    "subtitle": {
+      "en": "Compassionate home care, right where family is.",
+      "es": "Cuidado en casa compasivo, justo donde está la familia."
+    }
+  },
+  "buttons": {
+    "requestConsultation": {
+      "en": "Request a care consultation",
+      "es": "Solicitar consulta de cuidado"
+    }
+  },
+  "columns": {
+    "navigation": {
+      "en": "Navigation",
+      "es": "Navegación"
+    },
+    "clinicalServices": {
+      "en": "Clinical services",
+      "es": "Servicios clínicos"
+    },
+    "supportiveCare": {
+      "en": "Supportive care",
+      "es": "Cuidados de apoyo"
+    },
+    "officeInfo": {
+      "en": "Office info",
+      "es": "Información de oficina"
+    }
+  },
+  "navLinks": [
+    { "label": { "en": "Home", "es": "Inicio" }, "href": "/" },
+    {
+      "label": { "en": "About Our Agency", "es": "Sobre nuestra agencia" },
+      "href": "/about-us"
+    },
+    {
+      "label": { "en": "Leadership Team", "es": "Equipo de liderazgo" },
+      "href": "/about-us/leadership"
+    },
+    {
+      "label": { "en": "Who We Serve", "es": "A quién servimos" },
+      "href": "/who-we-serve/seniors"
+    },
+    {
+      "label": { "en": "Insurance & Payment", "es": "Seguros y pagos" },
+      "href": "/insurance-payment-options"
+    },
+    {
+      "label": { "en": "Patient Referrals", "es": "Referir pacientes" },
+      "href": "/referrals"
+    },
+    { "label": { "en": "Resources", "es": "Recursos" }, "href": "/resources" },
+    {
+      "label": { "en": "Employee Resources", "es": "Recursos para empleados" },
+      "href": "/employee-resources"
+    },
+    {
+      "label": { "en": "Careers & Hiring", "es": "Empleos y contrataciones" },
+      "href": "/careers"
+    },
+    {
+      "label": { "en": "CNA Talent Network", "es": "Red de talento CNA" },
+      "href": "/careers/cna-home-health-aide-application"
+    },
+    { "label": { "en": "Contact Us", "es": "Contáctenos" }, "href": "/contact" }
+  ],
+  "clinicalLinks": [
+    {
+      "label": { "en": "Skilled Nursing", "es": "Enfermería Especializada" },
+      "href": "/services/skilled-nursing"
+    },
+    {
+      "label": { "en": "Physical Therapy", "es": "Fisioterapia" },
+      "href": "/services/physical-therapy"
+    },
+    {
+      "label": { "en": "Occupational Therapy", "es": "Terapia Ocupacional" },
+      "href": "/services/occupational-therapy"
+    },
+    {
+      "label": { "en": "Speech Therapy", "es": "Terapia del Habla" },
+      "href": "/services/speech-therapy"
+    },
+    {
+      "label": {
+        "en": "Home Health Aide",
+        "es": "Asistente de Salud en el Hogar"
+      },
+      "href": "/services/home-health-aide"
+    },
+    {
+      "label": {
+        "en": "Medical Social Services",
+        "es": "Servicios Sociales Médicos"
+      },
+      "href": "/services/medical-social-services"
+    },
+    {
+      "label": { "en": "Wound Care", "es": "Cuidado de Heridas" },
+      "href": "/services/wound-care"
+    },
+    {
+      "label": {
+        "en": "Chronic Disease Management",
+        "es": "Manejo de Enfermedades Crónicas"
+      },
+      "href": "/services/chronic-disease-management"
+    },
+    {
+      "label": {
+        "en": "Medication Management",
+        "es": "Gestión de Medicamentos"
+      },
+      "href": "/services/medication-management"
+    },
+    {
+      "label": { "en": "Fall Prevention", "es": "Prevención de Caídas" },
+      "href": "/services/fall-prevention"
+    },
+    {
+      "label": { "en": "Post-Surgical Care", "es": "Cuidado Post-Quirúrgico" },
+      "href": "/services/post-surgical-care"
+    }
+  ],
+  "supportiveLinks": [
+    {
+      "label": { "en": "Companion Care", "es": "Cuidado de Acompañamiento" },
+      "href": "/services/companion-care"
+    },
+    {
+      "label": { "en": "Respite Care", "es": "Cuidado de Respiro" },
+      "href": "/services/respite-care"
+    },
+    {
+      "label": { "en": "Daily Lifestyle Support", "es": "Apoyo Diario" },
+      "href": "/services/daily-lifestyle-support"
+    },
+    {
+      "label": { "en": "Veteran Care", "es": "Cuidado para Veteranos" },
+      "href": "/services/veteran-care"
+    },
+    {
+      "label": {
+        "en": "Adults with Disabilities",
+        "es": "Adultos con Discapacidades"
+      },
+      "href": "/services/adults-with-disabilities"
+    },
+    {
+      "label": { "en": "Pediatric Services", "es": "Servicios Pediátricos" },
+      "href": "/services/pediatric-services"
+    }
+  ],
+  "office": {
+    "locationLabel": { "en": "Location & office", "es": "Ubicación y oficina" },
+    "hoursLabel": { "en": "Admin hours", "es": "Horario administrativo" },
+    "hoursNote": {
+      "en": "24/7 on-call coming soon",
+      "es": "Próximamente servicio 24/7"
+    },
+    "coverageLabel": { "en": "Care & coverage", "es": "Cobertura de cuidado" },
+    "coverageLines": {
+      "en": "Expanded payment pathways",
+      "es": "Vías de pago ampliadas"
+    },
+    "coverageNote": {
+      "en": "DFW Metroplex wide",
+      "es": "Todo el Metroplex DFW"
+    },
+    "portalsLabel": { "en": "Portals & careers", "es": "Portales y carreras" },
+    "portalsLines": {
+      "en": "HHAeXchange employee access",
+      "es": "Acceso de empleados HHAeXchange"
+    },
+    "portalsNote": {
+      "en": "2-year CNA workflow",
+      "es": "Flujo de trabajo CNA de 2 años"
+    },
+    "directionsLink": {
+      "en": "Get directions & full contact info",
+      "es": "Obtener direcciones e info de contacto"
+    }
+  },
+  "legal": {
+    "copyright": {
+      "en": "© 2026 JACOP Healthcare Services, Inc. All rights reserved.",
+      "es": "© 2026 JACOP Healthcare Services, Inc. Todos los derechos reservados."
+    },
+    "operatedBy": {
+      "en": "Operated by JACOP Healthcare Services, Inc. — now serving new patients and accepting referrals.",
+      "es": "Operado por JACOP Healthcare Services, Inc. — sirviendo nuevos pacientes y aceptando referencias."
+    },
+    "privacy": { "en": "Privacy policy", "es": "Política de privacidad" },
+    "terms": { "en": "Terms of service", "es": "Términos de servicio" },
+    "accessibility": { "en": "Accessibility", "es": "Accesibilidad" }
+  }
+}

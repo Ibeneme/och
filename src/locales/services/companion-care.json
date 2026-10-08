@@ -1,0 +1,116 @@
+{
+  "en": {
+    "badge": "Supportive care discipline",
+    "titleMain": "Companion care",
+    "titleHighlight": "at home",
+    "description": "Warm social engagement, reassuring safety oversight, and gentle daily support delivered right to your home.",
+    "requestCare": "Request companion care",
+    "cardTitle": "Connection & comfort",
+    "cardDesc": "Building positive, trusting relationships and joyful daily interactions.",
+    "overviewTag": "Connection & comfort",
+    "overviewTitle": "Fostering meaningful engagement and everyday well-being",
+    "overviewDesc": "Our companion care services focus on building positive, trusting relationships while ensuring safety and comfort in familiar home surroundings. From engaging conversations to light routine assistance, we provide dependable presence and peace of mind.",
+    "features": [
+      "Meaningful Companionship",
+      "Safety & Wellbeing Monitoring",
+      "Family Caregiver Support",
+      "Light Household Assistance"
+    ],
+    "servicesTag": "Service scope",
+    "servicesTitle": "Companion care services",
+    "servicesDesc": "Our companion care offerings are designed to enhance daily life through friendly interaction and dependable support.",
+    "servicesList": [
+      {
+        "title": "Companionship",
+        "desc": "Warm, friendly conversation, shared hobbies, reading, and pleasant social interaction."
+      },
+      {
+        "title": "Social Engagement",
+        "desc": "Encouraging participation in favorite activities, community events, and family connections."
+      },
+      {
+        "title": "Safety Monitoring",
+        "desc": "Reassuring supervision around the house to prevent hazards and ensure immediate assistance when needed."
+      },
+      {
+        "title": "Support with Daily Routines",
+        "desc": "Gentle reminders for daily activities, schedules, and routine lifestyle habits."
+      },
+      {
+        "title": "Light Assistance in the Home",
+        "desc": "Help with light organizing, tidying, plant care, and maintaining a comfortable living environment."
+      },
+      {
+        "title": "Family Caregiver Support",
+        "desc": "Providing dependable relief and regular updates so family caregivers can rest and recharge with confidence."
+      },
+      {
+        "title": "Recreational Activities & Games",
+        "desc": "Enjoying board games, puzzles, crafts, and listening to favorite music together to keep spirits bright."
+      },
+      {
+        "title": "Friendly Visiting & Mealtime Chats",
+        "desc": "Sharing meals and tea time together with warm conversation and attentive, caring presence."
+      }
+    ],
+    "ctaTitle": "Looking for warm, dependable companionship?",
+    "ctaDesc": "Talk to our team about scheduling and how we can help."
+  },
+  "es": {
+    "badge": "Disciplina de atención de apoyo",
+    "titleMain": "Cuidado de compañía",
+    "titleHighlight": "en el hogar",
+    "description": "Cálida interacción social, supervisión tranquilizadora de seguridad y apoyo diario amable entregado directamente en su hogar.",
+    "requestCare": "Solicitar cuidado de compañía",
+    "cardTitle": "Conexión y comodidad",
+    "cardDesc": "Construyendo relaciones positivas y de confianza e interacciones diarias alegres.",
+    "overviewTag": "Conexión y comodidad",
+    "overviewTitle": "Fomentando el compromiso significativo y el bienestar cotidiano",
+    "overviewDesc": "Nuestros servicios de compañía se enfocan en construir relaciones de confianza mientras garantizan la seguridad y comodidad en el entorno hogareño familiar.",
+    "features": [
+      "Compañía Significativa",
+      "Monitoreo de Seguridad y Bienestar",
+      "Apoyo a Cuidadores Familiares",
+      "Ligera Asistencia Doméstica"
+    ],
+    "servicesTag": "Alcance del servicio",
+    "servicesTitle": "Servicios de cuidado de compañía",
+    "servicesDesc": "Nuestras ofertas de compañía están diseñadas para mejorar la vida diaria mediante interacción amistosa.",
+    "servicesList": [
+      {
+        "title": "Compañía",
+        "desc": "Conversación cálida y amistosa, pasatiempos compartidos, lectura e interacción social."
+      },
+      {
+        "title": "Compromiso Social",
+        "desc": "Fomento de la participación en actividades favoritas, eventos comunitarios y conexiones familiares."
+      },
+      {
+        "title": "Monitoreo de Seguridad",
+        "desc": "Supervisión tranquilizadora en la casa para prevenir peligros y asegurar asistencia inmediata."
+      },
+      {
+        "title": "Apoyo con Rutinas Diarias",
+        "desc": "Recordatorios suaves para actividades diarias, horarios y hábitos de estilo de vida."
+      },
+      {
+        "title": "Ligera Asistencia en el Hogar",
+        "desc": "Ayuda con organización ligera, orden, cuidado de plantas y mantenimiento de un ambiente cómodo."
+      },
+      {
+        "title": "Apoyo al Cuidador Familiar",
+        "desc": "Proporcionando alivio confiable y actualizaciones periódicas para que los cuidadores descansen."
+      },
+      {
+        "title": "Actividades Recreativas y Juegos",
+        "desc": "Disfrutar de juegos de mesa, rompecabezas, manualidades y escuchar música favorita juntos."
+      },
+      {
+        "title": "Visitas Amistosas y Charlas",
+        "desc": "Compartir comidas y la hora del té con una conversación cálida y presencia atenta."
+      }
+    ],
+    "ctaTitle": "¿Busca compañía cálida y confiable?",
+    "ctaDesc": "Hable con nuestro equipo sobre la programación y cómo podemos ayudar."
+  }
+}

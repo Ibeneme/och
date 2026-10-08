@@ -1,0 +1,114 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+      "titleMain": "Home health aide",
+      "titleHighlight": "care at home",
+      "description": "Compassionate, hands-on personal care and daily living support delivered safely in your home under expert clinical supervision.",
+      "requestCare": "Request care & consultation",
+      "callUs": "Call (972) 325-1598",
+      "cardTitle": "Compassionate assistance",
+      "cardDesc": "Providing dependable daily personal care with dignity and respect.",
+      "overviewTag": "Personal care & daily support",
+      "overviewTitle": "Dignified assistance for everyday comfort and safety",
+      "overviewDesc": "Our professional home health aides provide reliable, respectful assistance with essential personal care routines. Operating under the direct supervision of our clinical care team, our aides ensure that every aspect of daily living is managed smoothly to protect your health, comfort, and dignity.",
+      "features": [
+        "Trained & Certified Aides",
+        "Clinical Team Supervision",
+        "Respectful Personal Care",
+        "Customized Daily Routines"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Home health aide scope of services",
+      "servicesDesc": "Our dedicated support services focus on maintaining personal hygiene, mobility safety, and overall daily well-being.",
+      "servicesList": [
+        {
+          "title": "Bathing Support",
+          "desc": "Safe and gentle assistance with tub, shower, or sponge baths while preserving personal dignity."
+        },
+        {
+          "title": "Grooming Care",
+          "desc": "Help with hair care, shaving, oral hygiene, nail care, and daily appearance maintenance."
+        },
+        {
+          "title": "Dressing Assistance",
+          "desc": "Support selecting appropriate clothing and putting on garments safely and comfortably each day."
+        },
+        {
+          "title": "Personal Hygiene",
+          "desc": "Assistance with toileting, incontinence care, and general cleanliness standards."
+        },
+        {
+          "title": "Mobility Assistance",
+          "desc": "Support with walking, repositioning, and moving safely around the home environment."
+        },
+        {
+          "title": "Activities of Daily Living",
+          "desc": "Hands-on help with essential daily tasks to foster independence and comfort at home."
+        },
+        {
+          "title": "Clinical Team Supervision",
+          "desc": "All aide services are carefully monitored and coordinated under the direct guidance of our clinical care team to ensure high standards of safety and quality."
+        }
+      ],
+      "ctaTitle": "Need reliable daily support at home?",
+      "ctaDesc": "Talk to our team about care hours, routines, and getting started.",
+      "ctaContact": "Contact our team"
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+      "titleMain": "Asistente de salud en el hogar",
+      "titleHighlight": "en el hogar",
+      "description": "Cuidado personal compasivo y práctico y apoyo para la vida diaria entregado de forma segura en su hogar bajo supervisión clínica experta.",
+      "requestCare": "Solicitar atención y consulta",
+      "callUs": "Llamar al (972) 325-1598",
+      "cardTitle": "Asistencia compasiva",
+      "cardDesc": "Proporcionando cuidado personal diario confiable con dignidad y respeto.",
+      "overviewTag": "Cuidado personal y apoyo diario",
+      "overviewTitle": "Asistencia digna para la comodidad y seguridad cotidiana",
+      "overviewDesc": "Nuestros asistentes de salud en el hogar profesionales brindan asistencia confiable y respetuosa con las rutinas de cuidado personal esenciales bajo la supervisión directa de nuestro equipo clínico.",
+      "features": [
+        "Asistentes Capacitados y Certificados",
+        "Supervisión del Equipo Clínico",
+        "Cuidado Personal Respetuoso",
+        "Rutinas Diarias Personalizadas"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de asistente de salud",
+      "servicesDesc": "Nuestros servicios de apoyo dedicados se enfocan en mantener la higiene personal, la seguridad de movilidad y el bienestar diario.",
+      "servicesList": [
+        {
+          "title": "Apoyo para el Baño",
+          "desc": "Asistencia segura y suave con baños en tina, ducha o esponja preservando la dignidad personal."
+        },
+        {
+          "title": "Cuidado de Aseo Personal",
+          "desc": "Ayuda con el cuidado del cabello, afeitado, higiene bucal, cuidado de uñas y mantenimiento de la apariencia."
+        },
+        {
+          "title": "Asistencia para Vestirse",
+          "desc": "Apoyo para seleccionar la ropa adecuada y ponerse las prendas de manera segura y cómoda todos los días."
+        },
+        {
+          "title": "Higiene Personal",
+          "desc": "Asistencia con el uso del baño, cuidado de incontinencia y estándares generales de limpieza."
+        },
+        {
+          "title": "Asistencia de Movilidad",
+          "desc": "Apoyo para caminar, cambiar de posición y moverse de manera segura por el entorno del hogar."
+        },
+        {
+          "title": "Actividades de la Vida Diaria",
+          "desc": "Ayuda práctica con tareas diarias esenciales para fomentar la independencia y la comodidad en casa."
+        },
+        {
+          "title": "Supervisión del Equipo Clínico",
+          "desc": "Todos los servicios de asistencia son monitoreados y coordinados bajo la guía directa de nuestro equipo clínico para garantizar altos estándares."
+        }
+      ],
+      "ctaTitle": "¿Necesita apoyo diario confiable en casa?",
+      "ctaDesc": "Hable con nuestro equipo sobre las horas de atención, rutinas y cómo comenzar.",
+      "ctaContact": "Contacte a nuestro equipo"
+    }
+  }

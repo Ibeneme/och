@@ -1,0 +1,118 @@
+{
+    "en": {
+      "badge": "Honoring those who served",
+      "titleMain": "Veteran care",
+      "titleHighlight": "at home",
+      "description": "Specialized clinical and supportive home health services for veterans and their families, coordinated with VA providers.",
+      "aidAndAttendancePrompt": "Looking for help paying for care? Learn about VA Aid and Attendance benefits",
+      "requestCare": "Request veteran care",
+      "cardTitle": "VA coordination",
+      "cardDesc": "Seamless clinical alignment with VA physicians and dedicated case managers.",
+      "overviewTag": "Respect & excellence",
+      "overviewTitle": "Dedicated care for veterans and their families",
+      "overviewDesc": "We understand the unique needs of those who have served. Our team delivers high-quality clinical nursing, therapy, and personal care while coordinating closely with VA physicians and case managers.",
+      "features": [
+        "VA Coordination",
+        "Skilled Clinical Care",
+        "Family Support",
+        "Referral Guidance"
+      ],
+      "servicesTag": "Service scope",
+      "servicesTitle": "Veteran care services",
+      "servicesDesc": "Comprehensive in-home clinical and supportive care tailored specifically for veterans and their households.",
+      "servicesList": [
+        {
+          "title": "Support for Veterans & Families",
+          "desc": "Comprehensive in-home clinical and supportive care for veterans and eligible family members."
+        },
+        {
+          "title": "VA Provider Coordination",
+          "desc": "Active communication and reporting with VA physicians, case managers, and care teams."
+        },
+        {
+          "title": "Skilled & Supportive Care",
+          "desc": "High-quality clinical nursing, therapy, and personal care tailored to individual needs."
+        },
+        {
+          "title": "Referral & Authorization Process",
+          "desc": "Guidance and administrative support navigating the necessary VA referral steps."
+        },
+        {
+          "title": "Respectful, Experienced Team",
+          "desc": "Caregivers trained to understand the unique experiences and needs of those who have served."
+        },
+        {
+          "title": "Chronic Condition Management",
+          "desc": "Ongoing monitoring and support for service-related and age-related health conditions."
+        },
+        {
+          "title": "Post-Hospitalization Support",
+          "desc": "Dedicated clinical follow-up and transition care after discharge from VA or community hospitals."
+        },
+        {
+          "title": "Community Resource Navigation",
+          "desc": "Assistance connecting veterans with local benefits, support groups, and specialized programs."
+        }
+      ],
+      "ctaTitle": "Serving a veteran or their family?",
+      "ctaDesc": "Talk to our team about VA coordination and getting started."
+    },
+    "es": {
+      "badge": "Honrando a quienes sirvieron",
+      "titleMain": "Cuidado para veteranos",
+      "titleHighlight": "en el hogar",
+      "description": "Servicios de salud domiciliaria clínicos y de apoyo especializados para veteranos y sus familias, coordinados con proveedores de VA.",
+      "aidAndAttendancePrompt": "¿Busca ayuda para pagar el cuidado? Conozca los beneficios de VA Aid and Attendance",
+      "requestCare": "Solicitar atención para veteranos",
+      "cardTitle": "Coordinación con VA",
+      "cardDesc": "Alineación clínica fluida con médicos de VA y administradores de casos dedicados.",
+      "overviewTag": "Respeto y excelencia",
+      "overviewTitle": "Atención dedicada para veteranos y sus familias",
+      "overviewDesc": "Entendemos las necesidades únicas de quienes han servido. Nuestro equipo ofrece enfermería clínica, terapia y cuidado personal de alta calidad coordinados estrechamente con la VA.",
+      "features": [
+        "Coordinación con VA",
+        "Atención Clínica Especializada",
+        "Apoyo Familiar",
+        "Guía de Referencia"
+      ],
+      "servicesTag": "Alcance del servicio",
+      "servicesTitle": "Servicios de atención para veteranos",
+      "servicesDesc": "Cuidado clínico y de apoyo integral en el hogar adaptado específicamente para veteranos y sus hogares.",
+      "servicesList": [
+        {
+          "title": "Apoyo para Veteranos y Familias",
+          "desc": "Atención clínica integral en el hogar para veteranos y miembros elegibles de la familia."
+        },
+        {
+          "title": "Coordinación de Proveedores de VA",
+          "desc": "Comunicación activa y reportes con médicos de VA y equipos de atención."
+        },
+        {
+          "title": "Cuidado Clínico y de Apoyo",
+          "desc": "Enfermería clínica, terapia y cuidado personal de alta calidad adaptados a necesidades individuales."
+        },
+        {
+          "title": "Proceso de Referencia y Autorización",
+          "desc": "Orientación y apoyo administrativo para navegar los pasos necesarios de referencia de VA."
+        },
+        {
+          "title": "Equipo Respetuoso y Experimentado",
+          "desc": "Cuidadores capacitados para comprender las experiencias únicas de quienes han servido."
+        },
+        {
+          "title": "Manejo de Condiciones Crónicas",
+          "desc": "Monitoreo continuo y apoyo para condiciones de salud relacionadas con el servicio."
+        },
+        {
+          "title": "Apoyo Post-Hospitalización",
+          "desc": "Seguimiento clínico dedicado y atención de transición después del alta de hospitales de VA."
+        },
+        {
+          "title": "Navegación de Recursos Comunitarios",
+          "desc": "Asistencia para conectar a los veteranos con beneficios locales y grupos de apoyo."
+        }
+      ],
+      "ctaTitle": "¿Sirve a un veterano o a su familia?",
+      "ctaDesc": "Hable con nuestro equipo sobre la coordinación con la VA y cómo comenzar."
+    }
+  }

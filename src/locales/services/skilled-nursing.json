@@ -1,0 +1,158 @@
+{
+  "en": {
+    "badge": "Actively Accepting Clients",
+    "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+    "titleMain": "Skilled nursing",
+    "titleHighlight": "care at home",
+    "description": "Physician-directed clinical support delivered by licensed nurses to promote healing, manage chronic conditions, and ensure a safe, dignified recovery in the comfort of home.",
+    "requestCare": "Request care & consultation",
+    "callUs": "Call (972) 325-1598",
+    "cardTitle": "Verified clinical excellence",
+    "cardSub": "Trusted by families since 2010",
+    "cardDesc": "Professional, individualized medical oversight delivered directly to families across the community.",
+    "overviewTag": "Professional clinical support",
+    "overviewTitle": "Expert nursing care tailored to your recovery plan",
+    "overviewDesc": "Our skilled nursing services provide comprehensive, individualized medical care directly in your home. Working closely with your physician, our licensed nurses monitor health status, manage complex medications, and provide essential education to empower patients and caregivers.",
+    "features": [
+      "Licensed Registered Nurses (RN)",
+      "Physician-Directed Plans",
+      "Personalized In-Home Visits",
+      "24/7 On-Call Support"
+    ],
+    "pathwayTag": "How care begins",
+    "pathwayTitle": "Your care pathway",
+    "pathwaySub": "A clear, physician-directed path from referral to ongoing in-home support.",
+    "pathwaySteps": [
+      {
+        "title": "Physician referral & intake",
+        "desc": "Your doctor's orders are reviewed and a licensed RN builds a plan of care around them."
+      },
+      {
+        "title": "Scheduled in-home visits",
+        "desc": "A nurse visits on a cadence matched to your condition, from daily wound checks to weekly monitoring."
+      },
+      {
+        "title": "Ongoing oversight & reporting",
+        "desc": "Vitals, medications, and progress are tracked and reported back to your physician after every visit."
+      }
+    ],
+    "servicesTag": "Comprehensive services",
+    "servicesTitle": "Skilled nursing clinical scope",
+    "servicesDesc": "Our multidisciplinary approach covers a wide array of specialized clinical needs to support independence, safety, and recovery at home.",
+    "servicesList": [
+      {
+        "title": "Health Assessments",
+        "desc": "Comprehensive evaluations of physical status, recovery progress, and ongoing home health needs."
+      },
+      {
+        "title": "Medication Management & Education",
+        "desc": "Medication reconciliation, adherence tracking, side-effect monitoring, and clear patient teaching."
+      },
+      {
+        "title": "Vital-Sign Monitoring",
+        "desc": "Regular tracking of blood pressure, heart rate, oxygen saturation, temperature, and weight."
+      },
+      {
+        "title": "Physician-Order Implementation",
+        "desc": "Precise execution of medical treatments, therapies, and clinical orders established by your doctor."
+      },
+      {
+        "title": "Chronic-Condition Monitoring",
+        "desc": "Ongoing clinical oversight for conditions such as diabetes, heart failure, COPD, and hypertension."
+      },
+      {
+        "title": "Patient & Caregiver Education",
+        "desc": "Empowering families with knowledge regarding disease management, self-care techniques, and safety."
+      },
+      {
+        "title": "Care Coordination",
+        "desc": "Seamless communication between physicians, therapists, family members, and medical suppliers."
+      },
+      {
+        "title": "Disease-Management Support",
+        "desc": "Structured programs to prevent complications, reduce hospital re-admissions, and improve quality of life."
+      }
+    ],
+    "ctaTitle": "Ready to bring skilled nursing care home?",
+    "ctaDesc": "Talk to our team about your physician's orders and we'll build a plan of care around them.",
+    "ctaContact": "Contact our team"
+  },
+  "es": {
+    "badge": "Aceptando Clientes Actualmente",
+    "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+    "titleMain": "Enfermería especializada",
+    "titleHighlight": "en el hogar",
+    "description": "Apoyo clínico dirigido por médicos y proporcionado por enfermeros licenciados para promover la sanación, manejar condiciones crónicas y asegurar una recuperación segura y digna en la comodidad del hogar.",
+    "requestCare": "Solicitar atención y consulta",
+    "callUs": "Llamar al (972) 325-1598",
+    "cardTitle": "Excelencia clínica comprobada",
+    "cardSub": "Con la confianza de las familias desde 2010",
+    "cardDesc": "Supervisión médica profesional e individualizada entregada directamente a las familias en toda la comunidad.",
+    "overviewTag": "Apoyo clínico profesional",
+    "overviewTitle": "Atención de enfermería experta adaptada a su plan de recuperación",
+    "overviewDesc": "Nuestros servicios de enfermería especializada brindan atención médica integral e individualizada directamente en su hogar. Trabajando en estrecha colaboración con su médico, nuestros enfermeros licenciados monitorean el estado de salud, administran medicamentos complejos y brindan educación esencial.",
+    "features": [
+      "Enfermeros Registrados Licenciados (RN)",
+      "Planes Dirigidos por Médicos",
+      "Visitas Domiciliarias Personalizadas",
+      "Apoyo Telefónico 24/7"
+    ],
+    "pathwayTag": "Cómo comienza la atención",
+    "pathwayTitle": "Su ruta de atención",
+    "pathwaySub": "Un camino claro y dirigido por un médico, desde la remisión hasta el apoyo continuo en el hogar.",
+    "pathwaySteps": [
+      {
+        "title": "Remisión médica e ingreso",
+        "desc": "Se revisan las órdenes de su médico y un RN licenciado elabora un plan de atención en torno a ellas."
+      },
+      {
+        "title": "Visitas domiciliarias programadas",
+        "desc": "Un enfermero lo visita con una frecuencia adaptada a su condición, desde revisiones diarias de heridas hasta monitoreo semanal."
+      },
+      {
+        "title": "Supervisión y reportes continuos",
+        "desc": "Los signos vitales, medicamentos y el progreso se registran y se informan a su médico después de cada visita."
+      }
+    ],
+    "servicesTag": "Servicios integrales",
+    "servicesTitle": "Alcance clínico de enfermería especializada",
+    "servicesDesc": "Nuestro enfoque multidisciplinario cubre una amplia gama de necesidades clínicas especializadas para respaldar la independencia, la seguridad y la recuperación en casa.",
+    "servicesList": [
+      {
+        "title": "Evaluaciones de Salud",
+        "desc": "Evaluaciones integrales del estado físico, el progreso de la recuperación y las necesidades de salud en el hogar."
+      },
+      {
+        "title": "Gestión y Educación de Medicamentos",
+        "desc": "Reconciliación de medicamentos, seguimiento de adherencia, control de efectos secundarios y enseñanza clara al paciente."
+      },
+      {
+        "title": "Monitoreo de Signos Vitales",
+        "desc": "Seguimiento regular de la presión arterial, frecuencia cardíaca, saturación de oxígeno, temperatura y peso."
+      },
+      {
+        "title": "Implementación de Órdenes Médicas",
+        "desc": "Ejecución precisa de tratamientos médicos, terapias y órdenes clínicas establecidas por su médico."
+      },
+      {
+        "title": "Monitoreo de Enfermedades Crónicas",
+        "desc": "Supervisión clínica continua para afecciones como diabetes, insuficiencia cardíaca, EPOC e hipertensión."
+      },
+      {
+        "title": "Educación al Paciente y Cuidador",
+        "desc": "Empoderamiento de las familias con conocimientos sobre el manejo de enfermedades, técnicas de autocuidado y seguridad."
+      },
+      {
+        "title": "Coordinación de Cuidados",
+        "desc": "Comunicación fluida entre médicos, terapeutas, miembros de la familia y proveedores médicos."
+      },
+      {
+        "title": "Apoyo en el Manejo de Enfermedades",
+        "desc": "Programas estructurados para prevenir complicaciones, reducir los reingresos hospitalarios y mejorar la calidad de vida."
+      }
+    ],
+    "ctaTitle": "¿Listo para llevar la atención de enfermería especializada a casa?",
+    "ctaDesc": "Hable con nuestro equipo sobre las órdenes de su médico y construiremos un plan de atención a su medida.",
+    "ctaContact": "Contacte a nuestro equipo"
+  }
+}

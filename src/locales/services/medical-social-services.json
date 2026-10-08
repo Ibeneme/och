@@ -1,0 +1,100 @@
+{
+  "en": {
+    "badge": "Active clinical discipline",
+    "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+    "titleMain": "Medical social services",
+    "titleHighlight": "care at home",
+    "description": "Compassionate guidance and psychosocial support to help patients and families navigate complex health challenges, connect with vital community resources, and plan securely for long-term well-being and recovery.",
+    "requestCare": "Request care & consultation",
+    "callUs": "Call (972) 325-1598",
+    "cardTitle": "Holistic care advocacy",
+    "cardDesc": "Bridging medical treatments with essential emotional, financial, and community support networks.",
+    "overviewTag": "Psychosocial & community support",
+    "overviewTitle": "Navigating health challenges with professional guidance",
+    "overviewDesc": "Our licensed medical social workers assist patients and their families in coping with the emotional, social, and financial impacts of illness or injury. By offering customized counseling, resource coordination, and long-term care planning, we ensure comprehensive support throughout every step of your health journey.",
+    "features": [
+      "Licensed Social Workers",
+      "Community Resource Access",
+      "Family Counseling & Support",
+      "Long-Term Care Guidance"
+    ],
+    "servicesTag": "Specialized care areas",
+    "servicesTitle": "Medical social services scope",
+    "servicesDesc": "Our professional social work programs address the crucial non-medical needs directly influencing your recovery, home comfort, and long-term peace of mind.",
+    "servicesList": [
+      {
+        "title": "Psychosocial Assessments",
+        "desc": "Comprehensive evaluations of emotional, social, and environmental factors affecting health, recovery outcomes, and daily living environments."
+      },
+      {
+        "title": "Community-Resource Coordination",
+        "desc": "Connecting patients with local support networks, specialized transportation services, essential meal programs, and community assistance grants."
+      },
+      {
+        "title": "Long-Term Care Planning",
+        "desc": "Strategic planning and advisory support for future care transitions, alternative housing options, healthcare proxies, and advanced directives."
+      },
+      {
+        "title": "Support for Patients & Families",
+        "desc": "Empathetic emotional counseling and guidance to help households cope resiliently with chronic, degenerative, or life-altering medical conditions."
+      },
+      {
+        "title": "Financial & Social-Service Referrals",
+        "desc": "Targeted assistance with insurance questions, public assistance programs, Medicare/Medicaid optimization, and financial aid applications."
+      },
+      {
+        "title": "Navigating Care Challenges",
+        "desc": "Expert patient advocacy and practical problem-solving support designed to overcome unexpected roadblocks throughout the medical recovery path."
+      }
+    ]
+  },
+  "es": {
+    "badge": "Disciplina clínica activa",
+    "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+    "titleMain": "Servicios sociales médicos",
+    "titleHighlight": "en el hogar",
+    "description": "Orientación compasiva y apoyo psicosocial para ayudar a los pacientes y familias a superar desafíos de salud complejos, conectar con recursos comunitarios y planificar su bienestar a largo plazo.",
+    "requestCare": "Solicitar atención y consulta",
+    "callUs": "Llamar al (972) 325-1598",
+    "cardTitle": "Defensa de la atención integral",
+    "cardDesc": "Vinculando tratamientos médicos con redes esenciales de apoyo emocional, financiero y comunitario.",
+    "overviewTag": "Apoyo psicosocial y comunitario",
+    "overviewTitle": "Navegando los retos de salud con orientación profesional",
+    "overviewDesc": "Nuestros trabajadores sociales médicos licenciados ayudan a los pacientes y a sus familias a lidiar con los impactos emocionales, sociales y financieros de una enfermedad o lesión. Ofrecemos asesoramiento personalizado y planificación de cuidados a largo plazo.",
+    "features": [
+      "Trabajadores Sociales Licenciados",
+      "Acceso a Recursos Comunitarios",
+      "Asesoramiento y Apoyo Familiar",
+      "Orientación para Cuidados a Largo Plazo"
+    ],
+    "servicesTag": "Áreas de atención especializada",
+    "servicesTitle": "Alcance de los servicios sociales médicos",
+    "servicesDesc": "Nuestros programas profesionales abordan las necesidades no médicas cruciales que influyen directamente en su recuperación y tranquilidad.",
+    "servicesList": [
+      {
+        "title": "Evaluaciones Psicosociales",
+        "desc": "Evaluaciones integrales de factores emocionales, sociales y ambientales que afectan la salud y los resultados de recuperación."
+      },
+      {
+        "title": "Coordinación de Recursos Comunitarios",
+        "desc": "Conectando a los pacientes con redes de apoyo locales, servicios de transporte especializado y programas de asistencia."
+      },
+      {
+        "title": "Planificación de Cuidados a Largo Plazo",
+        "desc": "Planificación estratégica y asesoramiento para futuras transiciones de atención, opciones de vivienda y directivas anticipadas."
+      },
+      {
+        "title": "Apoyo para Pacientes y Familias",
+        "desc": "Asesoramiento emocional empático y orientación para ayudar a los hogares a sobrellevar condiciones médicas crónicas."
+      },
+      {
+        "title": "Referencias Financieras y de Servicios Sociales",
+        "desc": "Asistencia específica con preguntas sobre seguros, programas de asistencia pública y optimización de Medicare/Medicaid."
+      },
+      {
+        "title": "Navegación de Retos de Cuidado",
+        "desc": "Defensa experta del paciente y soporte práctico para superar obstáculos inesperados en la ruta de recuperación médica."
+      }
+    ]
+  }
+}

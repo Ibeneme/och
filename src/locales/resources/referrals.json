@@ -1,0 +1,172 @@
+{
+  "en": {
+    "badge": "Patient Care Coordination",
+    "titleMain": "Submit a Patient",
+    "titleHighlight": "Referral",
+    "description": "Designed for physicians, hospitals, case managers, discharge planners, social workers, families, and healthcare partners to initiate prompt in-home care services.",
+    "onlineFormBtn": "Online Referral Form",
+    "altMethodsBtn": "Alternative Referral Methods",
+    "methodsEyebrow": "Secure Transmission",
+    "methodsTitle": "Referral Methods",
+    "methodsDesc": "Prefer not to use the online portal? Send referral documentation through any of these direct channels.",
+    "emailRefTitle": "Email Referral",
+    "secureFaxTitle": "Secure Fax",
+    "phoneIntakeTitle": "Phone Intake",
+    "pdfFormTitle": "Printable Referral Form",
+    "pdfFormDesc": "Prefer paper? Download our PDF referral template to complete and fax.",
+    "pdfBtn": "Download PDF Referral Form",
+    "partnerBadge": "Partner Network",
+    "partnerTitle": "Who May Submit a Referral",
+    "partnerDesc": "We work collaboratively across the healthcare continuum to ensure patients experience smooth transitions from institutional settings to the comfort of home.",
+    "partners": [
+      "Physicians & Providers",
+      "Hospitals & Health Systems",
+      "Case Managers & Discharge Planners",
+      "Social Workers & Care Coordinators",
+      "Patients, Family Members & Authorized Representatives"
+    ],
+    "scopeBadge": "Clinical Scope",
+    "scopeTitle": "Conditions & Service Needs Commonly Referred",
+    "scopeDesc": "Our multidisciplinary team provides physician-directed clinical support for various recovery and long-term management needs:",
+    "scopeItems": [
+      "Skilled nursing care & medication management",
+      "Physical, occupational, and speech therapy",
+      "Post-surgical rehabilitation & wound care management",
+      "Chronic disease oversight (diabetes, cardiac, respiratory)",
+      "Medical social services and home health aide assistance"
+    ],
+    "workflowBadge": "Workflow & Steps",
+    "workflowTitle": "Referral Review & Insurance Verification Process",
+    "workflowDesc": "We streamline every referral to ensure quick evaluation and seamless initiation of care.",
+    "steps": [
+      {
+        "title": "Information Review",
+        "desc": "Our intake department reviews submitted patient data, primary diagnoses, and clinical notes for completeness."
+      },
+      {
+        "title": "Insurance Verification",
+        "desc": "We verify coverage eligibility, benefits, and authorization requirements with Medicare, Medicaid, or private insurance providers."
+      },
+      {
+        "title": "Physician Coordination",
+        "desc": "We coordinate with the referring physician to confirm orders, establish the plan of care, and secure required signatures."
+      },
+      {
+        "title": "Initiation of Care",
+        "desc": "Upon approval, we contact the patient or family to schedule the preferred start-of-care date and dispatch the care team."
+      }
+    ],
+    "successTitle": "Referral Successfully Submitted",
+    "successDesc": "Thank you for submitting your patient referral. Our intake team has received the secure information and will begin insurance verification and clinical review immediately.",
+    "anotherBtn": "Submit Another Referral",
+    "hipaaBadge": "Secure HIPAA-Compliant Form",
+    "formTitle": "Online Patient Referral Form",
+    "formSubtitle": "Please complete the required fields below. All transmitted protected health information (PHI) is handled securely.",
+    "sec1": "1. Patient Information",
+    "patName": "Patient Full Name *",
+    "dob": "Date of Birth *",
+    "address": "Patient Address *",
+    "phone": "Phone Number *",
+    "emerg": "Emergency Contact & Relationship *",
+    "insurance": "Insurance Information *",
+    "sec2": "2. Clinical Details & Services",
+    "diag": "Primary Diagnosis *",
+    "requested": "Requested Services *",
+    "dischargeDate": "Hospital Discharge Date (If applicable)",
+    "startDate": "Preferred Start-of-Care Date *",
+    "sec3": "3. Referring Provider Information",
+    "provName": "Referring Provider Name *",
+    "provPhone": "Provider Phone *",
+    "provFax": "Provider Fax *",
+    "sec4": "4. Clinical Documentation & Physician Orders Upload",
+    "uploadLabel": "Upload Recent Clinical Notes & Physician Orders (PDF/Word) *",
+    "uploadPrompt": "Click to upload clinical files or drag and drop here",
+    "uploadSub": "Secure encrypted upload (PDF, DOCX up to 25MB)",
+    "submitReferralBtn": "Submit Secure Referral"
+  },
+  "es": {
+    "badge": "Coordinación de Cuidado del Paciente",
+    "titleMain": "Envíe una Derivación",
+    "titleHighlight": "de Paciente",
+    "description": "Diseñado para médicos, hospitales, administradores de casos y planificadores de altas para iniciar servicios de atención domiciliaria.",
+    "onlineFormBtn": "Formulario de derivación en línea",
+    "altMethodsBtn": "Métodos alternativos",
+    "methodsEyebrow": "Transmisión segura",
+    "methodsTitle": "Métodos de derivación",
+    "methodsDesc": "¿Prefiere no usar el portal en línea? Envíe la documentación a través de nuestros canales directos.",
+    "emailRefTitle": "Derivación por correo electrónico",
+    "secureFaxTitle": "Fax seguro",
+    "phoneIntakeTitle": "Admisión telefónica",
+    "pdfFormTitle": "Formulario imprimible",
+    "pdfFormDesc": "¿Prefiere papel? Descargue nuestra plantilla PDF para completar y enviar por fax.",
+    "pdfBtn": "Descargar formulario en PDF",
+    "partnerBadge": "Red de Socios",
+    "partnerTitle": "Quién puede enviar una derivación",
+    "partnerDesc": "Trabajamos en colaboración para garantizar transiciones fluidas desde instituciones hasta el hogar.",
+    "partners": [
+      "Médicos y Proveedores",
+      "Hospitales y Sistemas de Salud",
+      "Administradores de Casos y Planificadores de Altas",
+      "Trabajadores Sociales y Coordinadores de Cuidado",
+      "Pacientes, Familiares y Representantes Autorizados"
+    ],
+    "scopeBadge": "Alcance Clínico",
+    "scopeTitle": "Condiciones y Necesidades Comúnmente Derivadas",
+    "scopeDesc": "Nuestro equipo multidisciplinario brinda apoyo clínico dirigido por médicos:",
+    "scopeItems": [
+      "Atención de enfermería especializada y manejo de medicamentos",
+      "Terapia física, ocupacional y del habla",
+      "Rehabilitación post-quirúrgica y manejo de heridas",
+      "Supervisión de enfermedades crónicas (diabetes, cardíacas, respiratorias)",
+      "Servicios sociales médicos y asistencia de auxiliares de salud"
+    ],
+    "workflowBadge": "Flujo de Trabajo y Pasos",
+    "workflowTitle": "Proceso de Revisión y Verificación de Seguros",
+    "workflowDesc": "Agilizamos cada derivación para garantizar una evaluación rápida.",
+    "steps": [
+      {
+        "title": "Revisión de Información",
+        "desc": "Nuestro departamento de admisiones revisa los datos del paciente y notas clínicas."
+      },
+      {
+        "title": "Verificación de Seguro",
+        "desc": "Verificamos la elegibilidad de cobertura, beneficios y requisitos con Medicare, Medicaid o seguros privados."
+      },
+      {
+        "title": "Coordinación Médica",
+        "desc": "Coordinamos con el médico remitente para confirmar órdenes y establecer el plan de atención."
+      },
+      {
+        "title": "Inicio de la Atención",
+        "desc": "Tras la aprobación, nos comunicamos con el paciente para programar la fecha de inicio."
+      }
+    ],
+    "successTitle": "Derivación enviada con éxito",
+    "successDesc": "Gracias por enviar la derivación de su paciente. Nuestro equipo de admisión ha recibido la información de forma segura.",
+    "anotherBtn": "Enviar otra derivación",
+    "hipaaBadge": "Formulario seguro que cumple con HIPAA",
+    "formTitle": "Formulario de derivación en línea",
+    "formSubtitle": "Complete los campos obligatorios a continuación. Toda la información de salud protegida (PHI) se maneja de forma segura.",
+    "sec1": "1. Información del Paciente",
+    "patName": "Nombre completo del paciente *",
+    "dob": "Fecha de nacimiento *",
+    "address": "Dirección del paciente *",
+    "phone": "Número de teléfono *",
+    "emerg": "Contacto de emergencia y parentesco *",
+    "insurance": "Información del seguro *",
+    "sec2": "2. Detalles Clínicos y Servicios",
+    "diag": "Diagnóstico principal *",
+    "requested": "Servicios solicitados *",
+    "dischargeDate": "Fecha de alta hospitalaria (si aplica)",
+    "startDate": "Fecha preferida de inicio de atención *",
+    "sec3": "3. Información del Proveedor Remitente",
+    "provName": "Nombre del proveedor remitente *",
+    "provPhone": "Teléfono del proveedor *",
+    "provFax": "Fax del proveedor *",
+    "sec4": "4. Documentación Clínica y Carga de Órdenes Médicas",
+    "uploadLabel": "Cargar notas clínicas recientes y órdenes médicas (PDF/Word) *",
+    "uploadPrompt": "Haga clic para cargar archivos clínicos o arrastre y suelte aquí",
+    "uploadSub": "Carga cifrada segura (PDF, DOCX hasta 25MB)",
+    "submitReferralBtn": "Enviar derivación segura"
+  }
+}

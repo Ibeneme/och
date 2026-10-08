@@ -1,0 +1,98 @@
+{
+  "en": {
+    "badge": "Everyday living support",
+    "titleMain": "Daily Lifestyle",
+    "titleHighlight": "Support",
+    "description": "Practical assistance with everyday activities that help clients maintain independence, comfort, and a high quality of life at home.",
+    "callUs": "Call (972) 325-1598",
+    "cardSub": "Everyday support services",
+    "overviewTag": "Independence & comfort",
+    "overviewTitle": "Supporting the rhythms of everyday life",
+    "overviewDesc": "Daily lifestyle support focuses on the practical tasks that keep a household running smoothly. Our caregivers assist with meal preparation, light housekeeping, errands, and personal routines.",
+    "checklist": [
+      "Meal preparation",
+      "Light housekeeping",
+      "Errands & shopping",
+      "Personal routines"
+    ],
+    "servicesTag": "Service scope",
+    "servicesTitle": "Daily lifestyle services",
+    "servicesDesc": "Practical, respectful support that preserves dignity and independence.",
+    "servicesList": [
+      {
+        "title": "Meal preparation",
+        "desc": "Planning and preparing nutritious meals according to dietary preferences and restrictions.",
+        "featured": true
+      },
+      {
+        "title": "Light housekeeping",
+        "desc": "Tidying, laundry, dishwashing, and other light household tasks that keep the home comfortable."
+      },
+      {
+        "title": "Errands & appointments",
+        "desc": "Assistance with grocery shopping, prescription pickup, and accompaniment to appointments."
+      },
+      {
+        "title": "Personal care routines",
+        "desc": "Gentle support with grooming, dressing, and other daily personal care activities."
+      },
+      {
+        "title": "Schedule management",
+        "desc": "Help organizing daily schedules, reminders, and preferred routines."
+      },
+      {
+        "title": "Companionship during tasks",
+        "desc": "Friendly presence while completing everyday activities, reducing isolation and stress."
+      }
+    ],
+    "mostRequested": "Most requested"
+  },
+  "es": {
+    "badge": "Apoyo para la vida diaria",
+    "titleMain": "Apoyo de Estilo de Vida",
+    "titleHighlight": "Diario",
+    "description": "Asistencia práctica con actividades cotidianas que ayudan a los clientes a mantener su independencia, comodidad y alta calidad de vida en el hogar.",
+    "callUs": "Llamar al (972) 325-1598",
+    "cardSub": "Servicios de apoyo diario",
+    "overviewTag": "Independencia y comodidad",
+    "overviewTitle": "Apoyando los ritmos de la vida cotidiana",
+    "overviewDesc": "El apoyo de estilo de vida diario se centra en las tareas prácticas que mantienen un hogar funcionando sin problemas.",
+    "checklist": [
+      "Preparación de comidas",
+      "Limpieza ligera del hogar",
+      "Mandados y compras",
+      "Rutinas personales"
+    ],
+    "servicesTag": "Alcance del servicio",
+    "servicesTitle": "Servicios de estilo de vida diario",
+    "servicesDesc": "Apoyo práctico y respetuoso que preserva la dignidad y la independencia.",
+    "servicesList": [
+      {
+        "title": "Preparación de comidas",
+        "desc": "Planificación y preparación de comidas nutritivas según preferencias y restricciones dietéticas.",
+        "featured": true
+      },
+      {
+        "title": "Limpieza ligera",
+        "desc": "Orden, lavado de ropa, platos y otras tareas domésticas ligeras para mantener el hogar cómodo."
+      },
+      {
+        "title": "Mandados y citas",
+        "desc": "Asistencia con compras de comestibles, recogida de recetas y acompañamiento a citas."
+      },
+      {
+        "title": "Rutinas de cuidado personal",
+        "desc": "Apoyo amable con el aseo, vestimenta y otras actividades de cuidado diario."
+      },
+      {
+        "title": "Gestión de horarios",
+        "desc": "Ayuda para organizar horarios diarios, recordatorios y rutinas preferidas."
+      },
+      {
+        "title": "Compañía durante tareas",
+        "desc": "Presencia amistosa al completar actividades cotidianas, reduciendo el aislamiento y el estrés."
+      }
+    ],
+    "mostRequested": "Más solicitado"
+  }
+}

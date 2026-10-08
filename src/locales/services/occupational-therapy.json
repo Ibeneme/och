@@ -1,0 +1,100 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+      "titleMain": "Occupational therapy",
+      "titleHighlight": "care at home",
+      "description": "Empowering you to regain independence, master daily routines, and navigate your home environment safely and confidently.",
+      "requestCare": "Request care & consultation",
+      "callUs": "Call (972) 325-1598",
+      "cardTitle": "Independence, one routine at a time",
+      "cardDesc": "Licensed therapists focused on coordination, adaptive strategies, and home modifications.",
+      "overviewTag": "Daily living & independence",
+      "overviewTitle": "Reclaiming your everyday activities and confidence",
+      "overviewDesc": "Our licensed occupational therapists focus on helping you perform daily tasks with ease and confidence. By addressing physical coordination, adaptive strategies, and home modifications, we enable you to maintain an active, fulfilling lifestyle right at home.",
+      "features": [
+        "Licensed Occupational Therapists",
+        "Personalized Home Assessments",
+        "Practical Skill Building",
+        "Adaptive Equipment Guidance"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Occupational therapy scope of services",
+      "servicesDesc": "Our targeted programs are designed to support your daily function, safety, and personal independence.",
+      "servicesList": [
+        {
+          "title": "Activities of Daily Living",
+          "desc": "Guidance and training to help you successfully manage essential everyday tasks and routines."
+        },
+        {
+          "title": "Personal Care Skills",
+          "desc": "Techniques to improve ease and safety during dressing, bathing, and personal grooming."
+        },
+        {
+          "title": "Energy Conservation",
+          "desc": "Pacing strategies and techniques to manage fatigue and preserve energy throughout the day."
+        },
+        {
+          "title": "Home-Safety Training",
+          "desc": "Environment evaluations and modifications to minimize hazards and ensure safe living conditions."
+        },
+        {
+          "title": "Adaptive Equipment",
+          "desc": "Instruction and training on using specialized tools and devices to simplify routine activities."
+        },
+        {
+          "title": "Fine-Motor Skills",
+          "desc": "Exercises and coordination tasks designed to restore hand dexterity, grip, and finger control."
+        }
+      ]
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+      "titleMain": "Terapia ocupacional",
+      "titleHighlight": "en el hogar",
+      "description": "Le ayudamos a recuperar su independencia, dominar las rutinas diarias y navegar por su hogar de forma segura y con confianza.",
+      "requestCare": "Solicitar atención y consulta",
+      "callUs": "Llamar al (972) 325-1598",
+      "cardTitle": "Independencia, una rutina a la vez",
+      "cardDesc": "Terapeutas licenciados enfocados en la coordinación, estrategias adaptativas y modificaciones en el hogar.",
+      "overviewTag": "Vida diaria e independencia",
+      "overviewTitle": "Recupere sus actividades cotidianas y su confianza",
+      "overviewDesc": "Nuestros terapeutas ocupacionales licenciados se enfocan en ayudarle a realizar tareas diarias con facilidad y confianza. Abordando la coordinación física y modificaciones en el hogar, le permitimos mantener un estilo de vida activo.",
+      "features": [
+        "Terapeutas Ocupacionales Licenciados",
+        "Evaluaciones Domiciliarias Personalizadas",
+        "Desarrollo de Habilidades Prácticas",
+        "Orientación sobre Equipos Adaptativos"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de terapia ocupacional",
+      "servicesDesc": "Nuestros programas específicos están diseñados para apoyar su funcionamiento diario, seguridad e independencia personal.",
+      "servicesList": [
+        {
+          "title": "Actividades de la Vida Diaria",
+          "desc": "Orientación y entrenamiento para ayudarle a gestionar con éxito las tareas y rutinas esenciales de cada día."
+        },
+        {
+          "title": "Habilidades de Cuidado Personal",
+          "desc": "Técnicas para mejorar la facilidad y seguridad al vestirse, bañarse y en el aseo personal."
+        },
+        {
+          "title": "Conservación de Energía",
+          "desc": "Estrategias de ritmo y técnicas para controlar la fatiga y preservar la energía durante todo el día."
+        },
+        {
+          "title": "Entrenamiento en Seguridad en el Hogar",
+          "desc": "Evaluaciones ambientales y modificaciones para minimizar peligros y garantizar condiciones de vida seguras."
+        },
+        {
+          "title": "Equipos Adaptativos",
+          "desc": "Instrucción y capacitación sobre el uso de herramientas y dispositivos especializados para simplificar actividades."
+        },
+        {
+          "title": "Habilidades Motrices Finas",
+          "desc": "Ejercicios y tareas de coordinación diseñadas para restaurar la destreza manual, el agarre y el control de los dedos."
+        }
+      ]
+    }
+  }

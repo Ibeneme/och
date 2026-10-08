@@ -1,0 +1,234 @@
+{
+  "insurance.badge": {
+    "en": "Coverage & billing support",
+    "es": "Soporte de cobertura y facturación"
+  },
+  "insurance.title.part1": {
+    "en": "Insurance and ",
+    "es": "Seguros y "
+  },
+  "insurance.title.part2": {
+    "en": "payment options",
+    "es": "opciones de pago"
+  },
+  "insurance.description": {
+    "en": "One Community Home Health works with multiple insurance and payment sources. Our team manages verification and authorization before care begins.",
+    "es": "One Community Home Health trabaja con múltiples fuentes de seguros y pagos. Nuestro equipo gestiona la verificación y autorización antes de que comience la atención."
+  },
+  "insurance.callBtn": {
+    "en": "Call (972) 325-1598",
+    "es": "Llamar al (972) 325-1598"
+  },
+  "insurance.contactBtn": {
+    "en": "Contact our team",
+    "es": "Contacte a nuestro equipo"
+  },
+  "insurance.whyTitle": {
+    "en": "Why families trust us",
+    "es": "Por qué las familias confían en nosotros"
+  },
+  "insurance.whySub": {
+    "en": "Dedicated billing & verification",
+    "es": "Facturación y verificación dedicada"
+  },
+  "insurance.why1": {
+    "en": "Direct coordination with providers & case managers",
+    "es": "Coordinación directa con proveedores y gestores de casos"
+  },
+  "insurance.why2": {
+    "en": "Proactive benefit checks to prevent unexpected costs",
+    "es": "Verificaciones proactivas de beneficios para evitar costos inesperados"
+  },
+  "insurance.why3": {
+    "en": "Comprehensive coverage support for Texas residents",
+    "es": "Soporte integral de cobertura para residentes de Texas"
+  },
+  "trust.verifyLabel": {
+    "en": "Benefit verification",
+    "es": "Verificación de beneficios"
+  },
+  "trust.verifySub": {
+    "en": "Before care starts",
+    "es": "Antes de iniciar la atención"
+  },
+  "trust.medicareLabel": {
+    "en": "Medicare-certified",
+    "es": "Certificado por Medicare"
+  },
+  "trust.medicareSub": {
+    "en": "Trusted quality",
+    "es": "Calidad confiable"
+  },
+  "trust.multipleLabel": {
+    "en": "Multiple sources",
+    "es": "Múltiples fuentes"
+  },
+  "trust.multipleSub": {
+    "en": "Flexible options",
+    "es": "Opciones flexibles"
+  },
+  "trust.transparentLabel": {
+    "en": "Transparent process",
+    "es": "Proceso transparente"
+  },
+  "trust.transparentSub": {
+    "en": "Zero guesswork",
+    "es": "Sin incertidumbre"
+  },
+  "grid.tag": {
+    "en": "Accepted coverage",
+    "es": "Cobertura aceptada"
+  },
+  "grid.title": {
+    "en": "Our insurance & payment plans",
+    "es": "Nuestros seguros y planes de pago"
+  },
+  "grid.description": {
+    "en": "Review our supported insurance networks and flexible payment arrangements below.",
+    "es": "Revise nuestras redes de seguros admitidas y arreglos de pago flexibles a continuación."
+  },
+  "card.verificationRequired": {
+    "en": "Verification required",
+    "es": "Verificación requerida"
+  },
+  "card.activePlan": {
+    "en": "Active plan",
+    "es": "Plan activo"
+  },
+  "notice.badge": {
+    "en": "Network status note",
+    "es": "Nota sobre estado de red"
+  },
+  "notice.title": {
+    "en": "Pending insurance relationships",
+    "es": "Relaciones de seguros pendientes"
+  },
+  "notice.desc": {
+    "en": "UnitedHealthcare is not currently listed as an accepted plan. It will only be shown once contracting and network participation are fully confirmed.",
+    "es": "UnitedHealthcare no aparece actualmente como un plan aceptado. Solo se mostrará una vez que se confirme completamente la contratación y participación en la red."
+  },
+  "notice.status": {
+    "en": "Status: in review",
+    "es": "Estado: en revisión"
+  },
+  "notice.updated": {
+    "en": "Updated 2026",
+    "es": "Actualizado 2026"
+  },
+  "disclaimer.badge": {
+    "en": "Important disclaimer",
+    "es": "Aviso importante"
+  },
+  "disclaimer.title": {
+    "en": "Please verify before care begins",
+    "es": "Por favor verifique antes de iniciar la atención"
+  },
+  "disclaimer.desc": {
+    "en": "Insurance participation can change dynamically. Acceptance of a plan does not guarantee final coverage. Authorizations, co-pays, deductibles, and clinical limitations must be verified prior to care delivery.",
+    "es": "La participación del seguro puede cambiar dinámicamente. La aceptación de un plan no garantiza la cobertura final. Las autorizaciones, copagos, deducibles y limitaciones clínicas deben verificarse antes de prestar el servicio."
+  },
+  "disclaimer.mandatory": {
+    "en": "Mandatory check",
+    "es": "Verificación obligatoria"
+  },
+  "disclaimer.standards": {
+    "en": "Texas operating standards",
+    "es": "Estándares operativos de Texas"
+  },
+  "ins.medicare.title": {
+    "en": "Medicare",
+    "es": "Medicare"
+  },
+  "ins.medicare.desc": {
+    "en": "Comprehensive Medicare-certified home health services, provided subject to individual patient eligibility and documented medical necessity.",
+    "es": "Servicios integrales de salud en el hogar certificados por Medicare, proporcionados sujetos a la elegibilidad individual del paciente y necesidad médica documentada."
+  },
+  "ins.medicare.badge": {
+    "en": "In-network coverage",
+    "es": "Cobertura dentro de la red"
+  },
+  "ins.medicaid.title": {
+    "en": "Texas Medicaid / STAR+PLUS",
+    "es": "Texas Medicaid / STAR+PLUS"
+  },
+  "ins.medicaid.desc": {
+    "en": "Dedicated home care support serving eligible adults with disabilities and adults age 65 or older under the STAR+PLUS program.",
+    "es": "Apoyo de atención domiciliaria dedicado para adultos elegibles con discapacidades y adultos de 65 años o más bajo el programa STAR+PLUS."
+  },
+  "ins.medicaid.badge": {
+    "en": "In-network coverage",
+    "es": "Cobertura dentro de la red"
+  },
+  "ins.molina.title": {
+    "en": "Molina Healthcare",
+    "es": "Molina Healthcare"
+  },
+  "ins.molina.desc": {
+    "en": "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care products.",
+    "es": "Participación aceptada confirmada por el propietario para productos aprobados de Medicaid y/o atención administrada HMO."
+  },
+  "ins.molina.badge": {
+    "en": "In-network coverage",
+    "es": "Cobertura dentro de la red"
+  },
+  "ins.superior.title": {
+    "en": "Superior HealthPlan",
+    "es": "Superior HealthPlan"
+  },
+  "ins.superior.desc": {
+    "en": "Owner-confirmed accepted participation for approved Medicaid and/or HMO managed care product lines.",
+    "es": "Participación aceptada confirmada por el propietario para líneas de productos aprobadas de Medicaid y/o HMO."
+  },
+  "ins.superior.badge": {
+    "en": "In-network coverage",
+    "es": "Cobertura dentro de la red"
+  },
+  "ins.wellpoint.title": {
+    "en": "Wellpoint",
+    "es": "Wellpoint"
+  },
+  "ins.wellpoint.desc": {
+    "en": "Formerly Amerigroup; active network participation using the current Wellpoint name and designation.",
+    "es": "Anteriormente Amerigroup; participación activa en la red utilizando el nombre y designación actual de Wellpoint."
+  },
+  "ins.wellpoint.badge": {
+    "en": "In-network coverage",
+    "es": "Cobertura dentro de la red"
+  },
+  "ins.aetna.title": {
+    "en": "Aetna",
+    "es": "Aetna"
+  },
+  "ins.aetna.desc": {
+    "en": "Select HMO and private commercial insurance plan participation accepted upon verification.",
+    "es": "Participación selecta en planes HMO y de seguros comerciales privados aceptada previa verificación."
+  },
+  "ins.aetna.badge": {
+    "en": "Accepted upon verification",
+    "es": "Aceptado previa verificación"
+  },
+  "ins.va.title": {
+    "en": "VA Community Care",
+    "es": "VA Community Care"
+  },
+  "ins.va.desc": {
+    "en": "Accepted when eligible veterans have secured the required VA referral, network authorization, or prior approval.",
+    "es": "Aceptado cuando los veteranos elegibles hayan asegurado la remisión requerida de VA, autorización de red o aprobación previa."
+  },
+  "ins.va.badge": {
+    "en": "Requires prior authorization",
+    "es": "Requiere autorización previa"
+  },
+  "ins.private.title": {
+    "en": "Private Pay / Self-Pay",
+    "es": "Pago Privado / Auto-pago"
+  },
+  "ins.private.desc": {
+    "en": "Flexible private financial arrangements where custom rates and service availability are discussed during your personal consultation.",
+    "es": "Acuerdos financieros privados flexibles donde las tarifas personalizadas y la disponibilidad de servicios se discuten durante su consulta personal."
+  },
+  "ins.private.badge": {
+    "en": "Flexible arrangement",
+    "es": "Acuerdo flexible"
+  }
+}

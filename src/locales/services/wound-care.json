@@ -1,0 +1,108 @@
+{
+  "en": {
+    "badge": "Active clinical discipline",
+    "titleMain": "Wound care",
+    "titleHighlight": "care at home",
+    "description": "Professional, clinical wound management and specialized dressing protocols delivered safely in your home to promote healing and prevent infection.",
+    "requestCare": "Request care & consultation",
+    "cardTitle": "Advanced treatment",
+    "cardDesc": "Promoting optimal tissue recovery and infection prevention at home.",
+    "overviewTag": "Advanced clinical treatment",
+    "overviewTitle": "Promoting optimal healing and tissue recovery",
+    "overviewDesc": "Our skilled nursing team specializes in comprehensive wound care management. Working under physician direction, we provide thorough assessments, sterile dressing changes, and specialized support for surgical sites, pressure injuries, and diabetic wounds to ensure safe and rapid recovery at home.",
+    "features": [
+      "Licensed Skilled Nurses",
+      "Physician-Directed Protocols",
+      "Infection Prevention Focus",
+      "Caregiver Education & Support"
+    ],
+    "servicesTag": "Specialized care areas",
+    "servicesTitle": "Wound care scope of services",
+    "servicesDesc": "Our clinical wound care programs cover every aspect of monitoring, treatment, prevention, and patient education.",
+    "servicesList": [
+      {
+        "title": "Wound Assessment",
+        "desc": "Regular clinical evaluations to track healing progress, measure dimensions, and monitor tissue condition."
+      },
+      {
+        "title": "Dressing Changes",
+        "desc": "Sterile, professional application of advanced dressings tailored to promote optimal wound closure."
+      },
+      {
+        "title": "Pressure-Injury Care",
+        "desc": "Specialized treatment and prevention strategies for pressure ulcers and skin breakdown."
+      },
+      {
+        "title": "Post-Surgical Support",
+        "desc": "Careful monitoring and maintenance of surgical incisions to ensure clean healing and reduce complications."
+      },
+      {
+        "title": "Diabetic Wound Support",
+        "desc": "Specialized care protocols and management for diabetic ulcers and chronic foot complications."
+      },
+      {
+        "title": "Infection Prevention",
+        "desc": "Guidance on identifying early warning signs of infection and maintaining proper hygiene standards."
+      },
+      {
+        "title": "Patient & Caregiver Instruction",
+        "desc": "Clear, hands-on training for patients and family members on home monitoring, safe hygiene habits, and supportive care techniques."
+      }
+    ],
+    "ctaTitle": "Need expert wound care at home?",
+    "ctaDesc": "Talk to our team about your wound care needs and getting started."
+  },
+  "es": {
+    "badge": "Disciplina clínica activa",
+    "titleMain": "Cuidado de heridas",
+    "titleHighlight": "en el hogar",
+    "description": "Manejo clínico profesional de heridas y protocolos de apósitos especializados entregados de forma segura en su hogar para promover la curación y prevenir infecciones.",
+    "requestCare": "Solicitar atención y consulta",
+    "cardTitle": "Tratamiento avanzado",
+    "cardDesc": "Promoviendo la recuperación óptima de los tejidos y la prevención de infecciones en el hogar.",
+    "overviewTag": "Tratamiento clínico avanzado",
+    "overviewTitle": "Promoviendo una curación óptima y recuperación de tejidos",
+    "overviewDesc": "Nuestro equipo de enfermería especializada se especializa en la gestión integral de heridas, brindando evaluaciones exhaustivas, cambios de apósitos estériles y apoyo especializado.",
+    "features": [
+      "Enfermeros Licenciados",
+      "Protocolos Dirigidos por Médicos",
+      "Enfoque en Prevención de Infecciones",
+      "Educación y Apoyo al Cuidador"
+    ],
+    "servicesTag": "Áreas de atención especializada",
+    "servicesTitle": "Alcance de los servicios de heridas",
+    "servicesDesc": "Nuestros programas cubren todos los aspectos de monitoreo, tratamiento, prevención y educación del paciente.",
+    "servicesList": [
+      {
+        "title": "Evaluación de Heridas",
+        "desc": "Evaluaciones clínicas periódicas para seguir el progreso de la curación y la condición del tejido."
+      },
+      {
+        "title": "Cambios de Apósitos",
+        "desc": "Aplicación estéril y profesional de apósitos avanzados adaptados para promover el cierre óptimo."
+      },
+      {
+        "title": "Cuidado de Lesiones por Presión",
+        "desc": "Tratamiento especializado y estrategias de prevención para úlceras por presión."
+      },
+      {
+        "title": "Apoyo Post-Quirúrgico",
+        "desc": "Monitoreo cuidadoso y mantenimiento de incisiones quirúrgicas para asegurar una curación limpia."
+      },
+      {
+        "title": "Apoyo para Heridas Diabéticas",
+        "desc": "Protocolos especializados y manejo de úlceras diabéticas y complicaciones crónicas en los pies."
+      },
+      {
+        "title": "Prevención de Infecciones",
+        "desc": "Guía sobre cómo identificar signos tempranos de infección y mantener normas de higiene."
+      },
+      {
+        "title": "Instrucción al Paciente y Cuidador",
+        "desc": "Capacitación práctica y clara sobre monitoreo domiciliario y hábitos de higiene seguros."
+      }
+    ],
+    "ctaTitle": "¿Necesita atención experta de heridas en casa?",
+    "ctaDesc": "Hable con nuestro equipo sobre sus necesidades de cuidado de heridas y cómo comenzar."
+  }
+}

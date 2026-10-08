@@ -1,0 +1,66 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "titleMain": "Post-surgical",
+      "titleHighlight": "care at home",
+      "description": "Seamless hospital-to-home transitions, comprehensive recovery monitoring, and professional clinical support to ensure a safe, smooth healing process.",
+      "requestCare": "Request care & consultation",
+      "cardTitle": "Hospital-to-home transition",
+      "cardDesc": "Professional clinical oversight bridging the gap to safe recovery.",
+      "overviewTag": "Safe healing & transition",
+      "overviewTitle": "Expert clinical support following surgery",
+      "overviewDesc": "Recovering from surgery requires careful attention to surgical sites, medication regimens, and mobility restrictions. Our skilled nursing and therapy teams guide you through every stage of recovery at home.",
+      "features": [
+        "Smooth Hospital Transitions",
+        "Professional Wound Care",
+        "Physician Coordination",
+        "Rehabilitation Support"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Post-surgical care scope of services",
+      "servicesDesc": "Our targeted clinical protocols address all critical aspects of post-operative recovery to protect your health and promote rapid healing.",
+      "servicesList": [
+        { "title": "Recovery Monitoring", "desc": "Consistent clinical assessment of vital signs, healing progress, and early detection of post-operative complications." },
+        { "title": "Wound Care", "desc": "Sterile dressing changes, incision maintenance, and expert monitoring to ensure clean, infection-free tissue healing." },
+        { "title": "Medication Support", "desc": "Management of new prescriptions, pain medication schedules, side-effect tracking, and safety instruction." },
+        { "title": "Mobility & Rehabilitation", "desc": "Assistance with safe movement, strengthening exercises, and physical rehabilitation tailored to surgical limitations." },
+        { "title": "Patient Education", "desc": "Comprehensive guidance for patients and caregivers on activity restrictions, warning signs, and home safety." },
+        { "title": "Physician Coordination", "desc": "Seamless communication with surgeons and primary care providers regarding status updates and follow-up plans." },
+        { "title": "Hospital-to-Home Transition Support", "desc": "Structured discharge assistance to bridge the gap between hospital care and safe independent living at home, minimizing readmission risks." }
+      ],
+      "ctaTitle": "Coming home after surgery?",
+      "ctaDesc": "Talk to our team about discharge timing and a plan of care."
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "titleMain": "Atención post-quirúrgica",
+      "titleHighlight": "en el hogar",
+      "description": "Transiciones fluidas del hospital al hogar, monitoreo integral de la recuperación y apoyo clínico profesional para garantizar un proceso de curación seguro y sin contratiempos.",
+      "requestCare": "Solicitar atención y consulta",
+      "cardTitle": "Transición del hospital al hogar",
+      "cardDesc": "Supervisión clínica profesional cerrando la brecha hacia una recuperación segura.",
+      "overviewTag": "Curación segura y transición",
+      "overviewTitle": "Apoyo clínico experto después de la cirugía",
+      "overviewDesc": "La recuperación de la cirugía requiere una atención cuidadosa a los sitios quirúrgicos, los regímenes de medicamentos y las restricciones de movilidad.",
+      "features": [
+        "Transiciones Hospitalarias Fluidas",
+        "Cuidado Profesional de Heridas",
+        "Coordinación Médica",
+        "Apoyo de Rehabilitación"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de atención post-quirúrgica",
+      "servicesDesc": "Nuestros protocolos clínicos específicos abordan todos los aspectos críticos de la recuperación post-operatoria.",
+      "servicesList": [
+        { "title": "Monitoreo de Recuperación", "desc": "Evaluación clínica constante de signos vitales, progreso de curación y detección temprana de complicaciones." },
+        { "title": "Cuidado de Heridas", "desc": "Cambios de apósitos estériles, mantenimiento de incisiones y monitoreo experto." },
+        { "title": "Apoyo con Medicamentos", "desc": "Manejo de nuevas recetas, horarios de analgésicos, seguimiento de efectos secundarios." },
+        { "title": "Movilidad y Rehabilitación", "desc": "Asistencia con movimientos seguros, ejercicios de fortalecimiento y rehabilitación física." },
+        { "title": "Educación del Paciente", "desc": "Guía integral para pacientes y cuidadores sobre restricciones de actividad y señales de advertencia." },
+        { "title": "Coordinación Médica", "desc": "Comunicación fluida con cirujanos y proveedores de atención primaria sobre planes de seguimiento." },
+        { "title": "Apoyo de Transición Hospital-Hogar", "desc": "Asistencia estructurada de alta para minimizar riesgos de reingreso." }
+      ],
+      "ctaTitle": "¿Regresa a casa después de una cirugía?",
+      "ctaDesc": "Hable con nuestro equipo sobre el momento del alta y un plan de atención."
+    }
+  }

@@ -1,0 +1,60 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "titleMain": "Medication management",
+      "titleHighlight": "care at home",
+      "description": "Expert clinical oversight and safe medication coordination delivered directly in your home to ensure accurate regimens and prevent adverse drug interactions.",
+      "requestCare": "Request a consultation",
+      "cardTitle": "Safety & regimen accuracy",
+      "cardDesc": "Skilled nurses reviewing interactions and coordinating directly with physicians and pharmacies.",
+      "overviewTag": "Safety & regimen accuracy",
+      "overviewTitle": "Ensuring safety and compliance through professional oversight",
+      "overviewDesc": "Managing multiple prescriptions can be complex and overwhelming. Our skilled nursing team provides comprehensive medication management services—reviewing drug interactions, organizing schedules, and coordinating directly with physicians and pharmacies.",
+      "features": [
+        "Licensed Skilled Nurses",
+        "Physician & Pharmacy Coordination",
+        "Adherence & Safety Support",
+        "Family & Caregiver Instruction"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Medication management scope of services",
+      "servicesDesc": "Our clinical protocol addresses every phase of prescription organization, patient education, and safety monitoring.",
+      "servicesList": [
+        { "title": "Medication Reconciliation", "desc": "Careful comparison and verification of all current prescriptions to eliminate duplicates and prevent harmful interactions." },
+        { "title": "Medication Education", "desc": "Clear explanations regarding what each medication does, correct timing, and proper administration methods." },
+        { "title": "Adherence Support", "desc": "Practical organizing strategies and routine checks to ensure medications are taken exactly as prescribed." },
+        { "title": "Side-Effect Monitoring", "desc": "Active clinical observation for adverse reactions, unexpected symptoms, or drug-to-drug complications." },
+        { "title": "Physician & Pharmacy Coordination", "desc": "Seamless communication with care providers and pharmacies for prescription refills, adjustments, and updates." },
+        { "title": "Caregiver Instruction", "desc": "Comprehensive training and guidelines for family members helping manage daily medication schedules safely." }
+      ]
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "titleMain": "Manejo de medicamentos",
+      "titleHighlight": "en el hogar",
+      "description": "Supervisión clínica experta y coordinación segura de medicamentos en su hogar para garantizar regímenes precisos y prevenir interacciones adversas.",
+      "requestCare": "Solicitar una consulta",
+      "cardTitle": "Seguridad y precisión en el régimen",
+      "cardDesc": "Enfermeros especializados revisando interacciones y coordinando directamente con médicos y farmacias.",
+      "overviewTag": "Seguridad y precisión en el régimen",
+      "overviewTitle": "Garantizando la seguridad y el cumplimiento mediante supervisión profesional",
+      "overviewDesc": "Manejar múltiples recetas puede ser complejo. Nuestro equipo de enfermería especializada proporciona servicios integrales de manejo de medicamentos.",
+      "features": [
+        "Enfermeros Especializados Licenciados",
+        "Coordinación con Médicos y Farmacias",
+        "Apoyo de Adherencia y Seguridad",
+        "Instrucción a Familiares y Cuidadores"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de gestión de medicamentos",
+      "servicesDesc": "Nuestro protocolo clínico aborda cada fase de la organización de recetas, educación del paciente y monitoreo de seguridad.",
+      "servicesList": [
+        { "title": "Reconciliación de Medicamentos", "desc": "Comparación y verificación cuidadosa de todas las recetas actuales para eliminar duplicados." },
+        { "title": "Educación sobre Medicamentos", "desc": "Explicaciones claras sobre lo que hace cada medicamento y sus métodos de administración." },
+        { "title": "Apoyo de Adherencia", "desc": "Estrategias de organización prácticas para asegurar que los medicamentos se tomen según lo prescrito." },
+        { "title": "Monitoreo de Efectos Secundarios", "desc": "Observación clínica activa para reacciones adversas o complicaciones farmacológicas." },
+        { "title": "Coordinación Médica y Farmacéutica", "desc": "Comunicación fluida con proveedores de atención y farmacias para recargas y ajustes." },
+        { "title": "Instrucción al Cuidador", "desc": "Capacitación integral y pautas para familiares que ayudan a gestionar horarios diarios." }
+      ]
+    }
+  }

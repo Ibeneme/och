@@ -1,0 +1,64 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "titleMain": "Fall prevention & safety",
+      "titleHighlight": "care at home",
+      "description": "Comprehensive clinical assessments, balance training, and home safety recommendations designed to protect mobility and prevent accidental falls.",
+      "requestCare": "Request care & consultation",
+      "cardTitle": "Mobility & protection",
+      "cardDesc": "Proactive assessment and balance training for secure living.",
+      "overviewTag": "Safety & mobility protection",
+      "overviewTitle": "Maintaining independence through proactive fall prevention",
+      "overviewDesc": "Falls are a primary risk to long-term independence, but many can be prevented through targeted environmental modifications and physical conditioning. Our therapy and nursing teams evaluate individual risk factors.",
+      "features": [
+        "Thorough Fall-Risk Assessments",
+        "Balance & Strength Exercises",
+        "Home Hazard Identification",
+        "Caregiver Safety Training"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Fall prevention & safety scope of services",
+      "servicesDesc": "Our structured prevention programs focus on hazard identification, physical stability, and proper equipment use.",
+      "servicesList": [
+        { "title": "Fall-Risk Assessments", "desc": "Comprehensive clinical evaluations to identify personal risk factors, medication side effects, and physical vulnerabilities." },
+        { "title": "Balance & Strength Support", "desc": "Targeted therapeutic exercises designed to improve lower-body strength, posture, and postural stability." },
+        { "title": "Home-Safety Recommendations", "desc": "Expert inspection of living areas to eliminate hazards such as loose rugs, poor lighting, and blocked pathways." },
+        { "title": "Assistive-Device Education", "desc": "Guidance on the proper selection, fitting, and safe usage of canes, walkers, and other mobility aids." },
+        { "title": "Transfer Training", "desc": "Safe movement techniques for transitioning between beds, chairs, and bathrooms without risking a fall." },
+        { "title": "Caregiver Education", "desc": "Practical instruction for family members on supervisory techniques, spotting hazard risks, and assisting with mobility safely." }
+      ],
+      "ctaTitle": "Worried about falls at home?",
+      "ctaDesc": "Talk to our team about a fall-risk assessment and safety plan."
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "titleMain": "Prevención de caídas y seguridad",
+      "titleHighlight": "en el hogar",
+      "description": "Evaluaciones clínicas integrales, entrenamiento de equilibrio y recomendaciones de seguridad en el hogar para proteger la movilidad y prevenir caídas accidentales.",
+      "requestCare": "Solicitar atención y consulta",
+      "cardTitle": "Movilidad y protección",
+      "cardDesc": "Evaluación proactiva y entrenamiento de equilibrio para una vida segura.",
+      "overviewTag": "Protección de seguridad y movilidad",
+      "overviewTitle": "Manteniendo la independencia a través de la prevención proactiva de caídas",
+      "overviewDesc": "Las caídas son un riesgo principal para la independencia a largo plazo, pero muchas se pueden prevenir mediante modificaciones ambientales y acondicionamiento físico.",
+      "features": [
+        "Evaluaciones Exhaustivas de Riesgo de Caída",
+        "Ejercicios de Equilibrio y Fuerza",
+        "Identificación de Peligros en el Hogar",
+        "Capacitación de Seguridad para Cuidadores"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de prevención de caídas y seguridad",
+      "servicesDesc": "Nuestros programas estructurados se enfocan en la identificación de peligros, estabilidad física y uso adecuado de equipos.",
+      "servicesList": [
+        { "title": "Evaluaciones de Riesgo de Caída", "desc": "Evaluaciones clínicas integrales para identificar factores de riesgo personales y vulnerabilidades." },
+        { "title": "Apoyo de Equilibrio y Fuerza", "desc": "Ejercicios terapéuticos específicos para mejorar la fuerza de la parte inferior del cuerpo y la postura." },
+        { "title": "Recomendaciones de Seguridad en el Hogar", "desc": "Inspección experta de áreas de estar para eliminar peligros como alfombras sueltas y mala iluminación." },
+        { "title": "Educación sobre Dispositivos de Asistencia", "desc": "Guía sobre la selección adecuada, ajuste y uso seguro de bastones y andadores." },
+        { "title": "Entrenamiento de Transferencia", "desc": "Técnicas de movimiento seguro para transicionar entre camas, sillas y baños." },
+        { "title": "Educación del Cuidador", "desc": "Instrucción práctica para familiares sobre técnicas de supervisión y asistencia de movilidad." }
+      ],
+      "ctaTitle": "¿Le preocupan las caídas en el hogar?",
+      "ctaDesc": "Hable con nuestro equipo sobre una evaluación de riesgo de caídas y un plan de seguridad."
+    }
+  }

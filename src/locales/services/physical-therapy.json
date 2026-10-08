@@ -1,0 +1,116 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+      "titleMain": "Physical therapy",
+      "titleHighlight": "care at home",
+      "description": "Physician-directed physical therapy designed to restore mobility, rebuild strength, and empower safe, independent living right in the comfort of your home.",
+      "requestCare": "Request care & consultation",
+      "callUs": "Call (972) 325-1598",
+      "cardTitle": "Targeted rehabilitation",
+      "cardDesc": "Rebuilding confidence, strength, and mobility through expert clinical sessions.",
+      "overviewTag": "Rehabilitation & mobility support",
+      "overviewTitle": "Restoring independence through targeted movement",
+      "overviewDesc": "Our licensed physical therapists work closely with your physician to evaluate physical limitations and create customized rehabilitation programs. Whether you are recovering from surgery, managing an injury, or striving to prevent falls, our in-home therapy plans focus on enhancing overall physical function and confidence.",
+      "features": [
+        "Licensed Physical Therapists",
+        "Customized Exercise Plans",
+        "One-on-One Home Sessions",
+        "Safety & Environment Review"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Physical therapy scope of services",
+      "servicesDesc": "Our professional therapy programs address every facet of mobility, safety, and physical conditioning to support your recovery goals.",
+      "servicesList": [
+        {
+          "title": "Strength & Mobility",
+          "desc": "Targeted exercises to rebuild muscle strength, enhance flexibility, and improve range of motion safely at home."
+        },
+        {
+          "title": "Balance Training",
+          "desc": "Specialized techniques and stability drills to enhance postural control, coordination, and overall steadiness."
+        },
+        {
+          "title": "Gait Training",
+          "desc": "Guidance and hands-on practice to help patients regain a safe, natural, and confident walking pattern."
+        },
+        {
+          "title": "Fall Prevention",
+          "desc": "Comprehensive home risk assessments and proactive strategies designed to minimize accident hazards."
+        },
+        {
+          "title": "Transfer Training",
+          "desc": "Safe movement techniques for transitioning between beds, chairs, and vehicles independently."
+        },
+        {
+          "title": "Post-Op & Injury Rehab",
+          "desc": "Structured recovery protocols following joint replacements, surgeries, or severe medical illnesses."
+        },
+        {
+          "title": "Home Exercise Programs",
+          "desc": "Custom routines tailored for patients to practice safely and effectively between therapist visits."
+        },
+        {
+          "title": "Assistive-Device Education",
+          "desc": "Proper instruction, adjustment, and fitting for canes, walkers, wheelchairs, and other supportive tools."
+        }
+      ]
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+      "titleMain": "Fisioterapia",
+      "titleHighlight": "en el hogar",
+      "description": "Fisioterapia dirigida por médicos diseñada para restaurar la movilidad, reconstruir la fuerza y fomentar una vida independiente y segura en la comodidad del hogar.",
+      "requestCare": "Solicitar atención y consulta",
+      "callUs": "Llamar al (972) 325-1598",
+      "cardTitle": "Rehabilitación dirigida",
+      "cardDesc": "Reconstruyendo confianza, fuerza y movilidad a través de sesiones clínicas expertas.",
+      "overviewTag": "Apoyo de rehabilitación y movilidad",
+      "overviewTitle": "Restaurando la independencia a través del movimiento",
+      "overviewDesc": "Nuestros fisioterapeutas licenciados trabajan en estrecha colaboración con su médico para evaluar limitaciones físicas y crear programas de rehabilitación personalizados. Ya sea que se esté recuperando de una cirugía o previniendo caídas.",
+      "features": [
+        "Fisioterapeutas Licenciados",
+        "Planes de Ejercicio Personalizados",
+        "Sesiones Domiciliarias Individuales",
+        "Revisión de Seguridad Ambiental"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de fisioterapia",
+      "servicesDesc": "Nuestros programas profesionales abordan cada faceta de la movilidad, seguridad y acondicionamiento físico.",
+      "servicesList": [
+        {
+          "title": "Fuerza y Movilidad",
+          "desc": "Ejercicios específicos para reconstruir la fuerza muscular, mejorar la flexibilidad y el rango de movimiento en casa."
+        },
+        {
+          "title": "Entrenamiento de Equilibrio",
+          "desc": "Técnicas especializadas y ejercicios de estabilidad para mejorar el control postural y la coordinación."
+        },
+        {
+          "title": "Entrenamiento de la Marcha",
+          "desc": "Orientación y práctica guiada para ayudar a los pacientes a recuperar un patrón de caminata seguro y natural."
+        },
+        {
+          "title": "Prevención de Caídas",
+          "desc": "Evaluaciones integrales de riesgos en el hogar y estrategias proactivas para minimizar los peligros de accidentes."
+        },
+        {
+          "title": "Entrenamiento de Transferencia",
+          "desc": "Técnicas de movimiento seguro para transicionar entre camas, sillas y vehículos de manera independiente."
+        },
+        {
+          "title": "Rehabilitación Post-Cirugía y Lesiones",
+          "desc": "Protocolos de recuperación estructurados después de reemplazos articulares, cirugías o enfermedades graves."
+        },
+        {
+          "title": "Programas de Ejercicios en Casa",
+          "desc": "Rutinas personalizadas para que los pacientes las practiquen de forma segura entre las visitas del terapeuta."
+        },
+        {
+          "title": "Educación sobre Dispositivos de Asistencia",
+          "desc": "Instrucción adecuada, ajuste y colocación de bastones, andadores, sillas de ruedas y otras herramientas de apoyo."
+        }
+      ]
+    }
+  }

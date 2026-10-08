@@ -1,0 +1,75 @@
+{
+  "lastVerified": "September 16, 2026",
+  "plans": [
+    {
+      "id": "aetna",
+      "name": "Aetna Better Health of Texas",
+      "bookingNumber": "+18664118920",
+      "bookingNumberDisplay": "1-866-411-8920",
+      "tty": "711"
+    },
+    {
+      "id": "cook",
+      "name": "Cook Children's Health Plan",
+      "bookingNumber": "+18445728195",
+      "bookingNumberDisplay": "1-844-572-8195",
+      "tty": "711"
+    },
+    {
+      "id": "molina",
+      "name": "Molina Healthcare of Texas",
+      "bookingNumber": "+18664624857",
+      "bookingNumberDisplay": "1-866-462-4857",
+      "tty": "711"
+    },
+    {
+      "id": "parkland",
+      "name": "Parkland Community Health Plan",
+      "bookingNumber": "+18339313844",
+      "bookingNumberDisplay": "1-833-931-3844",
+      "tty": "711"
+    },
+    {
+      "id": "superior",
+      "name": "Superior HealthPlan",
+      "bookingNumber": "+18559322318",
+      "bookingNumberDisplay": "1-855-932-2318",
+      "statusNumber": "+18559322319",
+      "statusNumberDisplay": "1-855-932-2319",
+      "tty": "711"
+    },
+    {
+      "id": "uhc",
+      "name": "UnitedHealthcare Community Plan",
+      "bookingNumber": "+18884626050",
+      "bookingNumberDisplay": "1-888-462-6050",
+      "tty": "711"
+    },
+    {
+      "id": "wellpoint-star",
+      "name": "Wellpoint (STAR)",
+      "bookingNumber": "+18337218184",
+      "bookingNumberDisplay": "1-833-721-8184",
+      "tty": "1-855-823-8587"
+    },
+    {
+      "id": "wellpoint-starplus",
+      "name": "Wellpoint (STAR+PLUS)",
+      "bookingNumber": "+18448672837",
+      "bookingNumberDisplay": "1-844-867-2837",
+      "tty": "1-855-823-8587"
+    },
+    {
+      "id": "wellpoint-starkids",
+      "name": "Wellpoint (STAR Kids)",
+      "bookingNumber": "+18448642443",
+      "bookingNumberDisplay": "1-844-864-2443",
+      "tty": "1-855-823-8587"
+    }
+  ],
+  "mtp": {
+    "phone": "+18776338747",
+    "phoneDisplay": "1-877-633-8747",
+    "tpp": "1-800-735-2989"
+  }
+}

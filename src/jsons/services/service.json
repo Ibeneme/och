@@ -1,0 +1,411 @@
+{
+  "agencyName": "One Community Home Health Care",
+  "operatedBy": "JACOP Healthcare Services, Inc.",
+  "mainServices": {
+    "url": "/services",
+    "title": "Comprehensive Clinical & Support Services",
+    "subtitle": "Physician-directed healthcare and supportive assistance, delivered with steady hands in the comfort of home.",
+    "overviewText": "Our comprehensive suite of in-home skilled clinical services, specialized medical programs, and personal support is designed to promote healing, independence, and comfort. Each service is tailored to meet the individual needs of patients and their families.",
+    "categories": [
+      {
+        "categoryTitle": "Clinical Disciplines",
+        "description": "Professional medical and therapeutic care provided by licensed clinicians.",
+        "services": [
+          {
+            "title": "Skilled Nursing",
+            "url": "/services/skilled-nursing",
+            "shortDesc": "24/7 registered nursing care at home",
+            "icon": "Stethoscope"
+          },
+          {
+            "title": "Physical Therapy",
+            "url": "/services/physical-therapy",
+            "shortDesc": "Rehabilitation and mobility recovery",
+            "icon": "Activity"
+          },
+          {
+            "title": "Occupational Therapy",
+            "url": "/services/occupational-therapy",
+            "shortDesc": "Daily living skills adaptation",
+            "icon": "Heart"
+          },
+          {
+            "title": "Speech Therapy",
+            "url": "/services/speech-therapy",
+            "shortDesc": "Speech and swallowing therapy",
+            "icon": "Volume2"
+          },
+          {
+            "title": "Medical Social Services",
+            "url": "/services/medical-social-services",
+            "shortDesc": "Counseling and community support",
+            "icon": "Users"
+          },
+          {
+            "title": "Home Health Aide Services",
+            "url": "/services/home-health-aide",
+            "shortDesc": "Personal care and daily assistance",
+            "icon": "Shield"
+          }
+        ]
+      },
+      {
+        "categoryTitle": "Specialties & Disease Management",
+        "description": "Targeted clinical protocols for specific conditions, recovery stages, and safety needs.",
+        "services": [
+          {
+            "title": "Wound Care",
+            "url": "/services/wound-care",
+            "shortDesc": "Wound assessment, dressing changes, and pressure-injury care"
+          },
+          {
+            "title": "Chronic Disease Management",
+            "url": "/services/chronic-disease-management",
+            "shortDesc": "Ongoing management for diabetes, heart disease, COPD, and more"
+          },
+          {
+            "title": "Medication Management",
+            "url": "/services/medication-management",
+            "shortDesc": "Reconciliation, education, and adherence support"
+          },
+          {
+            "title": "Post-Surgical Care",
+            "url": "/services/post-surgical-care",
+            "shortDesc": "Hospital-to-home transition and recovery monitoring"
+          },
+          {
+            "title": "Fall Prevention and Home Safety",
+            "url": "/services/fall-prevention",
+            "shortDesc": "Risk assessments and environmental recommendations"
+          },
+          {
+            "title": "Veteran Care",
+            "url": "/services/veteran-care",
+            "shortDesc": "VA-authorized home health and community care services"
+          }
+        ]
+      },
+      {
+        "categoryTitle": "Supportive Care & Lifestyle",
+        "description": "Assistance designed to maintain dignity, personal independence, and caregiver relief.",
+        "services": [
+          {
+            "title": "Companion Care",
+            "url": "/services/companion-care",
+            "shortDesc": "Social engagement, safety monitoring, and light assistance"
+          },
+          {
+            "title": "Respite Care",
+            "url": "/services/respite-care",
+            "shortDesc": "Temporary relief and short-term support for family caregivers"
+          },
+          {
+            "title": "Daily Lifestyle Support",
+            "url": "/services/daily-lifestyle-support",
+            "shortDesc": "Routine assistance, meal support, and personal organization"
+          },
+          {
+            "title": "Services for Adults with Disabilities",
+            "url": "/services/adults-with-disabilities",
+            "shortDesc": "Tailored clinical care and daily support promoting autonomy"
+          }
+        ]
+      },
+      {
+        "categoryTitle": "Upcoming Expansion",
+        "description": "Programs currently in development to broaden community care coverage.",
+        "services": [
+          {
+            "title": "Pediatric Services",
+            "url": "/services/pediatric-services",
+            "shortDesc": "Specialized in-home care for children and families",
+            "badge": "Coming Soon"
+          }
+        ]
+      }
+    ]
+  },
+  "serviceDetails": {
+    "skilled-nursing": {
+      "url": "/services/skilled-nursing",
+      "title": "Skilled Nursing",
+      "subtitle": "Professional clinical care delivered right to your doorstep.",
+      "overview": "Our skilled nursing services provide comprehensive, physician-directed medical care administered by licensed Registered Nurses (RNs) and Licensed Practical Nurses (LPNs). We focus on managing complex health conditions, preventing hospital readmissions, and empowering patients through education.",
+      "topics": [
+        "Health assessments",
+        "Medication management and education",
+        "Vital-sign monitoring",
+        "Physician-order implementation",
+        "Chronic-condition monitoring",
+        "Patient and caregiver education",
+        "Care coordination",
+        "Disease-management support"
+      ]
+    },
+    "physical-therapy": {
+      "url": "/services/physical-therapy",
+      "title": "Physical Therapy",
+      "subtitle": "Restoring strength, balance, and independence.",
+      "overview": "Our licensed physical therapists work closely with your physician to design customized in-home rehabilitation programs aimed at restoring functional mobility, alleviating pain, and reducing the risk of future injuries.",
+      "topics": [
+        "Strength and mobility",
+        "Balance training",
+        "Gait training",
+        "Fall prevention",
+        "Transfer training",
+        "Rehabilitation after illness, injury, or surgery",
+        "Home exercise programs",
+        "Assistive-device education"
+      ]
+    },
+    "occupational-therapy": {
+      "url": "/services/occupational-therapy",
+      "title": "Occupational Therapy",
+      "subtitle": "Enhancing daily living skills and personal independence.",
+      "overview": "Occupational therapy helps patients adapt to physical changes, regain vital fine-motor skills, and safely navigate daily routines and household environments with confidence.",
+      "topics": [
+        "Activities of daily living",
+        "Dressing, bathing, and grooming skills",
+        "Energy conservation",
+        "Home-safety training",
+        "Adaptive-equipment education",
+        "Fine-motor skills",
+        "Independence with daily routines"
+      ]
+    },
+    "speech-therapy": {
+      "url": "/services/speech-therapy",
+      "title": "Speech Therapy",
+      "subtitle": "Improving communication and swallowing safety.",
+      "overview": "Our speech-language pathologists provide specialized evaluation and therapeutic interventions for individuals experiencing speech, language, cognitive-communication, or swallowing disorders.",
+      "topics": [
+        "Speech and communication",
+        "Swallowing difficulties",
+        "Cognitive-communication skills",
+        "Memory and problem-solving support",
+        "Patient and caregiver education"
+      ]
+    },
+    "medical-social-services": {
+      "url": "/services/medical-social-services",
+      "title": "Medical Social Services",
+      "subtitle": "Navigating social, emotional, and resource challenges.",
+      "overview": "Medical social workers help patients and families cope with the social, emotional, and financial challenges associated with acute or chronic health conditions by connecting them with vital community resources.",
+      "topics": [
+        "Psychosocial assessments",
+        "Community-resource coordination",
+        "Long-term care planning",
+        "Support for patients and families",
+        "Financial and social-service referrals",
+        "Assistance navigating care-related challenges"
+      ]
+    },
+    "home-health-aide": {
+      "url": "/services/home-health-aide",
+      "title": "Home Health Aide Services",
+      "subtitle": "Compassionate assistance with personal care and daily hygiene.",
+      "overview": "Certified home health aides provide reliable, respectful, and dignified hands-on personal care support under the direct supervision of our clinical care team.",
+      "topics": [
+        "Bathing",
+        "Grooming",
+        "Dressing",
+        "Personal hygiene",
+        "Mobility assistance",
+        "Assistance with activities of daily living",
+        "Support provided under the supervision of the clinical care team"
+      ]
+    },
+    "wound-care": {
+      "url": "/services/wound-care",
+      "title": "Wound Care",
+      "subtitle": "Specialized clinical management for optimal tissue healing.",
+      "overview": "Our expert clinical team provides advanced wound management protocols designed to accelerate healing, prevent complications, and mitigate the risk of infection.",
+      "topics": [
+        "Wound assessment",
+        "Dressing changes",
+        "Pressure-injury care",
+        "Post-surgical wound support",
+        "Diabetic wound support",
+        "Infection-prevention education",
+        "Patient and caregiver instruction"
+      ]
+    },
+    "chronic-disease-management": {
+      "url": "/services/chronic-disease-management",
+      "title": "Chronic Disease Management",
+      "subtitle": "Proactive oversight and management for long-term health conditions.",
+      "overview": "We empower patients living with ongoing health conditions to maintain stability, manage symptoms effectively, and avoid unnecessary hospital visits through structured in-home care.",
+      "topics": [
+        "Diabetes",
+        "Heart disease",
+        "Hypertension",
+        "COPD and respiratory conditions",
+        "Stroke recovery",
+        "Neurological conditions",
+        "Medication education",
+        "Symptom monitoring",
+        "Avoidable-hospitalization prevention"
+      ]
+    },
+    "medication-management": {
+      "url": "/services/medication-management",
+      "title": "Medication Management",
+      "subtitle": "Ensuring safety, adherence, and clarity with your prescriptions.",
+      "overview": "Our clinical team reviews, reconciles, and educates patients on their medication regimens to prevent adverse interactions and ensure proper administration.",
+      "topics": [
+        "Medication reconciliation",
+        "Medication education",
+        "Adherence support",
+        "Side-effect monitoring",
+        "Coordination with physicians and pharmacies",
+        "Caregiver instruction"
+      ]
+    },
+    "post-surgical-care": {
+      "url": "/services/post-surgical-care",
+      "title": "Post-Surgical Care",
+      "subtitle": "Seamless transition from hospital to home.",
+      "overview": "We provide comprehensive post-operative monitoring and supportive care to ensure a smooth recovery and reduce recovery complications in familiar surroundings.",
+      "topics": [
+        "Recovery monitoring",
+        "Wound care",
+        "Medication support",
+        "Mobility and rehabilitation",
+        "Patient education",
+        "Coordination with physicians",
+        "Hospital-to-home transition support"
+      ]
+    },
+    "fall-prevention": {
+      "url": "/services/fall-prevention",
+      "title": "Fall Prevention and Home Safety",
+      "subtitle": "Creating secure environments and steady mobility.",
+      "overview": "We assess environmental hazards and physical factors to implement targeted balance, strength, and safety protocols that protect against accidental falls.",
+      "topics": [
+        "Fall-risk assessments",
+        "Balance and strength support",
+        "Home-safety recommendations",
+        "Assistive-device education",
+        "Transfer training",
+        "Caregiver education"
+      ]
+    },
+    "companion-care": {
+      "url": "/services/companion-care",
+      "title": "Companion Care",
+      "subtitle": "Friendly social engagement and daily reassurance.",
+      "overview": "Companion care offers meaningful human connection, safety oversight, and supportive help with light routine activities to enhance overall day-to-day well-being.",
+      "topics": [
+        "Companionship",
+        "Social engagement",
+        "Safety monitoring",
+        "Support with daily routines",
+        "Light assistance in the home",
+        "Family caregiver support"
+      ]
+    },
+    "respite-care": {
+      "url": "/services/respite-care",
+      "title": "Respite Care",
+      "subtitle": "Dedicated temporary relief for family caregivers.",
+      "overview": "Our respite care program provides reliable, short-term in-home support, giving primary family caregivers essential time to rest, recharge, and attend to personal needs.",
+      "topics": [
+        "Temporary relief for family caregivers",
+        "Supervision and companionship",
+        "Assistance with daily routines",
+        "Short-term in-home support",
+        "Caregiver wellness and burnout prevention"
+      ]
+    },
+    "daily-lifestyle-support": {
+      "url": "/services/daily-lifestyle-support",
+      "title": "Daily Lifestyle Support",
+      "subtitle": "Practical assistance for everyday comfort and ease.",
+      "overview": "We help patients manage routine household tasks and personal organization to foster maximum independence and enhance quality of life at home.",
+      "topics": [
+        "Assistance with daily routines",
+        "Meal-related support",
+        "Personal organization",
+        "Light household support, when permitted",
+        "Independence and quality-of-life support"
+      ]
+    },
+    "veteran-care": {
+      "url": "/services/veteran-care",
+      "title": "Veteran Care",
+      "subtitle": "Honoring those who served with specialized in-home care.",
+      "overview": "We proudly coordinate and deliver authorized clinical and supportive home health solutions tailored to the unique healthcare needs of veterans and eligible family members.",
+      "topics": [
+        "VA-authorized home health services",
+        "VA Community Care",
+        "Support for veterans and eligible family members",
+        "Coordination with VA providers",
+        "Skilled and supportive in-home care",
+        "Referral and authorization process"
+      ],
+      "disclaimer": "Eligibility and authorization are determined by the Department of Veterans Affairs and the applicable VA Community Care process."
+    },
+    "adults-with-disabilities": {
+      "url": "/services/adults-with-disabilities",
+      "title": "Services for Adults with Disabilities",
+      "subtitle": "Empowering autonomy, dignity, and specialized daily support.",
+      "overview": "Our specialized care programs for adults with disabilities focus on maximizing personal independence, maintaining health stability, and ensuring a safe, dignified lifestyle at home.",
+      "topics": [
+        "Skilled clinical care",
+        "Personal-care support",
+        "Therapy services",
+        "Independence with daily activities",
+        "Caregiver education",
+        "Chronic-condition support",
+        "Dignity, safety, and quality of life"
+      ]
+    },
+    "pediatric-services": {
+      "url": "/services/pediatric-services",
+      "title": "Pediatric Services — Coming Soon",
+      "subtitle": "Expanding our continuum of care to support children and families.",
+      "badge": "Coming Soon",
+      "comingSoonNotice": "Pediatric Service Is Coming Soon",
+      "recommendedCopy": "One Community Home Health is preparing to expand its services to support children and their families. Pediatric services are not currently available. Join our email list to receive updates as program information becomes available.",
+      "pageElements": {
+        "comingSoonNotice": true,
+        "briefProgramIntroduction": true,
+        "emailUpdateSignupForm": true,
+        "referralFormAllowed": false,
+        "acceptingPatientsStatementAllowed": false
+      }
+    }
+  },
+  "templateStructureForServicePages": {
+    "components": [
+      {
+        "section": "Header / Navbar",
+        "description": "Global navigation featuring agency brand, utility bar, and primary links including services and referrals."
+      },
+      {
+        "section": "Service Hero Section",
+        "description": "Displays the service Title, Subtitle, and breadcrumb navigation (e.g., Home > Services > Skilled Nursing)."
+      },
+      {
+        "section": "Overview & Clinical Value",
+        "description": "Paragraph section explaining the clinical objective, philosophy, and physician-directed nature of the care."
+      },
+      {
+        "section": "Topics / Core Offerings Grid",
+        "description": "Structured checklist or card grid outlining the specific clinical or supportive topics covered under the service."
+      },
+      {
+        "section": "Disclaimer Section (Conditional)",
+        "description": "Used where applicable (e.g., Veteran Care authorization notice)."
+      },
+      {
+        "section": "Call to Action (CTA)",
+        "description": "Prominent banner encouraging users to schedule a consultation or submit a patient referral."
+      },
+      {
+        "section": "Footer",
+        "description": "Agency operational details, contact numbers, licensing information, and quick links."
+      }
+    ]
+  }
+}

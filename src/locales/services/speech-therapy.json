@@ -1,0 +1,92 @@
+{
+    "en": {
+      "badge": "Active clinical discipline",
+      "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
+      "titleMain": "Speech therapy",
+      "titleHighlight": "care at home",
+      "description": "Expert clinical support to improve communication clarity, rebuild cognitive skills, and ensure safe swallowing and nutrition in the comfort of home.",
+      "requestCare": "Request care & consultation",
+      "callUs": "Call (972) 325-1598",
+      "cardTitle": "Communication & care",
+      "cardDesc": "Empowering meaningful connections and safe swallowing through expert clinical care.",
+      "overviewTag": "Communication & swallowing care",
+      "overviewTitle": "Enhancing connection, safety, and daily understanding",
+      "overviewDesc": "Our licensed speech-language pathologists provide targeted in-home evaluations and therapy programs. We assist patients recovering from stroke, neurological conditions, or surgery by improving verbal expression, cognitive processing, and safe swallowing techniques.",
+      "features": [
+        "Licensed Speech Pathologists",
+        "Swallowing & Safety Assessments",
+        "Personalized In-Home Sessions",
+        "Family & Caregiver Coaching"
+      ],
+      "servicesTag": "Specialized care areas",
+      "servicesTitle": "Speech therapy scope of services",
+      "servicesDesc": "Our comprehensive programs address verbal communication, cognitive abilities, and safe dietary execution.",
+      "servicesList": [
+        {
+          "title": "Speech & Communication",
+          "desc": "Exercises to improve articulation, vocal clarity, and verbal expression for confident conversations."
+        },
+        {
+          "title": "Swallowing Difficulties",
+          "desc": "Clinical evaluations and training (dysphagia therapy) to ensure safe eating, drinking, and nutrition."
+        },
+        {
+          "title": "Cognitive-Communication Skills",
+          "desc": "Techniques to strengthen attention, reasoning, executive function, and social interaction skills."
+        },
+        {
+          "title": "Memory & Problem-Solving Support",
+          "desc": "Strategies and practical mental exercises to assist with daily recall, planning, and organization."
+        },
+        {
+          "title": "Patient & Caregiver Education",
+          "desc": "Guiding families and patients through personalized home communication techniques, diet modifications, and safety tips."
+        }
+      ]
+    },
+    "es": {
+      "badge": "Disciplina clínica activa",
+      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+      "titleMain": "Terapia del habla",
+      "titleHighlight": "en el hogar",
+      "description": "Apoyo clínico experto para mejorar la claridad de la comunicación, reconstruir habilidades cognitivas y garantizar una deglución y nutrición seguras en el hogar.",
+      "requestCare": "Solicitar atención y consulta",
+      "callUs": "Llamar al (972) 325-1598",
+      "cardTitle": "Comunicación y cuidado",
+      "cardDesc": "Potenciando conexiones significativas y una deglución segura a través de atención clínica experta.",
+      "overviewTag": "Cuidado de la comunicación y deglución",
+      "overviewTitle": "Mejorando la conexión, la seguridad y el entendimiento diario",
+      "overviewDesc": "Nuestros patólogos del habla y lenguaje licenciados proporcionan evaluaciones y programas de terapia domiciliaria enfocados en pacientes que se recuperan de un derrame cerebral, afecciones neurológicas o cirugías.",
+      "features": [
+        "Patólogos del Habla Licenciados",
+        "Evaluaciones de Deglución y Seguridad",
+        "Sesiones Domiciliarias Personalizadas",
+        "Coaching para Familiares y Cuidadores"
+      ],
+      "servicesTag": "Áreas de atención especializada",
+      "servicesTitle": "Alcance de los servicios de terapia del habla",
+      "servicesDesc": "Nuestros programas integrales abordan la comunicación verbal, las habilidades cognitivas y la ejecución dietética segura.",
+      "servicesList": [
+        {
+          "title": "Habla y Comunicación",
+          "desc": "Ejercicios para mejorar la articulación, la claridad vocal y la expresión verbal para conversaciones seguras."
+        },
+        {
+          "title": "Dificultades de Deglución",
+          "desc": "Evaluaciones clínicas y entrenamiento (terapia de disfagia) para garantizar una alimentación y nutrición seguras."
+        },
+        {
+          "title": "Habilidades Cognitivo-Comunicativas",
+          "desc": "Técnicas para fortalecer la atención, el razonamiento, la función ejecutiva y las habilidades de interacción."
+        },
+        {
+          "title": "Apoyo en Memoria y Resolución de Problemas",
+          "desc": "Estrategias y ejercicios mentales prácticos para ayudar con el recuerdo diario, la planificación y la organización."
+        },
+        {
+          "title": "Educación al Paciente y Cuidador",
+          "desc": "Guía a las familias a través de técnicas de comunicación en el hogar, modificaciones en la dieta y consejos de seguridad."
+        }
+      ]
+    }
+  }

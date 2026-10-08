@@ -1,0 +1,66 @@
+{
+    "en": {
+      "badge": "Specialized clinical discipline",
+      "titleMain": "Services for adults with",
+      "titleHighlight": "disabilities",
+      "description": "Dignified, professional clinical care, therapy, and personal support designed to promote independence, safety, and quality of life at home.",
+      "callUs": "Call (972) 325-1598",
+      "requestConsultation": "Request a consultation",
+      "cardTitle": "Dignity, safety & independence",
+      "cardDesc": "Personalized care that respects dignity while maximizing everyday independence.",
+      "overviewTag": "Dignity, safety & independence",
+      "overviewTitle": "Comprehensive in-home support for adults with disabilities",
+      "overviewDesc": "Living with a disability requires personalized care that respects personal dignity while maximizing everyday independence. Our skilled clinical team, therapists, and personal care aides partner with individuals.",
+      "features": [
+        "Skilled Clinical Care",
+        "Personal-Care Support",
+        "Specialized Therapy Services",
+        "Caregiver Education"
+      ],
+      "servicesTag": "Service scope",
+      "servicesTitle": "Adult disability care services",
+      "servicesDesc": "Our specialized care programs focus on clinical excellence, daily independence, and holistic well-being.",
+      "servicesList": [
+        { "title": "Skilled Clinical Care", "desc": "Professional nursing interventions, health monitoring, and specialized clinical treatments." },
+        { "title": "Personal-Care Support", "desc": "Respectful assistance with daily hygiene, dressing, grooming, and personal routines." },
+        { "title": "Therapy Services", "desc": "Physical, occupational, and speech therapy to enhance functional mobility and communication." },
+        { "title": "Independence with Daily Activities", "desc": "Empowering clients to perform daily tasks with confidence and appropriate adaptive support." },
+        { "title": "Caregiver Education", "desc": "Guidance and training for family members and support networks on safe handling and care techniques." },
+        { "title": "Chronic-Condition Support", "desc": "Targeted symptom tracking and clinical management for long-term health conditions." }
+      ],
+      "bannerTitle": "Dignity, safety, and quality of life",
+      "bannerDesc": "A holistic commitment to safeguarding personal autonomy, physical safety, and overall happiness at home."
+    },
+    "es": {
+      "badge": "Disciplina clínica especializada",
+      "titleMain": "Servicios para adultos con",
+      "titleHighlight": "discapacidades",
+      "description": "Atención clínica profesional y digna, terapia y apoyo personal diseñados para promover la independencia, la seguridad y la calidad de vida en el hogar.",
+      "callUs": "Llamar al (972) 325-1598",
+      "requestConsultation": "Solicitar una consulta",
+      "cardTitle": "Dignidad, seguridad e independencia",
+      "cardDesc": "Atención personalizada que respeta la dignidad al tiempo que maximiza la independencia cotidiana.",
+      "overviewTag": "Dignidad, seguridad e independencia",
+      "overviewTitle": "Apoyo integral en el hogar para adultos con discapacidades",
+      "overviewDesc": "Vivir con una discapacidad requiere atención personalizada que respete la dignidad personal mientras maximiza la independencia diaria.",
+      "features": [
+        "Atención Clínica Especializada",
+        "Apoyo de Cuidado Personal",
+        "Servicios de Terapia Especializada",
+        "Educación para Cuidadores"
+      ],
+      "servicesTag": "Alcance del servicio",
+      "servicesTitle": "Servicios de atención para adultos con discapacidades",
+      "servicesDesc": "Nuestros programas de atención especializada se centran en la excelencia clínica, la independencia diaria y el bienestar holístico.",
+      "servicesList": [
+        { "title": "Atención Clínica Especializada", "desc": "Intervenciones profesionales de enfermería, monitoreo de salud y tratamientos clínicos." },
+        { "title": "Apoyo de Cuidado Personal", "desc": "Asistencia respetuosa con la higiene diaria, vestimenta, aseo y rutinas personales." },
+        { "title": "Servicios de Terapia", "desc": "Terapia física, ocupacional y del habla para mejorar la movilidad funcional y la comunicación." },
+        { "title": "Independencia en Actividades Diarias", "desc": "Empoderar a los clientes para realizar tareas cotidianas con confianza y apoyo adaptativo." },
+        { "title": "Educación para Cuidadores", "desc": "Guía y capacitación para miembros de la familia sobre técnicas seguras de manejo y cuidado." },
+        { "title": "Apoyo en Condiciones Crónicas", "desc": "Seguimiento específico de síntomas y manejo clínico para afecciones de salud a largo plazo." }
+      ],
+      "bannerTitle": "Dignidad, seguridad y calidad de vida",
+      "bannerDesc": "Un compromiso holístico para salvaguardar la autonomía personal, la seguridad física y la felicidad general en el hogar."
+    }
+  }

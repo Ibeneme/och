@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ChangeEvent, FormEvent, ReactNode } from "react";
 import Link from "next/link";
 import {
   Upload,
@@ -9,7 +10,7 @@ import {
   FileText,
   ShieldCheck,
   Send,
-  Sparkles,
+  ArrowUpRight,
   Home,
   Phone,
   Mail,
@@ -27,11 +28,67 @@ import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/cna-application.json";
 import { siteConfig } from "@/src/constants/siteConfig";
 
+/* Clean layout: soft gray page, pill labels with a number chip, large light
+   headings, rounded bento cards. Navy #101B33 + gold #C79A3B.
+   #8A6423 = gold for small text on light surfaces (contrast).
+   Flat: 1px borders only, no shadows, no hover effects, no transitions.
+   Focus rings are kept for keyboard users. */
+
+const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const focusNavy =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#101B33]";
+const focusGold =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C79A3B]";
+const input = `w-full rounded-xl border border-[#101B33]/15 bg-[#F4F4F2] px-4 py-3 text-sm text-[#101B33] focus:border-[#C79A3B] focus:outline-none focus:ring-1 focus:ring-[#C79A3B]`;
+const btnNavy = `inline-flex items-center justify-center gap-2 rounded-full border border-[#101B33] bg-[#101B33] px-7 py-3 text-sm font-semibold text-white ${focusGold}`;
+const btnOutline = `inline-flex items-center justify-center gap-2 rounded-full border border-[#101B33]/40 px-7 py-3 text-sm font-semibold text-[#101B33] ${focusNavy}`;
+const heading =
+  "font-display text-3xl font-light leading-tight tracking-tight text-[#101B33] sm:text-4xl lg:text-5xl";
+
+function Pill({ n, label }: { n?: string; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#101B33]/10 bg-[#E9EAE5] py-1.5 pl-1.5 pr-4 text-xs font-medium text-[#101B33]">
+      {n && (
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#101B33] text-[10px] font-semibold text-[#C79A3B]">
+          {n}
+        </span>
+      )}
+      {!n && <span className="ml-2" />}
+      {label}
+    </span>
+  );
+}
+
+function SectionHead({
+  n,
+  label,
+  title,
+  desc,
+}: {
+  n: string;
+  label: string;
+  title: string;
+  desc?: string;
+}) {
+  return (
+    <div className="mx-auto mb-12 max-w-2xl text-center">
+      <Pill n={n} label={label} />
+      <h2 className={`${heading} mt-5`}>{title}</h2>
+      {desc && (
+        <p className="mt-4 text-base leading-relaxed text-[#101B33]/65">
+          {desc}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function CNATalentNetworkPage() {
   const { language } = useLanguage();
   const t = content[language as "en" | "es"] || content.en;
 
   const [submitted, setSubmitted] = useState(false);
+  const [fileName, setFileName] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -50,7 +107,14 @@ export default function CNATalentNetworkPage() {
     consent: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const set =
+    (key: keyof typeof formData) =>
+    (
+      e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+    ) =>
+      setFormData({ ...formData, [key]: e.target.value });
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!formData.consent) {
       alert("Please check the consent box to submit your application.");
@@ -66,517 +130,381 @@ export default function CNATalentNetworkPage() {
     { title: t.step4Title, copy: t.step4Copy },
   ];
 
-  const routeMarkers = [
-    { left: "10%", top: "88%" },
-    { left: "34%", top: "56%" },
-    { left: "58%", top: "34%" },
-  ];
-
   return (
-    <main className="min-h-screen bg-[#F1F3EC] text-[#101B33]">
-      {/* ===== Hero ===== */}
-      <section className="relative bg-[#101B33] text-[#F1F3EC] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 font-label text-[11px] tracking-[0.25em] uppercase text-[#C79A3B] mb-6">
-              <Sparkles size={13} />
-              {t.badge}
-            </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] font-semibold mb-8 tracking-tight">
-              {t.titleMain}
-              <br className="hidden sm:block" /> {t.titleHighlight}
+    <main className="min-h-screen bg-[#F4F4F2] text-[#101B33]">
+      {/* ===== Hero: centered heading + bento cards ===== */}
+      <section className="pb-16 pt-16 lg:pb-24 lg:pt-24">
+        <div className={container}>
+          <div className="mx-auto max-w-3xl text-center">
+            <Pill label={t.badge} />
+            <h1 className={`${heading} mt-6 lg:text-6xl`}>
+              {t.titleMain}{" "}
+              <span className="text-[#8A6423]">{t.titleHighlight}</span>
             </h1>
-            <blockquote className="border-l-2 border-[#C79A3B] pl-5 text-[#D7DCEA] text-base sm:text-lg leading-relaxed italic mb-8 max-w-xl">
-              {t.quote}
-            </blockquote>
-            <div className="flex flex-wrap gap-3 font-label text-[11px] uppercase tracking-wider text-[#D7DCEA]">
-              <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15">
-                <ShieldCheck size={14} className="text-[#C79A3B]" />
-                {t.secure}
-              </span>
-              <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15">
-                <FileText size={14} className="text-[#C79A3B]" />
-                {t.directRoute}
-              </span>
-            </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-[320px] sm:h-[380px] lg:h-[440px]">
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="absolute inset-0 w-full h-full"
-            >
-              <path
-                d="M10,90 C28,78 24,58 34,54 C46,49 50,38 58,32 C68,25 66,14 82,10"
-                fill="none"
-                stroke="#C79A3B"
-                strokeWidth="0.6"
-                strokeDasharray="1.6 2.2"
-                strokeLinecap="round"
-                opacity="0.6"
-              />
-            </svg>
-            {routeMarkers.map((m, i) => (
-              <div
-                key={i}
-                className="absolute -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/5 border border-white/20 flex items-center justify-center"
-                style={{ left: m.left, top: m.top }}
+          <div className="mt-14 grid gap-4 md:grid-cols-12">
+            {/* Large quote card */}
+            <div className="flex flex-col justify-between gap-10 rounded-3xl bg-[#101B33] p-8 text-white sm:p-10 md:col-span-7 md:row-span-2">
+              <blockquote className="font-display text-2xl font-light leading-snug sm:text-3xl">
+                {t.quote}
+              </blockquote>
+              <a
+                href="#apply"
+                aria-label={t.formTitle}
+                className={`inline-flex items-center gap-3 self-start rounded-full border border-white/30 py-2 pl-5 pr-2 text-sm font-medium text-white ${focusGold}`}
               >
-                <Home size={15} className="text-[#D7DCEA]" />
-              </div>
-            ))}
-            <div
-              className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center gap-2"
-              style={{ left: "82%", top: "10%" }}
-            >
-              <span className="relative flex h-4 w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C79A3B] opacity-60" />
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-[#C79A3B]" />
-              </span>
-              <span className="font-label text-[10px] uppercase tracking-widest text-[#C79A3B] whitespace-nowrap">
-                Next opening
-              </span>
+                {t.formTitle}
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#C79A3B] text-[#101B33]">
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </span>
+              </a>
+            </div>
+
+            <div className="flex min-h-[150px] flex-col justify-between rounded-3xl border border-[#101B33]/10 bg-[#E9EAE5] p-7 md:col-span-5">
+              <ShieldCheck
+                size={26}
+                className="text-[#8A6423]"
+                aria-hidden="true"
+              />
+              <p className="font-display text-xl font-normal leading-snug">
+                {t.secure}
+              </p>
+            </div>
+
+            <div className="flex min-h-[150px] flex-col justify-between rounded-3xl border border-[#C79A3B]/40 bg-[#F6EBD2] p-7 md:col-span-5">
+              <FileText
+                size={26}
+                className="text-[#8A6423]"
+                aria-hidden="true"
+              />
+              <p className="font-display text-xl font-normal leading-snug">
+                {t.directRoute}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Process + Form ===== */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
-          {/* Timeline sidebar */}
-          <aside className="lg:col-span-4">
-            <div className="lg:sticky lg:top-16">
-              <span className="font-label text-[11px] uppercase tracking-[0.25em] text-[#C79A3B]">
-                {t.processTitle}
-              </span>
-              <h2 className="font-display text-2xl sm:text-3xl font-semibold mt-3 mb-8 tracking-tight">
-                {t.processHeader}
+      {/* ===== Process: four step cards ===== */}
+      <section className="border-t border-[#101B33]/10 py-16 lg:py-24">
+        <div className={container}>
+          <SectionHead n="01" label={t.processTitle} title={t.processHeader} />
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, i) => (
+              <li
+                key={step.title}
+                className="flex flex-col rounded-3xl border border-[#101B33]/10 bg-[#E9EAE5] p-6"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#101B33] text-xs font-semibold text-[#C79A3B]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-display mt-10 text-lg font-medium leading-snug">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#101B33]/70">
+                  {step.copy}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ===== Application form ===== */}
+      <section
+        id="apply"
+        className="scroll-mt-16 border-t border-[#101B33]/10 py-16 lg:py-24"
+      >
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+          {submitted ? (
+            <div className="rounded-3xl border border-[#101B33]/10 bg-white p-10 text-center sm:p-16">
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#F6EBD2] text-[#8A6423]">
+                <CheckCircle2 size={28} aria-hidden="true" />
+              </div>
+              <h2 className="font-display text-3xl font-light">
+                {t.successTitle}
               </h2>
-              <ol className="relative border-l border-dashed border-[#101B33]/20 ml-3">
-                {processSteps.map((step, i) => (
-                  <li key={step.title} className="pl-7 pb-9 last:pb-0 relative">
-                    <span className="absolute -left-[15px] top-0 w-7 h-7 rounded-full bg-[#101B33] text-[#C79A3B] font-label text-xs flex items-center justify-center">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-display text-base font-semibold mb-1.5">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-[#101B33]/70 leading-relaxed">
-                      {step.copy}
-                    </p>
-                  </li>
-                ))}
-              </ol>
+              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#101B33]/70">
+                {t.successMsg}{" "}
+                <strong className="font-semibold text-[#101B33]">
+                  {siteConfig.contact.email}
+                </strong>
+                .
+              </p>
+              <button
+                type="button"
+                onClick={() => setSubmitted(false)}
+                className={`${btnNavy} mt-8`}
+              >
+                {t.submitAnother}
+              </button>
             </div>
-          </aside>
+          ) : (
+            <>
+              <SectionHead
+                n="02"
+                label={t.formBadge}
+                title={t.formTitle}
+                desc={t.formDesc}
+              />
 
-          {/* Form */}
-          <div className="lg:col-span-8">
-            <div className="bg-white rounded-2xl border border-[#101B33]/10 p-7 sm:p-10">
-              {submitted ? (
-                <div className="text-center py-16">
-                  <div className="w-14 h-14 bg-[#C79A3B]/10 text-[#C79A3B] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 size={30} />
-                  </div>
-                  <h2 className="font-display text-2xl font-semibold mb-3">
-                    {t.successTitle}
-                  </h2>
-                  <p className="text-sm text-[#101B33]/70 max-w-md mx-auto mb-8 leading-relaxed">
-                    {t.successMsg}{" "}
-                    <strong className="text-[#101B33] font-semibold">
-                      {siteConfig.contact.email}
-                    </strong>
-                    .
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setSubmitted(false)}
-                    className="px-7 py-3 bg-[#101B33] hover:bg-[#1B2C52] text-white font-semibold rounded-full transition-colors text-sm"
-                  >
-                    {t.submitAnother}
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-10">
-                  <div>
-                    <span className="font-label text-[11px] uppercase tracking-[0.25em] text-[#C79A3B]">
-                      {t.formBadge}
-                    </span>
-                    <h2 className="font-display text-2xl sm:text-3xl font-semibold mt-3 mb-2 tracking-tight">
-                      {t.formTitle}
-                    </h2>
-                    <p className="text-sm text-[#101B33]/70">{t.formDesc}</p>
-                  </div>
-
-                  {/* Section 01 — Contact */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-label text-[11px] text-[#C79A3B]">
-                        01
-                      </span>
-                      <span className="font-label text-[11px] uppercase tracking-widest text-[#101B33]/50">
-                        {t.sec1}
-                      </span>
-                      <div className="flex-1 border-t border-dashed border-[#101B33]/15" />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <Field label={t.fullName} required>
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. Jane Doe"
-                          value={formData.fullName}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              fullName: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.phone} required icon={Phone}>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="(972) 000-0000"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            setFormData({ ...formData, phone: e.target.value })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.email} required icon={Mail}>
-                        <input
-                          type="email"
-                          required
-                          placeholder="jane.doe@example.com"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData({ ...formData, email: e.target.value })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.address} required icon={Home}>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Street, City, State, Zip"
-                          value={formData.address}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              address: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                    </div>
-                  </div>
-
-                  {/* Section 02 — Coverage area */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-label text-[11px] text-[#C79A3B]">
-                        02
-                      </span>
-                      <span className="font-label text-[11px] uppercase tracking-widest text-[#101B33]/50">
-                        {t.sec2}
-                      </span>
-                      <div className="flex-1 border-t border-dashed border-[#101B33]/15" />
-                    </div>
-                    <Field label={t.counties} required icon={MapPin}>
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-10 rounded-3xl border border-[#101B33]/10 bg-white p-6 sm:p-10"
+              >
+                <FormGroup n="01" title={t.sec1}>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <Field label={t.fullName} required>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Dallas County, Collin County, Plano, Frisco"
-                        value={formData.serviceAreas}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            serviceAreas: e.target.value,
-                          })
-                        }
-                        className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
+                        placeholder="e.g. Jane Doe"
+                        value={formData.fullName}
+                        onChange={set("fullName")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.phone} required icon={Phone}>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="(972) 000-0000"
+                        value={formData.phone}
+                        onChange={set("phone")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.email} required icon={Mail}>
+                      <input
+                        type="email"
+                        required
+                        placeholder="jane.doe@example.com"
+                        value={formData.email}
+                        onChange={set("email")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.address} required icon={Home}>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Street, City, State, Zip"
+                        value={formData.address}
+                        onChange={set("address")}
+                        className={input}
                       />
                     </Field>
                   </div>
+                </FormGroup>
 
-                  {/* Section 03 — Credentials */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-label text-[11px] text-[#C79A3B]">
-                        03
-                      </span>
-                      <span className="font-label text-[11px] uppercase tracking-widest text-[#101B33]/50">
-                        {t.sec3}
-                      </span>
-                      <div className="flex-1 border-t border-dashed border-[#101B33]/15" />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <Field label={t.cnaLicense} required icon={Award}>
-                        <input
-                          type="text"
-                          required
-                          placeholder="License # or certification ID"
-                          value={formData.licenseNumber}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              licenseNumber: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.expDate} required icon={CalendarDays}>
-                        <input
-                          type="date"
-                          required
-                          value={formData.licenseExpiration}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              licenseExpiration: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.yearsExp} required icon={Clock}>
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. 3 years"
-                          value={formData.yearsExperience}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              yearsExperience: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.hhExp} required icon={HeartPulse}>
-                        <select
-                          value={formData.homeHealthExperience}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              homeHealthExperience: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        >
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
-                        </select>
-                      </Field>
-                    </div>
-                  </div>
-
-                  {/* Section 04 — Availability */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-label text-[11px] text-[#C79A3B]">
-                        04
-                      </span>
-                      <span className="font-label text-[11px] uppercase tracking-widest text-[#101B33]/50">
-                        {t.sec4}
-                      </span>
-                      <div className="flex-1 border-t border-dashed border-[#101B33]/15" />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <Field
-                        label={t.availability}
-                        required
-                        icon={CalendarClock}
-                      >
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. Full-time, weekdays, part-time"
-                          value={formData.availability}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              availability: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.shiftPref} required icon={Clock}>
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. Day shifts, evening, weekends"
-                          value={formData.shiftPreferences}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              shiftPreferences: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <Field label={t.transport} required icon={Car}>
-                        <select
-                          value={formData.transportation}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              transportation: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        >
-                          <option value="Yes">
-                            Yes (reliable vehicle & valid license)
-                          </option>
-                          <option value="No">No</option>
-                        </select>
-                      </Field>
-                      <Field label={t.lang} icon={LanguagesIcon}>
-                        <input
-                          type="text"
-                          placeholder="e.g. English, Spanish, Vietnamese"
-                          value={formData.languages}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              languages: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                    </div>
-                  </div>
-
-                  {/* Section 05 — References & resume */}
-                  <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-label text-[11px] text-[#C79A3B]">
-                        05
-                      </span>
-                      <span className="font-label text-[11px] uppercase tracking-widest text-[#101B33]/50">
-                        {t.sec5}
-                      </span>
-                      <div className="flex-1 border-t border-dashed border-[#101B33]/15" />
-                    </div>
-                    <div className="space-y-5">
-                      <Field label={t.refs} required icon={Users}>
-                        <textarea
-                          required
-                          rows={3}
-                          placeholder="Provide 2 professional references with name, relationship, phone number, and email."
-                          value={formData.references}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              references: e.target.value,
-                            })
-                          }
-                          className="w-full px-4 py-3 bg-[#F1F3EC] rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C79A3B]"
-                        />
-                      </Field>
-                      <div>
-                        <FieldLabel label={t.resume} icon={Upload} />
-                        <div className="rounded-xl border border-dashed border-[#101B33]/20 p-6 text-center cursor-pointer bg-[#F1F3EC]/60 hover:bg-[#F1F3EC] transition-colors">
-                          <Upload
-                            size={20}
-                            className="mx-auto text-[#101B33]/40 mb-2"
-                          />
-                          <p className="text-xs font-semibold">
-                            {t.uploadPrompt}
-                          </p>
-                          <p className="text-[10px] text-[#101B33]/50 mt-1">
-                            {t.uploadSub}
-                          </p>
-                          <input
-                            type="file"
-                            className="hidden"
-                            accept=".pdf,.doc,.docx"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-5 bg-[#C79A3B]/10 rounded-xl flex items-start gap-3 border border-[#C79A3B]/20">
-                    <AlertCircle
-                      size={17}
-                      className="text-[#8A6423] shrink-0 mt-0.5"
-                    />
-                    <p className="text-xs text-[#5A4419] leading-relaxed">
-                      <strong className="font-semibold text-[#3F3011]">
-                        {t.privacyNotice}
-                      </strong>{" "}
-                      {t.privacyText}
-                    </p>
-                  </div>
-
-                  <div className="flex items-start gap-3">
+                <FormGroup n="02" title={t.sec2}>
+                  <Field label={t.counties} required icon={MapPin}>
                     <input
-                      type="checkbox"
-                      id="consent"
+                      type="text"
                       required
-                      checked={formData.consent}
-                      onChange={(e) =>
-                        setFormData({ ...formData, consent: e.target.checked })
-                      }
-                      className="w-4 h-4 mt-0.5 text-[#C79A3B] rounded"
+                      placeholder="e.g. Dallas County, Collin County, Plano, Frisco"
+                      value={formData.serviceAreas}
+                      onChange={set("serviceAreas")}
+                      className={input}
                     />
-                    <label
-                      htmlFor="consent"
-                      className="text-xs text-[#101B33]/70 leading-relaxed cursor-pointer"
-                    >
-                      {t.consentLabel}
-                    </label>
-                  </div>
+                  </Field>
+                </FormGroup>
 
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-[#101B33] hover:bg-[#1B2C52] text-white font-semibold rounded-full transition-colors text-sm flex items-center justify-center gap-2 cursor-pointer"
+                <FormGroup n="03" title={t.sec3}>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <Field label={t.cnaLicense} required icon={Award}>
+                      <input
+                        type="text"
+                        required
+                        placeholder="License # or certification ID"
+                        value={formData.licenseNumber}
+                        onChange={set("licenseNumber")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.expDate} required icon={CalendarDays}>
+                      <input
+                        type="date"
+                        required
+                        value={formData.licenseExpiration}
+                        onChange={set("licenseExpiration")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.yearsExp} required icon={Clock}>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. 3 years"
+                        value={formData.yearsExperience}
+                        onChange={set("yearsExperience")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.hhExp} required icon={HeartPulse}>
+                      <select
+                        value={formData.homeHealthExperience}
+                        onChange={set("homeHealthExperience")}
+                        className={input}
+                      >
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </select>
+                    </Field>
+                  </div>
+                </FormGroup>
+
+                <FormGroup n="04" title={t.sec4}>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <Field label={t.availability} required icon={CalendarClock}>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Full-time, weekdays, part-time"
+                        value={formData.availability}
+                        onChange={set("availability")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.shiftPref} required icon={Clock}>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Day shifts, evening, weekends"
+                        value={formData.shiftPreferences}
+                        onChange={set("shiftPreferences")}
+                        className={input}
+                      />
+                    </Field>
+                    <Field label={t.transport} required icon={Car}>
+                      <select
+                        value={formData.transportation}
+                        onChange={set("transportation")}
+                        className={input}
+                      >
+                        <option value="Yes">
+                          Yes (reliable vehicle & valid license)
+                        </option>
+                        <option value="No">No</option>
+                      </select>
+                    </Field>
+                    <Field label={t.lang} icon={LanguagesIcon}>
+                      <input
+                        type="text"
+                        placeholder="e.g. English, Spanish, Vietnamese"
+                        value={formData.languages}
+                        onChange={set("languages")}
+                        className={input}
+                      />
+                    </Field>
+                  </div>
+                </FormGroup>
+
+                <FormGroup n="05" title={t.sec5}>
+                  <div className="space-y-5">
+                    <Field label={t.refs} required icon={Users}>
+                      <textarea
+                        required
+                        rows={3}
+                        placeholder="Provide 2 professional references with name, relationship, phone number, and email."
+                        value={formData.references}
+                        onChange={set("references")}
+                        className={input}
+                      />
+                    </Field>
+                    <div>
+                      <FieldLabel label={t.resume} icon={Upload} />
+                      <label
+                        className={`block cursor-pointer rounded-2xl border border-dashed border-[#101B33]/25 bg-[#F4F4F2] p-6 text-center focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[#C79A3B]`}
+                      >
+                        <Upload
+                          size={20}
+                          className="mx-auto mb-2 text-[#101B33]/50"
+                          aria-hidden="true"
+                        />
+                        <span className="block text-xs font-semibold">
+                          {fileName || t.uploadPrompt}
+                        </span>
+                        <span className="mt-1 block text-[11px] text-[#101B33]/60">
+                          {t.uploadSub}
+                        </span>
+                        <input
+                          type="file"
+                          className="sr-only"
+                          accept=".pdf,.doc,.docx"
+                          onChange={(e) =>
+                            setFileName(e.target.files?.[0]?.name ?? "")
+                          }
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </FormGroup>
+
+                <div className="flex items-start gap-3 rounded-2xl border border-[#C79A3B]/40 bg-[#F6EBD2] p-5">
+                  <AlertCircle
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[#8A6423]"
+                    aria-hidden="true"
+                  />
+                  <p className="text-xs leading-relaxed text-[#5A4419]">
+                    <strong className="font-semibold text-[#3F3011]">
+                      {t.privacyNotice}
+                    </strong>{" "}
+                    {t.privacyText}
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    required
+                    checked={formData.consent}
+                    onChange={(e) =>
+                      setFormData({ ...formData, consent: e.target.checked })
+                    }
+                    className="mt-0.5 h-4 w-4 accent-[#101B33]"
+                  />
+                  <label
+                    htmlFor="consent"
+                    className="cursor-pointer text-xs leading-relaxed text-[#101B33]/75"
                   >
-                    <Send size={16} />
-                    {t.submitBtn}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
+                    {t.consentLabel}
+                  </label>
+                </div>
+
+                <button type="submit" className={`${btnNavy} w-full py-4`}>
+                  <Send size={16} aria-hidden="true" />
+                  {t.submitBtn}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </section>
 
-      {/* ===== Footer CTA ===== */}
-      <section className="py-20 bg-white border-t border-[#101B33]/10 text-center">
-        <div className="max-w-2xl mx-auto px-4 space-y-4">
-          <span className="font-label text-[11px] uppercase tracking-[0.25em] text-[#C79A3B]">
-            {t.questions}
-          </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
+      {/* ===== Footer CTA: dark rounded banner ===== */}
+      <section className="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-24">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-[#101B33] px-6 py-14 text-center text-white sm:px-12 sm:py-20">
+          <Pill label={t.questions} />
+          <h2 className="font-display mt-5 text-3xl font-light tracking-tight sm:text-4xl">
             {t.talkItThrough}
           </h2>
-          <p className="text-sm text-[#101B33]/70">{t.reachTeam}</p>
-          <div className="flex justify-center gap-4 flex-wrap pt-3">
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/75">
+            {t.reachTeam}
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="px-7 py-3 bg-[#101B33] hover:bg-[#1B2C52] text-white font-semibold rounded-full transition-colors text-sm"
+              className={`inline-flex items-center justify-center rounded-full border border-[#C79A3B] bg-[#C79A3B] px-7 py-3 text-sm font-semibold text-[#101B33] ${focusGold}`}
             >
               {t.emailUs}
             </a>
             <Link
               href="/employee-resources"
-              className="px-7 py-3 border border-[#101B33]/20 hover:bg-[#101B33]/5 text-[#101B33] font-semibold rounded-full transition-colors text-sm"
+              className={`inline-flex items-center justify-center rounded-full border border-white/40 px-7 py-3 text-sm font-semibold text-white ${focusGold}`}
             >
               {t.resourcesHub}
             </Link>
@@ -584,6 +512,26 @@ export default function CNATalentNetworkPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function FormGroup({
+  n,
+  title,
+  children,
+}: {
+  n: string;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <fieldset>
+      <legend className="mb-5 flex w-full items-center gap-3">
+        <Pill n={n} label={title} />
+        <span aria-hidden="true" className="h-px flex-1 bg-[#101B33]/10" />
+      </legend>
+      {children}
+    </fieldset>
   );
 }
 
@@ -597,10 +545,10 @@ function FieldLabel({
   icon?: any;
 }) {
   return (
-    <label className="flex items-center gap-1.5 text-xs font-semibold text-[#101B33]/80 mb-2">
-      {Icon && <Icon size={13} className="text-[#C79A3B]" />}
-      {label} {required && <span className="text-[#C79A3B]">*</span>}
-    </label>
+    <span className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-[#101B33]/85">
+      {Icon && <Icon size={13} className="text-[#8A6423]" aria-hidden="true" />}
+      {label} {required && <span className="text-[#8A6423]">*</span>}
+    </span>
   );
 }
 
@@ -613,12 +561,12 @@ function Field({
   label: string;
   required?: boolean;
   icon?: any;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
-    <div>
+    <label className="block">
       <FieldLabel label={label} required={required} icon={icon} />
       {children}
-    </div>
+    </label>
   );
 }

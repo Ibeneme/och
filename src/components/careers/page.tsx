@@ -1,81 +1,100 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Phone,
-  ArrowRight,
-  Sparkles,
-  Briefcase,
-  Clock,
-  Check,
-} from "lucide-react";
+import { Phone, ArrowRight, Briefcase, Clock, Check } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/careers.json";
 import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Brand: navy #07162C + gold #E4B95A / #C89B3C. Flat design: borders only, NO shadows.
-   #9A7420 = darker gold, used only for small text on light backgrounds (contrast). */
+/* Clean layout: soft gray page, pill labels with a number chip, large light
+   centered headings, rounded bento cards. navy #07162C, gold #E4B95A,
+   gold-d #996515 (small text on light), card #E9EAE5, gold-tint #F6EBD2.
+   Flat: 1px borders only, fully rounded buttons, no shadows, no hover
+   effects, no transitions. Focus rings are kept for keyboard users. */
 
-const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
-const sectionTitle =
-  "ohh-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl";
-const badgeLight = "inline-block text-sm font-semibold text-[#9A7420]";
-const badgeDark = "inline-block text-sm font-semibold text-[#E4B95A]";
-const btnGold =
-  "group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-base font-bold text-[#07162C] transition-colors hover:bg-transparent hover:text-[#E4B95A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
-const btnOutlineDark =
-  "inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
-const btnNavy =
-  "group inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#07162C] bg-[#07162C] px-7 py-3.5 text-base font-bold text-white transition-colors hover:bg-transparent hover:text-[#07162C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
+const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
+const focusGold =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
+const focusNavy =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
+const btn =
+  "inline-flex items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-sm font-semibold";
+const btnGold = `${btn} border-[#E4B95A] bg-[#E4B95A] text-[#07162C] ${focusGold}`;
+const btnGoldOutline = `${btn} border-[#E4B95A]/60 text-[#E4B95A] ${focusGold}`;
+const btnNavy = `${btn} border-[#07162C] bg-[#07162C] text-[#E4B95A] ${focusNavy}`;
+const btnNavyOutline = `${btn} border-[#07162C]/40 text-[#07162C] ${focusNavy}`;
+const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
+const textLink = `font-semibold text-[#07162C] underline decoration-[#E4B95A] decoration-2 underline-offset-4 ${focusNavy}`;
 
-/* ---- Random service illustrations: /public/images/services/ot_a.svg … ot_m.svg ----
-   Shuffled once with a fixed seed so server and client always agree (no hydration
-   mismatch). Change SEED to get a different random mix. */
-const SEED = 2026;
-const OT_IMAGES = "abcdefghijklm"
-  .split("")
-  .map((l) => `/images/services/ot_${l}.svg`);
-
-function seededShuffle<T>(items: T[], seed: number): T[] {
-  const arr = [...items];
-  let s = seed >>> 0;
-  const rand = () => {
-    s = (s + 0x6d2b79f5) >>> 0;
-    let t = s;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
+function Pill({ n, label }: { n?: string; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] py-1.5 pl-1.5 pr-4 text-xs font-medium text-[#07162C]">
+      {n ? (
+        <span
+          aria-hidden="true"
+          className="flex h-6 w-6 items-center justify-center rounded-full bg-[#07162C] text-[10px] font-semibold text-[#E4B95A]"
+        >
+          {n}
+        </span>
+      ) : (
+        <span
+          aria-hidden="true"
+          className="ml-2.5 h-1.5 w-1.5 rounded-full bg-[#996515]"
+        />
+      )}
+      {label}
+    </span>
+  );
 }
 
-const SHUFFLED = seededShuffle(OT_IMAGES, SEED);
+function SectionHead({
+  n,
+  label,
+  title,
+  desc,
+}: {
+  n: string;
+  label: string;
+  title: string;
+  desc?: string;
+}) {
+  return (
+    <div className="mx-auto mb-12 max-w-3xl text-center">
+      <Pill n={n} label={label} />
+      <h2 className={`${heading} mt-5 text-3xl sm:text-4xl lg:text-5xl`}>
+        {title}
+      </h2>
+      {desc && (
+        <p className="mx-auto mt-4 max-w-2xl text-base text-[#07162C]/70">
+          {desc}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function ArrowCircle() {
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#07162C]/20 text-[#07162C]"
+    >
+      <ArrowRight size={16} />
+    </span>
+  );
+}
 
 export default function CareersPage() {
   const { language } = useLanguage();
   const t = content[language as "en" | "es"] || content.en;
 
   const stats = [
-    {
-      number: "01",
-      label: "Nurse-Founded Leadership",
-      sub: "Clinical Excellence",
-    },
-    {
-      number: "02",
-      label: "Serving Clients Since 2010",
-      sub: "Trusted Track Record",
-    },
-    {
-      number: "03",
-      label: "Individualized Care",
-      sub: "Person-Centered Approach",
-    },
-    { number: "04", label: "Dignity & Independence", sub: "At-Home Living" },
+    { label: "Nurse-Founded Leadership", sub: "Clinical Excellence" },
+    { label: "Serving Clients Since 2010", sub: "Trusted Track Record" },
+    { label: "Individualized Care", sub: "Person-Centered Approach" },
+    { label: "Dignity & Independence", sub: "At-Home Living" },
   ];
 
   const roles = [
@@ -130,388 +149,342 @@ export default function CareersPage() {
     {
       title: "Compassion & Dignity",
       desc: "Every interaction is grounded in respect for the patient and family.",
-      image: SHUFFLED[0],
-      alt: "Caregiver holding patient's hand",
     },
     {
       title: "Clinical Accountability",
       desc: "Nurse-led standards and professional growth opportunities.",
-      image: SHUFFLED[1],
-      alt: "Nurse reviewing care plan",
     },
     {
       title: "Reliable Support",
       desc: "We support patients, families, caregivers—and our team members.",
-      image: SHUFFLED[2],
-      alt: "Team supporting a family",
     },
     {
       title: "Nurse-Founded Culture",
       desc: "Led by Angela Ananti, BSN, RN, with more than two decades of nursing experience.",
-      image: SHUFFLED[3],
-      alt: "Founder and leadership team",
     },
   ];
 
-  const talentImage = SHUFFLED[4];
+  const applyHref = "/careers/cna-home-health-aide-application";
+  const phoneHref = `tel:${siteConfig.contact.phoneTel}`;
 
   return (
-    <main className="bg-white text-[#07162C]">
-      {/* ===== Announcement bar ===== */}
-      <div className="bg-[#E4B95A] text-[#07162C]">
-        <p className="mx-auto flex max-w-7xl items-center justify-center gap-3 px-4 py-2.5 text-center text-sm font-semibold">
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 flex-shrink-0 rounded-full bg-[#07162C]"
-          />
+    <main className="bg-[#F4F4F2] text-[#07162C]">
+      {/* ===== Announcement strip ===== */}
+      <div className="bg-[#07162C]">
+        <p className="mx-auto max-w-6xl px-4 py-2.5 text-center text-sm font-medium text-[#E4B95A]">
           {t.announcement}
         </p>
       </div>
 
-      {/* ===== Hero ===== */}
-      <section className="bg-[#07162C] py-20 text-white lg:py-28">
-        <div className={container}>
-          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#E4B95A]/50 px-4 py-1.5 text-sm font-semibold text-[#E4B95A]">
-                <Sparkles size={14} aria-hidden="true" />
-                {t.badge}
-              </div>
-              <h1 className="ohh-serif mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-                {t.titleMain}{" "}
-                <span className="text-[#E4B95A]">{t.titleHighlight}</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                {t.description}
-              </p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <Link
-                  href="/careers/cna-home-health-aide-application"
-                  className={btnGold}
-                >
-                  <span>{t.joinCnaNet}</span>
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-                <a
-                  href={`tel:${siteConfig.contact.phoneTel}`}
-                  className={btnOutlineDark}
-                >
-                  <Phone size={18} aria-hidden="true" />
-                  <span>
-                    {t.callText} {siteConfig.contact.phone}
-                  </span>
-                </a>
-              </div>
-            </div>
+      {/* ===== Header: centered ===== */}
+      <section className="px-4 pb-10 pt-14 text-center sm:px-6 lg:pb-14 lg:pt-24">
+        <div className="mx-auto max-w-4xl">
+          <Pill label={t.badge} />
+          <h1 className={`${heading} mt-6 text-4xl sm:text-5xl lg:text-7xl`}>
+            {t.titleMain}{" "}
+            <span className="text-[#996515]">{t.titleHighlight}</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-[#07162C]/70 sm:text-lg">
+            {t.description}
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link href={applyHref} className={btnNavy}>
+              <span>{t.joinCnaNet}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <a href={phoneHref} className={btnNavyOutline}>
+              <Phone size={16} aria-hidden="true" />
+              <span>
+                {t.callText} {siteConfig.contact.phone}
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-3xl border border-white/15 p-2">
-                {stats.map((item, idx) => (
-                  <div
-                    key={item.number}
-                    className={`flex items-center gap-5 px-5 py-5 sm:px-6 ${
-                      idx !== stats.length - 1 ? "border-b border-white/10" : ""
+      {/* ===== Stats bento: first card carries the ot_a.svg background ===== */}
+      <section className="pb-16 lg:pb-24">
+        <div className={container}>
+          <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`relative flex min-h-[180px] flex-col justify-between overflow-hidden p-6 ${
+                  i === 0 ? "rounded-3xl bg-[#07162C] text-white" : card
+                }`}
+              >
+                {i === 0 && (
+                  <>
+                    <img
+                      src="/images/services/ot_a.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 h-full w-full object-cover opacity-15"
+                    />
+                  </>
+                )}
+                <span
+                  aria-hidden="true"
+                  className={`relative flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold ${
+                    i === 0
+                      ? "bg-[#E4B95A] text-[#07162C]"
+                      : "bg-[#07162C] text-[#E4B95A]"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="relative">
+                  <dt
+                    className={`text-sm font-semibold ${
+                      i === 0 ? "text-[#E4B95A]" : "text-[#996515]"
                     }`}
                   >
-                    <span
-                      aria-hidden="true"
-                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#E4B95A] text-[#07162C]"
-                    >
-                      <Check size={18} strokeWidth={3} />
-                    </span>
-                    <div className="flex flex-col">
-                      <span className="text-sm text-white/55">{item.sub}</span>
-                      <span className="ohh-serif text-lg font-semibold leading-snug text-white sm:text-xl">
-                        {item.label}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                    {s.sub}
+                  </dt>
+                  <dd className="ohh-serif mt-1 text-xl font-normal leading-snug">
+                    {s.label}
+                  </dd>
+                </div>
               </div>
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       {/* ===== Open roles ===== */}
-      <section className="bg-[#FBF8F2] py-20 lg:py-28">
+      <section className="border-t border-[#07162C]/10 py-16 lg:py-24">
         <div className={container}>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-4">
-              <div className="lg:sticky lg:top-28">
-                <span className={badgeLight}>{t.openRolesBadge}</span>
-                <h2 className={`${sectionTitle} mt-4 text-[#07162C]`}>
-                  {t.openRolesTitle}
-                </h2>
-                <p className="mt-5 text-base leading-relaxed text-[#4A5A6B]">
-                  {t.openRolesDesc}
+          <SectionHead
+            n="01"
+            label={t.openRolesBadge}
+            title={t.openRolesTitle}
+            desc={t.openRolesDesc}
+          />
+
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {roles.map((r) => (
+              <li key={r.role} className={`flex flex-col p-6 ${card}`}>
+                <span className="w-fit rounded-full border border-[#07162C]/20 bg-white px-3 py-1 text-xs font-medium text-[#07162C]">
+                  {r.tag}
+                </span>
+                <h3 className="ohh-serif mt-6 text-xl font-normal leading-snug">
+                  {r.role}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-[#07162C]/70">
+                  {r.desc}
                 </p>
-                <Link
-                  href="/careers/cna-home-health-aide-application"
-                  className="group mt-7 inline-flex items-center gap-2 border-b-2 border-[#C89B3C] pb-1 text-base font-bold text-[#07162C] transition-colors hover:text-[#9A7420]"
+                <a
+                  href={phoneHref}
+                  className={`mt-6 inline-flex items-center justify-between gap-3 text-sm ${textLink} no-underline`}
                 >
-                  {t.viewCnaNet}
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </Link>
-              </div>
-            </div>
+                  <span className="underline decoration-[#E4B95A] decoration-2 underline-offset-4">
+                    {t.inquireApply}
+                  </span>
+                  <ArrowCircle />
+                </a>
+              </li>
+            ))}
+          </ul>
 
-            <div className="lg:col-span-8">
-              <div className="border-t-2 border-[#07162C]">
-                {roles.map((item) => (
-                  <div
-                    key={item.role}
-                    className="group flex flex-col gap-3 border-b border-[#E8DFC8] py-6 transition-colors hover:bg-white sm:flex-row sm:items-center sm:gap-6 sm:px-4"
-                  >
-                    <span className="w-fit flex-shrink-0 rounded-full border border-[#C89B3C] px-3 py-1 text-xs font-semibold text-[#9A7420] sm:w-28 sm:text-center">
-                      {item.tag}
-                    </span>
-                    <div className="flex-1">
-                      <h3 className="ohh-serif text-xl font-semibold leading-snug text-[#07162C]">
-                        {item.role}
-                      </h3>
-                      <p className="mt-1 text-sm leading-relaxed text-[#4A5A6B] sm:text-base">
-                        {item.desc}
-                      </p>
-                    </div>
-                    <div className="flex flex-shrink-0 items-center gap-2 text-sm font-bold text-[#07162C] transition-colors group-hover:text-[#9A7420]">
-                      <span>{t.inquireApply}</span>
-                      <ArrowRight
-                        size={14}
-                        className="transition-transform group-hover:translate-x-1"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="mt-8 flex flex-col items-center gap-5 text-center">
+            <p className="max-w-3xl rounded-2xl border border-[#E4B95A] bg-[#F6EBD2] px-5 py-4 text-sm text-[#07162C]/80">
+              {t.qualifiedNotice}
+            </p>
+            <Link href={applyHref} className={btnNavy}>
+              {t.viewCnaNet}
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
-
-          <p className="mt-10 max-w-3xl border-l-2 border-[#C89B3C] pl-4 text-sm leading-relaxed text-[#4A5A6B]">
-            {t.qualifiedNotice}
-          </p>
         </div>
       </section>
 
       {/* ===== Why work with us ===== */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="border-t border-[#07162C]/10 py-16 lg:py-24">
         <div className={container}>
-          <div className="max-w-3xl">
-            <span className={badgeLight}>{t.whyBadge}</span>
-            <h2 className={`${sectionTitle} mt-4 text-[#07162C]`}>
-              {t.whyTitle}
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#4A5A6B] sm:text-lg">
-              {t.whyDesc}
-            </p>
-          </div>
+          <SectionHead
+            n="02"
+            label={t.whyBadge}
+            title={t.whyTitle}
+            desc={t.whyDesc}
+          />
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {whyItems.map((item) => (
-              <div
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {whyItems.map((item, i) => (
+              <li
                 key={item.title}
-                className="flex flex-col overflow-hidden rounded-3xl border border-[#E8DFC8] bg-white transition-colors hover:border-[#C89B3C]"
+                className={`flex min-h-[240px] flex-col justify-between p-6 ${card}`}
               >
-                <div className="flex aspect-[4/3] items-center justify-center border-b border-[#E8DFC8] bg-[#FBF8F2] p-6">
-                  <img
-                    src={item.image}
-                    alt={item.alt}
-                    loading="lazy"
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="ohh-serif text-xl font-semibold leading-snug text-[#07162C]">
+                <span
+                  aria-hidden="true"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-[#07162C] text-xs font-semibold text-[#E4B95A]"
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="ohh-serif text-xl font-normal leading-snug">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#4A5A6B]">
+                  <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
 
-          <p className="mt-10 max-w-3xl text-base leading-relaxed text-[#4A5A6B]">
+          <p className="mx-auto mt-8 max-w-3xl text-center text-base text-[#07162C]/70">
             {t.whySubFooter}
           </p>
         </div>
       </section>
 
-      {/* ===== Talent year-round ===== */}
-      <section className="bg-[#07162C] py-20 text-white lg:py-28">
-        <div className={container}>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <span className={badgeDark}>{t.talentYearRound}</span>
-              <h2 className={`${sectionTitle} mt-4`}>{t.talentTitle}</h2>
-              <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                {t.talentDesc}
-              </p>
+      {/* ===== Talent year-round: rounded navy banner ===== */}
+      <section className="px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl rounded-3xl bg-[#07162C] px-6 py-14 text-white sm:px-12 sm:py-20">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 py-1.5 pl-3 pr-4 text-xs font-medium text-[#E4B95A]">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-[#E4B95A]"
+              />
+              {t.talentYearRound}
+            </span>
+            <h2 className="ohh-serif mt-5 text-3xl font-light leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              {t.talentTitle}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 sm:text-lg">
+              {t.talentDesc}
+            </p>
+          </div>
 
-              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                {t.talentList.map((item: string) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span
-                      aria-hidden="true"
-                      className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[#E4B95A] text-[#07162C]"
-                    >
-                      <Check size={12} strokeWidth={3} />
-                    </span>
-                    <span className="text-sm font-medium leading-snug text-white/90 sm:text-base">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href="/careers/cna-home-health-aide-application"
-                className={`${btnGold} mt-10`}
+          <ul className="mx-auto mt-10 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-2">
+            {t.talentList.map((item: string) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 border-t border-white/15 pt-3"
               >
-                <span>{t.applyTalentBtn}</span>
-                <ArrowRight
+                <Check
                   size={18}
-                  className="transition-transform group-hover:translate-x-1"
+                  className="mt-0.5 shrink-0 text-[#E4B95A]"
                   aria-hidden="true"
                 />
-              </Link>
-            </div>
+                <span className="text-sm leading-snug text-white/90 sm:text-base">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
 
-            <div className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-[#E4B95A]/40 bg-[#FBF8F2] p-8 sm:p-12">
-              <img
-                src={talentImage}
-                alt="CNA providing home care"
-                loading="lazy"
-                className="h-full w-full object-contain"
-              />
-            </div>
+          <div className="mt-10 text-center">
+            <Link href={applyHref} className={btnGold}>
+              <span>{t.applyTalentBtn}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ===== What we offer ===== */}
-      <section className="bg-[#FBF8F2] py-20 lg:py-28">
+      <section className="py-16 lg:py-24">
         <div className={container}>
-          <div className="max-w-3xl">
-            <span className={badgeLight}>{t.offerBadge}</span>
-            <h2 className={`${sectionTitle} mt-4 text-[#07162C]`}>
-              {t.offerTitle}
-            </h2>
-            <p className="mt-5 text-base leading-relaxed text-[#4A5A6B] sm:text-lg">
-              {t.offerDesc}
-            </p>
-          </div>
+          <SectionHead
+            n="03"
+            label={t.offerBadge}
+            title={t.offerTitle}
+            desc={t.offerDesc}
+          />
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-3xl border border-[#E8DFC8] bg-white p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-                <Briefcase size={22} aria-hidden="true" />
-              </div>
-              <h3 className="ohh-serif mt-6 text-2xl font-semibold leading-snug text-[#07162C]">
-                {t.compTitle}
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-[#4A5A6B]">
-                {t.compDesc}
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-[#E8DFC8] bg-white p-8">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-                <Clock size={22} aria-hidden="true" />
-              </div>
-              <h3 className="ohh-serif mt-6 text-2xl font-semibold leading-snug text-[#07162C]">
-                {t.schedTitle}
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-[#4A5A6B]">
-                {t.schedDesc}
-              </p>
-            </div>
-
-            <div className="flex flex-col justify-between gap-8 rounded-3xl bg-[#07162C] p-8 text-white">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div
+              className={`flex min-h-[260px] flex-col justify-between p-7 ${card}`}
+            >
+              <Briefcase
+                size={26}
+                className="text-[#996515]"
+                aria-hidden="true"
+              />
               <div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E4B95A] text-[#07162C]">
-                  <Phone size={20} aria-hidden="true" />
-                </div>
-                <h3 className="ohh-serif mt-6 text-2xl font-semibold leading-snug">
-                  {t.questionsTitle}
+                <h3 className="ohh-serif text-2xl font-normal leading-snug">
+                  {t.compTitle}
                 </h3>
-                <p className="mt-3 text-base leading-relaxed text-white/75">
-                  {t.questionsDesc}
+                <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                  {t.compDesc}
                 </p>
               </div>
-              <a
-                href={`tel:${siteConfig.contact.phoneTel}`}
-                className={btnGold}
-              >
-                <Phone size={16} aria-hidden="true" />
-                <span>{t.inquireOpenings}</span>
-              </a>
+            </div>
+            <div
+              className={`flex min-h-[260px] flex-col justify-between p-7 ${card}`}
+            >
+              <Clock size={26} className="text-[#996515]" aria-hidden="true" />
+              <div>
+                <h3 className="ohh-serif text-2xl font-normal leading-snug">
+                  {t.schedTitle}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                  {t.schedDesc}
+                </p>
+              </div>
+            </div>
+            <div className="flex min-h-[260px] flex-col justify-between gap-6 rounded-3xl bg-[#07162C] p-7 text-white">
+              <Phone size={26} className="text-[#E4B95A]" aria-hidden="true" />
+              <div>
+                <h3 className="ohh-serif text-2xl font-normal leading-snug">
+                  {t.questionsTitle}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/75">
+                  {t.questionsDesc}
+                </p>
+                <a href={phoneHref} className={`${btnGold} mt-5`}>
+                  <Phone size={16} aria-hidden="true" />
+                  <span>{t.inquireOpenings}</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ===== EEO + employee portal ===== */}
-      <section className="bg-white py-20 lg:py-24">
-        <div className={container}>
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <h2 className="ohh-serif text-2xl font-semibold leading-snug text-[#07162C] sm:text-3xl">
-                {t.eeoTitle}
-              </h2>
-              <p className="mt-5 max-w-prose text-base leading-relaxed text-[#4A5A6B]">
-                {t.eeoText1}
-              </p>
-              <p className="mt-4 max-w-prose text-base leading-relaxed text-[#4A5A6B]">
-                {t.eeoText2}{" "}
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="font-semibold text-[#07162C] underline decoration-[#C89B3C] decoration-2 underline-offset-4 hover:text-[#9A7420]"
-                >
-                  {siteConfig.contact.email}
-                </a>{" "}
-                or{" "}
-                <a
-                  href={`tel:${siteConfig.contact.phoneTel}`}
-                  className="font-semibold text-[#07162C] underline decoration-[#C89B3C] decoration-2 underline-offset-4 hover:text-[#9A7420]"
-                >
-                  {siteConfig.contact.phone}
-                </a>
-                .
-              </p>
-            </div>
+      <section className="pb-16 lg:pb-24">
+        <div className={`${container} grid gap-4 lg:grid-cols-12`}>
+          <div className={`p-7 sm:p-10 lg:col-span-7 ${card}`}>
+            <h2 className="ohh-serif text-2xl font-normal leading-snug sm:text-3xl">
+              {t.eeoTitle}
+            </h2>
+            <p className="mt-4 max-w-prose text-[#07162C]/75">{t.eeoText1}</p>
+            <p className="mt-4 max-w-prose text-[#07162C]/75">
+              {t.eeoText2}{" "}
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className={textLink}
+              >
+                {siteConfig.contact.email}
+              </a>{" "}
+              or{" "}
+              <a href={phoneHref} className={textLink}>
+                {siteConfig.contact.phone}
+              </a>
+              .
+            </p>
+          </div>
 
-            <div className="flex flex-col justify-between gap-8 rounded-3xl bg-[#E4B95A] p-8 text-[#07162C] lg:col-span-5">
-              <div>
-                <span className="text-sm font-bold text-[#07162C]/70">
-                  {t.portalBadge}
-                </span>
-                <h3 className="ohh-serif mt-3 text-2xl font-semibold leading-snug">
-                  {t.portalTitle}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-[#07162C]/85">
-                  {t.portalDesc}
-                </p>
-              </div>
-              <Link href="/employee-resources" className={btnNavy}>
-                <span>{t.portalBtn}</span>
-                <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
+          <div className="flex flex-col justify-between gap-8 rounded-3xl bg-[#E4B95A] p-7 text-[#07162C] sm:p-10 lg:col-span-5">
+            <div>
+              <p className="text-sm font-semibold text-[#07162C]/75">
+                {t.portalBadge}
+              </p>
+              <h3 className="ohh-serif mt-2 text-2xl font-normal leading-snug">
+                {t.portalTitle}
+              </h3>
+              <p className="mt-3 text-[#07162C]/85">{t.portalDesc}</p>
             </div>
+            <Link
+              href="/employee-resources"
+              className={`${btnNavy} self-start`}
+            >
+              <span>{t.portalBtn}</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>

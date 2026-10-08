@@ -244,62 +244,65 @@ export default function WhoWeServePage() {
   }[language];
 
   return (
-    <main className="min-h-screen bg-white text-[#3A4657]">
-      {/* ===== Hero ===== */}
-      <section className="relative bg-[#0A2140] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2140]/80 via-[#0A2140]/70 to-[#0A2140]" />
+    <main className="min-h-screen bg-[#F7F8FA] text-[#3A4657]">
+      {/* ─── Hero ─────────────────────────────────────────────── */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#E8DFC8] bg-[#FBF8F2] px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#996515]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#E4B95A]" />
+              {t.badge}
+            </div>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#E4B95A] font-bold text-xs tracking-wider uppercase mb-8">
-            <span className="w-2 h-2 rounded-full bg-[#E4B95A] animate-pulse" />
-            {t.badge}
+            <h1 className="ohh-serif text-4xl font-semibold leading-[1.08] tracking-tight text-[#07162C] sm:text-5xl lg:text-6xl">
+              {t.titlePre}{" "}
+              <span className="text-[#C89B3C]">{t.titleHighlight}</span>
+            </h1>
+
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-[#5B6B7C] sm:text-lg">
+              {t.subtitle}
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href="tel:9723251598"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#07162C] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#0A2140]"
+              >
+                <Phone size={16} />
+                {t.callBtn}
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E8DFC8] bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#C89B3C]"
+              >
+                {t.contactBtn}
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
 
-          <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] mb-6 tracking-tight">
-            {t.titlePre}{" "}
-            <span className="text-[#E4B95A]">{t.titleHighlight}</span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-white/75 mb-10 leading-relaxed max-w-2xl mx-auto">
-            {t.subtitle}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-            <a
-              href="tel:9723251598"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E4B95A] hover:bg-[#D9A93F] text-[#0A2140] font-bold rounded-full transition-colors"
-            >
-              <Phone size={18} />
-              <span>{t.callBtn}</span>
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-full transition-colors backdrop-blur-sm"
-            >
-              <span>{t.contactBtn}</span>
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-
-          {/* Commitment Strip under hero */}
-          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl p-6 sm:p-8 text-left">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-[#E4B95A]/15 text-[#E4B95A] flex items-center justify-center">
-                <ShieldCheck size={22} />
+          {/* Commitment strip */}
+          <div className="mt-14 rounded-[1.75rem] border border-[#E8DFC8] bg-[#FBF8F2] p-6 sm:p-8">
+            <div className="mb-5 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                <ShieldCheck size={18} />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white">
+                <h3 className="text-sm font-bold text-[#07162C]">
                   {t.commitmentTitle}
                 </h3>
-                <p className="text-xs text-[#E4B95A]/90 font-semibold">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#996515]">
                   {t.commitmentSub}
                 </p>
               </div>
             </div>
-            <ul className="grid sm:grid-cols-3 gap-4 text-sm text-white/80 font-medium">
-              {t.commitPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-[#E4B95A] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
+            <ul className="grid gap-4 sm:grid-cols-3">
+              {t.commitPoints.map((point, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2.5 text-sm text-[#3A4657]"
+                >
+                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E4B95A] text-xs font-bold text-[#07162C]">
                     ✓
                   </span>
                   <span>{point}</span>
@@ -310,70 +313,74 @@ export default function WhoWeServePage() {
         </div>
       </section>
 
-      {/* ===== Four Pathways Overview ===== */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C] bg-[#E4B95A]/10 px-3.5 py-1.5 rounded-full">
+      {/* ─── Pathways ─────────────────────────────────────────── */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
               {t.pathwayEyebrow}
-            </span>
-            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+            </p>
+            <h2 className="ohh-serif text-3xl font-semibold tracking-tight text-[#07162C] sm:text-4xl">
               {t.pathwayHeading}
             </h2>
-            <p className="text-[#5B6B7C]">{t.pathwaySub}</p>
+            <p className="mt-3 text-base text-[#5B6B7C] sm:text-lg">
+              {t.pathwaySub}
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {pathways.map((item) => {
               const Icon = item.icon;
               return (
                 <div
                   key={item.title}
-                  className={`rounded-3xl p-6 lg:p-7 flex flex-col justify-between min-h-[280px] transition-colors ${
+                  className={`flex flex-col justify-between rounded-[1.5rem] border p-6 transition-all ${
                     item.comingSoon
-                      ? "bg-[#0A2140] text-white"
-                      : "bg-[#FBF8F2] hover:bg-[#F3ECDC]"
+                      ? "border-[#07162C] bg-[#07162C] text-white"
+                      : "border-[#E8DFC8] bg-white hover:border-[#C89B3C]"
                   }`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div
-                        className={`w-11 h-11 rounded-2xl flex items-center justify-center ${
+                        className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
                           item.comingSoon
-                            ? "bg-[#E4B95A]/15 text-[#E4B95A]"
-                            : "bg-[#F3ECDC] text-[#0A2140]"
+                            ? "bg-white/10 text-[#E4B95A]"
+                            : "bg-[#FBF8F2] text-[#07162C]"
                         }`}
                       >
-                        <Icon size={22} />
+                        <Icon size={20} />
                       </div>
                       <span
-                        className={`text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-md ${
+                        className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest ${
                           item.comingSoon
-                            ? "bg-[#E4B95A]/15 text-[#E4B95A]"
-                            : "bg-white text-[#8A7B5C]"
+                            ? "bg-white/10 text-[#E4B95A]"
+                            : "bg-[#FBF8F2] text-[#996515]"
                         }`}
                       >
                         {item.tag}
                       </span>
                     </div>
                     <h3
-                      className={`text-xl font-bold tracking-tight ${
-                        item.comingSoon ? "text-white" : "text-[#0A2140]"
+                      className={`ohh-serif text-lg font-semibold tracking-tight ${
+                        item.comingSoon ? "text-white" : "text-[#07162C]"
                       }`}
                     >
                       {item.title}
                     </h3>
                     <p
                       className={`text-sm leading-relaxed ${
-                        item.comingSoon ? "text-white/65" : "text-[#5B6B7C]"
+                        item.comingSoon ? "text-white/70" : "text-[#5B6B7C]"
                       }`}
                     >
                       {item.desc}
                     </p>
                   </div>
                   <div
-                    className={`mt-6 pt-4 text-xs font-bold uppercase tracking-wider flex items-center gap-2 ${
-                      item.comingSoon ? "text-[#E4B95A]" : "text-[#0A2140]"
+                    className={`mt-6 flex items-center justify-between border-t pt-4 text-xs font-bold uppercase tracking-wider ${
+                      item.comingSoon
+                        ? "border-white/10 text-[#E4B95A]"
+                        : "border-[#E8DFC8] text-[#07162C]"
                     }`}
                   >
                     <span>{item.footer}</span>
@@ -388,69 +395,67 @@ export default function WhoWeServePage() {
         </div>
       </section>
 
-      {/* ===== Detailed Sections ===== */}
-      <section className="py-20 lg:py-28 bg-[#FBF8F2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C] bg-[#E4B95A]/10 px-3.5 py-1.5 rounded-full">
+      {/* ─── Detailed Sections ────────────────────────────────── */}
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 max-w-2xl">
+            <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
               {t.detailEyebrow}
-            </span>
-            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+            </p>
+            <h2 className="ohh-serif text-3xl font-semibold tracking-tight text-[#07162C] sm:text-4xl">
               {t.detailHeading}
             </h2>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-6">
             {detailSections.map((section, idx) => {
               const Icon = section.icon;
-              const flipped = idx % 2 === 1;
               return (
                 <div
                   key={section.title}
-                  className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-8 lg:p-10"
+                  className="rounded-[1.75rem] border border-[#E8DFC8] bg-[#F7F8FA] p-6 sm:p-8 lg:p-10"
                 >
-                  <div
-                    className={`lg:col-span-5 ${
-                      flipped ? "lg:order-2" : "lg:order-1"
-                    }`}
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center mb-5">
-                      <Icon size={24} />
+                  <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-12">
+                    <div className="space-y-4 lg:col-span-5">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                          <Icon size={20} />
+                        </div>
+                        <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#996515]">
+                          0{idx + 1} · {section.eyebrow}
+                        </span>
+                      </div>
+                      <h3 className="ohh-serif text-2xl font-semibold leading-snug tracking-tight text-[#07162C] lg:text-[1.7rem]">
+                        {section.title}
+                      </h3>
+                      <p className="text-[15px] leading-relaxed text-[#5B6B7C]">
+                        {section.desc}
+                      </p>
+                      <div className="flex items-center gap-2 pt-1 text-xs font-bold uppercase tracking-wider text-[#5B6B7C]">
+                        <span>{section.meta[0]}</span>
+                        <span className="text-[#C89B3C]">·</span>
+                        <span className="text-[#07162C]">
+                          {section.meta[1]}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-xs font-bold tracking-widest uppercase text-[#C89B3C] block mb-2">
-                      {section.eyebrow}
-                    </span>
-                    <h3 className="ohh-serif text-2xl lg:text-3xl font-semibold text-[#0A2140] tracking-tight mb-4">
-                      {section.title}
-                    </h3>
-                    <p className="text-[#5B6B7C] text-sm leading-relaxed mb-6">
-                      {section.desc}
-                    </p>
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8A93A0]">
-                      <span>{section.meta[0]}</span>
-                      <span className="text-[#C89B3C]">·</span>
-                      <span className="text-[#0A2140]">{section.meta[1]}</span>
+
+                    <div className="lg:col-span-7">
+                      <ul className="grid gap-3 sm:grid-cols-2">
+                        {section.points.map((point) => (
+                          <li
+                            key={point}
+                            className="flex items-start gap-3 rounded-2xl border border-[#E8DFC8] bg-white p-4 text-sm text-[#3A4657]"
+                          >
+                            <CheckCircle2
+                              size={16}
+                              className="mt-0.5 shrink-0 text-[#C89B3C]"
+                            />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                  <div
-                    className={`lg:col-span-7 ${
-                      flipped ? "lg:order-1" : "lg:order-2"
-                    }`}
-                  >
-                    <ul className="grid sm:grid-cols-2 gap-4">
-                      {section.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex items-start gap-2.5 bg-[#FBF8F2] rounded-2xl p-4 text-sm font-medium text-[#3A4657]"
-                        >
-                          <CheckCircle2
-                            size={16}
-                            className="text-[#C89B3C] flex-shrink-0 mt-0.5"
-                          />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 </div>
               );
@@ -459,67 +464,66 @@ export default function WhoWeServePage() {
         </div>
       </section>
 
-      {/* ===== Pediatric Coming Soon ===== */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0A2140] rounded-3xl overflow-hidden">
-            <div className="grid lg:grid-cols-2">
-              <div className="p-10 sm:p-12 lg:p-14 text-white flex flex-col justify-center">
-                <span className="inline-flex items-center gap-2 text-[#E4B95A] font-bold text-xs uppercase tracking-[0.15em] mb-5 bg-white/10 px-3 py-1.5 rounded-full w-fit">
-                  <Bell size={14} />
-                  {t.pediatricEyebrow}
-                </span>
-                <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold mb-5 tracking-tight leading-tight">
-                  {t.pediatricHeading}
-                </h2>
-                <p className="text-white/70 mb-6 leading-relaxed max-w-lg">
-                  {t.pediatricDesc}
-                </p>
-                <ul className="space-y-3 text-white/80 text-sm font-medium mb-8">
-                  {t.pediatricPoints.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-[#E4B95A] text-[#0A2140] flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-xs">
-                        ✓
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+      {/* ─── Pediatric Coming Soon ────────────────────────────── */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-[1.75rem] bg-[#07162C] p-8 text-white sm:p-12 lg:p-14">
+            <div className="max-w-2xl space-y-5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+                <Bell size={13} />
+                {t.pediatricEyebrow}
+              </span>
+              <h2 className="ohh-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+                {t.pediatricHeading}
+              </h2>
+              <p className="text-base leading-relaxed text-white/70 sm:text-lg">
+                {t.pediatricDesc}
+              </p>
+              <ul className="grid gap-4 pt-2 sm:grid-cols-3">
+                {t.pediatricPoints.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E4B95A] text-xs font-bold text-[#07162C]">
+                      ✓
+                    </span>
+                    <span className="text-white/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-3">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0F6DF9] text-[#fff] font-bold rounded-full transition-colors w-fit"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#E4B95A] px-6 py-3 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
                 >
-                  <span>{t.pediatricBtn}</span>
-                  <ArrowRight size={16} />
+                  {t.pediatricBtn}
+                  <ArrowRight size={15} />
                 </Link>
               </div>
-      
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== Post-Hospital / Transitions Note ===== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#FBF8F2] rounded-3xl p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center gap-8">
-            <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#F3ECDC] text-[#0A2140] flex items-center justify-center">
-              <Activity size={28} />
+      {/* ─── Transition note ──────────────────────────────────── */}
+      <section className="pb-20 lg:pb-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-6 rounded-[1.75rem] border border-[#E8DFC8] bg-white p-6 sm:p-8 lg:flex-row lg:items-center">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FBF8F2] text-[#07162C]">
+              <Activity size={22} />
             </div>
-            <div className="flex-1">
-              <h3 className="ohh-serif text-xl font-semibold text-[#0A2140] mb-2 tracking-tight">
+            <div className="flex-1 space-y-1">
+              <h3 className="ohh-serif text-xl font-semibold tracking-tight text-[#07162C]">
                 {t.transitionTitle}
               </h3>
-              <p className="text-[#5B6B7C] text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-[#5B6B7C]">
                 {t.transitionDesc}
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#0A2140] hover:text-[#C89B3C] transition-colors shrink-0"
+              className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#07162C] transition-colors hover:text-[#996515]"
             >
               {t.transitionBtn}
-              <ArrowRight size={16} />
+              <ArrowRight size={15} />
             </Link>
           </div>
         </div>

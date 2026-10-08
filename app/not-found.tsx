@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Home, Phone, ArrowRight, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
@@ -15,6 +16,11 @@ const btnOutlineNavy = `inline-flex items-center justify-center gap-2 rounded-fu
 export default function NotFound() {
   const { language } = useLanguage();
   const isSpanish = language === "es";
+  const [year, setYear] = useState<number>(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   const t = {
     en: {
@@ -46,8 +52,6 @@ export default function NotFound() {
       linkCareers: "Empleos",
     },
   }[isSpanish ? "es" : "en"];
-
-  const currentYear = new Date().getFullYear();
 
   return (
     <main className="min-h-screen bg-[#FBF8F2] text-[#07162C] flex flex-col justify-between overflow-x-hidden">
@@ -143,7 +147,7 @@ export default function NotFound() {
 
       {/* Footer copyright space anchor */}
       <div className="py-6 text-center text-xs text-[#4A5A6B]">
-        &copy; {currentYear} One Community Home Health. All rights reserved.
+        &copy; {year} One Community Home Health. All rights reserved.
       </div>
     </main>
   );

@@ -5,17 +5,7 @@ import { Home, Phone, ArrowRight, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Design Tokens:
-   - Navy: #07162C
-   - Gold: #E4B95A / #C89B3C
-   - Cream Background: #FBF8F2
-   - Text Muted: #4A5A6B
-   - Flat design: 1px borders, rounded-full buttons, no shadows.
-*/
-
 const container = "mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8";
-const focusGold =
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
 const focusNavy =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
 
@@ -26,7 +16,6 @@ export default function NotFound() {
   const { language } = useLanguage();
   const isSpanish = language === "es";
 
-  // Bilingual dictionary matching your project locale standard
   const t = {
     en: {
       errorCode: "Error 404",
@@ -58,12 +47,13 @@ export default function NotFound() {
     },
   }[isSpanish ? "es" : "en"];
 
-  return (
-    <main className="min-h-screen bg-[#FBF8F2] text-[#07162C] flex flex-col justify-between">
+  const currentYear = new Date().getFullYear();
 
+  return (
+    <main className="min-h-screen bg-[#FBF8F2] text-[#07162C] flex flex-col justify-between overflow-x-hidden">
       {/* Main Content Hero Card */}
       <div className={`${container} py-16 lg:py-24 my-auto`}>
-        <div className="rounded-3xl border border-[#E8DFC8] bg-white p-8 sm:p-12 lg:p-16">
+        <div className="rounded-3xl border border-[#E8DFC8] bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#C89B3C]/40 bg-[#E4B95A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#9A7420]">
               <AlertCircle size={14} aria-hidden="true" />
@@ -103,7 +93,7 @@ export default function NotFound() {
             </p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Link
-                href="/request-care"
+                href="/contact"
                 className="group flex items-center justify-between rounded-2xl border border-[#E8DFC8] bg-[#FBF8F2] p-5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#C89B3C]"
               >
                 <span>{t.linkCare}</span>
@@ -153,8 +143,7 @@ export default function NotFound() {
 
       {/* Footer copyright space anchor */}
       <div className="py-6 text-center text-xs text-[#4A5A6B]">
-        © {new Date().getFullYear()} One Community Home Health. All rights
-        reserved.
+        &copy; {currentYear} One Community Home Health. All rights reserved.
       </div>
     </main>
   );

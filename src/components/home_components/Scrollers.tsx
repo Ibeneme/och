@@ -11,12 +11,12 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
-// TODO: confirm with the agency. The page uses two different numbers.
 const MAIN_PHONE = { label: "(972) 325-1598", href: "tel:9723251598" };
 const VERIFY_PHONE = { label: "(972) 848-9174", href: "tel:9728489174" };
 
 const copy = {
   en: {
+    badge: "Coverage & Payment Options",
     heading: "Coverage and payment options",
     intro:
       "We work with Medicare, Texas Medicaid, the VA, and private payment. Our team verifies your coverage and handles authorizations before care begins, so you don't have to figure it out on your own.",
@@ -99,6 +99,7 @@ const copy = {
       "Coverage and authorization vary by plan, product, eligibility, service, and location. Acceptance of a plan doesn't guarantee coverage of a specific service. We verify benefits and obtain authorization before care begins.",
   },
   es: {
+    badge: "Opciones de Cobertura y Pago",
     heading: "Opciones de cobertura y pago",
     intro:
       "Trabajamos con Medicare, Medicaid de Texas, el VA y pago privado. Nuestro equipo verifica su cobertura y gestiona las autorizaciones antes de que comience la atención, para que no tenga que resolverlo por su cuenta.",
@@ -182,10 +183,12 @@ const copy = {
   },
 } as const;
 
-// Flat panel: one radius, one border, no shadows anywhere.
-const panel = "rounded-xl border border-slate-700/70 bg-[#0A1A30] p-6 md:p-8";
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-bold leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
 const chip =
-  "inline-block rounded-md border border-slate-600 bg-[#0F2340] px-2.5 py-1 text-sm text-slate-200";
+  "inline-block rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-3 py-1 text-xs font-semibold text-[#07162C]";
 
 function PanelHead({
   icon: Icon,
@@ -198,12 +201,16 @@ function PanelHead({
 }) {
   return (
     <div className="flex items-start gap-4 mb-4">
-      <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-yellow-400/40 text-yellow-400">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
         <Icon className="h-5 w-5" aria-hidden="true" />
       </div>
       <div>
-        <h3 className="text-2xl font-bold leading-tight text-white">{title}</h3>
-        <p className="text-sm text-slate-400">{lead}</p>
+        <h3 className="ohh-serif text-2xl font-medium leading-tight text-[#07162C]">
+          {title}
+        </h3>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515] mt-1">
+          {lead}
+        </p>
       </div>
     </div>
   );
@@ -214,37 +221,41 @@ export default function Scrollers(): React.JSX.Element {
   const t = copy[language === "es" ? "es" : "en"];
 
   return (
-    <section className="w-full border-y border-slate-800 bg-[#051122] py-20 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12">
+    <section className="w-full bg-[#F4F4F2] py-20 md:py-28 text-[#07162C]">
+      <div className={`${wrap} grid gap-12 lg:grid-cols-12`}>
         {/* Left: intro + what we handle */}
         <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-16">
-            <h2 className="mb-5 text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-5xl">
+          <div className="lg:sticky lg:top-28">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#07162C] mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#996515] animate-pulse " />
+              {t.badge}
+            </span>
+            <h2 className={`${heading} mb-5 text-3xl sm:text-4xl lg:text-5xl`}>
               {t.heading}
             </h2>
-            <p className="mb-8 max-w-prose text-base leading-relaxed text-slate-300 md:text-lg">
+            <p className="mb-8 max-w-prose text-sm leading-relaxed text-[#07162C]/75 md:text-base">
               {t.intro}
             </p>
 
-            <div className="mb-8 rounded-xl border border-yellow-400/30 p-6">
-              <h3 className="mb-4 text-lg font-bold text-white">
+            <div className="mb-8 rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8">
+              <h3 className="ohh-serif text-xl font-medium text-[#07162C] mb-4">
                 {t.verifyTitle}
               </h3>
               <ul className="space-y-3">
                 {t.verify.map((line, i) => (
-                  <li key={i} className="flex gap-3 text-slate-200">
+                  <li key={i} className="flex gap-3 text-[#07162C]/80">
                     <Check
-                      className="mt-1 h-4 w-4 shrink-0 text-yellow-400"
+                      className="mt-1 h-4 w-4 shrink-0 text-[#996515]"
                       aria-hidden="true"
                     />
-                    <span className="text-sm leading-relaxed md:text-base">
+                    <span className="text-sm leading-relaxed">
                       {line}
                       {i === 2 && (
                         <>
                           {" "}
                           <a
                             href={VERIFY_PHONE.href}
-                            className="font-semibold text-yellow-400 underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                            className="font-bold text-[#07162C] underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]"
                           >
                             {VERIFY_PHONE.label}
                           </a>
@@ -259,14 +270,14 @@ export default function Scrollers(): React.JSX.Element {
             <div className="flex flex-wrap gap-3">
               <a
                 href={MAIN_PHONE.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-yellow-400 px-5 py-3 font-semibold text-[#051122] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex items-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-6 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]"
               >
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {t.call} {MAIN_PHONE.label}
               </a>
               <a
                 href={t.contactHref}
-                className="inline-flex items-center rounded-lg border border-slate-500 px-5 py-3 font-semibold text-white hover:border-yellow-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                className="inline-flex items-center rounded-full border border-[#07162C]/20 bg-white px-6 py-3.5 text-sm font-semibold text-[#07162C] hover:border-[#07162C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]"
               >
                 {t.contact}
               </a>
@@ -275,46 +286,48 @@ export default function Scrollers(): React.JSX.Element {
         </div>
 
         {/* Right: payer panels */}
-        <div className="space-y-5 lg:col-span-8">
+        <div className="space-y-4 lg:col-span-8">
           {/* Medicare */}
-          <article className={panel}>
+          <article className={card}>
             <PanelHead
               icon={ShieldCheck}
               title={t.medicare.title}
               lead={t.medicare.lead}
             />
-            <p className="mb-4 leading-relaxed text-slate-300">
+            <p className="mb-4 text-sm sm:text-base leading-relaxed text-[#07162C]/75">
               {t.medicare.body}
             </p>
-            <p className="rounded-lg border-l-4 border-yellow-400 bg-[#0F2340] p-4 text-sm leading-relaxed text-slate-200">
+            <p className="rounded-2xl border-l-2 border-[#996515] bg-[#E9EAE5] p-4 text-xs sm:text-sm leading-relaxed text-[#07162C]/80">
               {t.medicare.note}
             </p>
           </article>
 
           {/* Texas Medicaid */}
-          <article className={panel}>
+          <article className={card}>
             <PanelHead
               icon={Award}
               title={t.medicaid.title}
               lead={t.medicaid.lead}
             />
-            <p className="mb-6 leading-relaxed text-slate-300">
+            <p className="mb-6 text-sm sm:text-base leading-relaxed text-[#07162C]/75">
               {t.medicaid.body}
             </p>
 
-            <div className="divide-y divide-slate-700/70 border-y border-slate-700/70">
+            <div className="divide-y divide-[#07162C]/10 border-y border-[#07162C]/10">
               {t.medicaid.programs.map((p) => (
                 <div key={p.name} className="py-5">
                   <div className="mb-1 flex flex-wrap items-baseline gap-x-3">
-                    <h4 className="text-lg font-bold text-white">{p.name}</h4>
-                    <span className="text-sm text-slate-400">{p.who}</span>
+                    <h4 className="ohh-serif text-lg font-medium text-[#07162C]">
+                      {p.name}
+                    </h4>
+                    <span className="text-xs text-[#07162C]/60">{p.who}</span>
                   </div>
                   {"detail" in p && p.detail && (
-                    <p className="mb-3 text-sm leading-relaxed text-slate-300">
+                    <p className="mb-3 text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                       {p.detail}
                     </p>
                   )}
-                  <p className="mb-2 text-sm font-semibold text-slate-400">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-[#996515]">
                     {t.medicaid.plansLabel}
                   </p>
                   <ul className="flex flex-wrap gap-2">
@@ -328,20 +341,20 @@ export default function Scrollers(): React.JSX.Element {
               ))}
 
               <div className="py-5">
-                <h4 className="mb-1 text-lg font-bold text-white">
+                <h4 className="ohh-serif mb-1 text-lg font-medium text-[#07162C]">
                   {t.medicaid.traditionalName}
                 </h4>
-                <p className="text-sm leading-relaxed text-slate-300">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                   {t.medicaid.traditional}
                 </p>
               </div>
             </div>
 
-            <p className="mt-5 text-sm leading-relaxed text-slate-300">
+            <p className="mt-5 text-xs sm:text-sm leading-relaxed text-[#07162C]/75">
               {t.medicaid.notSure}{" "}
               <a
                 href={VERIFY_PHONE.href}
-                className="font-semibold text-yellow-400 underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                className="font-bold text-[#07162C] underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]"
               >
                 {VERIFY_PHONE.label}
               </a>{" "}
@@ -350,22 +363,26 @@ export default function Scrollers(): React.JSX.Element {
           </article>
 
           {/* VA + Private pay side by side */}
-          <div className="grid gap-5 md:grid-cols-2">
-            <article className={panel}>
+          <div className="grid gap-4 md:grid-cols-2">
+            <article className={card}>
               <PanelHead icon={FileCheck} title={t.va.title} lead={t.va.lead} />
-              <p className="leading-relaxed text-slate-300">{t.va.body}</p>
+              <p className="text-sm sm:text-base leading-relaxed text-[#07162C]/75">
+                {t.va.body}
+              </p>
             </article>
-            <article className={panel}>
+            <article className={card}>
               <PanelHead
                 icon={WalletCards}
                 title={t.pay.title}
                 lead={t.pay.lead}
               />
-              <p className="leading-relaxed text-slate-300">{t.pay.body}</p>
+              <p className="text-sm sm:text-base leading-relaxed text-[#07162C]/75">
+                {t.pay.body}
+              </p>
             </article>
           </div>
 
-          <p className="max-w-prose text-sm leading-relaxed text-slate-400">
+          <p className="max-w-prose text-xs sm:text-sm leading-relaxed text-[#07162C]/60 pt-2">
             {t.footer}
           </p>
         </div>

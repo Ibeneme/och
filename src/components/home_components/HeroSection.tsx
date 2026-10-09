@@ -134,7 +134,7 @@ export default function HeroSection() {
 
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
-              href="/contact"
+              href="/request-care"
               className="inline-flex items-center gap-2 bg-amber-400 hover:bg-[#FBBF24] text-[#051122] text-[14.5px] font-bold px-6 py-3.5 rounded-full transition-all hover:shadow-lg active:scale-[0.98]"
             >
               {t.requestCare} <ArrowRight size={15} />

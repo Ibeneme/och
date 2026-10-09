@@ -15,6 +15,11 @@ import {
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/services/medical-social-services.json";
 
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-bold leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
+
 export default function MedicalSocialServicesComponent() {
   const { language } = useLanguage();
   const t = content[language as "en" | "es"] || content.en;
@@ -29,44 +34,37 @@ export default function MedicalSocialServicesComponent() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FBF8F2] text-[#3A4657] ohh-sans">
+    <main className="min-h-screen bg-[#F4F4F2] pb-24 pt-14 text-[#07162C] sm:pt-20 lg:pb-28">
       {/* ===== Hero Section ===== */}
-      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
+      <section className="px-4 sm:px-6 lg:px-8 py-12">
+        <div className={wrap}>
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="space-y-6 lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#07162C]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#996515] animate-pulse" />
                 {t.badge}
-              </div>
+              </span>
 
-              <div className="text-xs text-[#8A7B5C] font-medium tracking-wide">
-                {t.bannerText}
-              </div>
-
-              <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0A2140] tracking-tight leading-[1.1]">
+              <h1 className={`${heading} text-4xl sm:text-5xl lg:text-6xl`}>
                 {t.titleMain}{" "}
-                <span className="text-[#C89B3C]">{t.titleHighlight}</span>
+                <span className="text-[#996515]">{t.titleHighlight}</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#5B6B7C] leading-relaxed max-w-2xl">
+              <p className="max-w-xl text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
                 {t.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                 <Link
                   href="/contact#consultation"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-full transition-colors group"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <span>{t.requestCare}</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+                  <ArrowRight size={16} />
                 </Link>
                 <a
                   href="tel:9723251598"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-full transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C]"
                 >
                   <Phone size={16} />
                   <span>{t.callUs}</span>
@@ -75,19 +73,20 @@ export default function MedicalSocialServicesComponent() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl p-2 overflow-hidden shadow-xl shadow-[#0A2140]/5">
-                <div className="relative h-[300px] rounded-[20px] overflow-hidden">
+              <div className={card}>
+                <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/services/ot_n.svg"
                     alt="Professional social worker warmly consulting with a senior client at home"
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />
                 </div>
-                <div className="p-6 space-y-3">
-                  <h3 className="ohh-serif text-lg font-semibold text-[#0A2140]">
+                <div className="space-y-3">
+                  <h3 className={`${heading} text-lg font-medium`}>
                     {t.cardTitle}
                   </h3>
-                  <p className="text-sm text-[#5B6B7C] leading-relaxed">
+                  <p className="text-sm leading-relaxed text-[#07162C]/75">
                     {t.cardDesc}
                   </p>
                 </div>
@@ -98,48 +97,46 @@ export default function MedicalSocialServicesComponent() {
       </section>
 
       {/* ===== Overview Section ===== */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 relative">
-              <div className="overflow-hidden rounded-3xl shadow-xl shadow-[#0A2140]/5">
+      <section className="py-12">
+        <div className={wrap}>
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="relative lg:col-span-6">
+              <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/services/ot_o.svg"
                   alt="Family support session with healthcare professional"
-                  className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-700"
+                  className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 hidden sm:flex flex-col gap-1 p-6 rounded-3xl bg-[#0A2140] max-w-[220px]">
-                <span className="ohh-serif text-3xl font-semibold text-[#E4B95A]">
+              <div className="absolute -bottom-6 -right-6 hidden sm:flex flex-col gap-1 rounded-3xl bg-[#07162C] p-6 max-w-[220px] text-white shadow-xl">
+                <span className="ohh-serif text-3xl font-light text-[#E4B95A]">
                   100%
                 </span>
-                <span className="text-xs text-white/70 font-medium leading-relaxed">
+                <span className="text-xs leading-relaxed text-white/70">
                   Dedicated to preserving personal dignity and life quality.
                 </span>
               </div>
             </div>
 
-            <div className="lg:col-span-6 space-y-8 lg:pl-4">
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
-                  {t.overviewTag}
-                </span>
-                <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
-                  {t.overviewTitle}
-                </h2>
-                <p className="text-[#5B6B7C] text-sm sm:text-base leading-relaxed">
-                  {t.overviewDesc}
-                </p>
-              </div>
+            <div className="space-y-6 lg:col-span-6">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
+                {t.overviewTag}
+              </span>
+              <h2 className={`${heading} text-3xl sm:text-4xl`}>
+                {t.overviewTitle}
+              </h2>
+              <p className="text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
+                {t.overviewDesc}
+              </p>
 
-              <div className="grid sm:grid-cols-2 gap-4 text-sm font-semibold text-[#0A2140]">
+              <div className="grid gap-3 sm:grid-cols-2 text-sm font-semibold text-[#07162C]">
                 {t.features.map((item: string) => (
                   <div
                     key={item}
-                    className="bg-[#FBF8F2] p-4 rounded-2xl flex items-center gap-3"
+                    className="flex items-center gap-3 rounded-2xl border border-[#07162C]/10 bg-white p-4"
                   >
-                    <CheckCircle2 className="text-[#C89B3C] w-5 h-5 flex-shrink-0" />
-                    {item}
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-[#996515]" />
+                    <span>{item}</span>
                   </div>
                 ))}
               </div>
@@ -149,37 +146,38 @@ export default function MedicalSocialServicesComponent() {
       </section>
 
       {/* ===== Scope of Services Section ===== */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+      <section className="py-12">
+        <div className={wrap}>
+          <div className="mb-12 max-w-3xl space-y-3">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
               {t.servicesTag}
             </span>
-            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+            <h2 className={`${heading} text-3xl sm:text-4xl`}>
               {t.servicesTitle}
             </h2>
-            <p className="text-[#5B6B7C] text-base">{t.servicesDesc}</p>
+            <p className="text-sm text-[#07162C]/70 sm:text-base">
+              {t.servicesDesc}
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.servicesList.map(
               (item: { title: string; desc: string }, idx: number) => {
                 const Icon = serviceIcons[idx];
                 return (
-                  <div
-                    key={item.title}
-                    className="group bg-white p-8 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm"
-                  >
-                    <div>
-                      <div className="w-14 h-14 rounded-2xl bg-[#0A2140] text-[#E4B95A] flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-105">
-                        <Icon size={26} strokeWidth={1.75} />
+                  <div key={item.title} className={card}>
+                    <div className="flex h-full flex-col justify-between">
+                      <div>
+                        <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                          <Icon size={22} strokeWidth={1.75} />
+                        </div>
+                        <h3 className={`${heading} mb-2 text-lg font-medium`}>
+                          {item.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
+                          {item.desc}
+                        </p>
                       </div>
-                      <h3 className="ohh-serif font-bold text-[#0A2140] mb-3 text-lg tracking-tight">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
-                        {item.desc}
-                      </p>
                     </div>
                   </div>
                 );

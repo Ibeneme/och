@@ -5,35 +5,63 @@ import { ExternalLink, AlertTriangle, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Design tokens: navy + gold, flat (1px borders, no shadows).
-   navy #07162C · navy-2 #0A2140 · gold #E4B95A · gold-d #996515 (small text on light)
-   cream #FBF8F2 · sand #F3ECDC · line #E8DFC8 · body #3A4657 · muted #5B6B7C */
+/* Restyled to match Request Care layout:
+   soft gray canvas #F4F4F2, pill badges with number chips, large light headings,
+   rounded bento cards, flat style with 1px borders. */
 
 const PHONE = siteConfig.contact.phone;
 
 const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
-const h3Cls =
-  "text-lg font-semibold leading-snug tracking-tight text-[#07162C] sm:text-xl";
+const heading =
+  "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
+const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";
 const focusGold =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
+
+function Pill({ n, label }: { n?: string | number; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] py-1.5 pl-1.5 pr-4 text-xs font-medium text-[#07162C]">
+      {n !== undefined ? (
+        <span
+          aria-hidden
+          className="flex h-6 w-6 items-center justify-center rounded-full bg-[#07162C] text-[10px] font-semibold text-[#E4B95A]"
+        >
+          {n}
+        </span>
+      ) : (
+        <span
+          aria-hidden
+          className="ml-2.5 h-1.5 w-1.5 rounded-full bg-[#996515]"
+        />
+      )}
+      {label}
+    </span>
+  );
+}
 
 const Steps = ({ items }: { items: string[] }) => (
   <ol className="mt-5 space-y-4">
     {items.map((s, i) => (
       <li key={i} className="flex min-w-0 items-start gap-4">
-        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-xs font-semibold text-[#E4B95A]">
-          {i + 1}
+        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-[10px] font-semibold text-[#E4B95A]">
+          {String(i + 1).padStart(2, "0")}
         </span>
-        <span className="min-w-0 break-words leading-relaxed">{s}</span>
+        <span className="min-w-0 break-words text-sm text-[#07162C]/80 leading-relaxed sm:text-base">
+          {s}
+        </span>
       </li>
     ))}
   </ol>
 );
 
 const Bullets = ({ items }: { items: string[] }) => (
-  <ul className="mt-3 list-disc space-y-2 pl-6 marker:text-[#C89B3C]">
+  <ul className="mt-3 list-disc space-y-2 pl-6 marker:text-[#996515]">
     {items.map((s, i) => (
-      <li key={i} className="min-w-0 break-words pl-1 leading-relaxed">
+      <li
+        key={i}
+        className="min-w-0 break-words pl-1 text-sm text-[#07162C]/80 leading-relaxed sm:text-base"
+      >
         {s}
       </li>
     ))}
@@ -51,24 +79,19 @@ const Method = ({
   title: string;
   children: ReactNode;
 }) => (
-  <section
-    id={id}
-    className="scroll-mt-24 space-y-8 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10"
-  >
-    <header className="border-b border-[#E8DFC8] pb-6">
-      <p className="inline-flex items-center rounded-full bg-[#07162C] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
-        {tag}
-      </p>
-      <h2 className="mt-4 text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-[#07162C] sm:text-3xl">
-        {title}
-      </h2>
+  <section id={id} className={`scroll-mt-24 space-y-8 ${cardWhite}`}>
+    <header className="border-b border-[#07162C]/10 pb-6">
+      <Pill label={tag} />
+      <h2 className={`${heading} mt-4 text-2xl sm:text-3xl`}>{title}</h2>
     </header>
     {children}
   </section>
 );
 
 const H3 = ({ children }: { children: ReactNode }) => (
-  <h3 className={h3Cls}>{children}</h3>
+  <h3 className="ohh-serif text-lg font-medium text-[#07162C] sm:text-xl">
+    {children}
+  </h3>
 );
 
 export default function EmployeeEVVHelpPage() {
@@ -326,44 +349,40 @@ export default function EmployeeEVVHelpPage() {
   ];
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#FBF8F2] text-[15px] text-[#3A4657] sm:text-base">
-      {/* ===== Header ===== */}
-      <section className="bg-[#07162C] text-white">
-        <div className={`${container} py-14 sm:py-20`}>
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
-            <span aria-hidden className="h-2 w-2 rounded-full bg-[#E4B95A]" />
-            {t.badge}
-          </p>
-          <h1 className="mt-6 max-w-3xl text-balance break-words text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+    <main className="min-h-screen bg-[#F4F4F2] text-base leading-relaxed text-[#07162C]/80">
+      {/* ===== Header: centered ===== */}
+      <section className="px-4 pb-10 pt-14 text-center sm:px-6 lg:pb-14 lg:pt-20">
+        <div className="mx-auto max-w-3xl">
+          <Pill label={t.badge} />
+          <h1 className={`${heading} mt-6 text-4xl sm:text-5xl lg:text-6xl`}>
             {t.title}
           </h1>
-          <div className="mt-6 h-1 w-16 rounded-full bg-[#E4B95A]" />
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base text-[#07162C]/70 sm:text-lg">
             {t.subtitle}
           </p>
 
           <nav
             aria-label={t.badge}
-            className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3"
+            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3"
           >
             {methodNav.map((m) => (
               <a
                 key={m.href}
                 href={m.href}
-                className={`group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-[#E4B95A] hover:bg-[#E4B95A] ${focusGold}`}
+                className={`group flex items-center justify-between gap-4 rounded-2xl border border-[#07162C]/15 bg-[#E9EAE5] px-5 py-4 transition-colors hover:border-[#07162C] hover:bg-[#07162C] hover:text-white ${focusGold}`}
               >
                 <span>
-                  <span className="block text-[11px] font-bold uppercase tracking-wider text-[#E4B95A] group-hover:text-[#07162C]">
+                  <span className="block text-[11px] font-bold uppercase tracking-wider text-[#996515] group-hover:text-[#E4B95A]">
                     {m.tag}
                   </span>
-                  <span className="mt-0.5 block font-semibold text-white group-hover:text-[#07162C]">
+                  <span className="mt-0.5 block font-semibold text-[#07162C] group-hover:text-white">
                     {m.label}
                   </span>
                 </span>
                 <ArrowDown
                   size={18}
                   aria-hidden
-                  className="shrink-0 text-[#E4B95A] group-hover:text-[#07162C]"
+                  className="shrink-0 text-[#07162C] group-hover:text-[#E4B95A]"
                 />
               </a>
             ))}
@@ -371,10 +390,14 @@ export default function EmployeeEVVHelpPage() {
 
           <div
             role="note"
-            className="mt-8 flex items-start gap-3 rounded-2xl bg-[#E4B95A] p-4 text-[#07162C] sm:p-5"
+            className="mt-6 flex items-start gap-3 rounded-2xl border border-[#E4B95A] bg-[#F6EBD2] p-4 text-left text-sm text-[#07162C] sm:p-5"
           >
-            <AlertTriangle size={20} aria-hidden className="mt-0.5 shrink-0" />
-            <p className="min-w-0 break-words text-sm leading-relaxed sm:text-[15px]">
+            <AlertTriangle
+              size={20}
+              aria-hidden
+              className="mt-0.5 shrink-0 text-[#996515]"
+            />
+            <p className="min-w-0 break-words leading-relaxed">
               {t.urgentBanner}
               <a
                 href="tel:9723251598"
@@ -388,7 +411,9 @@ export default function EmployeeEVVHelpPage() {
         </div>
       </section>
 
-      <div className={`${container} space-y-6 py-10 sm:space-y-8 sm:py-14`}>
+      <div
+        className={`${container} space-y-6 pb-16 pt-4 sm:space-y-8 lg:pb-24`}
+      >
         {/* ===== Method 1 ===== */}
         <Method id="method-1" tag={t.method1Tag} title={t.method1Title}>
           <div>
@@ -399,7 +424,7 @@ export default function EmployeeEVVHelpPage() {
             <H3>{t.m1OutTitle}</H3>
             <Steps items={t.m1OutSteps} />
           </div>
-          <aside className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
+          <aside className="rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-5 sm:p-6">
             <h4 className="font-semibold text-[#07162C]">
               {t.goodToKnowTitle}
             </h4>
@@ -409,17 +434,17 @@ export default function EmployeeEVVHelpPage() {
 
         {/* ===== Method 2 ===== */}
         <Method id="method-2" tag={t.method2Tag} title={t.method2Title}>
-          <div className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
-            <p className="leading-relaxed">{t.fobDesc}</p>
+          <div className="rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-5 sm:p-6">
+            <p className="leading-relaxed text-[#07162C]/80">{t.fobDesc}</p>
             <Bullets items={[t.fobItem1, t.fobItem2]} />
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
-              <h3 className={h3Cls}>{t.fobStartTitle}</h3>
+            <div className="min-w-0 rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-5 sm:p-6">
+              <H3>{t.fobStartTitle}</H3>
               <Steps items={t.fobStartSteps} />
             </div>
-            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
-              <h3 className={h3Cls}>{t.fobEndTitle}</h3>
+            <div className="min-w-0 rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-5 sm:p-6">
+              <H3>{t.fobEndTitle}</H3>
               <Steps items={t.fobEndSteps} />
             </div>
           </div>
@@ -431,7 +456,7 @@ export default function EmployeeEVVHelpPage() {
 
         {/* ===== Method 3 ===== */}
         <Method id="method-3" tag={t.method3Tag} title={t.method3Title}>
-          <p className="leading-relaxed">{t.m3Desc}</p>
+          <p className="leading-relaxed text-[#07162C]/80">{t.m3Desc}</p>
           <div>
             <H3>{t.m3InTitle}</H3>
             <Steps items={t.m3InSteps} />
@@ -443,17 +468,14 @@ export default function EmployeeEVVHelpPage() {
         </Method>
 
         {/* ===== Troubleshooting ===== */}
-        <section className="space-y-6 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10">
-          <div>
-            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#07162C] sm:text-3xl">
+        <section className={cardWhite}>
+          <div className="border-b border-[#07162C]/10 pb-6">
+            <Pill label="Support FAQ" />
+            <h2 className={`${heading} mt-4 text-2xl sm:text-3xl`}>
               {t.troubleTitle}
             </h2>
-            <span
-              aria-hidden="true"
-              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
-            />
           </div>
-          <div className="md:overflow-hidden md:rounded-2xl md:border md:border-[#E8DFC8]">
+          <div className="md:overflow-hidden md:rounded-2xl md:border md:border-[#07162C]/10">
             <table className="block w-full border-collapse text-left md:table">
               <thead className="hidden bg-[#07162C] md:table-header-group">
                 <tr>
@@ -475,7 +497,7 @@ export default function EmployeeEVVHelpPage() {
                 {t.troubleshootingRows.map((row, i) => (
                   <tr
                     key={i}
-                    className="block rounded-2xl border border-[#E8DFC8] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:border-[#E8DFC8] md:p-0 md:last:border-b-0 md:odd:bg-white md:even:bg-[#FBF8F2]"
+                    className="block rounded-2xl border border-[#07162C]/10 p-4 md:table-row md:rounded-none md:border-0 md:border-b md:border-[#07162C]/10 md:p-0 md:last:border-b-0 md:odd:bg-white md:even:bg-[#F4F4F2]"
                   >
                     <th
                       scope="row"
@@ -483,7 +505,7 @@ export default function EmployeeEVVHelpPage() {
                     >
                       {row.q}
                     </th>
-                    <td className="block break-words leading-relaxed md:table-cell md:px-5 md:py-4">
+                    <td className="block break-words text-[#07162C]/80 leading-relaxed md:table-cell md:px-5 md:py-4">
                       {row.a}
                     </td>
                   </tr>
@@ -494,20 +516,17 @@ export default function EmployeeEVVHelpPage() {
         </section>
 
         {/* ===== Official guides ===== */}
-        <section className="space-y-6 rounded-3xl bg-[#07162C] p-6 text-white sm:p-10">
+        <section className="rounded-3xl bg-[#07162C] p-6 text-white sm:p-10">
           <div>
-            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#E4B95A] sm:text-3xl">
+            <Pill label="Resources" />
+            <h2 className="ohh-serif mt-4 text-2xl font-light leading-tight tracking-tight text-[#E4B95A] sm:text-3xl">
               {t.guidesTitle}
             </h2>
-            <span
-              aria-hidden="true"
-              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
-            />
           </div>
-          <p className="max-w-2xl leading-relaxed text-white/75">
+          <p className="mt-3 max-w-2xl leading-relaxed text-white/75">
             {t.guidesDesc}
           </p>
-          <ul className="space-y-3">
+          <ul className="mt-6 space-y-3">
             {guides.map((g, i) => (
               <li key={i}>
                 <a

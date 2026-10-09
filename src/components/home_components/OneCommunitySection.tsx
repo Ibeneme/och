@@ -11,6 +11,15 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
+/* Restyled to match Request Care layout:
+   soft gray canvas #F4F4F2, pill badges with dot indicators, large light headings,
+   rounded bento cards, flat style with 1px borders. */
+
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-bold leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
+
 export default function OneCommunitySection() {
   const { language } = useLanguage();
 
@@ -81,138 +90,98 @@ export default function OneCommunitySection() {
   const t = translations[language as "en" | "es"] || translations.en;
 
   return (
-    <section className="relative min-h-screen bg-[#F3F1EC] text-slate-900 py-24 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase bg-white border border-amber-200 text-amber-700 mb-7">
-            <span>✨</span> {t.badge}
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
+    <section className="relative overflow-hidden bg-[#F4F4F2] py-20 text-[#07162C] sm:py-28">
+      <div className={`${wrap} relative z-10 space-y-16`}>
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#07162C]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#996515] animate-pulse" />
+            {t.badge}
+          </span>
+          <h2 className={`${heading} mt-6 text-4xl sm:text-5xl lg:text-6xl`}>
             {t.headingMain} <br className="hidden sm:inline" />
-            <span className="text-amber-700">{t.headingHighlight}</span>
-          </h1>
-          <p className="text-base sm:text-[17px] text-slate-500 leading-relaxed max-w-2xl mx-auto">
+            <span className="text-[#996515]">{t.headingHighlight}</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-[#07162C]/70 sm:text-base">
             {t.description}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16 sm:mb-20">
-          <div className="lg:col-span-4 flex justify-center lg:justify-start">
-            <div className="relative bg-white p-7 rounded-[22px] border border-amber-100 max-w-sm transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-              <div className="flex items-center space-x-1 text-amber-400 mb-3">
+        {/* Bento Grid Layout (Testimonial Card + 4 Benefit Cards) */}
+        <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-12">
+          {/* Testimonial Bento Card */}
+          <div className="flex flex-col justify-between rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5] p-6 sm:p-8 lg:col-span-4">
+            <div>
+              <div className="mb-4 flex items-center space-x-1 text-[#996515]">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
+                  <Star key={i} className="h-4 w-4 fill-current" />
                 ))}
               </div>
-              <p className="text-slate-700 text-sm italic mb-5 leading-relaxed">
+              <p className="ohh-serif text-lg  leading-relaxed text-[#07162C]">
                 {t.quote}
               </p>
-              <div className="flex items-center space-x-3 pt-3 border-t border-amber-50">
-                <div className="w-10 h-10 rounded-full bg-amber-50 text-amber-700 font-bold flex items-center justify-center text-sm border border-amber-100">
-                  OC
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-slate-900">
-                    {t.networkTitle}
-                  </h4>
-                  <p className="text-xs text-slate-400">{t.reviewLabel}</p>
-                </div>
+            </div>
+            <div className="mt-8 flex items-center space-x-3 border-t border-[#07162C]/10 pt-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#07162C] text-xs font-bold text-[#E4B95A]">
+                OC
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#07162C]">
+                  {t.networkTitle}
+                </h4>
+                <p className="text-xs text-[#07162C]/60">{t.reviewLabel}</p>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-            <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
-              <div>
-                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
-                  <Award className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <h3 className="text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
-                  {t.card1Title}
-                </h3>
-                <p className="text-slate-500 text-[14px] leading-relaxed">
-                  {t.card1Desc}
-                </p>
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-8">
+            <div className={card}>
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                <Award size={20} strokeWidth={1.75} />
               </div>
-            </div>
-
-            <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
-              <div>
-                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
-                  <ShieldCheck className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <h3 className="text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
-                  {t.card2Title}
-                </h3>
-                <p className="text-slate-500 text-[14px] leading-relaxed">
-                  {t.card2Desc}
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
-              <div>
-                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
-                  <HeartHandshake className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <h3 className="text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
-                  {t.card3Title}
-                </h3>
-                <p className="text-slate-500 text-[14px] leading-relaxed">
-                  {t.card3Desc}
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-colors duration-300">
-              <div>
-                <div className="w-11 h-11 rounded-full bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center mb-5">
-                  <MessageCircle className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <h3 className="text-xl font-medium text-slate-900 mb-2.5 tracking-tight">
-                  {t.card4Title}
-                </h3>
-                <p className="text-slate-500 text-[14px] leading-relaxed">
-                  {t.card4Desc}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-[28px] bg-[#0F172A] text-white p-8 sm:p-12 relative overflow-hidden">
-          <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="max-w-xl text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-yellow-400/30 mb-4">
-                {t.missionBadge}
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3 text-white">
-                {t.missionHeading}
+              <h3 className="ohh-serif text-xl font-medium text-[#07162C]">
+                {t.card1Title}
               </h3>
-              <p className="text-slate-300 text-[15px] leading-relaxed">
-                {t.missionDesc}
+              <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                {t.card1Desc}
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-              <a
-                href="tel:9723251598"
-                className="w-full sm:w-auto bg-yellow-400 text-slate-950 font-semibold px-7 py-4 rounded-full text-[14px] transition-colors inline-flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Phone className="w-4 h-4" />
-                {t.callButton}
-              </a>
-              <button
-                onClick={() => alert(t.alertMsg)}
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-full text-[14px] transition-colors inline-flex items-center justify-center gap-2 border border-white/20 backdrop-blur-sm cursor-pointer"
-              >
-                <Calendar className="w-4 h-4" />
-                {t.consultationButton}
-              </button>
+            <div className={card}>
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                <ShieldCheck size={20} strokeWidth={1.75} />
+              </div>
+              <h3 className="ohh-serif text-xl font-medium text-[#07162C]">
+                {t.card2Title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                {t.card2Desc}
+              </p>
+            </div>
+
+            <div className={card}>
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                <HeartHandshake size={20} strokeWidth={1.75} />
+              </div>
+              <h3 className="ohh-serif text-xl font-medium text-[#07162C]">
+                {t.card3Title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                {t.card3Desc}
+              </p>
+            </div>
+
+            <div className={card}>
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                <MessageCircle size={20} strokeWidth={1.75} />
+              </div>
+              <h3 className="ohh-serif text-xl font-medium text-[#07162C]">
+                {t.card4Title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                {t.card4Desc}
+              </p>
             </div>
           </div>
         </div>

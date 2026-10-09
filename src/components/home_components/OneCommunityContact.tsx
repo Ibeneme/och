@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
+/* Restyled to match Request Care layout (maintaining dark background):
+   pill badge chips, large light serif headings, rounded bento cards,
+   and flat 1px borders with gold accents. */
+
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading = "ohh-serif font-bold leading-tight tracking-tight text-white";
+
 const SERVICE_AREAS = [
   "Grand Prairie",
   "Arlington",
@@ -74,107 +81,110 @@ export default function OneCommunityContact() {
   const t = translations[language as "en" | "es"] || translations.en;
 
   return (
-    <section className="relative bg-[#0F172A] text-slate-100 py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative overflow-hidden bg-[#07162C] py-20 text-white lg:py-28">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(250,204,21,0.08), transparent 60%)",
+            "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(228,185,90,0.06), transparent 60%)",
         }}
       />
 
-      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
-        <div className="space-y-5 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-bold uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+      <div className={`${wrap} relative z-10 space-y-12`}>
+        {/* Header */}
+        <div className="max-w-3xl space-y-4">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+            <span className="h-2 w-2 rounded-full bg-[#E4B95A] animate-pulse" />
             {t.badge}
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+          </span>
+          <h1 className={`${heading} text-4xl sm:text-5xl lg:text-6xl`}>
             {t.heading}
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed font-medium max-w-2xl">
+          <p className="max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
             {t.description}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {/* Contact Bento Row */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <a
             href="tel:9723251598"
-            className="group flex flex-col justify-between p-7 rounded-3xl bg-white/[0.04] hover:bg-white/[0.07] transition-all"
+            className="group flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-7 transition-colors hover:border-[#E4B95A]"
           >
-            <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center mb-8">
-              <Phone className="w-5 h-5" />
+            <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+              <Phone size={20} />
             </div>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-white/50">
                 {t.callLabel}
               </div>
-              <div className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+              <div className="font-mono text-xl font-bold text-white group-hover:text-[#E4B95A] transition-colors">
                 972-325-1598
               </div>
             </div>
           </a>
 
-          <div className="flex flex-col justify-between p-7 rounded-3xl bg-white/[0.04]">
-            <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center mb-8">
-              <Printer className="w-5 h-5" />
+          <div className="flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-7">
+            <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+              <Printer size={20} />
             </div>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-white/50">
                 {t.faxLabel}
               </div>
-              <div className="text-xl font-bold text-white">972-674-2923</div>
+              <div className="font-mono text-xl font-bold text-white">
+                972-674-2923
+              </div>
             </div>
           </div>
 
           <a
             href="mailto:info@onechh.com"
-            className="group flex flex-col justify-between p-7 rounded-3xl bg-white/[0.04] hover:bg-white/[0.07] transition-all"
+            className="group flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-7 transition-colors hover:border-[#E4B95A]"
           >
-            <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center mb-8">
-              <Mail className="w-5 h-5" />
+            <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+              <Mail size={20} />
             </div>
             <div>
-              <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-white/50">
                 {t.emailLabel}
               </div>
-              <div className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors truncate">
+              <div className="truncate text-xl font-bold text-white group-hover:text-[#E4B95A] transition-colors">
                 info@onechh.com
               </div>
             </div>
           </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div className="lg:col-span-2 rounded-3xl bg-white/[0.04] p-8 sm:p-10 space-y-8">
+        {/* Office & Careers Bento Grid */}
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <div className="rounded-3xl border border-white/15 bg-white/5 p-8 sm:p-10 space-y-8 lg:col-span-2">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h2 className="text-xl font-bold text-white tracking-tight">
+                <h2 className="ohh-serif text-2xl font-light text-white">
                   {t.officeTitle}
                 </h2>
-                <p className="text-sm text-slate-400 mt-1.5 font-medium">
-                  {t.officeSubtitle}
-                </p>
+                <p className="mt-1 text-xs text-white/60">{t.officeSubtitle}</p>
               </div>
-              <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center shrink-0">
-                <Building2 className="w-5 h-5" />
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+                <Building2 size={20} />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-yellow-400/10 text-yellow-400 flex items-center justify-center shrink-0">
-                  <MapPin className="w-4.5 h-4.5" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E4B95A]/10 text-[#E4B95A]">
+                  <MapPin size={18} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-200">
+                  <h3 className="text-sm font-bold text-white">
                     {t.officeLocation}
                   </h3>
                   <a
                     href="https://maps.google.com/?q=3560+Quannah+Drive,+Grand+Prairie,+TX+75052"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-slate-400 mt-1.5 leading-relaxed block hover:text-yellow-400 transition-colors font-medium"
+                    className="mt-1.5 block text-sm leading-relaxed text-white/75 hover:text-[#E4B95A] transition-colors"
                   >
                     3560 Quannah Drive
                     <br />
@@ -184,17 +194,17 @@ export default function OneCommunityContact() {
               </div>
 
               <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-yellow-400/10 text-yellow-400 flex items-center justify-center shrink-0">
-                  <Clock className="w-4.5 h-4.5" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E4B95A]/10 text-[#E4B95A]">
+                  <Clock size={18} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-slate-200">
+                  <h3 className="text-sm font-bold text-white">
                     {t.adminHours}
                   </h3>
-                  <p className="text-sm text-slate-400 mt-1.5 leading-relaxed font-medium">
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/75">
                     {t.hoursText}
                   </p>
-                  <p className="text-xs text-yellow-400 font-bold mt-1.5">
+                  <p className="mt-1.5 text-xs font-semibold text-[#E4B95A]">
                     {t.appointmentOnly}
                   </p>
                 </div>
@@ -202,14 +212,14 @@ export default function OneCommunityContact() {
             </div>
 
             <div className="pt-2">
-              <h3 className="text-sm font-bold text-slate-200 mb-4">
+              <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white/50">
                 {t.communitiesServed}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {SERVICE_AREAS.map((city) => (
                   <span
                     key={city}
-                    className="text-xs font-bold text-slate-300 bg-white/[0.06] rounded-full px-3.5 py-1.5"
+                    className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-white"
                   >
                     {city}
                   </span>
@@ -218,25 +228,28 @@ export default function OneCommunityContact() {
             </div>
           </div>
 
-          <div className="rounded-3xl bg-white/[0.04] p-8 flex flex-col justify-between space-y-8">
+          <div className="flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-8">
             <div>
-              <div className="w-11 h-11 rounded-2xl bg-yellow-400/15 text-yellow-400 flex items-center justify-center mb-6">
-                <UserCheck className="w-5 h-5" />
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+                <UserCheck size={20} />
               </div>
-              <h3 className="text-xl font-bold text-white tracking-tight">
+              <h3 className="ohh-serif text-2xl font-light text-white">
                 {t.teamTitle}
               </h3>
-              <p className="text-slate-400 text-sm mt-3 leading-relaxed font-medium">
+              <p className="mt-3 text-sm leading-relaxed text-white/75">
                 {t.teamDesc}
               </p>
             </div>
 
             <a
               href="/careers"
-              className="w-full py-4 px-5 rounded-full bg-yellow-400 hover:bg-yellow-300 text-[#0F172A] text-sm font-extrabold flex items-center justify-between transition-all group"
+              className="group mt-8 flex w-full items-center justify-between rounded-full border border-[#E4B95A] bg-[#E4B95A] px-6 py-3.5 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
             >
               <span>{t.applyBtn}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
           </div>
         </div>

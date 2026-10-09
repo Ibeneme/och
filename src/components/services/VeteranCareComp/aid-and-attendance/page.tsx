@@ -6,14 +6,17 @@ import {
   Phone,
   ArrowRight,
   CheckCircle2,
-  FileText,
   AlertCircle,
-  HelpCircle,
   ExternalLink,
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/services/aid-and-attendance.json";
 import { siteConfig } from "@/src/constants/siteConfig";
+
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
 
 export default function AidAndAttendancePage() {
   const { language } = useLanguage();
@@ -27,40 +30,37 @@ export default function AidAndAttendancePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#FBF8F2] text-[#3A4657] ohh-sans">
+    <main className="min-h-screen bg-[#F4F4F2] pb-24 pt-14 text-[#07162C] sm:pt-20 lg:pb-28">
       {/* ===== Hero Section ===== */}
-      <section className="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3ECDC] text-[#0A2140] font-semibold text-xs tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C]" />
+      <section className="px-4 sm:px-6 lg:px-8 py-12">
+        <div className={wrap}>
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="space-y-6 lg:col-span-7">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#07162C]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#996515] animate-pulse" />
                 {t.badge}
-              </div>
+              </span>
 
-              <h1 className="ohh-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#0A2140] tracking-tight leading-[1.1]">
+              <h1 className={`${heading} text-4xl sm:text-5xl lg:text-6xl`}>
                 {t.titleMain}{" "}
-                <span className="text-[#C89B3C]">{t.titleHighlight}</span>
+                <span className="text-[#996515]">{t.titleHighlight}</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#5B6B7C] leading-relaxed max-w-2xl">
+              <p className="max-w-xl text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
                 {t.description}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0A2140] hover:bg-[#123258] text-[#E4B95A] font-bold rounded-full transition-colors group"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <span>{t.requestCare}</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
+                  <ArrowRight size={16} />
                 </Link>
                 <a
                   href={`tel:${siteConfig.contact.phoneTel}`}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F3ECDC] hover:bg-[#EADFC2] text-[#0A2140] font-semibold rounded-full transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C]"
                 >
                   <Phone size={16} />
                   <span>Call {siteConfig.contact.phone}</span>
@@ -69,18 +69,18 @@ export default function AidAndAttendancePage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl p-6 shadow-xl shadow-[#0A2140]/5 space-y-4 border border-[#F0E6D2]">
-                <div className="w-12 h-12 rounded-2xl bg-[#0A2140] text-[#E4B95A] flex items-center justify-center">
+              <div className={card}>
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
                   <ShieldCheck size={26} />
                 </div>
-                <h3 className="ohh-serif text-xl font-semibold text-[#0A2140]">
+                <h3 className={`${heading} mb-2 text-xl font-medium`}>
                   {t.cardTitle}
                 </h3>
-                <p className="text-sm text-[#5B6B7C] leading-relaxed">
+                <p className="text-sm leading-relaxed text-[#07162C]/75">
                   {t.cardDesc}
                 </p>
-                <div className="pt-2 border-t border-[#F5EFE6]">
-                  <p className="text-xs text-[#8A7B5C] font-medium">
+                <div className="mt-4 border-t border-[#07162C]/10 pt-4">
+                  <p className="text-xs font-medium text-[#07162C]/60">
                     Net worth limit ($163,699 limit through Nov 30, 2026). Home
                     & car excluded.
                   </p>
@@ -92,69 +92,68 @@ export default function AidAndAttendancePage() {
       </section>
 
       {/* ===== Overview Section ===== */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4 mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+      <section className="py-12">
+        <div className={wrap}>
+          <div className="mb-12 max-w-3xl space-y-3">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
               {t.overviewTag}
             </span>
-            <h2 className="ohh-serif text-3xl sm:text-4xl font-semibold text-[#0A2140] tracking-tight">
+            <h2 className={`${heading} text-3xl sm:text-4xl`}>
               {t.overviewTitle}
             </h2>
-            <p className="text-[#5B6B7C] text-base leading-relaxed">
+            <p className="text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
               {t.overviewDesc}
             </p>
           </div>
 
-          {/* Who may qualify grid */}
-          <div className="space-y-6 pt-6">
-            <div className="border-b border-gray-100 pb-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+          <div className="space-y-6 pt-4">
+            <div className="border-b border-[#07162C]/10 pb-4">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
                 {t.qualifyTag}
               </span>
-              <h3 className="ohh-serif text-2xl font-semibold text-[#0A2140] mt-1">
+              <h3 className={`${heading} mt-1 text-2xl font-medium`}>
                 {t.qualifyTitle}
               </h3>
-              <p className="text-sm text-[#5B6B7C] mt-1">{t.qualifyDesc}</p>
+              <p className="mt-1 text-sm text-[#07162C]/70">{t.qualifyDesc}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-[#FBF8F2] p-6 rounded-2xl space-y-3">
-                <CheckCircle2 className="text-[#C89B3C] w-6 h-6" />
-                <h4 className="ohh-serif font-bold text-[#0A2140] text-lg">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <div className={card}>
+                <CheckCircle2 className="mb-3 h-6 w-6 text-[#996515]" />
+                <h4 className={`${heading} mb-2 text-lg font-medium`}>
                   {t.militaryTitle}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                   {t.militaryDesc}
                 </p>
               </div>
 
-              <div className="bg-[#FBF8F2] p-6 rounded-2xl space-y-3">
-                <CheckCircle2 className="text-[#C89B3C] w-6 h-6" />
-                <h4 className="ohh-serif font-bold text-[#0A2140] text-lg">
+              <div className={card}>
+                <CheckCircle2 className="mb-3 h-6 w-6 text-[#996515]" />
+                <h4 className={`${heading} mb-2 text-lg font-medium`}>
                   {t.needTitle}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                   {t.needDesc}
                 </p>
               </div>
 
-              <div className="bg-[#FBF8F2] p-6 rounded-2xl space-y-3">
-                <CheckCircle2 className="text-[#C89B3C] w-6 h-6" />
-                <h4 className="ohh-serif font-bold text-[#0A2140] text-lg">
+              <div className={card}>
+                <CheckCircle2 className="mb-3 h-6 w-6 text-[#996515]" />
+                <h4 className={`${heading} mb-2 text-lg font-medium`}>
                   {t.incomeTitle}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                   {t.incomeDesc}
                 </p>
               </div>
 
-              <div className="bg-[#FBF8F2] p-6 rounded-2xl space-y-3">
-                <CheckCircle2 className="text-[#C89B3C] w-6 h-6" />
-                <h4 className="ohh-serif font-bold text-[#0A2140] text-lg">
+              <div className={card}>
+                <CheckCircle2 className="mb-3 h-6 w-6 text-[#996515]" />
+                <h4 className={`${heading} mb-2 text-lg font-medium`}>
                   {t.spouseTitle}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
+                <p className="text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
                   {t.spouseDesc}
                 </p>
               </div>
@@ -164,23 +163,23 @@ export default function AidAndAttendancePage() {
       </section>
 
       {/* ===== Rates Section ===== */}
-      <section className="py-20 bg-[#FBF8F2]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-[#EFE8D8] space-y-8">
+      <section className="py-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className={card}>
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
                 {t.ratesTag}
               </span>
-              <h2 className="ohh-serif text-2xl sm:text-3xl font-semibold text-[#0A2140]">
+              <h2 className={`${heading} text-2xl sm:text-3xl font-medium`}>
                 {t.ratesTitle}
               </h2>
-              <p className="text-xs sm:text-sm text-[#5B6B7C]">
+              <p className="text-xs sm:text-sm text-[#07162C]/70">
                 {t.ratesSubtitle}{" "}
                 <a
                   href="https://www.va.gov/pension/veterans-pension-rates/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#0A2140] font-semibold underline inline-flex items-center gap-1 hover:text-[#C89B3C]"
+                  className="inline-flex items-center gap-1 font-semibold text-[#07162C] underline hover:text-[#996515]"
                 >
                   va.gov/pension/veterans-pension-rates/
                   <ExternalLink size={12} />
@@ -188,26 +187,26 @@ export default function AidAndAttendancePage() {
               </p>
             </div>
 
-            <div className="divide-y divide-[#F0E6D2]">
+            <div className="my-6 divide-y divide-[#07162C]/10 border-y border-[#07162C]/10">
               {ratesTable.map((item, idx) => (
                 <div
                   key={idx}
-                  className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-4"
                 >
-                  <span className="text-sm font-medium text-[#0A2140]">
+                  <span className="text-sm font-semibold text-[#07162C]">
                     {item.label}
                   </span>
-                  <span className="ohh-serif text-lg font-bold text-[#C89B3C]">
+                  <span className="ohh-serif text-lg font-medium text-[#996515]">
                     {item.amount}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#FBF8F2] text-xs text-[#5B6B7C] flex items-start gap-3">
+            <div className="flex items-start gap-3 rounded-2xl bg-[#E9EAE5] p-4 text-xs text-[#07162C]/75">
               <AlertCircle
                 size={16}
-                className="text-[#C89B3C] shrink-0 mt-0.5"
+                className="mt-0.5 shrink-0 text-[#996515]"
               />
               <p>{t.ratesDisclaimer}</p>
             </div>
@@ -216,56 +215,56 @@ export default function AidAndAttendancePage() {
       </section>
 
       {/* ===== How to Apply & Free Help Section ===== */}
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="py-12">
+        <div className={`${wrap} max-w-4xl space-y-8`}>
           <div className="space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#C89B3C]">
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
               {t.applyTag}
             </span>
-            <h2 className="ohh-serif text-3xl font-semibold text-[#0A2140]">
+            <h2 className={`${heading} text-3xl font-medium`}>
               {t.applyTitle}
             </h2>
-            <p className="text-[#5B6B7C] text-sm sm:text-base leading-relaxed">
+            <p className="text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
               {t.applyDesc}
             </p>
           </div>
 
-          <div className="p-8 rounded-3xl bg-[#FBF8F2] border border-[#F0E6D2] space-y-6">
-            <h3 className="ohh-serif text-xl font-semibold text-[#0A2140]">
+          <div className={card}>
+            <h3 className={`${heading} mb-4 text-xl font-medium`}>
               {t.freeHelpTitle}
             </h3>
-            <ul className="space-y-4 text-sm text-[#5B6B7C]">
+            <ul className="space-y-4 text-sm text-[#07162C]/80">
               <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C] mt-2 shrink-0" />
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#0A2140]">{t.tvLabel}</strong> —{" "}
+                  <strong className="text-[#07162C]">{t.tvLabel}</strong> —{" "}
                   {t.tvDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C] mt-2 shrink-0" />
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#0A2140]">{t.cvsoLabel}</strong> —{" "}
+                  <strong className="text-[#07162C]">{t.cvsoLabel}</strong> —{" "}
                   {t.cvsoDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C] mt-2 shrink-0" />
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#0A2140]">{t.vaRepLabel}</strong> —{" "}
+                  <strong className="text-[#07162C]">{t.vaRepLabel}</strong> —{" "}
                   {t.vaRepDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#C89B3C] mt-2 shrink-0" />
+                <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#0A2140]">{t.vaDirectLabel}</strong>{" "}
+                  <strong className="text-[#07162C]">{t.vaDirectLabel}</strong>{" "}
                   — {t.vaDirectDesc}
                 </div>
               </li>
             </ul>
 
-            <div className="pt-4 border-t border-[#EAE3D2] text-xs sm:text-sm text-[#5B6B7C] leading-relaxed">
+            <div className="mt-6 border-t border-[#07162C]/10 pt-4 text-xs sm:text-sm leading-relaxed text-[#07162C]/70">
               {t.agencyStance}
             </div>
           </div>
@@ -273,30 +272,29 @@ export default function AidAndAttendancePage() {
       </section>
 
       {/* ===== CTA & Notice Footer Box ===== */}
-      <section className="pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          {/* Already receiving box */}
-          <div className="bg-[#0A2140] rounded-3xl p-10 sm:p-14 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#C89B3C]/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative z-10 space-y-3 text-center lg:text-left">
-              <h3 className="ohh-serif text-2xl sm:text-3xl font-semibold text-white">
+      <section className="py-12">
+        <div className={`${wrap} space-y-8`}>
+          <div className="relative overflow-hidden rounded-3xl bg-[#07162C] p-8 text-white sm:p-12 lg:p-14 flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="absolute -bottom-12 -right-12 h-64 w-64 rounded-full bg-[#E4B95A]/10 blur-3xl pointer-events-none" />
+            <div className="relative z-10 space-y-3 text-center lg:text-left max-w-xl">
+              <h3 className={`${heading} text-2xl text-white sm:text-3xl`}>
                 {t.alreadyTitle}
               </h3>
-              <p className="text-white/70 text-sm sm:text-base max-w-xl">
+              <p className="text-sm leading-relaxed text-white/75 sm:text-base">
                 {t.alreadyDesc}
               </p>
             </div>
-            <div className="relative z-10 flex flex-col sm:flex-row gap-4">
+            <div className="relative z-10 flex flex-col sm:flex-row gap-4 shrink-0">
               <a
                 href={`tel:${siteConfig.contact.phoneTel}`}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#E4B95A] hover:bg-[#F0C874] text-[#0A2140] font-bold rounded-full transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
                 <Phone size={16} />
                 <span>Call {siteConfig.contact.phone}</span>
               </a>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A]"
               >
                 <span>Request care</span>
                 <ArrowRight size={16} />
@@ -304,9 +302,8 @@ export default function AidAndAttendancePage() {
             </div>
           </div>
 
-          {/* Required Compliance Footer Disclaimer Block */}
-          <div className="bg-[#F3ECDC] border border-[#E4D5B7] rounded-2xl p-6 sm:p-8 text-xs sm:text-sm text-[#5B6B7C] leading-relaxed space-y-2">
-            <h4 className="font-bold text-[#0A2140] uppercase tracking-wider text-xs">
+          <div className="rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5] p-6 sm:p-8 text-xs sm:text-sm leading-relaxed text-[#07162C]/75 space-y-2">
+            <h4 className="font-bold text-[#07162C] uppercase tracking-wider text-xs">
               {t.disclaimerHeading}
             </h4>
             <p>{t.disclaimerText}</p>

@@ -1,6 +1,7 @@
-import AboutHeader from "@/src/components/about/About";
+
 import CoreValuesSection from '@/src/components/about/CoreValuesSection'
 import { buildMetadata } from "@/app/seo";
+import TestimonialsComponent from "./leadership/Testimonials";
 
 export const metadata = buildMetadata({
   title: "About Us",
@@ -11,7 +12,7 @@ export const metadata = buildMetadata({
 const page = () => {
   return (
     <div>
-      <AboutHeader />
+      <TestimonialsComponent />
       <CoreValuesSection />
     </div>
   );

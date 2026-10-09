@@ -30,6 +30,11 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-bold leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
+
 export default function CoreServicesPage() {
   const { language } = useLanguage();
   const pageRef = useRef<HTMLElement>(null);
@@ -216,7 +221,7 @@ export default function CoreServicesPage() {
 
   const t = {
     en: {
-      eyebrow: "What we provide",
+      eyebrow: "What We Provide",
       heading: "Comprehensive care built around your independence",
       subheading:
         "A full range of clinical disciplines and specialty support services delivered with compassion, expertise, and unwavering dedication.",
@@ -232,7 +237,7 @@ export default function CoreServicesPage() {
       bannerBtn: "Request Free Consultation",
     },
     es: {
-      eyebrow: "Lo que ofrecemos",
+      eyebrow: "Lo Que Ofrecemos",
       heading: "Cuidado integral construido en torno a su independencia",
       subheading:
         "Una gama completa de disciplinas clínicas y servicios de apoyo especializado brindados con compasión, experiencia y dedicación inquebrantable.",
@@ -252,39 +257,42 @@ export default function CoreServicesPage() {
   return (
     <main
       ref={pageRef}
-      className="bg-[#F3F1EC] min-h-screen pt-24 sm:pt-32 px-4 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform"
+      className="min-h-screen bg-[#F4F4F2] px-4 pt-20 text-[#07162C] sm:pt-28 sm:px-6 lg:px-8 overflow-x-hidden will-change-transform pb-24"
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="sp-header text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-          <span className="sp-eyebrow inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase bg-white border border-amber-200 text-amber-700 mb-7 shadow-sm">
+      <div className={wrap}>
+        {/* Header */}
+        <div className="sp-header mx-auto mb-12 max-w-3xl text-center sm:mb-16">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#07162C] mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#996515] animate-pulse" />
             {t.eyebrow}
           </span>
-          <h1 className="sp-heading  text-4xl sm:text-6xl lg:text-7xl leading-[1.1] font-bold tracking-tight text-slate-900 mb-6">
-            {t.heading} <span className="text-amber-700">.</span>
+          <h1 className={`${heading} mb-6 text-4xl sm:text-5xl lg:text-6xl`}>
+            {t.heading} <span className="text-[#996515]">.</span>
           </h1>
-          <p className="sp-subhead text-base sm:text-[17px] text-slate-500 leading-relaxed max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-[#07162C]/70 sm:text-base">
             {t.subheading}
           </p>
         </div>
 
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-[#E9E5DC] p-1.5 rounded-full border border-[#DCD5C6] shadow-inner">
+        {/* Tab Switcher */}
+        <div className="mb-12 flex justify-center">
+          <div className="inline-flex rounded-full border border-[#07162C]/10 bg-[#E9EAE5] p-1.5">
             <button
               onClick={() => setActiveTab("clinical")}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+              className={`rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                 activeTab === "clinical"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-500 hover:text-slate-900"
+                  ? "bg-[#07162C] text-[#E4B95A] shadow-sm"
+                  : "text-[#07162C]/60 hover:text-[#07162C]"
               }`}
             >
               {t.clinicalTab}
             </button>
             <button
               onClick={() => setActiveTab("specialty")}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+              className={`rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                 activeTab === "specialty"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-500 hover:text-slate-900"
+                  ? "bg-[#07162C] text-[#E4B95A] shadow-sm"
+                  : "text-[#07162C]/60 hover:text-[#07162C]"
               }`}
             >
               {t.specialtyTab}
@@ -292,59 +300,60 @@ export default function CoreServicesPage() {
           </div>
         </div>
 
-        <div className="sp-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-24">
+        {/* Services Bento Grid */}
+        <div className="sp-grid mb-20 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {displayedServices.map((service) => {
             const Icon = service.icon;
             return (
-              <div
-                key={service.title}
-                className="sp-service-card group rounded-[22px] bg-white border border-amber-100 p-6 sm:p-7 flex flex-col justify-between hover:border-amber-300 transition-all duration-300 will-change-transform"
-              >
-                <div>
-                  <div className="flex justify-between items-start mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-100 text-amber-700 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="w-5 h-5" strokeWidth={1.75} />
+              <div key={service.title} className={card}>
+                <div className="flex flex-col justify-between h-full">
+                  <div>
+                    <div className="mb-6 flex items-start justify-between">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
+                        <Icon className="h-5 w-5" strokeWidth={1.75} />
+                      </div>
+                      <span className="rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#07162C]/70">
+                        {service.category === "clinical"
+                          ? t.clinicalBadge
+                          : t.specialtyBadge}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-semibold tracking-wider text-slate-400 uppercase bg-[#F3F1EC] px-2.5 py-1 rounded-full">
-                      {service.category === "clinical"
-                        ? t.clinicalBadge
-                        : t.specialtyBadge}
-                    </span>
+                    <h3 className="ohh-serif mb-2.5 text-xl font-medium text-[#07162C]">
+                      {service.title}
+                    </h3>
+                    <p className="mb-6 text-sm leading-relaxed text-[#07162C]/70">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className=" text-xl font-medium text-slate-900 mb-2.5 tracking-tight group-hover:text-amber-700 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-500 text-[14px] leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-[#EDE8DC] flex items-center justify-between text-xs font-semibold text-slate-700 group-hover:text-amber-700 transition-colors">
-                  <span>{t.learnMore}</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <div className="flex items-center justify-between border-t border-[#07162C]/10 pt-4 text-xs font-bold uppercase tracking-wider text-[#07162C]">
+                    <span>{t.learnMore}</span>
+                    <ArrowRight className="h-4 w-4 text-[#996515]" />
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="rounded-[28px] bg-[#051122] text-white p-8 sm:p-12 mb-20 relative overflow-hidden">
-          <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Banner CTA */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#07162C] p-8 text-white sm:p-12">
+          <div className="absolute -bottom-12 -right-12 h-64 w-64 rounded-full bg-[#E4B95A]/10 blur-3xl pointer-events-none" />
           <div className="relative z-10 max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[11px] font-bold tracking-widest uppercase bg-amber-400/20 text-amber-200 border border-amber-500/30 mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E4B95A] mb-4">
               {t.bannerTag}
-            </div>
-            <h2 className=" text-2xl sm:text-4xl font-bold tracking-tight mb-4 text-white">
+            </span>
+            <h2 className={`${heading} mb-4 text-2xl text-white sm:text-3xl`}>
               {t.bannerHeading}
             </h2>
-            <p className="text-slate-300 text-[15px] leading-relaxed mb-8">
+            <p className="mb-8 text-sm leading-relaxed text-white/75 sm:text-base">
               {t.bannerDesc}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="bg-[#fff] active:bg-amber-600 text-[#000] font-semibold px-6 py-3.5 rounded-full text-[14px] transition-colors inline-flex items-center gap-2 cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
-                <PhoneCall className="w-4 h-4" /> {t.bannerBtn}
+                <PhoneCall className="h-4 w-4" /> {t.bannerBtn}
               </Link>
             </div>
           </div>

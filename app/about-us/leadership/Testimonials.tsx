@@ -16,9 +16,9 @@ import {
   Check,
 } from "lucide-react";
 
-/* Design tokens: flat surfaces, 1px borders, no shadows, no gradients.
-   navy #07162C · navy-2 #0A2140 · gold #E4B95A · gold-d #996515 (small text on light)
-   cream #FBF8F2 · sand #F3ECDC · line #E8DFC8 · body #3A4657 · muted #5B6B7C */
+/* Restyled to match Request Care layout:
+   soft gray canvas #F4F4F2, pill badges with number chips, large light headings,
+   rounded bento cards, flat style with 1px borders. */
 
 export interface TestimonialItem {
   quote: string;
@@ -94,8 +94,6 @@ export const seedTestimonials: TestimonialItem[] = [
     categoryEs: "Cónyuge de Veterano",
   },
 ];
-
-/* ---------------- Page copy (EN / ES) ---------------- */
 
 const PHONE = "(972) 325-1598";
 const PHONE_HREF = "tel:9723251598";
@@ -258,24 +256,38 @@ const copy = {
   },
 };
 
-/* ---------------- Shared classes ---------------- */
-
-const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
-const eyebrowLight =
-  "text-xs font-bold uppercase tracking-[0.18em] text-[#996515]";
-const eyebrowDark =
-  "text-xs font-bold uppercase tracking-[0.18em] text-[#E4B95A]";
-const h2 =
-  "ohh-serif text-3xl font-semibold leading-[1.15] tracking-tight text-[#07162C] sm:text-4xl lg:text-5xl";
-const btnBase =
-  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
-const btnGold = `${btnBase} bg-[#E4B95A] text-[#07162C] hover:bg-[#EDC878] focus-visible:outline-[#E4B95A]`;
-const btnGhostLight = `${btnBase} border border-white/30 !font-semibold text-white hover:border-[#E4B95A] hover:text-[#E4B95A] focus-visible:outline-[#E4B95A]`;
-const btnNavy = `${btnBase} bg-[#07162C] text-[#E4B95A] hover:bg-[#0A2140] focus-visible:outline-[#07162C]`;
+const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
+const heading =
+  "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
+const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
+const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
 const arrowBtn =
-  "flex h-11 w-11 items-center justify-center rounded-full border border-[#E8DFC8] bg-white text-[#07162C] transition-colors hover:bg-[#07162C] hover:text-[#E4B95A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
+  "flex h-11 w-11 items-center justify-center rounded-full border border-[#07162C]/20 bg-white text-[#07162C] transition-colors hover:bg-[#07162C] hover:text-[#E4B95A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
 
 const pillarIcons = [Compass, ClipboardCheck, Home];
+
+function Pill({ n, label }: { n?: string | number; label: string }) {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#07162C]/10 bg-[#E9EAE5] py-1.5 pl-1.5 pr-4 text-xs font-medium text-[#07162C]">
+      {n !== undefined ? (
+        <span
+          aria-hidden
+          className="flex h-6 w-6 items-center justify-center rounded-full bg-[#07162C] text-[10px] font-semibold text-[#E4B95A]"
+        >
+          {n}
+        </span>
+      ) : (
+        <span
+          aria-hidden
+          className="ml-2.5 h-1.5 w-1.5 rounded-full bg-[#996515]"
+        />
+      )}
+      {label}
+    </span>
+  );
+}
 
 export default function TestimonialsComponent() {
   const { language } = useLanguage();
@@ -302,77 +314,97 @@ export default function TestimonialsComponent() {
   const activeTestimonial = seedTestimonials[currentIndex];
 
   return (
-    <div className="bg-white text-[#3A4657]">
-      {/* ===== Hero: about us intro + at a glance ===== */}
-      <section className="bg-[#07162C] text-white">
-        <div
-          className={`${container} grid items-center gap-12 py-20 lg:grid-cols-12 lg:gap-16 lg:py-28`}
-        >
-          <div className="lg:col-span-7">
-            <p className={eyebrowDark}>{t.heroEyebrow}</p>
-            <h2 className="ohh-serif mt-5 text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-              {t.heroTitleA}{" "}
-              <span className="text-[#E4B95A]">{t.heroTitleB}</span>
-            </h2>
-            <div className="mt-6 h-1 w-16 rounded-full bg-[#E4B95A]" />
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-              {t.heroBody}
-            </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href={PHONE_HREF} className={btnGold}>
-                <Phone size={16} aria-hidden />
+    <main className="min-h-screen bg-[#F4F4F2] text-base leading-relaxed text-[#07162C]/80">
+      {/* ===== Header: centered ===== */}
+      <section className="px-4 pb-10 pt-14 text-center sm:px-6 lg:pb-14 lg:pt-20">
+        <div className="mx-auto max-w-3xl">
+          <Pill label={t.heroEyebrow} />
+          <h1 className={`${heading} mt-6 text-4xl sm:text-5xl lg:text-6xl`}>
+            {t.heroTitleA}{" "}
+            <span className="text-[#996515]">{t.heroTitleB}</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-xl text-base text-[#07162C]/70 sm:text-lg">
+            {t.heroBody}
+          </p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <a
+              href={PHONE_HREF}
+              className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] ${focusRing}`}
+            >
+              <Phone size={16} aria-hidden />
+              <span>
                 {t.call} {PHONE}
-              </a>
-              <Link href="/contact" className={btnGhostLight}>
-                {t.request}
-                <ArrowRight size={16} aria-hidden />
-              </Link>
-            </div>
+              </span>
+            </a>
+            <Link
+              href="/contact"
+              className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] ${focusRing}`}
+            >
+              <span>{t.request}</span>
+              <ArrowRight size={16} aria-hidden />
+            </Link>
           </div>
+        </div>
+      </section>
 
-          <div className="rounded-3xl bg-[#FBF8F2] p-7 text-[#07162C] sm:p-9 lg:col-span-5">
-            <p className={eyebrowLight}>{t.glanceTitle}</p>
-            <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-7">
-              {t.facts.map((f) => (
-                <div key={f.l} className="border-t border-[#E8DFC8] pt-4">
-                  <dt className="ohh-serif text-3xl font-semibold leading-none sm:text-4xl">
+      {/* ===== At a glance Bento Grid ===== */}
+      <section className="px-4 pb-16 sm:px-6">
+        <div className={container}>
+          <div className="mb-5 text-center">
+            <Pill n="01" label={t.glanceTitle} />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {t.facts.map((f, i) => (
+              <div
+                key={f.l}
+                className={`flex min-h-[160px] flex-col justify-between p-6 ${card}`}
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07162C] font-mono text-[10px] font-semibold text-[#E4B95A]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <div className="ohh-serif text-3xl font-light leading-none text-[#07162C]">
                     {f.n}
-                  </dt>
-                  <dd className="mt-2 text-sm leading-snug text-[#5B6B7C]">
+                  </div>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-[#996515]">
                     {f.l}
-                  </dd>
+                  </p>
                 </div>
-              ))}
-            </dl>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ===== Who we are ===== */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className={`${container} grid gap-12 lg:grid-cols-12 lg:gap-16`}>
-          <div className="lg:col-span-7">
-            <p className={eyebrowLight}>{t.whoEyebrow}</p>
-            <h2 className={`${h2} mt-4`}>{t.whoTitle}</h2>
-            <div className="mt-8 space-y-5 border-l-4 border-[#E4B95A] pl-6 text-base leading-relaxed sm:text-lg">
+      <section className="px-4 pb-16 sm:px-6">
+        <div className={`${container} grid gap-6 lg:grid-cols-12`}>
+          <div className={`p-6 sm:p-10 lg:col-span-7 ${card}`}>
+            <Pill n="02" label={t.whoEyebrow} />
+            <h2 className={`${heading} mt-4 text-2xl sm:text-3xl`}>
+              {t.whoTitle}
+            </h2>
+            <div className="mt-5 space-y-4 text-sm text-[#07162C]/75 leading-relaxed sm:text-base">
               <p>{t.whoBody1}</p>
               <p>{t.whoBody2}</p>
             </div>
           </div>
 
-          <div className="self-start rounded-3xl bg-[#07162C] p-8 text-white sm:p-10 lg:col-span-5">
-            <span className="inline-block rounded-full bg-[#E4B95A] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#07162C]">
-              {t.founderTag}
-            </span>
-            <h3 className="ohh-serif mt-6 text-2xl font-semibold leading-snug text-[#E4B95A]">
-              Angela Ananti, BSN, RN
-            </h3>
-            <p className="mt-2 text-white/75">{t.founderRole}</p>
+          <div className="flex flex-col justify-between rounded-3xl bg-[#07162C] p-6 text-white sm:p-10 lg:col-span-5">
+            <div>
+              <span className="inline-block rounded-full bg-[#E4B95A] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#07162C]">
+                {t.founderTag}
+              </span>
+              <h3 className="ohh-serif mt-4 text-2xl font-light leading-snug text-[#E4B95A]">
+                Angela Ananti, BSN, RN
+              </h3>
+              <p className="mt-1 text-sm text-white/75">{t.founderRole}</p>
+            </div>
             <Link
               href="/about-us/leadership"
-              className="group mt-8 inline-flex items-center gap-2 border-t border-white/15 pt-6 text-sm font-bold text-[#E4B95A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]"
+              className={`group mt-8 inline-flex items-center gap-2 border-t border-white/15 pt-5 text-sm font-semibold text-[#E4B95A] hover:text-white ${focusRing}`}
             >
-              {t.founderLink}
+              <span>{t.founderLink}</span>
               <ArrowRight
                 size={16}
                 aria-hidden
@@ -384,44 +416,46 @@ export default function TestimonialsComponent() {
       </section>
 
       {/* ===== How we work: three pillars ===== */}
-      <section className="bg-[#FBF8F2] py-20 lg:py-28">
+      <section className="px-4 pb-16 sm:px-6">
         <div className={container}>
-          <div className="max-w-2xl">
-            <p className={eyebrowLight}>{t.pillarsEyebrow}</p>
-            <h2 className={`${h2} mt-4`}>{t.pillarsTitle}</h2>
+          <div className="mb-8 text-center">
+            <Pill n="03" label={t.pillarsEyebrow} />
+            <h2 className={`${heading} mt-4 text-3xl sm:text-4xl`}>
+              {t.pillarsTitle}
+            </h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {t.pillars.map((p, i) => {
               const Icon = pillarIcons[i % pillarIcons.length];
               const isNavy = i === 1;
               return (
                 <div
                   key={p.title}
-                  className={`flex flex-col rounded-3xl border p-8 ${
-                    isNavy
-                      ? "border-[#07162C] bg-[#07162C] text-white"
-                      : "border-[#E8DFC8] bg-white text-[#07162C]"
+                  className={`flex flex-col justify-between p-7 ${
+                    isNavy ? "rounded-3xl bg-[#07162C] text-white" : card
                   }`}
                 >
                   <span
-                    className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${
                       isNavy
                         ? "bg-[#E4B95A] text-[#07162C]"
                         : "bg-[#07162C] text-[#E4B95A]"
                     }`}
                   >
-                    <Icon size={22} aria-hidden />
+                    <Icon size={18} aria-hidden />
                   </span>
-                  <h3 className="ohh-serif mt-6 text-xl font-semibold leading-snug">
-                    {p.title}
-                  </h3>
-                  <p
-                    className={`mt-3 text-[15px] leading-relaxed ${
-                      isNavy ? "text-white/75" : "text-[#5B6B7C]"
-                    }`}
-                  >
-                    {p.body}
-                  </p>
+                  <div className="mt-6">
+                    <h3 className="ohh-serif text-xl font-medium leading-snug">
+                      {p.title}
+                    </h3>
+                    <p
+                      className={`mt-2 text-sm leading-relaxed ${
+                        isNavy ? "text-white/75" : "text-[#07162C]/70"
+                      }`}
+                    >
+                      {p.body}
+                    </p>
+                  </div>
                 </div>
               );
             })}
@@ -430,17 +464,19 @@ export default function TestimonialsComponent() {
       </section>
 
       {/* ===== Family stories (testimonials) ===== */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="px-4 pb-16 sm:px-6">
         <div className={container}>
-          <div className="max-w-2xl">
-            <p className={eyebrowLight}>{t.storiesEyebrow}</p>
-            <h2 className={`${h2} mt-4`}>{t.storiesTitle}</h2>
+          <div className="mb-8 text-center">
+            <Pill n="04" label={t.storiesEyebrow} />
+            <h2 className={`${heading} mt-4 text-3xl sm:text-4xl`}>
+              {t.storiesTitle}
+            </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-12">
+          <div className="grid gap-4 lg:grid-cols-12">
             {/* Story picker */}
             <ul
-              className="flex gap-3 overflow-x-auto pb-2 lg:col-span-4 lg:flex-col lg:overflow-visible lg:pb-0"
+              className="flex gap-2 overflow-x-auto pb-2 lg:col-span-4 lg:flex-col lg:overflow-visible lg:pb-0"
               aria-label={t.storiesTitle}
             >
               {seedTestimonials.map((item, i) => {
@@ -450,20 +486,20 @@ export default function TestimonialsComponent() {
                     <button
                       onClick={() => setCurrentIndex(i)}
                       aria-current={active}
-                      className={`w-full rounded-2xl border px-5 py-4 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C] ${
+                      className={`w-full rounded-2xl border px-4 py-3.5 text-left transition-colors ${focusRing} ${
                         active
                           ? "border-[#07162C] bg-[#07162C] text-white"
-                          : "border-[#E8DFC8] bg-[#FBF8F2] text-[#07162C] hover:border-[#C89B3C]"
+                          : "border-[#07162C]/10 bg-white text-[#07162C]"
                       }`}
                     >
                       <span
-                        className={`block text-[11px] font-bold uppercase tracking-wider ${
+                        className={`block text-[10px] font-bold uppercase tracking-wider ${
                           active ? "text-[#E4B95A]" : "text-[#996515]"
                         }`}
                       >
                         {isSpanish ? item.categoryEs : item.category}
                       </span>
-                      <span className="ohh-serif mt-1 block text-lg font-semibold">
+                      <span className="ohh-serif mt-1 block text-base font-medium">
                         {item.author}
                       </span>
                     </button>
@@ -473,22 +509,24 @@ export default function TestimonialsComponent() {
             </ul>
 
             {/* Active story */}
-            <div className="relative flex flex-col justify-between rounded-3xl border border-[#E8DFC8] bg-[#FBF8F2] p-8 sm:p-12 lg:col-span-8">
+            <div
+              className={`relative flex flex-col justify-between p-6 sm:p-10 lg:col-span-8 ${cardWhite}`}
+            >
               <Quote
-                size={72}
+                size={60}
                 strokeWidth={1}
                 aria-hidden
-                className="absolute right-8 top-8 text-[#C89B3C]/30"
+                className="absolute right-6 top-6 text-[#07162C]/10"
               />
               <div className="relative">
-                <span className="inline-block rounded-full bg-[#07162C] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+                <span className="inline-block rounded-full border border-[#07162C]/20 bg-[#F4F4F2] px-3.5 py-1 text-xs font-semibold text-[#07162C]">
                   {isSpanish
                     ? activeTestimonial.categoryEs
                     : activeTestimonial.category}
                 </span>
                 <p
                   aria-live="polite"
-                  className="ohh-serif mt-6 text-lg italic leading-relaxed text-[#07162C] sm:text-xl lg:text-2xl"
+                  className="ohh-serif mt-5 text-base italic leading-relaxed text-[#07162C] sm:text-lg"
                 >
                   &ldquo;
                   {isSpanish
@@ -498,12 +536,12 @@ export default function TestimonialsComponent() {
                 </p>
               </div>
 
-              <div className="relative mt-8 flex flex-col justify-between gap-6 border-t border-[#E8DFC8] pt-6 sm:flex-row sm:items-center">
+              <div className="relative mt-8 flex flex-col justify-between gap-4 border-t border-[#07162C]/10 pt-6 sm:flex-row sm:items-center">
                 <div>
-                  <h4 className="ohh-serif text-lg font-semibold text-[#07162C]">
+                  <h4 className="ohh-serif text-base font-semibold text-[#07162C]">
                     {activeTestimonial.author}
                   </h4>
-                  <p className="mt-0.5 text-sm font-medium text-[#5B6B7C]">
+                  <p className="mt-0.5 text-xs text-[#07162C]/60">
                     {isSpanish
                       ? activeTestimonial.detailsEs
                       : activeTestimonial.details}
@@ -516,9 +554,9 @@ export default function TestimonialsComponent() {
                     aria-label={t.prev}
                     className={arrowBtn}
                   >
-                    <ChevronLeft size={20} aria-hidden />
+                    <ChevronLeft size={18} aria-hidden />
                   </button>
-                  <span className="min-w-[3rem] text-center text-xs font-bold text-[#5B6B7C]">
+                  <span className="min-w-[2.5rem] text-center text-xs font-bold text-[#07162C]/70">
                     {currentIndex + 1} / {seedTestimonials.length}
                   </span>
                   <button
@@ -526,7 +564,7 @@ export default function TestimonialsComponent() {
                     aria-label={t.next}
                     className={arrowBtn}
                   >
-                    <ChevronRight size={20} aria-hidden />
+                    <ChevronRight size={18} aria-hidden />
                   </button>
                 </div>
               </div>
@@ -536,27 +574,31 @@ export default function TestimonialsComponent() {
       </section>
 
       {/* ===== How care begins ===== */}
-      <section className="bg-[#FBF8F2] py-20 lg:py-28">
-        <div className={`${container} space-y-12`}>
-          <div className="max-w-2xl">
-            <p className={eyebrowLight}>{t.stepsEyebrow}</p>
-            <h2 className={`${h2} mt-4`}>{t.stepsTitle}</h2>
+      <section className="px-4 pb-16 sm:px-6">
+        <div className={container}>
+          <div className="mb-8 text-center">
+            <Pill n="05" label={t.stepsEyebrow} />
+            <h2 className={`${heading} mt-4 text-3xl sm:text-4xl`}>
+              {t.stepsTitle}
+            </h2>
           </div>
-          <ol className="grid gap-8 md:grid-cols-3">
+          <ol className="grid gap-4 md:grid-cols-3">
             {t.steps.map((s, i) => (
-              <li key={s.title} className="border-t-2 border-[#07162C] pt-6">
-                <span className="ohh-serif flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-base font-semibold text-[#E4B95A]">
-                  {i + 1}
+              <li
+                key={s.title}
+                className={`flex flex-col justify-between p-6 ${card}`}
+              >
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#07162C] font-mono text-[10px] font-semibold text-[#E4B95A]">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-4 text-xs font-bold uppercase tracking-[0.16em] text-[#996515]">
-                  {t.stepLabel} {i + 1}
-                </p>
-                <h3 className="ohh-serif mt-1 text-xl font-semibold text-[#07162C]">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B7C]">
-                  {s.desc}
-                </p>
+                <div className="mt-6">
+                  <h3 className="ohh-serif text-xl font-medium text-[#07162C]">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
+                    {s.desc}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
@@ -564,19 +606,21 @@ export default function TestimonialsComponent() {
       </section>
 
       {/* ===== Where we serve ===== */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className={`${container} grid gap-10 lg:grid-cols-12 lg:gap-16`}>
-          <div className="lg:col-span-6">
-            <p className={eyebrowLight}>{t.areaEyebrow}</p>
-            <h2 className={`${h2} mt-4`}>{t.areaTitle}</h2>
-            <p className="mt-5 max-w-xl text-base leading-relaxed sm:text-lg">
+      <section className="px-4 pb-20 sm:px-6 lg:pb-24">
+        <div className={`${container} grid gap-4 lg:grid-cols-12`}>
+          <div className={`p-6 sm:p-10 lg:col-span-7 ${card}`}>
+            <Pill n="06" label={t.areaEyebrow} />
+            <h2 className={`${heading} mt-4 text-2xl sm:text-3xl`}>
+              {t.areaTitle}
+            </h2>
+            <p className="mt-3 text-sm text-[#07162C]/75 leading-relaxed sm:text-base">
               {t.areaBody}
             </p>
-            <ul className="mt-8 flex flex-wrap gap-2">
+            <ul className="mt-6 flex flex-wrap gap-2">
               {COUNTIES.map((c) => (
                 <li
                   key={c}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#F3ECDC] px-4 py-1.5 text-sm font-semibold text-[#07162C]"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#07162C]/10 bg-white px-3.5 py-1.5 text-xs font-semibold text-[#07162C]"
                 >
                   <Check
                     size={13}
@@ -590,30 +634,39 @@ export default function TestimonialsComponent() {
             </ul>
           </div>
 
-          <div className="self-start rounded-3xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-8 sm:p-10 lg:col-span-6">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-              <MapPin size={22} aria-hidden />
-            </span>
-            <p className={`${eyebrowLight} mt-6`}>{t.officeLabel}</p>
-            <p className="ohh-serif mt-2 text-xl font-semibold leading-snug text-[#07162C] sm:text-2xl">
-              {t.officeAddress}
-            </p>
-            <div className="mt-7 flex flex-col gap-3 border-t border-[#E8DFC8] pt-7 sm:flex-row">
-              <a href={PHONE_HREF} className={btnNavy}>
+          <div
+            className={`flex flex-col justify-between p-6 sm:p-10 lg:col-span-5 ${card}`}
+          >
+            <div>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
+                <MapPin size={18} aria-hidden />
+              </span>
+              <span className="mt-6 block text-xs font-bold uppercase tracking-[0.18em] text-[#996515]">
+                {t.officeLabel}
+              </span>
+              <p className="ohh-serif mt-2 text-xl font-medium leading-snug text-[#07162C]">
+                {t.officeAddress}
+              </p>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 border-t border-[#07162C]/10 pt-6 sm:flex-row">
+              <a
+                href={PHONE_HREF}
+                className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-6 py-3.5 text-sm font-semibold text-[#E4B95A] ${focusRing}`}
+              >
                 <Phone size={16} aria-hidden />
-                {PHONE}
+                <span>{PHONE}</span>
               </a>
               <Link
                 href="/contact"
-                className={`${btnBase} border border-[#07162C] !font-semibold text-[#07162C] hover:bg-[#07162C] hover:text-[#E4B95A] focus-visible:outline-[#07162C]`}
+                className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-6 py-3.5 text-sm font-semibold text-[#07162C] ${focusRing}`}
               >
-                {t.contactUs}
+                <span>{t.contactUs}</span>
                 <ArrowRight size={16} aria-hidden />
               </Link>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

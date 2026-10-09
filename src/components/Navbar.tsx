@@ -24,17 +24,9 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
-/**
- * Responsive strategy
- * - < md   : top bar shows phone numbers only; full navigation lives in the drawer.
- * - md–xl  : top bar stacks (banner above phones); drawer navigation.
- * - >= xl  : full desktop navigation + mega menus (1280px is the first width where
- *            logo + 5 links + actions always fit, including the longer Spanish labels).
- * - The drawer is anchored to the header itself (top-full), so it follows the real
- *   header height no matter how many lines the top bar wraps to.
- * - Every flex child that holds text has min-w-0, and the header clips on the x-axis,
- *   so nothing can ever create horizontal scroll.
- */
+/* Restyled to match Request Care layout:
+   soft gray canvas #F4F4F2, pill badges, large light headings,
+   rounded bento cards, flat style with 1px borders. */
 
 const SteadyLine = ({ className = "" }: { className?: string }) => (
   <svg
@@ -49,13 +41,12 @@ const SteadyLine = ({ className = "" }: { className?: string }) => (
       strokeWidth="1.6"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="ohh-pulse-path"
     />
   </svg>
 );
 
 const desktopLink =
-  "px-3 2xl:px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#3A4657] hover:text-[#0A2140] hover:bg-[#F3ECDC]/70 transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2140]/30";
+  "px-3 2xl:px-3.5 py-2 rounded-lg text-[13px] font-semibold text-[#07162C]/80 hover:text-[#07162C] hover:bg-[#07162C]/5 transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/30";
 
 const reveal =
   "opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto transition-all duration-200";
@@ -85,7 +76,6 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  // Track the real header height so the drawer can size itself to the viewport.
   useEffect(() => {
     const el = headerRef.current;
     if (!el) return;
@@ -96,7 +86,6 @@ export default function Navbar() {
     return () => ro.disconnect();
   }, []);
 
-  // Close the drawer when the desktop layout takes over, and on Escape.
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1280px)");
     const onChange = () => {
@@ -330,6 +319,17 @@ export default function Navbar() {
           ? "Assistance with routine household tasks"
           : "Asistencia con tareas domésticas rutinarias",
     },
+    {
+      href: "/services/adults-with-disabilities",
+      label:
+        language === "en"
+          ? "Adults with Disabilities Care"
+          : "Cuidado para Adultos con Discapacidades",
+      desc:
+        language === "en"
+          ? "Personalized supportive care and independent living support"
+          : "Cuidado de apoyo personalizado y vida independiente",
+    },
   ];
 
   const specialtyServices = [
@@ -466,7 +466,6 @@ export default function Navbar() {
     },
   ];
 
-  /* ---------- Language toggle (desktop / tablet dropdown) ---------- */
   const LangToggle = () => (
     <div className="relative" data-lang-toggle>
       <button
@@ -474,7 +473,7 @@ export default function Navbar() {
         onClick={() => setLangOpen((v) => !v)}
         aria-label="Change language"
         aria-expanded={langOpen}
-        className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[#E8DFCB] bg-[#FBF8F2] px-3 py-2 text-[13px] text-[#0A2140] transition-all hover:bg-[#F3ECDC] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2140]/30"
+        className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-[#07162C]/10 bg-white px-3 py-2 text-[13px] text-[#07162C] transition-all hover:border-[#07162C]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/30"
       >
         <Globe size={14} className="shrink-0 opacity-70" />
         <span className="font-semibold tracking-wide">
@@ -492,7 +491,7 @@ export default function Navbar() {
       </button>
 
       {langOpen && (
-        <div className="absolute right-0 top-full z-[70] mt-1.5 min-w-[140px] max-w-[calc(100vw-1.5rem)] rounded-xl border border-[#EFE8D8] bg-white py-1 shadow-lg shadow-[#0A2140]/[0.08]">
+        <div className="absolute right-0 top-full z-[70] mt-1.5 min-w-[140px] max-w-[calc(100vw-1.5rem)] rounded-2xl border border-[#07162C]/10 bg-white py-1 shadow-lg shadow-[#07162C]/[0.08]">
           {(
             [
               ["en", "🇺🇸", "English"],
@@ -508,8 +507,8 @@ export default function Navbar() {
               }}
               className={`flex w-full cursor-pointer items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors ${
                 language === code
-                  ? "bg-[#F3ECDC] font-semibold text-[#0A2140]"
-                  : "text-[#3A4657] hover:bg-[#FBF8F2]"
+                  ? "bg-[#07162C] font-semibold text-white"
+                  : "text-[#07162C]/80 hover:bg-[#F4F4F2]"
               }`}
             >
               <span className="text-[15px]">{flag}</span>
@@ -524,8 +523,6 @@ export default function Navbar() {
     </div>
   );
 
-  /* ---------- Mobile accordion helper (plain function, not a component,
-     so open/close transitions are not interrupted by re-mounting) ---------- */
   const renderAccordion = (
     key: string,
     label: string,
@@ -535,34 +532,32 @@ export default function Navbar() {
   ) => {
     const open = activeMobileDropdown === key;
     return (
-      <div className="overflow-hidden rounded-xl bg-white/40">
+      <div className="overflow-hidden rounded-2xl border border-[#07162C]/10 bg-white">
         <button
           type="button"
           onClick={() => toggleMobileDropdown(key)}
           aria-expanded={open}
-          className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl p-3 font-semibold text-[#2C3947] transition-colors hover:bg-[#FBF8F2] sm:p-3.5"
+          className="flex w-full cursor-pointer items-center justify-between gap-3 rounded-2xl p-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#F4F4F2]"
         >
           <span className="flex min-w-0 items-center gap-3">
-            <span className="shrink-0 rounded-lg bg-[#F3ECDC] p-2 text-[#0A2140]">
+            <span className="shrink-0 rounded-full bg-[#07162C] p-2 text-[#E4B95A]">
               {icon}
             </span>
             <span className="min-w-0 break-words text-left">{label}</span>
           </span>
           <ChevronDown
             size={15}
-            className={`shrink-0 text-[#8A7B5C] transition-transform duration-300 ${
+            className={`shrink-0 text-[#07162C]/50 transition-transform duration-300 ${
               open ? "rotate-180" : ""
             }`}
           />
         </button>
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            open
-              ? `${maxH} px-1.5 pb-3 opacity-100 sm:px-2`
-              : "max-h-0 opacity-0"
+            open ? `${maxH} px-2 pb-3.5 opacity-150` : "max-h-0 opacity-0"
           }`}
         >
-          <div className="space-y-1 rounded-xl border border-[#F0EBDD] bg-white p-2.5 text-sm sm:p-3">
+          <div className="space-y-1 rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-3 text-sm">
             {children}
           </div>
         </div>
@@ -571,23 +566,22 @@ export default function Navbar() {
   };
 
   const mobileSubLink =
-    "block min-w-0 break-words rounded-lg p-2 text-[13px] font-semibold text-[#3A4657] transition-colors hover:bg-[#FBF8F2] hover:text-[#0A2140]";
+    "block min-w-0 break-words rounded-xl p-2 text-[13px] font-semibold text-[#07162C]/80 transition-colors hover:bg-white hover:text-[#07162C]";
   const mobileGroupLabel =
-    "px-2 pt-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#8A7B5C]";
+    "px-2 pt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#996515]";
 
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 w-full overflow-x-clip"
+      className="sticky top-0 z-50 w-full overflow-x-clip border-b border-[#07162C]/10 bg-[#F4F4F2]"
     >
       {/* ===== Top utility bar ===== */}
-      <div className="relative z-50 bg-[#0A2140] px-3 py-2 text-[11px] text-white sm:px-6 sm:text-[12px] lg:px-8">
+      <div className="relative z-50 bg-[#07162C] px-3 py-2 text-[11px] text-white sm:px-6 sm:text-[12px] lg:px-8">
         <div className="mx-auto flex w-full max-w-7xl min-w-0 flex-col gap-1 xl:flex-row xl:items-center xl:justify-between xl:gap-6">
-          {/* Banner: hidden on phones (repeated at the bottom of the drawer) */}
-          <span className="hidden min-w-0 items-start gap-1.5 leading-snug text-[#A8C0D4] md:inline-flex">
+          <span className="hidden min-w-0 items-start gap-1.5 leading-snug text-white/75 md:inline-flex">
             <span className="relative mt-[5px] flex h-1.5 w-1.5 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7FA283] opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#7FA283]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#E4B95A] opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E4B95A]" />
             </span>
             <span className="min-w-0 break-words">{t.banner}</span>
           </span>
@@ -597,7 +591,7 @@ export default function Navbar() {
 
             <Link
               href="/referrals"
-              className="group hidden items-center gap-1 whitespace-nowrap font-medium text-white/75 transition-colors hover:text-[#E4B95A] md:inline-flex"
+              className="group hidden items-center gap-1 whitespace-nowrap font-medium text-white/80 transition-colors hover:text-[#E4B95A] md:inline-flex"
             >
               <span>{t.referPatient}</span>
               <ArrowRight
@@ -642,14 +636,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ===== Main navbar =====
-          `relative` here so the Services mega menu can centre itself on the
-          full-width bar and can never poke outside the viewport. */}
+      {/* ===== Main navbar ===== */}
       <div
-        className={`relative z-50 border-b bg-white px-3 transition-all duration-300 sm:px-6 lg:px-8 ${
+        className={`relative z-50 bg-[#F4F4F2] px-3 transition-all duration-300 sm:px-6 lg:px-8 ${
           isScrolled
-            ? "border-[#E8DFCB] py-2 shadow-[0_1px_12px_rgba(10,33,64,0.06)]"
-            : "border-[#F0E9D9] py-3 sm:py-3.5"
+            ? "py-2 shadow-[0_1px_12px_rgba(7,22,44,0.04)]"
+            : "py-3 sm:py-3.5"
         }`}
       >
         <nav
@@ -659,31 +651,28 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="group -ml-1 flex min-w-0 shrink items-center gap-2.5 rounded-xl p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2140]/40 sm:gap-3"
+            className="group -ml-1 flex min-w-0 shrink items-center gap-2.5 rounded-2xl p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/40 sm:gap-3"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0A2140] transition-colors group-hover:bg-[#123258] sm:h-10 sm:w-10">
-              <HeartHandshake
-                size={18}
-                className="text-[#E4B95A] sm:h-5 sm:w-5"
-              />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A] transition-colors group-hover:bg-[#0A2140] sm:h-10 sm:w-10">
+              <HeartHandshake size={18} className="sm:h-5 sm:w-5" />
             </div>
             <div className="flex min-w-0 flex-col justify-center leading-none">
-              <span className="truncate text-[1.05rem] font-semibold tracking-tight text-[#0A2140] min-[380px]:text-[1.15rem] sm:text-[1.35rem]">
+              <span className="truncate text-[1.05rem] font-semibold tracking-tight text-[#07162C] min-[380px]:text-[1.15rem] sm:text-[1.35rem]">
                 One Community
               </span>
-              <span className="mt-0.5 truncate text-[9px] font-semibold uppercase tracking-[0.15em] text-[#8A7B5C] sm:text-[10px] sm:tracking-[0.2em]">
+              <span className="mt-0.5 truncate text-[9px] font-bold uppercase tracking-[0.18em] text-[#996515] sm:text-[10px]">
                 Home Health
               </span>
             </div>
           </Link>
 
-          {/* Desktop links (xl and up) */}
+          {/* Desktop links */}
           <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex 2xl:gap-1">
             <Link href="/" className={desktopLink}>
               {t.home}
             </Link>
 
-            {/* Services mega menu: centred on the full-width bar */}
+            {/* Services mega menu */}
             <div className="group">
               <button
                 type="button"
@@ -697,29 +686,29 @@ export default function Navbar() {
               </button>
 
               <div
-                className={`absolute left-1/2 top-full z-[60] -mt-5 w-[min(920px,calc(100vw-2rem))] -translate-x-1/2 pt-8 ${reveal}`}
+                className={`absolute left-1/2 top-full z-[60] -mt-2 w-[min(920px,calc(100vw-2rem))] -translate-x-1/2 pt-3 ${reveal}`}
               >
-                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-2xl border border-[#EFE8D8] bg-white shadow-xl shadow-[#0A2140]/[0.06]">
-                  <div className="col-span-3 flex min-w-0 flex-col justify-between border-r border-[#EFE8D8] bg-[#F7F1E6] p-6">
+                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10">
+                  <div className="col-span-3 flex min-w-0 flex-col justify-between rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] p-6">
                     <div>
-                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#0A2140] text-[#E4B95A]">
+                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
                         <Stethoscope size={18} />
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A7B5C]">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#996515]">
                         {t.inHomeCare}
                       </span>
-                      <h3 className="mt-2.5 text-[1.3rem] font-semibold leading-snug text-[#0A2140]">
+                      <h3 className="ohh-serif mt-2.5 text-xl font-light leading-snug text-[#07162C]">
                         {t.clinicalCareTitle}
                       </h3>
-                      <p className="mt-3 text-[13px] leading-relaxed text-[#5B6B7C]">
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#07162C]/70">
                         {t.clinicalCareDesc}
                       </p>
                     </div>
                     <Link
                       href="/request-care"
-                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#0A2140] transition-colors hover:text-[#123258]"
+                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#07162C] transition-colors hover:text-[#0A2140]"
                     >
-                      <span className="border-b border-[#E4B95A] pb-0.5">
+                      <span className="border-b border-[#07162C] pb-0.5">
                         {t.scheduleAssessment}
                       </span>
                       <ArrowRight
@@ -732,11 +721,8 @@ export default function Navbar() {
                   <div className="col-span-9 flex min-w-0 flex-col gap-5 p-6">
                     <div className="grid grid-cols-2 gap-6">
                       <div className="min-w-0">
-                        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0A2140]">
-                          <Stethoscope
-                            size={13}
-                            className="shrink-0 text-[#C89B3C]"
-                          />
+                        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#996515]">
+                          <Stethoscope size={13} className="shrink-0" />
                           <span>{t.clinicalDisciplines}</span>
                         </div>
                         <div className="space-y-1">
@@ -744,9 +730,9 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="group/item block rounded-lg px-2.5 py-1.5 transition-colors hover:bg-[#FBF8F2]"
+                              className="group/item block rounded-xl px-3 py-2 transition-colors hover:bg-[#F4F4F2]"
                             >
-                              <div className="break-words text-[13px] font-semibold text-[#2C3947] group-hover/item:text-[#0A2140]">
+                              <div className="break-words text-[13px] font-semibold text-[#07162C] group-hover/item:text-[#996515]">
                                 {item.label}
                               </div>
                             </Link>
@@ -755,11 +741,8 @@ export default function Navbar() {
                       </div>
 
                       <div className="min-w-0">
-                        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0A2140]">
-                          <Heart
-                            size={13}
-                            className="shrink-0 text-[#C89B3C]"
-                          />
+                        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#996515]">
+                          <Heart size={13} className="shrink-0" />
                           <span>{t.attendantCare}</span>
                         </div>
                         <div className="space-y-1">
@@ -767,12 +750,12 @@ export default function Navbar() {
                             <Link
                               key={item.href}
                               href={item.href}
-                              className="group/item block rounded-lg px-2.5 py-1.5 transition-colors hover:bg-[#FBF8F2]"
+                              className="group/item block rounded-xl px-3 py-2 transition-colors hover:bg-[#F4F4F2]"
                             >
-                              <div className="break-words text-[13px] font-semibold text-[#2C3947] group-hover/item:text-[#0A2140]">
+                              <div className="break-words text-[13px] font-semibold text-[#07162C] group-hover/item:text-[#996515]">
                                 {item.label}
                               </div>
-                              <p className="break-words text-[11px] leading-snug text-[#8A93A0]">
+                              <p className="break-words text-[11px] leading-snug text-[#07162C]/60">
                                 {item.desc}
                               </p>
                             </Link>
@@ -781,14 +764,11 @@ export default function Navbar() {
                       </div>
                     </div>
 
-                    <div className="h-px bg-[#F0EBDD]" />
+                    <div className="h-px bg-[#07162C]/10" />
 
                     <div>
-                      <div className="mb-2 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0A2140]">
-                        <Activity
-                          size={13}
-                          className="shrink-0 text-[#C89B3C]"
-                        />
+                      <div className="mb-2.5 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#996515]">
+                        <Activity size={13} className="shrink-0" />
                         <span>{t.specialties}</span>
                       </div>
                       <div className="flex flex-wrap gap-1.5">
@@ -796,7 +776,7 @@ export default function Navbar() {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="rounded-full border border-[#F0EBDD] bg-[#FBF8F2] px-3 py-1 text-[12px] font-medium text-[#3A4657] transition-colors hover:bg-[#F3ECDC] hover:text-[#0A2140]"
+                            className="rounded-full border border-[#07162C]/10 bg-[#F4F4F2] px-3 py-1 text-[12px] font-medium text-[#07162C]/80 transition-colors hover:bg-[#07162C] hover:text-white"
                           >
                             {item.label}
                           </Link>
@@ -824,27 +804,27 @@ export default function Navbar() {
               <div
                 className={`absolute left-0 top-full z-[60] w-[min(560px,calc(100vw-2rem))] pt-3 ${reveal}`}
               >
-                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-2xl border border-[#EFE8D8] bg-white shadow-xl shadow-[#0A2140]/[0.06]">
-                  <div className="col-span-4 flex min-w-0 flex-col justify-between border-r border-[#EFE8D8] bg-[#F7F1E6] p-5">
+                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10">
+                  <div className="col-span-4 flex min-w-0 flex-col justify-between rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] p-5">
                     <div>
-                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#0A2140] text-[#E4B95A]">
+                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
                         <Heart size={18} />
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A7B5C]">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#996515]">
                         {t.whoWeAre}
                       </span>
-                      <h3 className="mt-2.5 text-[1.15rem] font-semibold leading-snug text-[#0A2140]">
+                      <h3 className="ohh-serif mt-2.5 text-lg font-light leading-snug text-[#07162C]">
                         {t.getTeam}
                       </h3>
-                      <p className="mt-3 text-[13px] leading-relaxed text-[#5B6B7C]">
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#07162C]/70">
                         {t.getTeamDesc}
                       </p>
                     </div>
                     <Link
                       href="/about-us"
-                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#0A2140] transition-colors hover:text-[#123258]"
+                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#07162C] transition-colors hover:text-[#0A2140]"
                     >
-                      <span className="border-b border-[#E4B95A] pb-0.5">
+                      <span className="border-b border-[#07162C] pb-0.5">
                         {t.fullStory}
                       </span>
                       <ArrowRight
@@ -854,21 +834,21 @@ export default function Navbar() {
                     </Link>
                   </div>
 
-                  <div className="col-span-8 flex min-w-0 flex-col justify-center gap-0.5 p-4">
+                  <div className="col-span-8 flex min-w-0 flex-col justify-center gap-1 p-3">
                     {aboutLinks.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group/sub flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-[#FBF8F2]"
+                        className="group/sub flex items-start gap-3 rounded-2xl p-3 transition-colors hover:bg-[#F4F4F2]"
                       >
-                        <div className="shrink-0 rounded-lg bg-[#F3ECDC] p-2 text-[#0A2140] transition-colors group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A]">
+                        <div className="shrink-0 rounded-full bg-[#07162C] p-2 text-[#E4B95A]">
                           <item.icon size={15} />
                         </div>
                         <div className="min-w-0 pt-0.5">
-                          <div className="break-words text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
+                          <div className="break-words text-sm font-semibold text-[#07162C] group-hover/sub:text-[#996515]">
                             {item.label}
                           </div>
-                          <p className="mt-0.5 break-words text-[11.5px] leading-snug text-[#8A93A0]">
+                          <p className="mt-0.5 break-words text-[11.5px] leading-snug text-[#07162C]/60">
                             {item.desc}
                           </p>
                         </div>
@@ -899,27 +879,27 @@ export default function Navbar() {
               <div
                 className={`absolute right-0 top-full z-[60] w-[min(560px,calc(100vw-2rem))] pt-3 ${reveal}`}
               >
-                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-2xl border border-[#EFE8D8] bg-white shadow-xl shadow-[#0A2140]/[0.06]">
-                  <div className="col-span-4 flex min-w-0 flex-col justify-between border-r border-[#EFE8D8] bg-[#F7F1E6] p-5">
+                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10">
+                  <div className="col-span-4 flex min-w-0 flex-col justify-between rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] p-5">
                     <div>
-                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#0A2140] text-[#E4B95A]">
+                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
                         <BookOpen size={18} />
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#8A7B5C]">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#996515]">
                         {t.support}
                       </span>
-                      <h3 className="mt-2.5 text-[1.15rem] font-semibold leading-snug text-[#0A2140]">
+                      <h3 className="ohh-serif mt-2.5 text-lg font-light leading-snug text-[#07162C]">
                         {t.guidesRes}
                       </h3>
-                      <p className="mt-3 text-[13px] leading-relaxed text-[#5B6B7C]">
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#07162C]/70">
                         {t.guidesResDesc}
                       </p>
                     </div>
                     <Link
                       href="/resources"
-                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#0A2140] transition-colors hover:text-[#123258]"
+                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#07162C] transition-colors hover:text-[#0A2140]"
                     >
-                      <span className="border-b border-[#E4B95A] pb-0.5">
+                      <span className="border-b border-[#07162C] pb-0.5">
                         {t.browseAllRes}
                       </span>
                       <ArrowRight
@@ -929,21 +909,21 @@ export default function Navbar() {
                     </Link>
                   </div>
 
-                  <div className="col-span-8 flex min-w-0 flex-col justify-center gap-0.5 p-4">
+                  <div className="col-span-8 flex min-w-0 flex-col justify-center gap-1 p-3">
                     {resourceLinks.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group/sub flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-[#FBF8F2]"
+                        className="group/sub flex items-start gap-3 rounded-2xl p-3 transition-colors hover:bg-[#F4F4F2]"
                       >
-                        <div className="shrink-0 rounded-lg bg-[#F3ECDC] p-2 text-[#0A2140] transition-colors group-hover/sub:bg-[#0A2140] group-hover/sub:text-[#E4B95A]">
+                        <div className="shrink-0 rounded-full bg-[#07162C] p-2 text-[#E4B95A]">
                           <item.icon size={15} />
                         </div>
                         <div className="min-w-0 pt-0.5">
-                          <div className="break-words text-sm font-semibold text-[#2C3947] group-hover/sub:text-[#0A2140]">
+                          <div className="break-words text-sm font-semibold text-[#07162C] group-hover/sub:text-[#996515]">
                             {item.label}
                           </div>
-                          <p className="mt-0.5 break-words text-[11.5px] leading-snug text-[#8A93A0]">
+                          <p className="mt-0.5 break-words text-[11.5px] leading-snug text-[#07162C]/60">
                             {item.desc}
                           </p>
                         </div>
@@ -963,7 +943,7 @@ export default function Navbar() {
 
             <Link
               href="/request-care"
-              className="hidden items-center gap-2 whitespace-nowrap rounded-full bg-[#0A2140] px-4 py-2.5 text-[13px] font-bold text-white transition-all hover:bg-[#123258] active:scale-[0.98] sm:inline-flex md:px-5"
+              className="hidden items-center gap-2 whitespace-nowrap rounded-full border border-[#07162C] bg-[#07162C] px-5 py-2.5 text-[13px] font-semibold text-[#E4B95A] transition-all hover:bg-[#0A2140] active:scale-[0.98] sm:inline-flex"
             >
               <HeartHandshake size={16} className="shrink-0" />
               <span>{t.requestCare}</span>
@@ -974,7 +954,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label={mobileMenuOpen ? t.closeMenu : t.openMenu}
               aria-expanded={mobileMenuOpen}
-              className="cursor-pointer rounded-xl bg-[#F3ECDC] p-2.5 text-[#0A2140] transition-colors hover:bg-[#EADFC2] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0A2140]/40 active:scale-95 xl:hidden"
+              className="cursor-pointer rounded-2xl border border-[#07162C]/10 bg-white p-2.5 text-[#07162C] transition-colors hover:border-[#07162C]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/40 active:scale-95 xl:hidden"
             >
               <div className="relative flex h-5 w-5 items-center justify-center">
                 <span
@@ -989,7 +969,7 @@ export default function Navbar() {
                 <span
                   className={`absolute transition-all duration-300 ${
                     mobileMenuOpen
-                      ? "scale-100 rotate-0 text-[#C89B3C] opacity-100"
+                      ? "scale-100 rotate-0 text-[#996515] opacity-100"
                       : "scale-50 -rotate-90 opacity-0"
                   }`}
                 >
@@ -1001,11 +981,9 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* ===== Mobile / tablet drawer (below xl) =====
-          Anchored to the header, so it always starts exactly under the bar
-          and never depends on hard-coded pixel offsets. */}
+      {/* ===== Mobile / tablet drawer ===== */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0A2140]/50 backdrop-blur-[3px] transition-opacity duration-300 xl:hidden ${
+        className={`fixed inset-0 z-40 bg-[#07162C]/40 backdrop-blur-[3px] transition-opacity duration-300 xl:hidden ${
           mobileMenuOpen
             ? "visible opacity-100"
             : "invisible pointer-events-none opacity-0"
@@ -1022,21 +1000,20 @@ export default function Navbar() {
         }`}
       >
         <div
-          className="mx-auto flex w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-[#EFE8D8] bg-white shadow-2xl shadow-[#0A2140]/10 md:max-w-3xl"
+          className="mx-auto flex w-full max-w-xl flex-col overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10 md:max-w-3xl"
           style={{ maxHeight: `calc(100dvh - ${headerH}px - 1.25rem)` }}
         >
-          <div className="min-w-0 space-y-1 overflow-y-auto overscroll-contain p-2.5 sm:p-3">
-            {/* Language segmented control */}
+          <div className="min-w-0 space-y-1 overflow-y-auto overscroll-contain p-2 sm:p-3">
             <div
               role="group"
               aria-label={t.language}
-              className="mb-1 flex items-center justify-between gap-3 rounded-xl border border-[#EFE8D8] bg-[#F7F1E6] px-3.5 py-2.5"
+              className="mb-1 flex items-center justify-between gap-3 rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-3"
             >
-              <span className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-wider text-[#8A7B5C]">
+              <span className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.18em] text-[#996515]">
                 <Globe size={14} className="shrink-0" />
                 {t.language}
               </span>
-              <div className="flex rounded-full border border-[#E8DFCB] bg-white p-0.5">
+              <div className="flex rounded-full border border-[#07162C]/10 bg-white p-0.5">
                 {(
                   [
                     ["en", "EN", "🇺🇸"],
@@ -1048,10 +1025,10 @@ export default function Navbar() {
                     type="button"
                     onClick={() => setLanguage(code)}
                     aria-pressed={language === code}
-                    className={`flex cursor-pointer items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold transition-colors ${
+                    className={`flex cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition-colors ${
                       language === code
-                        ? "bg-[#0A2140] text-white"
-                        : "text-[#3A4657] hover:bg-[#FBF8F2]"
+                        ? "bg-[#07162C] text-[#E4B95A]"
+                        : "text-[#07162C]/80 hover:bg-[#F4F4F2]"
                     }`}
                   >
                     <span aria-hidden>{flag}</span>
@@ -1064,9 +1041,9 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={closeMobileMenu}
-              className="flex items-center gap-3 rounded-xl p-3 font-semibold text-[#2C3947] transition-colors hover:bg-[#FBF8F2] sm:p-3.5"
+              className="flex items-center gap-3 rounded-2xl border border-[#07162C]/10 bg-white p-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#F4F4F2]"
             >
-              <span className="shrink-0 rounded-lg bg-[#F3ECDC] p-2 text-[#0A2140]">
+              <span className="shrink-0 rounded-full bg-[#07162C] p-2 text-[#E4B95A]">
                 <Home size={17} />
               </span>
               {t.home}
@@ -1089,7 +1066,7 @@ export default function Navbar() {
                     {s.label}
                   </Link>
                 ))}
-                <div className="my-2 h-px w-full bg-[#EFE8D8]" />
+                <div className="my-2 h-px w-full bg-[#07162C]/10" />
                 <p className={mobileGroupLabel}>{t.attendantCare}</p>
                 {personalAttendantServices.map((s) => (
                   <Link
@@ -1101,7 +1078,7 @@ export default function Navbar() {
                     {s.label}
                   </Link>
                 ))}
-                <div className="my-2 h-px w-full bg-[#EFE8D8]" />
+                <div className="my-2 h-px w-full bg-[#07162C]/10" />
                 <p className={mobileGroupLabel}>{t.specialties}</p>
                 <div className="flex flex-wrap gap-1.5 p-2">
                   {specialtyServices.map((s) => (
@@ -1109,7 +1086,7 @@ export default function Navbar() {
                       key={s.href}
                       href={s.href}
                       onClick={closeMobileMenu}
-                      className="rounded-full border border-[#F0EBDD] bg-[#FBF8F2] px-3 py-1 text-[12px] font-medium text-[#3A4657] transition-colors hover:bg-[#F3ECDC] hover:text-[#0A2140]"
+                      className="rounded-full border border-[#07162C]/10 bg-white px-3 py-1 text-[12px] font-medium text-[#07162C]/80 transition-colors hover:bg-[#07162C] hover:text-white"
                     >
                       {s.label}
                     </Link>
@@ -1131,7 +1108,7 @@ export default function Navbar() {
                   className={mobileSubLink}
                 >
                   {item.label}
-                  <span className="mt-0.5 block text-[11.5px] font-normal leading-snug text-[#8A93A0]">
+                  <span className="mt-0.5 block text-[11.5px] font-normal leading-snug text-[#07162C]/60">
                     {item.desc}
                   </span>
                 </Link>
@@ -1141,9 +1118,9 @@ export default function Navbar() {
             <Link
               href="/insurance-payment-options"
               onClick={closeMobileMenu}
-              className="flex items-center gap-3 rounded-xl p-3 font-semibold text-[#2C3947] transition-colors hover:bg-[#FBF8F2] sm:p-3.5"
+              className="flex items-center gap-3 rounded-2xl border border-[#07162C]/10 bg-white p-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#F4F4F2]"
             >
-              <span className="shrink-0 rounded-lg bg-[#F3ECDC] p-2 text-[#0A2140]">
+              <span className="shrink-0 rounded-full bg-[#07162C] p-2 text-[#E4B95A]">
                 <CreditCard size={17} />
               </span>
               <span className="min-w-0 break-words">{t.insurance}</span>
@@ -1162,49 +1139,49 @@ export default function Navbar() {
                   className={mobileSubLink}
                 >
                   {item.label}
-                  <span className="mt-0.5 block text-[11.5px] font-normal leading-snug text-[#8A93A0]">
+                  <span className="mt-0.5 block text-[11.5px] font-normal leading-snug text-[#07162C]/60">
                     {item.desc}
                   </span>
                 </Link>
               ))
             )}
 
-            <div className="space-y-2 pb-1 pt-2">
+            <div className="space-y-3 pb-2 pt-3">
               <Link
                 href="/request-care"
                 onClick={closeMobileMenu}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-[#0A2140] py-3.5 text-center font-bold text-white transition-all hover:shadow-md active:scale-[0.98]"
+                className="flex w-full items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] py-3.5 text-center font-semibold text-[#E4B95A] transition-all hover:bg-[#0A2140] active:scale-[0.98]"
               >
                 <HeartHandshake size={18} className="shrink-0" />
                 {t.requestCare}
               </Link>
 
-              <div className="flex flex-col gap-1 rounded-xl border border-[#EFE8D8] bg-[#F7F1E6] px-3 py-2.5 text-center text-xs">
+              <div className="flex flex-col gap-1 rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-3 text-center text-xs">
                 <div className="break-words">
-                  <span className="font-semibold text-[#8A7B5C]">
+                  <span className="font-semibold text-[#996515]">
                     {t.newPatients}{" "}
                   </span>
                   <a
                     href="tel:9728489174"
-                    className="whitespace-nowrap font-bold text-[#0A2140]"
+                    className="whitespace-nowrap font-bold text-[#07162C]"
                   >
                     (972) 848-9174
                   </a>
                 </div>
                 <div className="break-words">
-                  <span className="font-semibold text-[#8A7B5C]">
+                  <span className="font-semibold text-[#996515]">
                     {t.mainOffice}{" "}
                   </span>
                   <a
                     href="tel:9723251598"
-                    className="whitespace-nowrap font-semibold text-[#0A2140]"
+                    className="whitespace-nowrap font-semibold text-[#07162C]"
                   >
                     (972) 325-1598
                   </a>
                 </div>
               </div>
 
-              <p className="px-2 pb-1 text-center text-[11px] leading-snug text-[#8A93A0] md:hidden">
+              <p className="px-2 pb-1 text-center text-[11px] leading-snug text-[#07162C]/60 md:hidden">
                 {t.banner}
               </p>
             </div>

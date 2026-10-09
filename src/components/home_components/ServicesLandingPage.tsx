@@ -125,36 +125,35 @@ export default function ServicesLandingPage() {
   const t = translations[language];
 
   return (
-    <main className="bg-[#051122] min-h-screen pt-24 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+    <main className="min-h-screen bg-[#051122] px-4 pb-24 pt-24 text-white sm:pt-32 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Sticky intro rail */}
           <div className="lg:col-span-4">
-            <div className="lg:sticky lg:top-28 space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#E4B95A] bg-white/10 w-fit">
-                <span className="w-2 h-2 rounded-full bg-[#E4B95A]" />
+            <div className="space-y-6 lg:sticky lg:top-28">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+                <span className="h-2 w-2 rounded-full bg-[#E4B95A] animate-pulse" />
                 {t.eyebrow}
               </span>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight leading-[1.08]">
+              <h1 className="ohh-serif text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
                 {t.heading}
                 <span className="text-[#E4B95A]">.</span>
               </h1>
-              <p className="text-base sm:text-lg text-white/70 font-medium leading-relaxed">
+              <p className="text-base font-medium leading-relaxed text-white/70 sm:text-lg">
                 {t.description}
               </p>
-              <div className="hidden lg:block h-px w-16 bg-white/15" />
-              <div className="hidden lg:flex flex-col gap-3">
+              <div className="hidden h-px w-16 bg-white/15 lg:block" />
+              <div className="hidden flex-col gap-3 lg:flex">
                 {carePathways.map((pathway, idx) => (
                   <a
                     key={pathway.titleKey}
                     href={`#pathway-${idx}`}
-                    className="flex items-center gap-3 text-sm font-bold text-white/60 hover:text-[#E4B95A] transition-colors"
+                    className="flex items-center gap-3 text-sm font-bold text-white/60 transition-colors hover:text-[#E4B95A]"
                   >
-                    <span className="text-[#E4B95A]/70 text-xs font-mono">
+                    <span className="font-mono text-xs text-[#E4B95A]/70">
                       0{idx + 1}
                     </span>
-                    {/* @ts-ignore */}
-                    {t[pathway.titleKey]}
+                    {(t as Record<string, string>)[pathway.titleKey]}
                   </a>
                 ))}
               </div>
@@ -163,7 +162,7 @@ export default function ServicesLandingPage() {
 
           {/* 2x2 card grid */}
           <div className="lg:col-span-8">
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid gap-6 sm:grid-cols-2">
               {carePathways.map((pathway, idx) => {
                 const Icon = pathway.icon;
                 const titleText = (t as Record<string, string>)[
@@ -181,72 +180,77 @@ export default function ServicesLandingPage() {
                   <div
                     key={pathway.titleKey}
                     id={`pathway-${idx}`}
-                    className="group relative rounded-[32px] p-8 flex flex-col justify-between scroll-mt-28 bg-[#0C213F]/50 transition-all duration-300 text-white"
+                    className={`group relative flex scroll-mt-28 flex-col justify-between rounded-3xl border p-8 transition-all duration-300 ${
+                      pathway.isDark
+                        ? "border-white/20 bg-[#07162C]"
+                        : "border-white/15 bg-white/5"
+                    }`}
                   >
                     {/* Top Section: Icon & Badge */}
-                    <div className="flex items-center justify-between mb-8">
-                      <div className="w-14 h-14 rounded-2xl bg-[#E4B95A]/10 text-[#E4B95A] flex items-center justify-center">
-                        <Icon className="w-7 h-7" strokeWidth={1.75} />
+                    <div className="mb-8 flex items-center justify-between">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
+                        <Icon className="h-7 w-7" strokeWidth={1.75} />
                       </div>
                       {badgeText ? (
-                        <span className="text-[11px] font-black tracking-wider text-[#07162C] uppercase bg-[#E4B95A] px-3.5 py-1.5 rounded-full">
+                        <span className="rounded-full bg-[#E4B95A] px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider text-[#07162C]">
                           {badgeText}
                         </span>
                       ) : (
-                        <span className="text-xs font-bold text-white/40 uppercase tracking-widest font-mono">
-                          Pathway 0{idx + 1}
+                        <span className="font-mono text-xs font-bold uppercase tracking-widest text-white/40">
+                          0{idx + 1}
                         </span>
                       )}
                     </div>
 
                     {/* Middle Section: Image banner + text details */}
                     <div className="space-y-6">
-                      <div className="relative h-44 w-full rounded-2xl overflow-hidden">
-                        <img
+                      <div className="relative h-44 w-full overflow-hidden rounded-2xl">
+                        <Image
                           src={pathway.image}
                           alt={titleText}
-                          loading="lazy"
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />
                       </div>
 
                       <div>
-                        <h3 className="text-2xl font-semibold tracking-tight text-white mb-3">
+                        <h3 className="ohh-serif mb-3 text-2xl font-medium tracking-tight text-white">
                           {titleText}
                         </h3>
-                        <p className="text-sm text-white/75 font-medium leading-relaxed">
+                        <p className="text-sm font-medium leading-relaxed text-white/75">
                           {descText}
                         </p>
                       </div>
                     </div>
 
                     {/* Bottom Section: Actionable Footer */}
-                    <div className="pt-8 mt-8">
+                    <div className="mt-8 pt-8">
                       {pathway.actionType === "button" ? (
                         <Link
                           href={pathway.href}
-                          className="inline-flex items-center text-sm font-bold text-white hover:text-[#E4B95A] transition-colors cursor-pointer w-full justify-between group/link"
+                          className="group/link inline-flex w-full items-center justify-between text-sm font-bold text-white transition-colors hover:text-[#E4B95A]"
                         >
                           <span>{footerText}</span>
-                          <div className="w-8 h-8 rounded-full bg-[#E4B95A] text-[#07162C] flex items-center justify-center transition-transform duration-300 group-hover/link:translate-x-1">
-                            <ArrowRight className="w-4 h-4" />
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E4B95A] text-[#07162C] transition-transform duration-300 group-hover/link:translate-x-1">
+                            <ArrowRight className="h-4 w-4" />
                           </div>
                         </Link>
                       ) : pathway.actionType === "cta" ? (
                         <Link
                           href={pathway.href}
-                          className="w-full bg-[#E4B95A] hover:bg-[#D9A93F] text-[#07162C] font-bold px-6 py-3.5 rounded-full text-sm transition-all text-center cursor-pointer block active:scale-[0.98]"
+                          className="block w-full rounded-full border border-[#E4B95A] bg-[#E4B95A] px-6 py-3.5 text-center text-sm font-bold text-[#07162C] transition-all hover:bg-[#EDC878]"
                         >
                           {footerText}
                         </Link>
                       ) : (
                         <Link
                           href={pathway.href}
-                          className="inline-flex items-center justify-between text-xs font-black tracking-widest text-[#E4B95A] uppercase w-full hover:underline"
+                          className="inline-flex w-full items-center justify-between text-xs font-black uppercase tracking-widest text-[#E4B95A] hover:underline"
                         >
                           <span>{footerText}</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
+                          <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                       )}
                     </div>

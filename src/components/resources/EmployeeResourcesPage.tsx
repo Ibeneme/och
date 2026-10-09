@@ -1,518 +1,535 @@
 "use client";
 
-import {
-  BookOpen,
-  ShieldAlert,
-  Users,
-  Wallet,
-  Clock,
-  ShieldCheck,
-  AlertTriangle,
-  ExternalLink,
-  HeartPulse,
-  Briefcase,
-  ClipboardList,
-  Pill,
-  Lock,
-  Scale,
-} from "lucide-react";
+import type { ReactNode } from "react";
+import { ExternalLink, AlertTriangle, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
-import content from "@/src/locales/resources/employee-resources.json";
+import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Soft modern UI inspired by the reference designs.
-   Brand: navy #07162C + gold #E4B95A / #C89B3C
-   Surfaces: soft white, light gray cards, generous rounding, subtle borders */
+/* Design tokens: navy + gold, flat (1px borders, no shadows).
+   navy #07162C · navy-2 #0A2140 · gold #E4B95A · gold-d #996515 (small text on light)
+   cream #FBF8F2 · sand #F3ECDC · line #E8DFC8 · body #3A4657 · muted #5B6B7C */
 
-const container = "mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8";
-const eyebrow =
-  "inline-flex items-center rounded-full bg-[#F3ECDC] px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#C89B3C]";
-const sectionTitle =
-  "mt-3 text-3xl font-semibold leading-tight tracking-tight text-[#07162C] sm:text-4xl";
-const focusRing =
+const PHONE = siteConfig.contact.phone;
+
+const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
+const h3Cls =
+  "text-lg font-semibold leading-snug tracking-tight text-[#07162C] sm:text-xl";
+const focusGold =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
 
-const toneStyles: Record<string, string> = {
-  emergency: "bg-[#07162C] text-[#E4B95A]",
-  urgent: "bg-[#E4B95A] text-[#07162C]",
-  routine: "bg-[#F3ECDC] text-[#07162C]",
-};
+const Steps = ({ items }: { items: string[] }) => (
+  <ol className="mt-5 space-y-4">
+    {items.map((s, i) => (
+      <li key={i} className="flex min-w-0 items-start gap-4">
+        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-xs font-semibold text-[#E4B95A]">
+          {i + 1}
+        </span>
+        <span className="min-w-0 break-words leading-relaxed">{s}</span>
+      </li>
+    ))}
+  </ol>
+);
 
-export default function EmployeeResourcesPage() {
+const Bullets = ({ items }: { items: string[] }) => (
+  <ul className="mt-3 list-disc space-y-2 pl-6 marker:text-[#C89B3C]">
+    {items.map((s, i) => (
+      <li key={i} className="min-w-0 break-words pl-1 leading-relaxed">
+        {s}
+      </li>
+    ))}
+  </ul>
+);
+
+const Method = ({
+  id,
+  tag,
+  title,
+  children,
+}: {
+  id: string;
+  tag: string;
+  title: string;
+  children: ReactNode;
+}) => (
+  <section
+    id={id}
+    className="scroll-mt-24 space-y-8 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10"
+  >
+    <header className="border-b border-[#E8DFC8] pb-6">
+      <p className="inline-flex items-center rounded-full bg-[#07162C] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+        {tag}
+      </p>
+      <h2 className="mt-4 text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-[#07162C] sm:text-3xl">
+        {title}
+      </h2>
+    </header>
+    {children}
+  </section>
+);
+
+const H3 = ({ children }: { children: ReactNode }) => (
+  <h3 className={h3Cls}>{children}</h3>
+);
+
+export default function EmployeeEVVHelpPage() {
   const { language } = useLanguage();
-  const t = content[language as "en" | "es"] || content.en;
 
-  const escalationMatrix = [
-    {
-      label: "Life-threatening emergency",
-      desc: "Call 911 immediately for severe life-threatening medical emergencies.",
-      action: "Dial 911",
-      tone: "emergency",
+  const t = {
+    en: {
+      badge: "EVV Clock-In Help",
+      title: "EVV Clock-In & Clock-Out Help",
+      subtitle:
+        "Every visit has to be clocked in and out through EVV. If it isn't recorded, the visit may not be paid. There are three ways to clock in and out. Use the one your coordinator set up for your case.",
+      btnMobile: "Mobile App",
+      btnFob: "FOB Device",
+      btnPhone: "Call in by Phone",
+      urgentBanner: "Having trouble right now? Call the office at ",
+      urgentTime:
+        "Monday–Friday 9:00 a.m.–5:00 p.m. Do not leave the visit unrecorded — call us.",
+      method1Tag: "Method 1",
+      method1Title: "HHAeXchange+ mobile app",
+      m1InTitle: "To clock in",
+      m1InSteps: [
+        "Open the HHAeXchange+ app and log in.",
+        "Tap Today's Schedule.",
+        "Tap the visit you are starting.",
+        "On the Clock In/Out tab, tap Clock In.",
+        "Choose your verification method — GPS if you are at the member's home, or Security Token if you are using a FOB device.",
+        "Check the time that appears under Clock In. Green means it worked. Red means it did not — try again, and call the office if it stays red.",
+      ],
+      m1OutTitle: "To clock out",
+      m1OutSteps: [
+        "Open the visit again and tap Clock Out.",
+        "Go through the duties list. Tap the checkmark for each duty you completed and the X for any the member refused. If you mark a duty refused, choose a reason.",
+        "If the member's plan requires a signature, hand them the device to sign. If they cannot sign, tap Skip and choose a reason — the Save button stays gray until you pick one.",
+        "Tap Save. You will see a confirmation, then tap OK.",
+      ],
+      goodToKnowTitle: "Good to know",
+      goodToKnowItems: [
+        "No signal at the member's home? Clock in and out normally. The app holds the visit and sends it once your phone is back in coverage.",
+        "Serving two members in the same home? You still enter duties separately for each member.",
+        "Visit happening away from the member's home? If your coordinator has enabled it, tap the icon at the bottom left and check Community Visit before clocking in.",
+      ],
+      method2Tag: "Method 2",
+      method2Title: "FOB device (alternative device)",
+      fobDesc:
+        "The FOB is the small device kept at the member's home. It has two numbers you will need:",
+      fobItem1:
+        "Device ID — the six-digit number printed on the front of the device.",
+      fobItem2:
+        "Passcode — the eight-digit number in the little window. It changes every 30 seconds.",
+      fobStartTitle: "At the start of the visit",
+      fobStartSteps: [
+        "Turn on the FOB and read the eight-digit passcode.",
+        "Write it down — this is your clock-in code.",
+      ],
+      fobEndTitle: "At the end of the visit",
+      fobEndSteps: [
+        "Turn on the FOB again and read the new eight-digit passcode.",
+        "Write it down — this is your clock-out code.",
+      ],
+      fobSubmitTitle: "Submit the codes by phone",
+      fobSubmitSteps: [
+        "Call the EVV phone number your coordinator gave you (or call the office at (972) 325-1598).",
+        "Press 3 for FOB device.",
+        "Press 3 again for FOB clock in or clock out.",
+        "Enter your Time & Attendance PIN.",
+        "Enter the six-digit Device ID.",
+        "Enter the eight-digit clock-in passcode and clock-out passcode when prompted.",
+        "Enter your duties one at a time and dial 000 to finish.",
+      ],
+      method3Tag: "Method 3",
+      method3Title: "Call in by phone",
+      m3Desc:
+        "Call from the member's home phone. Use the EVV phone number your coordinator gave you. If you don't have it, call the office at (972) 325-1598.",
+      m3InTitle: "To clock in",
+      m3InSteps: [
+        "From the member's home phone, dial your EVV number.",
+        "Press 1 for clock in.",
+        "Enter your Time & Attendance PIN and confirm.",
+        "Listen for 'Your call-in has been successfully registered.'",
+      ],
+      m3OutTitle: "To clock out",
+      m3OutSteps: [
+        "Dial the same EVV number and press 2 for clock out.",
+        "Enter your Time & Attendance PIN.",
+        "Enter the ID number for each duty performed. If refused, press star (*) then the duty ID.",
+        "Dial 00 (or 000) to finish and listen for confirmation.",
+      ],
+      troubleTitle: "Troubleshooting when it doesn't work",
+      troubleTh1: "What's happening",
+      troubleTh2: "What to do",
+      troubleshootingRows: [
+        {
+          q: "My PIN isn't working",
+          a: "Try again carefully. After 3 wrong tries it locks. Call the office to reset.",
+        },
+        {
+          q: "I never got a PIN / lost it",
+          a: "Call the office at (972) 325-1598. We can look it up or reissue it.",
+        },
+        {
+          q: "The FOB window is blank",
+          a: "Press the power button on the front. If still blank, call the office.",
+        },
+        {
+          q: "Clock-in shows red in the app",
+          a: "It did not record. Try again. If it stays red, call the office before leaving.",
+        },
+        {
+          q: "I forgot to clock in or out",
+          a: "Call the office the same day so we can correct it promptly.",
+        },
+      ],
+      guidesTitle: "Official HHAeXchange guides",
+      guidesDesc:
+        "These are HHAeXchange's own guides. The phone instructions are a blank template — the dial-in numbers are not printed in it. Use the steps above, and call the office at (972) 325-1598 if you need your number.",
+      guide1:
+        "Clocking in and out with the HHAeXchange+ mobile app — Knowledge base",
+      guide2: "Texas EVV phone instructions (PDF, ~1.2 MB) — Job aid",
+      guide3:
+        "Getting started with the alternative device (FOB), Texas (PDF, ~950 KB) — Job aid",
+      guide4:
+        "Video: Clocking in and out with the HHAeXchange+ mobile app (3:36) — Training video",
     },
-    {
-      label: "Urgent clinical need",
-      desc: "Use the 24/7 on-call clinical extension for immediate patient needs.",
-      action: "On-call line",
-      tone: "urgent",
+    es: {
+      badge: "Ayuda de Reloj EVV",
+      title: "Cómo registrar entradas y salidas con EVV",
+      subtitle:
+        "Cada visita debe registrarse a través de EVV. Si no se registra, es posible que no se pague. Elija el método configurado para su caso:",
+      btnMobile: "Aplicación Móvil",
+      btnFob: "Dispositivo FOB",
+      btnPhone: "Llamada Telefónica",
+      urgentBanner: "¿Tiene problemas ahora mismo? Llame a la oficina al ",
+      urgentTime:
+        "lunes a viernes de 9:00 a.m. a 5:00 p.m. No deje la visita sin registrar.",
+      method1Tag: "Método 1",
+      method1Title: "Aplicación móvil HHAeXchange+",
+      m1InTitle: "Para registrar la entrada (Clock In)",
+      m1InSteps: [
+        "Abra la aplicación HHAeXchange+ e inicie sesión.",
+        "Toque Horario de Hoy (Today's Schedule).",
+        "Toque la visita que va a comenzar.",
+        "En la pestaña Clock In/Out, toque Clock In.",
+        "Elija su método de verificación: GPS si está en la casa del miembro, o Token de Seguridad si usa un dispositivo FOB.",
+        "Verifique la hora que aparece en Clock In. El verde indica que funcionó. El rojo indica que no: inténtelo de nuevo y llame a la oficina si se mantiene en rojo.",
+      ],
+      m1OutTitle: "Para registrar la salida (Clock Out)",
+      m1OutSteps: [
+        "Abra la visita nuevamente y toque Clock Out.",
+        "Revise la lista de tareas. Toque la marca de verificación para cada tarea completada y la X para cualquiera que el miembro haya rechazado. Si marca una tarea rechazada, elija un motivo.",
+        "Si el plan del miembro requiere firma, entréguele el dispositivo para firmar. Si no puede firmar, toque Omitir (Skip) y elija un motivo: el botón Guardar permanece gris hasta que seleccione uno.",
+        "Toque Guardar (Save). Verá una confirmación, luego toque OK.",
+      ],
+      goodToKnowTitle: "Información útil",
+      goodToKnowItems: [
+        "¿Sin señal en la casa del miembro? Registre entrada y salida normalmente. La aplicación guarda la visita y la envía una vez que su teléfono recupere señal.",
+        "¿Atiende a dos miembros en el mismo hogar? Aún debe ingresar las tareas por separado para cada miembro.",
+        "¿Visita fuera de la casa del miembro? Si su coordinador lo ha habilitado, toque el icono inferior izquierdo y marque Visita Comunitaria (Community Visit) antes de registrar la entrada.",
+      ],
+      method2Tag: "Método 2",
+      method2Title: "Dispositivo FOB (Alternativo)",
+      fobDesc:
+        "El FOB es el pequeño dispositivo que se guarda en la casa del miembro. Tiene dos números que necesitará:",
+      fobItem1:
+        "ID del dispositivo (Device ID): el número de seis dígitos impreso en el frente del aparato.",
+      fobItem2:
+        "Código de acceso (Passcode): el número de ocho dígitos en la pequeña ventanilla. Cambia cada 30 segundos.",
+      fobStartTitle: "Al inicio de la visita",
+      fobStartSteps: [
+        "Encienda el FOB y lea el código de acceso de ocho dígitos.",
+        "Anótelo: este es su código de entrada.",
+      ],
+      fobEndTitle: "Al final de la visita",
+      fobEndSteps: [
+        "Encienda el FOB nuevamente y lea el nuevo código de acceso de ocho dígitos.",
+        "Anótelo: este es su código de salida.",
+      ],
+      fobSubmitTitle: "Envío de códigos por teléfono",
+      fobSubmitSteps: [
+        "Llame al número de teléfono EVV que le dio su coordinador (o llame a la oficina al (972) 325-1598).",
+        "Presione 3 para dispositivo FOB.",
+        "Presione 3 nuevamente para entrada o salida de FOB.",
+        "Ingrese su PIN de Tiempo y Asistencia.",
+        "Ingrese el ID del dispositivo de seis dígitos.",
+        "Ingrese el código de entrada y salida de ocho dígitos cuando se le solicite.",
+        "Ingrese sus tareas una por una y marque 000 para terminar.",
+      ],
+      method3Tag: "Método 3",
+      method3Title: "Llamada telefónica (Call in by phone)",
+      m3Desc:
+        "Llame desde el teléfono de la casa del miembro. Use el número de teléfono EVV que le dio su coordinador. Si no lo tiene, llame a la oficina al (972) 325-1598.",
+      m3InTitle: "Para registrar entrada",
+      m3InSteps: [
+        "Desde el teléfono de la casa del miembro, marque su número EVV.",
+        "Presione 1 para registrar entrada.",
+        "Ingrese su PIN de Tiempo y Asistencia y confirme.",
+        "Escuche: 'Your call-in has been successfully registered.'",
+      ],
+      m3OutTitle: "Para registrar salida",
+      m3OutSteps: [
+        "Marque el mismo número EVV y presione 2 para registrar salida.",
+        "Ingrese su PIN de Tiempo y Asistencia.",
+        "Ingrese el número de ID para cada tarea realizada. Si fue rechazada, presione asterisco (*) y luego el ID de la tarea.",
+        "Marque 00 (o 000) para terminar y escuchar la confirmación.",
+      ],
+      troubleTitle: "Solución de problemas",
+      troubleTh1: "Qué está pasando",
+      troubleTh2: "Qué hacer",
+      troubleshootingRows: [
+        {
+          q: "Mi PIN no funciona",
+          a: "Inténtelo de nuevo con cuidado. Después de 3 intentos incorrectos se bloquea. Llame a la oficina para restablecerlo.",
+        },
+        {
+          q: "Nunca recibí un PIN / lo perdí",
+          a: "Llame a la oficina al (972) 325-1598. Podemos buscarlo o reemitirlo.",
+        },
+        {
+          q: "La ventana del FOB está en blanco",
+          a: "Presione el botón de encendido en el frente. Si sigue en blanco, llame a la oficina.",
+        },
+        {
+          q: "La hora de entrada se muestra en rojo en la app",
+          a: "No se registró. Inténtelo de nuevo. Si se mantiene en rojo, llame a la oficina antes de irse.",
+        },
+        {
+          q: "Olvidé registrar la entrada o salida",
+          a: "Llame a la oficina el mismo día para que podamos corregirlo a tiempo.",
+        },
+      ],
+      guidesTitle: "Guías oficiales de HHAeXchange",
+      guidesDesc:
+        "Estas son guías propias de HHAeXchange. Las instrucciones telefónicas son una plantilla en blanco: los números de marcado no están impresos en ella. Use los pasos anteriores y llame a la oficina al (972) 325-1598 si necesita su número.",
+      guide1:
+        "Registro de entrada y salida con la app móvil HHAeXchange+ — Base de conocimientos",
+      guide2:
+        "Instrucciones telefónicas EVV de Texas (PDF, ~1.2 MB) — Guía de trabajo",
+      guide3:
+        "Primeros pasos con el dispositivo alternativo (FOB), Texas (PDF, ~950 KB) — Guía de trabajo",
+      guide4:
+        "Video: Registro de entrada y salida con la app móvil HHAeXchange+ (3:36) — Video de capacitación",
     },
-    {
-      label: "Routine incidents",
-      desc: "Submit official logs through standard agency reporting workflows.",
-      action: "Documentation portal",
-      tone: "routine",
-    },
-    {
-      label: "HR & payroll",
-      desc: "Contact the administrative desk during standard operating hours.",
-      action: "Mon–Fri, 9 AM–5 PM",
-      tone: "routine",
-    },
-    {
-      label: "Compliance",
-      desc: "Report ethics, safety, or confidentiality concerns directly.",
-      action: "Compliance officer",
-      tone: "routine",
-    },
+  }[language];
+
+  const guides = [
+    { href: "https://knowledge.hhaexchange.com", label: t.guide1 },
+    { href: "https://hhaxsupport.s3.amazonaws.com", label: t.guide2 },
+    { href: "https://hhaxsupport.s3.amazonaws.com", label: t.guide3 },
+    { href: "https://vimeo.com", label: t.guide4 },
   ];
 
-  const evvSteps = [
-    {
-      icon: Clock,
-      title: "Clock in / out",
-      desc: "Use the official HHAeXchange mobile application or telephony system at the exact location of service delivery.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "EVV reminders",
-      desc: "Keep device GPS services enabled. Confirm visit tasks and applicable service codes before final submission.",
-    },
-    {
-      icon: AlertTriangle,
-      title: "Missed visits",
-      desc: "If a recording error or missed check-in happens, notify administration immediately and submit a manual adjustment ticket.",
-    },
-  ];
-
-  const incidentTypes = [
-    {
-      icon: HeartPulse,
-      title: "Patient incidents",
-      desc: "Report sudden clinical changes, falls, or unexpected adverse events immediately to clinical supervision.",
-    },
-    {
-      icon: Briefcase,
-      title: "Employee injuries",
-      desc: "Report workplace injuries sustained on duty directly to HR and management immediately for proper documentation.",
-    },
-    {
-      icon: ShieldAlert,
-      title: "Safety hazards",
-      desc: "Identify and report environmental risks in client homes or workplaces threatening staff or client well-being.",
-    },
-    {
-      icon: ClipboardList,
-      title: "Missed visits",
-      desc: "Document and report any unfulfilled or missed visits immediately to ensure unbroken continuity of care.",
-    },
-    {
-      icon: Pill,
-      title: "Medication flags",
-      desc: "Report discrepancies, missed doses, or adverse reactions involving medications instantly to clinical leadership.",
-    },
-    {
-      icon: AlertTriangle,
-      title: "Abuse & neglect",
-      desc: "Suspected abuse, exploitation, or neglect must be reported instantly to state authorities and agency compliance.",
-    },
-    {
-      icon: Lock,
-      title: "Privacy & HIPAA",
-      desc: "Report potential privacy breaches, unauthorized disclosures, or data vulnerabilities without delay.",
-    },
-    {
-      icon: Scale,
-      title: "Ethics & billing",
-      desc: "Voice concerns regarding billing precision, regulatory standards, or unethical practices securely.",
-    },
+  const methodNav = [
+    { href: "#method-1", tag: t.method1Tag, label: t.btnMobile },
+    { href: "#method-2", tag: t.method2Tag, label: t.btnFob },
+    { href: "#method-3", tag: t.method3Tag, label: t.btnPhone },
   ];
 
   return (
-    <main className="min-h-screen bg-[#F8F7F4] text-[#3A4657]">
-      {/* ===== Hero ===== */}
-      <section className="relative overflow-hidden bg-[#07162C] text-white">
-        <div className={`${container} relative py-20 lg:py-28`}>
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-7">
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#E4B95A]">
-                <span className="h-2 w-2 rounded-full bg-[#E4B95A]" />
-                {t.badge}
-              </div>
-              <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-                {t.titleMain}{" "}
-                <span className="text-[#E4B95A]">{t.titleHighlight}</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                {t.description}
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <a
-                  href="#handbook"
-                  className={`inline-flex items-center justify-center gap-2 rounded-full bg-[#E4B95A] px-7 py-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878] ${focusRing}`}
-                >
-                  <BookOpen size={16} />
-                  {t.handbookBtn}
-                </a>
-                <a
-                  href="#reporting"
-                  className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 font-semibold text-white transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A] ${focusRing}`}
-                >
-                  <ShieldAlert size={16} />
-                  {t.protocolsBtn}
-                </a>
-              </div>
-            </div>
+    <main className="min-h-screen overflow-x-hidden bg-[#FBF8F2] text-[15px] text-[#3A4657] sm:text-base">
+      {/* ===== Header ===== */}
+      <section className="bg-[#07162C] text-white">
+        <div className={`${container} py-14 sm:py-20`}>
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+            <span aria-hidden className="h-2 w-2 rounded-full bg-[#E4B95A]" />
+            {t.badge}
+          </p>
+          <h1 className="mt-6 max-w-3xl text-balance break-words text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+            {t.title}
+          </h1>
+          <div className="mt-6 h-1 w-16 rounded-full bg-[#E4B95A]" />
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+            {t.subtitle}
+          </p>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-7 sm:p-9 lg:col-span-5">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
-                  Quick status
-                </span>
-                <span className="h-2.5 w-2.5 rounded-full bg-[#E4B95A]" />
-              </div>
-              <div className="divide-y divide-white/10">
-                <div className="flex items-start justify-between gap-6 py-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
-                    {t.officeLabel}
-                  </span>
-                  <span className="text-right text-sm font-semibold text-white">
-                    {t.hqText}
-                  </span>
-                </div>
-                <div className="flex items-start justify-between gap-6 py-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
-                    {t.evvLabel}
-                  </span>
-                  <span className="text-right text-sm font-semibold text-[#E4B95A]">
-                    {t.evvStatus}
-                  </span>
-                </div>
-                <div className="flex items-start justify-between gap-6 py-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
-                    {t.supportLabel}
-                  </span>
-                  <span className="text-right text-sm font-semibold text-white">
-                    {t.supportStatus}
-                  </span>
-                </div>
-              </div>
-              <p className="mt-2 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/55">
-                {t.confidentialNotice}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Escalation Matrix ===== */}
-      <section className="bg-white py-20 lg:py-24">
-        <div className={container}>
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <span className={eyebrow}>{t.matrixCount}</span>
-              <h2 className={sectionTitle}>{t.matrixHeading}</h2>
-            </div>
-          </div>
-
-          <div className="mt-10 space-y-4">
-            {escalationMatrix.map((item, idx) => (
-              <div
-                key={item.label}
-                className="flex flex-col gap-4 rounded-3xl border border-[#E8E4DC] bg-[#FBF9F6] p-5 transition-colors hover:border-[#C89B3C] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-6"
-              >
-                <div className="flex items-start gap-4">
-                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-sm font-semibold text-[#E4B95A]">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <span className="text-lg font-semibold text-[#07162C]">
-                      {item.label}
-                    </span>
-                    <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[#5B6B7C]">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-                <div
-                  className={`w-fit flex-shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold ${
-                    toneStyles[item.tone] ?? toneStyles.routine
-                  }`}
-                >
-                  {item.action}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Handbook ===== */}
-      <section
-        id="handbook"
-        className="scroll-mt-24 bg-[#F8F7F4] py-20 lg:py-28"
-      >
-        <div className={container}>
-          <div className="grid items-stretch gap-8 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
-              <span className={eyebrow}>{t.handbookBadge}</span>
-              <h2 className={sectionTitle}>{t.handbookTitle}</h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-[#5B6B7C]">
-                {t.handbookDesc}
-              </p>
-
-              <div className="mt-8 grid max-w-md grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-[#E8E4DC] bg-white p-5">
-                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-[#C89B3C]">
-                    {t.effDate}
-                  </span>
-                  <span className="mt-1 block font-semibold text-[#07162C]">
-                    {t.effVal}
-                  </span>
-                </div>
-                <div className="rounded-2xl border border-[#E8E4DC] bg-white p-5">
-                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-[#C89B3C]">
-                    {t.statusLabel}
-                  </span>
-                  <span className="mt-1 block font-semibold text-[#07162C]">
-                    {t.statusVal}
-                  </span>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button
-                  onClick={() => alert("Handbook download initialized.")}
-                  className={`inline-flex items-center justify-center rounded-full bg-[#07162C] px-7 py-3.5 font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140] ${focusRing}`}
-                >
-                  {t.downloadPdf}
-                </button>
-                <button
-                  onClick={() =>
-                    alert("Acknowledgment form instructions dispatched via HR.")
-                  }
-                  className={`inline-flex items-center justify-center rounded-full border border-[#07162C] px-7 py-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#07162C] hover:text-[#E4B95A] ${focusRing}`}
-                >
-                  {t.ackInfo}
-                </button>
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-between rounded-3xl bg-[#07162C] p-8 text-white sm:p-10 lg:col-span-5">
-              <div>
-                <span className="inline-block rounded-full bg-[#E4B95A] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[#07162C]">
-                  {t.ackNoticeBadge}
-                </span>
-                <h3 className="mt-5 text-2xl font-semibold leading-snug">
-                  {t.ackNoticeTitle}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/75">
-                  {t.ackNoticeDesc}
-                </p>
-              </div>
-              <p className="mt-8 border-t border-white/10 pt-5 text-xs leading-relaxed text-white/55">
-                {t.directInquiries}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== HR & Payroll ===== */}
-      <section className="bg-white py-20 lg:py-28">
-        <div className={container}>
-          <div className="max-w-3xl">
-            <span className={eyebrow}>{t.hrBadge}</span>
-            <h2 className={sectionTitle}>{t.hrTitle}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#5B6B7C]">
-              {t.hrDesc}
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[
-              {
-                icon: Users,
-                title: t.hrDesk,
-                ext: "972-325-1598 ext. HR",
-                email: "hr@onechh.com",
-              },
-              {
-                icon: Wallet,
-                title: t.payrollDesk,
-                ext: "972-325-1598 ext. Payroll",
-                email: "payroll@onechh.com",
-              },
-            ].map((desk) => (
-              <div
-                key={desk.title}
-                className="rounded-3xl border border-[#E8E4DC] bg-[#FBF9F6] p-8 transition-colors hover:border-[#C89B3C]"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-                  <desk.icon size={20} />
-                </div>
-                <h3 className="mt-5 text-2xl font-semibold text-[#07162C]">
-                  {desk.title}
-                </h3>
-                <div className="mt-6 divide-y divide-[#E8E4DC] border-y border-[#E8E4DC]">
-                  <div className="flex items-center justify-between gap-6 py-3.5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#C89B3C]">
-                      {t.phoneLabel}
-                    </span>
-                    <span className="text-right text-sm font-semibold text-[#07162C]">
-                      {desk.ext}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between gap-6 py-3.5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#C89B3C]">
-                      {t.emailLabel}
-                    </span>
-                    <span className="break-all text-right text-sm font-semibold text-[#07162C]">
-                      {desk.email}
-                    </span>
-                  </div>
-                </div>
-                <div className="mt-5 text-sm text-[#5B6B7C]">
-                  <span className="mr-2 text-xs font-semibold uppercase tracking-wider text-[#C89B3C]">
-                    {t.operatingWindow}
-                  </span>
-                  {t.windowTime}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== EVV ===== */}
-      <section className="bg-[#07162C] py-20 text-white lg:py-28">
-        <div className={container}>
-          <div className="space-y-12">
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center rounded-full bg-[#E4B95A]/15 px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-[#E4B95A]">
-                {t.evvBadge}
-              </span>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                {t.evvTitle}
-              </h2>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-                {t.evvDesc}
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {evvSteps.map((step) => (
-                <div
-                  key={step.title}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-7"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
-                    <step.icon size={18} />
-                  </div>
-                  <h4 className="mt-5 text-lg font-semibold">{step.title}</h4>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-6 rounded-3xl border border-[#E4B95A]/30 bg-[#E4B95A]/5 p-7 sm:p-9 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-2xl">
-                <h4 className="text-xl font-semibold text-[#E4B95A]">
-                  {t.portalTitle}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-white/75">
-                  {t.portalDesc}
-                </p>
-              </div>
+          <nav
+            aria-label={t.badge}
+            className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3"
+          >
+            {methodNav.map((m) => (
               <a
-                href="https://ha.hhaexchange.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex flex-shrink-0 items-center justify-center gap-2 rounded-full bg-[#E4B95A] px-7 py-3.5 font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878] ${focusRing}`}
+                key={m.href}
+                href={m.href}
+                className={`group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-[#E4B95A] hover:bg-[#E4B95A] ${focusGold}`}
               >
-                {t.launchPortal}
-                <ExternalLink size={15} />
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-wider text-[#E4B95A] group-hover:text-[#07162C]">
+                    {m.tag}
+                  </span>
+                  <span className="mt-0.5 block font-semibold text-white group-hover:text-[#07162C]">
+                    {m.label}
+                  </span>
+                </span>
+                <ArrowDown
+                  size={18}
+                  aria-hidden
+                  className="shrink-0 text-[#E4B95A] group-hover:text-[#07162C]"
+                />
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
+            ))}
+          </nav>
 
-      {/* ===== Safety & Reporting ===== */}
-      <section
-        id="reporting"
-        className="scroll-mt-24 bg-[#F8F7F4] py-20 lg:py-28"
-      >
-        <div className={container}>
-          <div className="max-w-3xl">
-            <span className={eyebrow}>{t.safetyBadge}</span>
-            <h2 className={sectionTitle}>{t.safetyTitle}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#5B6B7C]">
-              {t.safetyDesc}
+          <div
+            role="note"
+            className="mt-8 flex items-start gap-3 rounded-2xl bg-[#E4B95A] p-4 text-[#07162C] sm:p-5"
+          >
+            <AlertTriangle size={20} aria-hidden className="mt-0.5 shrink-0" />
+            <p className="min-w-0 break-words text-sm leading-relaxed sm:text-[15px]">
+              {t.urgentBanner}
+              <a
+                href="tel:9723251598"
+                className="whitespace-nowrap font-mono font-bold underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]"
+              >
+                {PHONE}
+              </a>
+              , {t.urgentTime}
             </p>
           </div>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {incidentTypes.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-[#E8E4DC] bg-white p-6 transition-colors hover:border-[#C89B3C]"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-                  <item.icon size={18} />
-                </div>
-                <h4 className="mt-5 text-lg font-semibold text-[#07162C]">
-                  {item.title}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-[#5B6B7C]">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-3xl bg-[#07162C] p-8 text-white sm:p-10">
-            <h3 className="text-2xl font-semibold text-[#E4B95A]">
-              {t.emergencyRefTitle}
-            </h3>
-            <div className="mt-7 grid gap-6 border-t border-white/10 pt-7 md:grid-cols-3 md:gap-8">
-              <div>
-                <strong className="block text-sm font-semibold uppercase tracking-wider text-white">
-                  {t.medEmerg}
-                </strong>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {t.medEmergText}
-                </p>
-              </div>
-              <div>
-                <strong className="block text-sm font-semibold uppercase tracking-wider text-white">
-                  {t.urgentClin}
-                </strong>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {t.urgentClinText}
-                </p>
-              </div>
-              <div>
-                <strong className="block text-sm font-semibold uppercase tracking-wider text-white">
-                  {t.routineMatters}
-                </strong>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {t.routineMattersText}
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      <div className={`${container} space-y-6 py-10 sm:space-y-8 sm:py-14`}>
+        {/* ===== Method 1 ===== */}
+        <Method id="method-1" tag={t.method1Tag} title={t.method1Title}>
+          <div>
+            <H3>{t.m1InTitle}</H3>
+            <Steps items={t.m1InSteps} />
+          </div>
+          <div>
+            <H3>{t.m1OutTitle}</H3>
+            <Steps items={t.m1OutSteps} />
+          </div>
+          <aside className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
+            <h4 className="font-semibold text-[#07162C]">
+              {t.goodToKnowTitle}
+            </h4>
+            <Bullets items={t.goodToKnowItems} />
+          </aside>
+        </Method>
+
+        {/* ===== Method 2 ===== */}
+        <Method id="method-2" tag={t.method2Tag} title={t.method2Title}>
+          <div className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
+            <p className="leading-relaxed">{t.fobDesc}</p>
+            <Bullets items={[t.fobItem1, t.fobItem2]} />
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
+              <h3 className={h3Cls}>{t.fobStartTitle}</h3>
+              <Steps items={t.fobStartSteps} />
+            </div>
+            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
+              <h3 className={h3Cls}>{t.fobEndTitle}</h3>
+              <Steps items={t.fobEndSteps} />
+            </div>
+          </div>
+          <div>
+            <H3>{t.fobSubmitTitle}</H3>
+            <Steps items={t.fobSubmitSteps} />
+          </div>
+        </Method>
+
+        {/* ===== Method 3 ===== */}
+        <Method id="method-3" tag={t.method3Tag} title={t.method3Title}>
+          <p className="leading-relaxed">{t.m3Desc}</p>
+          <div>
+            <H3>{t.m3InTitle}</H3>
+            <Steps items={t.m3InSteps} />
+          </div>
+          <div>
+            <H3>{t.m3OutTitle}</H3>
+            <Steps items={t.m3OutSteps} />
+          </div>
+        </Method>
+
+        {/* ===== Troubleshooting ===== */}
+        <section className="space-y-6 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10">
+          <div>
+            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#07162C] sm:text-3xl">
+              {t.troubleTitle}
+            </h2>
+            <span
+              aria-hidden="true"
+              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
+            />
+          </div>
+          <div className="md:overflow-hidden md:rounded-2xl md:border md:border-[#E8DFC8]">
+            <table className="block w-full border-collapse text-left md:table">
+              <thead className="hidden bg-[#07162C] md:table-header-group">
+                <tr>
+                  <th
+                    scope="col"
+                    className="w-1/3 px-5 py-3.5 text-sm font-semibold text-[#E4B95A]"
+                  >
+                    {t.troubleTh1}
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-5 py-3.5 text-sm font-semibold text-[#E4B95A]"
+                  >
+                    {t.troubleTh2}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="block space-y-3 md:table-row-group md:space-y-0">
+                {t.troubleshootingRows.map((row, i) => (
+                  <tr
+                    key={i}
+                    className="block rounded-2xl border border-[#E8DFC8] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:border-[#E8DFC8] md:p-0 md:last:border-b-0 md:odd:bg-white md:even:bg-[#FBF8F2]"
+                  >
+                    <th
+                      scope="row"
+                      className="mb-1 block break-words text-left font-semibold text-[#07162C] md:mb-0 md:table-cell md:px-5 md:py-4 md:align-top"
+                    >
+                      {row.q}
+                    </th>
+                    <td className="block break-words leading-relaxed md:table-cell md:px-5 md:py-4">
+                      {row.a}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ===== Official guides ===== */}
+        <section className="space-y-6 rounded-3xl bg-[#07162C] p-6 text-white sm:p-10">
+          <div>
+            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#E4B95A] sm:text-3xl">
+              {t.guidesTitle}
+            </h2>
+            <span
+              aria-hidden="true"
+              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
+            />
+          </div>
+          <p className="max-w-2xl leading-relaxed text-white/75">
+            {t.guidesDesc}
+          </p>
+          <ul className="space-y-3">
+            {guides.map((g, i) => (
+              <li key={i}>
+                <a
+                  href={g.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-4 py-3.5 transition-colors hover:border-[#E4B95A] sm:px-5 ${focusGold}`}
+                >
+                  <span className="min-w-0 break-words font-medium text-white">
+                    {g.label}
+                  </span>
+                  <ExternalLink
+                    size={16}
+                    aria-hidden
+                    className="shrink-0 text-[#E4B95A] transition-transform group-hover:translate-x-0.5"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }

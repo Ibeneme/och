@@ -7,7 +7,12 @@ import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
 import JsonLd from "./JsonLd";
 import { buildLocalBusinessJsonLd } from "./local-business";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE, SITE_URL } from "./seo";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+} from "./seo";
 
 const parkinsans = localFont({
   src: [
@@ -109,25 +114,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${parkinsans.variable} h-full antialiased`}
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const stored = localStorage.getItem('preferred_language');
-                if (stored === 'es' || stored === 'en') {
-                  document.documentElement.lang = stored;
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${parkinsans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans overflow-x-hidden">
         <JsonLd data={buildLocalBusinessJsonLd()} />
         <LanguageProvider>

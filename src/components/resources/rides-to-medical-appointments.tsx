@@ -1,52 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Phone,
-  ArrowRight,
-  ShieldCheck,
-  Printer,
-  ExternalLink,
-} from "lucide-react";
+import { Phone, ArrowRight, Printer } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { siteConfig } from "@/src/constants/siteConfig";
 import transportData from "@/src/locales/resources/transportation-data.json";
 
-/* Design tokens: navy + gold. Fonts come from the root CSS; font-mono is used
-   sparingly (last-verified date, phone numbers).
-   navy #07162C  hero, headings, table headers
-   gold #E4B95A  accents on navy
-   gold-deep #C89B3C  rules and markers on white
-   gold-text #8A6A12  gold text on white (AA contrast)
-   gold-tint #FBF6E6  callouts
-   paper #F6F8FC  quiet background
-   line #E6E9F0  borders                                              */
+/* Design tokens: navy + gold, flat (1px borders, no shadows).
+   navy #07162C · navy-2 #0A2140 · gold #E4B95A · gold-d #996515 (small text on light)
+   cream #FBF8F2 · sand #F3ECDC · line #E8DFC8 · body #3A4657 · muted #5B6B7C */
 
 const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
 
-/* Section prose: styles the plain h2/h3/p/ul/ol/a that live directly in a section */
+/* Section card: styles the plain h2/h3/p/ul/ol/a that live directly in a section */
 const sectionCls =
-  "scroll-mt-32 border-t border-[#E6E9F0] pt-10 sm:pt-12 " +
+  "scroll-mt-24 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10 " +
   "[&>h2]:text-balance [&>h2]:break-words [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:leading-tight [&>h2]:tracking-tight [&>h2]:text-[#07162C] sm:[&>h2]:text-3xl " +
-  "[&>h2]:after:mt-3 [&>h2]:after:block [&>h2]:after:h-1 [&>h2]:after:w-10 [&>h2]:after:rounded-full [&>h2]:after:bg-[#E4B95A] [&>h2]:after:content-[''] " +
+  "[&>h2]:after:mt-4 [&>h2]:after:block [&>h2]:after:h-1 [&>h2]:after:w-12 [&>h2]:after:rounded-full [&>h2]:after:bg-[#E4B95A] [&>h2]:after:content-[''] " +
   "[&>h3]:mt-8 [&>h3]:break-words [&>h3]:text-lg [&>h3]:font-semibold [&>h3]:leading-snug [&>h3]:text-[#07162C] sm:[&>h3]:text-xl " +
   "[&>p]:mt-4 [&>p]:break-words [&>p]:leading-relaxed " +
   "[&>ul]:mt-4 [&>ul]:list-disc [&>ul]:space-y-2 [&>ul]:pl-6 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-2 [&>ol]:pl-6 " +
   "[&_li::marker]:text-[#C89B3C] [&_li]:break-words [&_li]:pl-1 [&_li]:leading-relaxed " +
-  "[&_a]:font-medium [&_a]:text-[#07162C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:bg-[#E4B95A]/25";
+  "[&_a]:font-semibold [&_a]:text-[#07162C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:bg-[#E4B95A]/25";
 
 const callout =
-  "mt-6 break-words rounded-xl border-l-4 border-[#E4B95A] bg-[#FBF6E6] p-5 leading-relaxed [&>span]:font-semibold [&>span]:text-[#07162C]";
+  "mt-6 break-words rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 leading-relaxed [&>span]:font-semibold [&>span]:text-[#07162C]";
 
 /* Responsive table: stacked cards on phones, a real table from md up */
 const tblWrap =
-  "mt-6 md:overflow-hidden md:rounded-xl md:border md:border-[#E6E9F0]";
+  "mt-6 md:overflow-hidden md:rounded-2xl md:border md:border-[#E8DFC8]";
 const tbl = "block w-full border-collapse text-left md:table";
 const thead = "hidden bg-[#07162C] md:table-header-group";
-const th = "px-5 py-3 text-sm font-semibold text-white";
+const th = "px-5 py-3.5 text-sm font-semibold text-[#E4B95A]";
 const tbody = "block space-y-3 md:table-row-group md:space-y-0";
 const tr =
-  "block rounded-xl border border-[#E6E9F0] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:p-0 md:last:border-b-0 md:even:bg-[#F6F8FC]";
+  "block rounded-2xl border border-[#E8DFC8] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:p-0 md:last:border-b-0 md:even:bg-[#FBF8F2]";
 const td =
   "block break-words py-1 leading-relaxed md:table-cell md:px-5 md:py-4 md:align-top";
 const tdFirst = `${td} font-semibold text-[#07162C]`;
@@ -59,8 +47,64 @@ export default function RidesResourcePage() {
     window.print();
   };
 
+  const toc = [
+    {
+      id: "start-here",
+      label:
+        lang === "es"
+          ? "Empiece aquí: ¿cuál aplica para usted?"
+          : "Start here: which one applies to you?",
+    },
+    {
+      id: "medicaid-plans",
+      label:
+        lang === "es"
+          ? "Si tiene un plan de salud de Medicaid en Texas"
+          : "If you have a Texas Medicaid health plan",
+    },
+    {
+      id: "mtp",
+      label:
+        lang === "es"
+          ? "Si tiene Medicaid en Texas sin plan de salud"
+          : "If you have Texas Medicaid but no health plan",
+    },
+    {
+      id: "coverage",
+      label:
+        lang === "es"
+          ? "Qué cubre realmente el beneficio de transporte"
+          : "What the Medicaid ride benefit actually covers",
+    },
+    {
+      id: "itp",
+      label:
+        lang === "es"
+          ? "Un familiar o amigo puede recibir pagos por conducir"
+          : "A family member or friend can be paid to drive you",
+    },
+    {
+      id: "scheduling",
+      label:
+        lang === "es"
+          ? "Con cuánta anticipación debe llamar"
+          : "How far ahead do I have to call?",
+    },
+    {
+      id: "veterans",
+      label: lang === "es" ? "Si usted es veterano" : "If you are a veteran",
+    },
+    {
+      id: "other",
+      label:
+        lang === "es"
+          ? "Si ninguno de estos le cubre"
+          : "If none of these cover you",
+    },
+  ];
+
   return (
-    <main className="min-h-screen overflow-x-hidden bg-white text-[15px] text-[#1E2B4A] sm:text-base">
+    <main className="min-h-screen overflow-x-hidden bg-[#FBF8F2] text-[15px] text-[#3A4657] sm:text-base">
       <style jsx global>{`
         @media print {
           header,
@@ -76,6 +120,7 @@ export default function RidesResourcePage() {
           }
           main {
             padding: 0 !important;
+            background: white !important;
           }
           .print-container {
             max-width: 100% !important;
@@ -86,7 +131,7 @@ export default function RidesResourcePage() {
       `}</style>
 
       {/* ===== Hero ===== */}
-      <section className="border-b-4 border-[#E4B95A] bg-[#07162C] text-white print:border-0 print:bg-white print:text-black">
+      <section className="bg-[#07162C] text-white print:bg-white print:text-black">
         <div className={`${container} py-10 sm:py-14`}>
           <div className="no-print flex flex-wrap items-center justify-between gap-3">
             <Link
@@ -99,18 +144,19 @@ export default function RidesResourcePage() {
               onClick={handlePrint}
               className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-[#E4B95A] hover:bg-[#E4B95A] hover:text-[#07162C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]"
             >
-              <Printer size={14} />
+              <Printer size={14} aria-hidden />
               <span>{lang === "es" ? "Imprimir Guía" : "Print Guide"}</span>
             </button>
           </div>
 
-          <div className="mt-8 sm:mt-10">
+          <div className="mt-10 sm:mt-12">
             <h1 className="max-w-3xl text-balance break-words text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl print:text-black">
               {lang === "es"
                 ? "Cómo obtener transporte para citas médicas en Texas"
                 : "How to get a ride to your medical appointments"}
             </h1>
-            <p className="mt-4 font-mono text-sm text-[#E4B95A] print:text-black">
+            <div className="mt-6 h-1 w-16 rounded-full bg-[#E4B95A] print:hidden" />
+            <p className="mt-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 font-mono text-sm text-[#E4B95A] print:border-0 print:p-0 print:text-black">
               {lang === "es" ? "Última verificación:" : "Last verified:"}{" "}
               {transportData.lastVerified}
             </p>
@@ -118,9 +164,9 @@ export default function RidesResourcePage() {
         </div>
       </section>
 
-      <div className={`${container} space-y-10 py-10 sm:space-y-12 sm:py-14`}>
+      <div className={`${container} space-y-6 py-10 sm:space-y-8 sm:py-14`}>
         {/* Disclaimer */}
-        <div className="break-words rounded-xl border-l-4 border-[#E4B95A] bg-[#FBF6E6] p-5 font-medium leading-relaxed text-[#07162C]">
+        <div className="break-words rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-white p-5 font-medium leading-relaxed text-[#07162C] sm:p-6">
           <p>
             {lang === "es"
               ? "One Community Home Health no proporciona transporte. Creamos esta página porque nuestros pacientes nos consultan al respecto todas las semanas. Todo lo indicado a continuación es un programa administrado por terceros. Use los números telefónicos para comunicarse directamente con ellos."
@@ -128,7 +174,7 @@ export default function RidesResourcePage() {
           </p>
         </div>
 
-        <div className="break-words text-lg leading-relaxed sm:text-xl">
+        <div className="break-words px-1 text-lg leading-relaxed text-[#07162C] sm:text-xl">
           <p>
             {lang === "es"
               ? "Perder citas médicas por no poder trasladarse es una de las razones más comunes por las que las personas terminan en el hospital. En Texas, hay más ayuda disponible de la que muchas familias imaginan, y en varios programas, un familiar o amigo puede recibir un pago por conducir."
@@ -137,77 +183,33 @@ export default function RidesResourcePage() {
         </div>
 
         {/* Table of contents */}
-        <div className="no-print rounded-2xl border border-[#E6E9F0] bg-[#F6F8FC] p-5 sm:p-7 [&_a]:block [&_a]:rounded-md [&_a]:px-2 [&_a]:py-1.5 [&_a]:text-[15px] [&_a]:font-medium [&_a]:text-[#07162C] hover:[&_a]:bg-[#E4B95A]/25">
+        <nav
+          aria-label={
+            lang === "es" ? "Contenido de la Guía" : "Table of Contents"
+          }
+          className="no-print rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-8"
+        >
           <h2 className="text-xl font-semibold text-[#07162C]">
             {lang === "es" ? "Contenido de la Guía" : "Table of Contents"}
           </h2>
-          <ul className="mt-4 grid gap-x-8 gap-y-0.5 sm:grid-cols-2">
-            <li>
-              <a href="#start-here">
-                1.{" "}
-                {lang === "es"
-                  ? "Empiece aquí: ¿cuál aplica para usted?"
-                  : "Start here: which one applies to you?"}
-              </a>
-            </li>
-            <li>
-              <a href="#medicaid-plans">
-                2.{" "}
-                {lang === "es"
-                  ? "Si tiene un plan de salud de Medicaid en Texas"
-                  : "If you have a Texas Medicaid health plan"}
-              </a>
-            </li>
-            <li>
-              <a href="#mtp">
-                3.{" "}
-                {lang === "es"
-                  ? "Si tiene Medicaid en Texas sin plan de salud"
-                  : "If you have Texas Medicaid but no health plan"}
-              </a>
-            </li>
-            <li>
-              <a href="#coverage">
-                4.{" "}
-                {lang === "es"
-                  ? "Qué cubre realmente el beneficio de transporte"
-                  : "What the Medicaid ride benefit actually covers"}
-              </a>
-            </li>
-            <li>
-              <a href="#itp">
-                5.{" "}
-                {lang === "es"
-                  ? "Un familiar o amigo puede recibir pagos por conducir"
-                  : "A family member or friend can be paid to drive you"}
-              </a>
-            </li>
-            <li>
-              <a href="#scheduling">
-                6.{" "}
-                {lang === "es"
-                  ? "Con cuánta anticipación debe llamar"
-                  : "How far ahead do I have to call?"}
-              </a>
-            </li>
-            <li>
-              <a href="#veterans">
-                7.{" "}
-                {lang === "es"
-                  ? "Si usted es veterano"
-                  : "If you are a veteran"}
-              </a>
-            </li>
-            <li>
-              <a href="#other">
-                8.{" "}
-                {lang === "es"
-                  ? "Si ninguno de estos le cubre"
-                  : "If none of these cover you"}
-              </a>
-            </li>
-          </ul>
-        </div>
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+            {toc.map((item, i) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className="group flex h-full items-start gap-3 rounded-2xl border border-[#E8DFC8] bg-[#FBF8F2] p-4 text-[15px] font-semibold leading-snug text-[#07162C] transition-colors hover:border-[#C89B3C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-xs font-semibold text-[#E4B95A]">
+                    {i + 1}
+                  </span>
+                  <span className="min-w-0 break-words pt-0.5">
+                    {item.label}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
 
         <section id="start-here" className={sectionCls}>
           <h2>
@@ -284,7 +286,7 @@ export default function RidesResourcePage() {
           </div>
           <p>
             {lang === "es"
-              ? "Si no está seguro de cuál tiene, mire el frente de su tarjeta de seguro. Si aparece el nombre y logotipo de un plan de salud (Superior, Molina, Wellpoint, UnitedHealthcare, Aetna), usted está en atenciónmanaged care y debe llamar al plan."
+              ? "Si no está seguro de cuál tiene, mire el frente de su tarjeta de seguro. Si aparece el nombre y logotipo de un plan de salud (Superior, Molina, Wellpoint, UnitedHealthcare, Aetna), usted está en atención administrada (managed care) y debe llamar al plan."
               : "If you are not sure which you have, look at the front of your insurance card. If there is a health plan's name and logo on it — Superior, Molina, Wellpoint, UnitedHealthcare, Aetna — you are in managed care and you call the plan."}
           </p>
         </section>
@@ -341,7 +343,7 @@ export default function RidesResourcePage() {
               {transportData.plans.map((plan) => (
                 <div
                   key={plan.id}
-                  className="rounded-xl border border-[#E6E9F0] p-4"
+                  className="rounded-2xl border border-[#E8DFC8] bg-[#FBF8F2] p-4"
                 >
                   <div className="break-words font-semibold text-[#07162C]">
                     {plan.name}
@@ -744,8 +746,8 @@ export default function RidesResourcePage() {
         </section>
 
         {/* Call to action */}
-        <div className="no-print rounded-2xl bg-[#07162C] p-6 text-white sm:p-10">
-          <h3 className="text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-white sm:text-3xl">
+        <div className="no-print rounded-3xl bg-[#07162C] p-7 text-white sm:p-10">
+          <h3 className="text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-[#E4B95A] sm:text-3xl">
             {lang === "es"
               ? "Podemos ayudarle a resolver esto"
               : "We can help you sort this out"}
@@ -755,13 +757,15 @@ export default function RidesResourcePage() {
               ? "Si usted es paciente de One Community o está pensando en serlo, nuestra oficina puede ayudarle a averiguar cuál de estas opciones aplica y qué solicitar. No conducimos pacientes, pero hacemos estas llamadas con las familias todo el tiempo."
               : "If you are a One Community patient, or thinking about becoming one, our office can help you figure out which of these applies and what to ask for. We do not drive patients — but we make these calls with families all the time."}
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={`tel:${siteConfig.contact.phoneTel}`}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E4B95A] px-6 py-3.5 text-center text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#F0CB78] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A] sm:w-auto"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#E4B95A] px-6 py-3.5 text-center text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A] sm:w-auto"
             >
-              <Phone size={16} className="shrink-0" />
-              <span>Call {siteConfig.contact.phone}</span>
+              <Phone size={16} aria-hidden className="shrink-0" />
+              <span>
+                {lang === "es" ? "Llamar" : "Call"} {siteConfig.contact.phone}
+              </span>
             </a>
             <Link
               href="/contact"
@@ -770,7 +774,7 @@ export default function RidesResourcePage() {
               <span>
                 {lang === "es" ? "Solicitar atención" : "Request care"}
               </span>
-              <ArrowRight size={16} className="shrink-0" />
+              <ArrowRight size={16} aria-hidden className="shrink-0" />
             </Link>
           </div>
         </div>

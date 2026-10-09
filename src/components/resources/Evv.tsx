@@ -1,26 +1,30 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { ExternalLink, AlertTriangle } from "lucide-react";
+import { ExternalLink, AlertTriangle, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { siteConfig } from "@/src/constants/siteConfig";
+
+/* Design tokens: navy + gold, flat (1px borders, no shadows).
+   navy #07162C · navy-2 #0A2140 · gold #E4B95A · gold-d #996515 (small text on light)
+   cream #FBF8F2 · sand #F3ECDC · line #E8DFC8 · body #3A4657 · muted #5B6B7C */
 
 const PHONE = siteConfig.contact.phone;
 
 const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
 const h3Cls =
   "text-lg font-semibold leading-snug tracking-tight text-[#07162C] sm:text-xl";
-const focus =
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C89B3C]";
+const focusGold =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
 
 const Steps = ({ items }: { items: string[] }) => (
-  <ol className="mt-4 space-y-3.5 [counter-reset:step]">
+  <ol className="mt-5 space-y-4">
     {items.map((s, i) => (
-      <li
-        key={i}
-        className="relative min-w-0 break-words pl-10 leading-relaxed [counter-increment:step] before:absolute before:left-0 before:top-0.5 before:flex before:h-6 before:w-6 before:items-center before:justify-center before:rounded-full before:bg-[#07162C] before:font-mono before:text-xs before:font-medium before:text-[#E4B95A] before:content-[counter(step)]"
-      >
-        {s}
+      <li key={i} className="flex min-w-0 items-start gap-4">
+        <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#07162C] font-mono text-xs font-semibold text-[#E4B95A]">
+          {i + 1}
+        </span>
+        <span className="min-w-0 break-words leading-relaxed">{s}</span>
       </li>
     ))}
   </ol>
@@ -49,13 +53,13 @@ const Method = ({
 }) => (
   <section
     id={id}
-    className="scroll-mt-32 space-y-8 rounded-3xl border border-[#E8E4DC] bg-white p-6 sm:p-8"
+    className="scroll-mt-24 space-y-8 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10"
   >
-    <header>
-      <p className="inline-flex items-center rounded-full bg-[#F3ECDC] px-3 py-1 font-mono text-xs font-semibold text-[#8A6A12]">
+    <header className="border-b border-[#E8DFC8] pb-6">
+      <p className="inline-flex items-center rounded-full bg-[#07162C] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
         {tag}
       </p>
-      <h2 className="mt-3 text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-[#07162C] sm:text-3xl">
+      <h2 className="mt-4 text-balance break-words text-2xl font-semibold leading-tight tracking-tight text-[#07162C] sm:text-3xl">
         {title}
       </h2>
     </header>
@@ -315,36 +319,52 @@ export default function EmployeeEVVHelpPage() {
     { href: "https://vimeo.com", label: t.guide4 },
   ];
 
+  const methodNav = [
+    { href: "#method-1", tag: t.method1Tag, label: t.btnMobile },
+    { href: "#method-2", tag: t.method2Tag, label: t.btnFob },
+    { href: "#method-3", tag: t.method3Tag, label: t.btnPhone },
+  ];
+
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#F8F7F4] text-[15px] text-[#1E2B4A] sm:text-base">
+    <main className="min-h-screen overflow-x-hidden bg-[#FBF8F2] text-[15px] text-[#3A4657] sm:text-base">
       {/* ===== Header ===== */}
       <section className="bg-[#07162C] text-white">
-        <div className={`${container} py-12 sm:py-16 lg:py-20`}>
-          <p className="inline-flex rounded-full border border-[#E4B95A]/40 px-3 py-1 font-mono text-xs font-semibold text-[#E4B95A]">
+        <div className={`${container} py-14 sm:py-20`}>
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-[#E4B95A]">
+            <span aria-hidden className="h-2 w-2 rounded-full bg-[#E4B95A]" />
             {t.badge}
           </p>
-          <h1 className="mt-5 max-w-3xl text-balance break-words text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-6 max-w-3xl text-balance break-words text-3xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
             {t.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/75 sm:mt-5 sm:text-lg">
+          <div className="mt-6 h-1 w-16 rounded-full bg-[#E4B95A]" />
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
             {t.subtitle}
           </p>
 
           <nav
             aria-label={t.badge}
-            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3"
+            className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-3"
           >
-            {[
-              ["#method-1", t.btnMobile],
-              ["#method-2", t.btnFob],
-              ["#method-3", t.btnPhone],
-            ].map(([href, label]) => (
+            {methodNav.map((m) => (
               <a
-                key={href}
-                href={href}
-                className="rounded-full border border-white/25 px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:border-[#E4B95A] hover:bg-[#E4B95A] hover:text-[#07162C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]"
+                key={m.href}
+                href={m.href}
+                className={`group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 transition-colors hover:border-[#E4B95A] hover:bg-[#E4B95A] ${focusGold}`}
               >
-                {label}
+                <span>
+                  <span className="block text-[11px] font-bold uppercase tracking-wider text-[#E4B95A] group-hover:text-[#07162C]">
+                    {m.tag}
+                  </span>
+                  <span className="mt-0.5 block font-semibold text-white group-hover:text-[#07162C]">
+                    {m.label}
+                  </span>
+                </span>
+                <ArrowDown
+                  size={18}
+                  aria-hidden
+                  className="shrink-0 text-[#E4B95A] group-hover:text-[#07162C]"
+                />
               </a>
             ))}
           </nav>
@@ -358,7 +378,7 @@ export default function EmployeeEVVHelpPage() {
               {t.urgentBanner}
               <a
                 href="tel:9723251598"
-                className="whitespace-nowrap font-mono font-semibold underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]"
+                className="whitespace-nowrap font-mono font-bold underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]"
               >
                 {PHONE}
               </a>
@@ -379,7 +399,7 @@ export default function EmployeeEVVHelpPage() {
             <H3>{t.m1OutTitle}</H3>
             <Steps items={t.m1OutSteps} />
           </div>
-          <aside className="rounded-2xl border border-[#E8E4DC] bg-[#FBF6E6] p-5">
+          <aside className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
             <h4 className="font-semibold text-[#07162C]">
               {t.goodToKnowTitle}
             </h4>
@@ -389,16 +409,16 @@ export default function EmployeeEVVHelpPage() {
 
         {/* ===== Method 2 ===== */}
         <Method id="method-2" tag={t.method2Tag} title={t.method2Title}>
-          <div className="rounded-2xl border border-[#E8E4DC] bg-[#FBF6E6] p-5">
+          <div className="rounded-2xl border border-[#E8DFC8] border-l-[6px] border-l-[#E4B95A] bg-[#FBF8F2] p-5 sm:p-6">
             <p className="leading-relaxed">{t.fobDesc}</p>
             <Bullets items={[t.fobItem1, t.fobItem2]} />
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <div className="min-w-0 rounded-2xl bg-[#F6F8FC] p-5">
+            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
               <h3 className={h3Cls}>{t.fobStartTitle}</h3>
               <Steps items={t.fobStartSteps} />
             </div>
-            <div className="min-w-0 rounded-2xl bg-[#F6F8FC] p-5">
+            <div className="min-w-0 rounded-2xl bg-[#F3ECDC] p-5 sm:p-6">
               <h3 className={h3Cls}>{t.fobEndTitle}</h3>
               <Steps items={t.fobEndSteps} />
             </div>
@@ -423,29 +443,29 @@ export default function EmployeeEVVHelpPage() {
         </Method>
 
         {/* ===== Troubleshooting ===== */}
-        <section className="space-y-5 rounded-3xl border border-[#E8E4DC] bg-white p-6 sm:p-8">
+        <section className="space-y-6 rounded-3xl border border-[#E8DFC8] bg-white p-6 sm:p-10">
           <div>
             <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#07162C] sm:text-3xl">
               {t.troubleTitle}
             </h2>
             <span
               aria-hidden="true"
-              className="mt-3 block h-1 w-10 rounded-full bg-[#E4B95A]"
+              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
             />
           </div>
-          <div className="md:overflow-hidden md:rounded-2xl md:border md:border-[#E8E4DC]">
+          <div className="md:overflow-hidden md:rounded-2xl md:border md:border-[#E8DFC8]">
             <table className="block w-full border-collapse text-left md:table">
               <thead className="hidden bg-[#07162C] md:table-header-group">
                 <tr>
                   <th
                     scope="col"
-                    className="w-1/3 px-5 py-3 text-sm font-semibold text-white"
+                    className="w-1/3 px-5 py-3.5 text-sm font-semibold text-[#E4B95A]"
                   >
                     {t.troubleTh1}
                   </th>
                   <th
                     scope="col"
-                    className="px-5 py-3 text-sm font-semibold text-white"
+                    className="px-5 py-3.5 text-sm font-semibold text-[#E4B95A]"
                   >
                     {t.troubleTh2}
                   </th>
@@ -455,7 +475,7 @@ export default function EmployeeEVVHelpPage() {
                 {t.troubleshootingRows.map((row, i) => (
                   <tr
                     key={i}
-                    className="block rounded-2xl border border-[#E8E4DC] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:border-[#E8E4DC] md:p-0 md:last:border-b-0 md:odd:bg-white md:even:bg-[#FBF9F6]"
+                    className="block rounded-2xl border border-[#E8DFC8] p-4 md:table-row md:rounded-none md:border-0 md:border-b md:border-[#E8DFC8] md:p-0 md:last:border-b-0 md:odd:bg-white md:even:bg-[#FBF8F2]"
                   >
                     <th
                       scope="row"
@@ -474,17 +494,17 @@ export default function EmployeeEVVHelpPage() {
         </section>
 
         {/* ===== Official guides ===== */}
-        <section className="space-y-5 rounded-3xl border border-[#E8E4DC] bg-white p-6 sm:p-8">
+        <section className="space-y-6 rounded-3xl bg-[#07162C] p-6 text-white sm:p-10">
           <div>
-            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#07162C] sm:text-3xl">
+            <h2 className="text-balance text-2xl font-semibold tracking-tight text-[#E4B95A] sm:text-3xl">
               {t.guidesTitle}
             </h2>
             <span
               aria-hidden="true"
-              className="mt-3 block h-1 w-10 rounded-full bg-[#E4B95A]"
+              className="mt-3 block h-1 w-12 rounded-full bg-[#E4B95A]"
             />
           </div>
-          <p className="max-w-2xl leading-relaxed text-[#1E2B4A]/80">
+          <p className="max-w-2xl leading-relaxed text-white/75">
             {t.guidesDesc}
           </p>
           <ul className="space-y-3">
@@ -494,15 +514,15 @@ export default function EmployeeEVVHelpPage() {
                   href={g.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex items-center justify-between gap-4 rounded-2xl border border-[#E8E4DC] px-4 py-3.5 transition-colors hover:border-[#C89B3C] hover:bg-[#FBF6E6] sm:px-5 ${focus}`}
+                  className={`group flex items-center justify-between gap-4 rounded-2xl border border-white/15 bg-white/5 px-4 py-3.5 transition-colors hover:border-[#E4B95A] sm:px-5 ${focusGold}`}
                 >
-                  <span className="min-w-0 break-words font-medium text-[#07162C]">
+                  <span className="min-w-0 break-words font-medium text-white">
                     {g.label}
                   </span>
                   <ExternalLink
                     size={16}
                     aria-hidden
-                    className="shrink-0 text-[#8A6A12] transition-transform group-hover:translate-x-0.5"
+                    className="shrink-0 text-[#E4B95A] transition-transform group-hover:translate-x-0.5"
                   />
                 </a>
               </li>

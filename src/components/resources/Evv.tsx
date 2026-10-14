@@ -14,7 +14,6 @@ const PHONE = siteConfig.contact.phone;
 const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
 const heading =
   "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
-const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
 const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";
 const focusGold =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
@@ -336,10 +335,22 @@ export default function EmployeeEVVHelpPage() {
   }[language];
 
   const guides = [
-    { href: "https://knowledge.hhaexchange.com", label: t.guide1 },
-    { href: "https://hhaxsupport.s3.amazonaws.com", label: t.guide2 },
-    { href: "https://hhaxsupport.s3.amazonaws.com", label: t.guide3 },
-    { href: "https://vimeo.com", label: t.guide4 },
+    {
+      href: "https://knowledge.hhaexchange.com/enterprise/Content/Documentation/Mobile/Mobi-N-Clock-In-Out-S.htm",
+      label: t.guide1,
+    },
+    {
+      href: "https://hhaxsupport.s3.amazonaws.com/SupportDocs/PROE%20Docs/Job%20Aids/Provider%20Job%20Aid%20-%20EVV%20Phone%20Instructions%20TX.pdf",
+      label: t.guide2,
+    },
+    {
+      href: "https://hhaxsupport.s3.amazonaws.com/SupportDocs/PROE%20Docs/Job%20Aids/Getting%20Started_Alt_Device_TX_Caregiver.pdf",
+      label: t.guide3,
+    },
+    {
+      href: "https://vimeo.com/1157356485",
+      label: t.guide4,
+    },
   ];
 
   const methodNav = [

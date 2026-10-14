@@ -1,6 +1,7 @@
 import React from "react";
-import ContactPage from "@/src/components/Contact/ContactPage";
+//import ContactPage from "@/src/components/Contact/ContactPage";
 import { buildMetadata } from "@/app/seo";
+import RequestCarePage from "@/src/components/request-care/page";
 
 export const metadata = buildMetadata({
   title: "Contact Us",
@@ -12,7 +13,8 @@ export const metadata = buildMetadata({
 const page = () => {
   return (
     <div>
-      <ContactPage />
+        <RequestCarePage />
+      {/* <ContactPage /> */}
     </div>
   );
 };

@@ -1,26 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import type { FormEvent, ReactNode } from "react";
-import { Mail, Printer, Phone, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useEffect } from "react";
+import { Mail, Printer, Phone } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/referrals.json";
 import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Restyled to match Request Care layout:
+/* Restyled to match Request Care layout with enhanced form presentation:
    soft gray page #F4F4F2, pill labels with a number chip, large light headings,
-   rounded bento cards, flat style with 1px borders. */
+   rounded bento cards, flat style with 1px borders, and a well-framed form container. */
 
-const FOCUS =
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#07162C]";
 const FOCUS_GOLD =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
 const HEADING =
   "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
 const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
-const input =
-  "w-full rounded-xl border border-[#07162C]/20 bg-[#F4F4F2] px-4 py-3 text-base text-[#07162C] outline-none placeholder:text-[#07162C]/45 focus:border-[#07162C] focus:outline focus:outline-2 focus:outline-offset-0 focus:outline-[#E4B95A]";
 
 function Pill({ n, label }: { n?: string | number; label: string }) {
   return (
@@ -43,102 +38,52 @@ function Pill({ n, label }: { n?: string | number; label: string }) {
   );
 }
 
-function Field({
-  id,
-  label,
-  required,
-  children,
-}: {
-  id: string;
-  label: string;
-  required?: boolean;
-  children: ReactNode;
-}) {
-  return (
-    <div className="space-y-1.5">
-      <label
-        htmlFor={id}
-        className="block text-sm font-semibold text-[#07162C]"
-      >
-        {label}
-        {required && (
-          <span className="text-[#996515]" aria-hidden>
-            {" "}
-            *
-          </span>
-        )}
-      </label>
-      {children}
-    </div>
-  );
-}
-
-function SectionHeading({
-  number,
-  children,
-}: {
-  number: number;
-  children: ReactNode;
-}) {
-  return (
-    <div className="flex items-center gap-3">
-      <Pill n={String(number).padStart(2, "0")} label={String(children)} />
-      <span aria-hidden className="h-px flex-1 bg-[#07162C]/10" />
-    </div>
-  );
-}
-
 export default function ReferralsPage() {
   const { language } = useLanguage();
   const t = content[language as "en" | "es"] || content.en;
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  // Load Jotform embed script dynamically & track submissions via analytics event listener
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-  const [formData, setFormData] = useState({
-    patient_name: "",
-    phone: "",
-    email: "",
-    insurance_type: "",
-    notes: "",
-  });
+    script.onload = () => {
+      if ((window as any).jotformEmbedHandler) {
+        (window as any).jotformEmbedHandler(
+          "iframe[id='JotFormIFrame-262856103710149']",
+          "https://form.jotform.com/"
+        );
+      }
+    };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+    // Listen for Jotform submission events to trigger privacy-safe analytics counts
+    const handleMessage = (event: MessageEvent) => {
+      if (
+        event.origin.includes("jotform.com") &&
+        typeof event.data === "string" &&
+        event.data.includes("action=submissionCompleted")
+      ) {
+        // Privacy-safe analytics event (no form answers transmitted)
+        if (typeof window !== "undefined" && (window as any).gtag) {
+          (window as any).gtag("event", "referral_form_submitted", {
+            event_category: "Conversion",
+            non_interaction: false,
+          });
+        }
+      }
+    };
 
-    try {
-      const payload = {
-        ...formData,
-        submitted_at: new Date().toISOString(),
-        source_page: window.location.pathname,
-      };
+    window.addEventListener("message", handleMessage);
 
-      const endpoint =
-        process.env.NEXT_PUBLIC_REFERRAL_WEBHOOK_URL || "/api/referrals";
-
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) throw new Error("Submission failed");
-      setSubmitted(true);
-    } catch {
-      setError(
-        language === "es"
-          ? "Hubo un error al enviar su referencia. Por favor llame al (972) 848-9174."
-          : "There was an error submitting your referral. Please call us at (972) 848-9174."
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const link = `rounded-sm font-semibold text-[#07162C] underline decoration-[#E4B95A] decoration-2 underline-offset-4 ${FOCUS}`;
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#F4F4F2] text-base leading-relaxed text-[#07162C]/80">
@@ -179,7 +124,7 @@ export default function ReferralsPage() {
                 </p>
                 <a
                   href="mailto:intake@onechh.com"
-                  className={`mt-4 inline-block text-sm font-semibold text-[#996515] underline underline-offset-4 ${FOCUS}`}
+                  className="mt-4 inline-block text-sm font-semibold text-[#996515] underline underline-offset-4"
                 >
                   intake@onechh.com &rarr;
                 </a>
@@ -281,126 +226,37 @@ export default function ReferralsPage() {
         </div>
       </section>
 
-      {/* ===== Online Referral Form Component ===== */}
-      <section id="referral-form" className="px-4 pb-16 pt-4 sm:px-6 lg:pb-24">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10">
+      {/* ===== HIPAA Jotform Embed Section (Enhanced Presentation) ===== */}
+      <section id="referral-form" className="px-4 pb-20 pt-4 sm:px-6 lg:pb-32">
+        <div className="mx-auto max-w-4xl rounded-3xl border border-[#07162C]/15 bg-white p-6 shadow-xl sm:p-10 lg:p-12">
           <div className="mb-8 text-center">
             <Pill n="02" label="Online Submission" />
-            <h2 className={`${HEADING} mt-4 text-3xl sm:text-4xl`}>
+            <h2 className={`${HEADING} mt-4 text-3xl sm:text-4xl lg:text-5xl`}>
               {t.formTitle}
             </h2>
-            <p className="mt-2 text-sm text-[#07162C]/70">{t.formSubtitle}</p>
+            <p className="mx-auto mt-3 max-w-xl text-base text-[#07162C]/70">
+              {t.formSubtitle}
+            </p>
           </div>
 
-          {submitted ? (
-            <div role="status" className="space-y-4 py-8 text-center">
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
-                <CheckCircle2 size={28} aria-hidden />
-              </span>
-              <h2 className={`${HEADING} text-3xl`}>Referral Received</h2>
-              <p className="mx-auto max-w-md text-sm text-[#07162C]/70">
-                Thank you. Our intake team will review the information and
-                contact the patient and referring office promptly.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
-              {error && (
-                <div
-                  role="alert"
-                  className="rounded-2xl border border-[#B91C1C] bg-[#FEF2F2] p-4 text-sm font-medium text-[#991B1B]"
-                >
-                  {error}
-                </div>
-              )}
-
-              <Field id="patient_name" label="Patient Full Name" required>
-                <input
-                  id="patient_name"
-                  type="text"
-                  required
-                  placeholder="e.g. Jane Doe"
-                  value={formData.patient_name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, patient_name: e.target.value })
-                  }
-                  className={input}
-                />
-              </Field>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field id="phone" label="Contact Phone" required>
-                  <input
-                    id="phone"
-                    type="tel"
-                    required
-                    placeholder="e.g. (972) 555-0199"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className={input}
-                  />
-                </Field>
-                <Field id="email" label="Contact Email">
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    placeholder="e.g. coordinator@clinic.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className={input}
-                  />
-                </Field>
-              </div>
-
-              <Field id="insurance_type" label="Insurance / Program">
-                <input
-                  id="insurance_type"
-                  type="text"
-                  placeholder="e.g. Medicare, Texas Medicaid, STAR+PLUS"
-                  value={formData.insurance_type}
-                  onChange={(e) =>
-                    setFormData({ ...formData, insurance_type: e.target.value })
-                  }
-                  className={input}
-                />
-              </Field>
-
-              <Field id="notes" label="Additional Referral Notes">
-                <textarea
-                  id="notes"
-                  rows={3}
-                  placeholder="Include basic service notes or requested disciplines..."
-                  value={formData.notes}
-                  onChange={(e) =>
-                    setFormData({ ...formData, notes: e.target.value })
-                  }
-                  className={input}
-                />
-              </Field>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] py-4 text-base font-semibold text-[#E4B95A] disabled:cursor-not-allowed disabled:opacity-60 ${FOCUS}`}
-              >
-                {loading ? "Submitting..." : "Submit Patient Referral"}
-                <ArrowRight size={18} aria-hidden />
-              </button>
-
-              <p className="border-t border-[#07162C]/10 pt-6 text-center text-sm leading-relaxed text-[#07162C]/70">
-                Please fax formal orders and secure documentation directly to{" "}
-                <span className="font-semibold text-[#07162C]">
-                  {siteConfig.contact.fax}
-                </span>
-                .
-              </p>
-            </form>
-          )}
+          <div className="overflow-hidden rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-2 sm:p-4">
+            <iframe
+              id="JotFormIFrame-262856103710149"
+              title="Refer a Patient"
+              onLoad={() => window.parent.scrollTo(0, 0)}
+              allowtransparency="true"
+              allow="geolocation; microphone; camera; fullscreen; payment"
+              src="https://form.jotform.com/262856103710149?source_page=/referrals"
+              frameBorder="0"
+              style={{
+                minWidth: "100%",
+                maxWidth: "100%",
+                height: "690px",
+                border: "none",
+              }}
+              scrolling="no"
+            />
+          </div>
         </div>
       </section>
     </main>

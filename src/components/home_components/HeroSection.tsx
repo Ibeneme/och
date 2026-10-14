@@ -54,7 +54,7 @@ export default function HeroSection() {
         v.muted = true;
         await v.play();
       } catch {
-        // autoplay blocked – fine, poster/fallback already visible
+        // autoplay blocked – poster background is already visible
       }
     };
 
@@ -87,32 +87,36 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full h-[100dvh] min-h-[700px] overflow-hidden flex items-center bg-[#051122]"
-      // Explicit solid fallback so the area is never a blank gray box
+      className="relative w-full min-h-screen min-h-[80dvh] overflow-hidden flex items-center bg-[#051122] py-28 sm:py-32"
       style={{ backgroundColor: "#051122" }}
     >
-      {/* Poster + video. Poster is the real first-paint asset. */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        poster="/assets/hero-poster.jpg" // ← real static asset
-        disablePictureInPicture
-        disableRemotePlayback
-        className="absolute inset-0 w-full h-full object-cover"
-        // @ts-ignore
-        webkit-playsinline="true"
+      {/* Background layer: stretches to the FULL height of the section */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/hero-poster.jpg')" }}
       >
-        <source src="/assets/hero.mp4" type="video/mp4" />
-      </video>
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster="/assets/hero-poster.jpg"
+          disablePictureInPicture
+          disableRemotePlayback
+          className="absolute inset-0 w-full h-full min-h-full object-cover"
+          // @ts-ignore
+          webkit-playsinline="true"
+        >
+          <source src="/assets/hero.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-      {/* Dark overlay – always present */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40 z-[1]" />
 
-      {/* Content is NEVER opacity-0 / never behind a reveal */}
+      {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
         <div className="max-w-5xl text-white">
           <div className="inline-flex mb-6">

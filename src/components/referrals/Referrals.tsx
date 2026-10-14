@@ -6,9 +6,9 @@ import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/referrals.json";
 import { siteConfig } from "@/src/constants/siteConfig";
 
-/* Restyled to match Request Care layout with enhanced form presentation:
+/* Restyled to match Request Care layout:
    soft gray page #F4F4F2, pill labels with a number chip, large light headings,
-   rounded bento cards, flat style with 1px borders, and a well-framed form container. */
+   rounded bento cards, flat style with 1px borders. */
 
 const FOCUS_GOLD =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E4B95A]";
@@ -16,6 +16,7 @@ const HEADING =
   "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
 const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const card = "rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5]";
+const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";
 
 function Pill({ n, label }: { n?: string | number; label: string }) {
   return (
@@ -226,37 +227,33 @@ export default function ReferralsPage() {
         </div>
       </section>
 
-      {/* ===== HIPAA Jotform Embed Section (Enhanced Presentation) ===== */}
-      <section id="referral-form" className="px-4 pb-20 pt-4 sm:px-6 lg:pb-32">
-        <div className="mx-auto max-w-4xl rounded-3xl border border-[#07162C]/15 bg-white p-6 shadow-xl sm:p-10 lg:p-12">
+      {/* ===== HIPAA Jotform Embed Section ===== */}
+      <section id="referral-form" className="px-4 pb-16 pt-4 sm:px-6 lg:pb-24">
+        <div className={`mx-auto max-w-3xl ${cardWhite}`}>
           <div className="mb-8 text-center">
             <Pill n="02" label="Online Submission" />
-            <h2 className={`${HEADING} mt-4 text-3xl sm:text-4xl lg:text-5xl`}>
+            <h2 className={`${HEADING} mt-4 text-3xl sm:text-4xl`}>
               {t.formTitle}
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-base text-[#07162C]/70">
-              {t.formSubtitle}
-            </p>
+            <p className="mt-2 text-sm text-[#07162C]/70">{t.formSubtitle}</p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-2 sm:p-4">
-            <iframe
-              id="JotFormIFrame-262856103710149"
-              title="Refer a Patient"
-              onLoad={() => window.parent.scrollTo(0, 0)}
-              allowtransparency="true"
-              allow="geolocation; microphone; camera; fullscreen; payment"
-              src="https://form.jotform.com/262856103710149?source_page=/referrals"
-              frameBorder="0"
-              style={{
-                minWidth: "100%",
-                maxWidth: "100%",
-                height: "690px",
-                border: "none",
-              }}
-              scrolling="no"
-            />
-          </div>
+          <iframe
+            id="JotFormIFrame-262856103710149"
+            title="Refer a Patient"
+            onLoad={() => window.parent.scrollTo(0, 0)}
+            allowTransparency={true}
+            allow="geolocation; microphone; camera; fullscreen; payment"
+            src="https://form.jotform.com/262856103710149?source_page=/referrals"
+            frameBorder="0"
+            style={{
+              minWidth: "100%",
+              maxWidth: "100%",
+              height: "690px",
+              border: "none",
+            }}
+            scrolling="no"
+          />
         </div>
       </section>
     </main>

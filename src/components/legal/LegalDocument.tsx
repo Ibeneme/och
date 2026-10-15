@@ -196,15 +196,20 @@ export const Example = ({
 export const ExtLink = ({
   href,
   children,
+  className,
 }: {
   href: string;
   children: ReactNode;
+  className?: string;
 }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={`rounded-sm font-semibold text-[#07162C] underline decoration-[#996515] decoration-2 underline-offset-[3px] transition-colors hover:text-[#996515] print:no-underline ${focusRing}`}
+    className={
+      className ||
+      `rounded-sm font-semibold text-[#07162C] underline decoration-[#996515] decoration-2 underline-offset-[3px] transition-colors hover:text-[#996515] print:no-underline ${focusRing}`
+    }
   >
     {children}
   </a>

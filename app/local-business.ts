@@ -1,4 +1,7 @@
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./seo";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, absoluteUrl } from "./seo";
+import { siteConfig } from "@/src/constants/siteConfig";
+import { COUNTIES } from "@/src/constants/serviceArea";
+import { localizePath, type Locale } from "@/src/i18n/config";
 
 /**
  * Single source of truth for LocalBusiness structured data (B14).
@@ -8,26 +11,28 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./seo";
 export const BUSINESS = {
   legalName: "JACOP Healthcare Services, Inc.",
   dba: SITE_NAME,
-  telephone: "", // TODO E.164, e.g. "+1-555-555-5555"
-  faxNumber: "", // TODO
+  // Pulled from src/constants/siteConfig.ts so there is one place to edit.
+  telephone: `+1-${siteConfig.contact.phoneTel.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}`,
+  faxNumber: `+1-${siteConfig.contact.fax}`,
+  email: siteConfig.contact.email,
   address: {
-    streetAddress: "", // TODO
-    addressLocality: "", // TODO
-    addressRegion: "", // TODO (2-letter state)
-    postalCode: "", // TODO
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.zip,
     addressCountry: "US",
   },
-  // TODO confirm; days use schema.org names, times are 24h "HH:MM"
+  // Mon-Fri 9:00 AM - 5:00 PM (matches siteConfig.hours). Times are 24h "HH:MM".
   hours: [
     {
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "",
-      closes: "",
+      opens: "09:00",
+      closes: "17:00",
     },
   ],
-  // TODO the eight counties from A4, e.g. "Harris County"
-  counties: [] as string[],
-  state: "", // TODO state name or abbreviation for AdministrativeArea.containedInPlace
+  // The eight counties from A4 (single list: src/constants/serviceArea.ts).
+  counties: COUNTIES.map((c) => `${c.name} County`),
+  state: "Texas", // state name for AdministrativeArea.containedInPlace
   medicalSpecialty: [
     "Nursing",
     "Geriatric",
@@ -77,7 +82,10 @@ function buildHours() {
   return spec.length ? spec : undefined;
 }
 
+let warned = false;
 function warnMissing() {
+  if (warned) return;
+  warned = true;
   const missing: string[] = [];
   if (!BUSINESS.telephone) missing.push("telephone");
   if (!BUSINESS.faxNumber) missing.push("faxNumber");
@@ -92,7 +100,7 @@ function warnMissing() {
 }
 
 /** Site-wide entity: areaServed = all counties. Rendered in the root layout. */
-export function buildLocalBusinessJsonLd() {
+export function buildLocalBusinessJsonLd(locale: Locale = "en") {
   warnMissing();
   return compact({
     "@context": "https://schema.org",
@@ -101,12 +109,15 @@ export function buildLocalBusinessJsonLd() {
     name: BUSINESS.dba,
     legalName: BUSINESS.legalName,
     alternateName: BUSINESS.legalName,
-    url: SITE_URL,
+    url: absoluteUrl("/", locale),
+    inLanguage: locale === "es" ? "es-US" : "en-US",
+    knowsLanguage: ["en", "es"],
     logo: `${SITE_URL}/och.png`,
     image: `${SITE_URL}/och.png`,
-    description: SITE_DESCRIPTION,
+    description: SITE_DESCRIPTION[locale],
     telephone: BUSINESS.telephone,
     faxNumber: BUSINESS.faxNumber,
+    email: BUSINESS.email,
     address: buildAddress(),
     openingHoursSpecification: buildHours(),
     areaServed: BUSINESS.counties.map(county),
@@ -119,21 +130,24 @@ export function buildLocalBusinessJsonLd() {
 /**
  * Scoped entity for a city landing page: same business, areaServed = that city.
  * Usage on a city page:
- *   <JsonLd data={buildCityLocalBusinessJsonLd({ city: "Katy", path: "/locations/katy" })} />
+ *   <JsonLd data={buildCityLocalBusinessJsonLd({ city: "Katy", path: "/locations/katy", locale })} />
  */
 export function buildCityLocalBusinessJsonLd({
   city,
   path,
   county: countyName,
+  locale = "en",
 }: {
   city: string;
   path: string;
   county?: string;
+  locale?: Locale;
 }) {
+  const localized = localizePath(path, locale);
   return compact({
-    ...buildLocalBusinessJsonLd(),
-    "@id": `${SITE_URL}${path}#localbusiness`,
-    url: `${SITE_URL}${path}`,
+    ...buildLocalBusinessJsonLd(locale),
+    "@id": `${SITE_URL}${localized}#localbusiness`,
+    url: `${SITE_URL}${localized}`,
     parentOrganization: { "@id": MAIN_ID },
     areaServed: [
       {

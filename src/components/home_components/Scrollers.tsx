@@ -1,5 +1,7 @@
 "use client";
 
+
+import Link from "@/src/components/LocaleLink";
 import React from "react";
 import {
   ShieldCheck,
@@ -275,12 +277,12 @@ export default function Scrollers(): React.JSX.Element {
                 <Phone className="h-4 w-4" aria-hidden="true" />
                 {t.call} {MAIN_PHONE.label}
               </a>
-              <a
+              <Link
                 href={t.contactHref}
                 className="inline-flex items-center rounded-full border border-[#07162C]/20 bg-white px-6 py-3.5 text-sm font-semibold text-[#07162C] hover:border-[#07162C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]"
               >
                 {t.contact}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   ShieldCheck,
   Phone,
@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/services/aid-and-attendance.json";
-import { siteConfig } from "@/src/constants/siteConfig";
 
 const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const heading =
@@ -52,18 +51,18 @@ export default function AidAndAttendancePage() {
 
               <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                 <Link
-                  href="/contact"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <span>{t.requestCare}</span>
                   <ArrowRight size={16} />
                 </Link>
                 <a
-                  href={`tel:${siteConfig.contact.phoneTel}`}
+                  href="tel:9728489174"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C]"
                 >
                   <Phone size={16} />
-                  <span>Call {siteConfig.contact.phone}</span>
+                  <span>Call (972) 848-9174</span>
                 </a>
               </div>
             </div>
@@ -237,28 +236,48 @@ export default function AidAndAttendancePage() {
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#07162C]">{t.tvLabel}</strong> —{" "}
+                  <a
+                    href="https://www.tvc.texas.gov/" target="_blank" rel="noopener noreferrer"
+                    className="font-bold text-[#07162C] underline decoration-[#996515] underline-offset-4 hover:text-[#996515]"
+                  >
+                    {t.tvLabel}
+                  </a> —{" "}
                   {t.tvDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#07162C]">{t.cvsoLabel}</strong> —{" "}
+                  <a
+                    href="https://www.tvc.texas.gov/wp-content/uploads/2024/04/2024-VCSO-Directory-1.pdf" target="_blank" rel="noopener noreferrer"
+                    className="font-bold text-[#07162C] underline decoration-[#996515] underline-offset-4 hover:text-[#996515]"
+                  >
+                    {t.cvsoLabel}
+                  </a> —{" "}
                   {t.cvsoDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#07162C]">{t.vaRepLabel}</strong> —{" "}
+                  <a
+                    href="https://www.va.gov/get-help-from-accredited-representative/" target="_blank" rel="noopener noreferrer"
+                    className="font-bold text-[#07162C] underline decoration-[#996515] underline-offset-4 hover:text-[#996515]"
+                  >
+                    {t.vaRepLabel}
+                  </a> —{" "}
                   {t.vaRepDesc}
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#996515]" />
                 <div>
-                  <strong className="text-[#07162C]">{t.vaDirectLabel}</strong>{" "}
+                  <a
+                    href="tel:8008271000"
+                    className="font-bold text-[#07162C] underline decoration-[#996515] underline-offset-4 hover:text-[#996515]"
+                  >
+                    {t.vaDirectLabel}
+                  </a>{" "}
                   — {t.vaDirectDesc}
                 </div>
               </li>
@@ -286,14 +305,14 @@ export default function AidAndAttendancePage() {
             </div>
             <div className="relative z-10 flex flex-col sm:flex-row gap-4 shrink-0">
               <a
-                href={`tel:${siteConfig.contact.phoneTel}`}
+                href="tel:9728489174"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
                 <Phone size={16} />
-                <span>Call {siteConfig.contact.phone}</span>
+                <span>Call (972) 848-9174</span>
               </a>
               <Link
-                href="/contact"
+                href="/request-care"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A]"
               >
                 <span>Request care</span>

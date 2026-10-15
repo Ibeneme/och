@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import { Phone, ArrowRight, Briefcase, Clock, Check } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/careers.json";
@@ -92,7 +92,7 @@ export default function CareersPage() {
 
   const stats = [
     { label: "Nurse-Founded Leadership", sub: "Clinical Excellence" },
-    { label: "Serving Clients Since 2010", sub: "Trusted Track Record" },
+    { label: "Serving Patients Since 2010", sub: "Trusted Track Record" },
     { label: "Individualized Care", sub: "Person-Centered Approach" },
     { label: "Dignity & Independence", sub: "At-Home Living" },
   ];
@@ -160,7 +160,7 @@ export default function CareersPage() {
     },
     {
       title: "Nurse-Founded Culture",
-      desc: "Led by Angela Ananti, BSN, RN, with more than two decades of nursing experience.",
+      desc: "Led by Angela Ananti, BSN, RN. Serving DFW families since 2010.",
     },
   ];
 

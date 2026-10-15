@@ -24,7 +24,7 @@
         { "title": "Skilled Clinical Care", "desc": "Professional nursing interventions, health monitoring, and specialized clinical treatments." },
         { "title": "Personal-Care Support", "desc": "Respectful assistance with daily hygiene, dressing, grooming, and personal routines." },
         { "title": "Therapy Services", "desc": "Physical, occupational, and speech therapy to enhance functional mobility and communication." },
-        { "title": "Independence with Daily Activities", "desc": "Empowering clients to perform daily tasks with confidence and appropriate adaptive support." },
+        { "title": "Independence with Daily Activities", "desc": "Empowering patients to perform daily tasks with confidence and appropriate adaptive support." },
         { "title": "Caregiver Education", "desc": "Guidance and training for family members and support networks on safe handling and care techniques." },
         { "title": "Chronic-Condition Support", "desc": "Targeted symptom tracking and clinical management for long-term health conditions." }
       ],
@@ -56,7 +56,7 @@
         { "title": "Atención Clínica Especializada", "desc": "Intervenciones profesionales de enfermería, monitoreo de salud y tratamientos clínicos." },
         { "title": "Apoyo de Cuidado Personal", "desc": "Asistencia respetuosa con la higiene diaria, vestimenta, aseo y rutinas personales." },
         { "title": "Servicios de Terapia", "desc": "Terapia física, ocupacional y del habla para mejorar la movilidad funcional y la comunicación." },
-        { "title": "Independencia en Actividades Diarias", "desc": "Empoderar a los clientes para realizar tareas cotidianas con confianza y apoyo adaptativo." },
+        { "title": "Independencia en Actividades Diarias", "desc": "Empoderar a los pacientes para realizar tareas cotidianas con confianza y apoyo adaptativo." },
         { "title": "Educación para Cuidadores", "desc": "Guía y capacitación para miembros de la familia sobre técnicas seguras de manejo y cuidado." },
         { "title": "Apoyo en Condiciones Crónicas", "desc": "Seguimiento específico de síntomas y manejo clínico para afecciones de salud a largo plazo." }
       ],

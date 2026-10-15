@@ -12,6 +12,7 @@ export default function InsuranceTickerSection() {
     "Texas Medicaid",
     "Molina Healthcare of Texas",
     "Superior HealthPlan",
+    "UnitedHealthcare Community Plan",
     "Wellpoint Texas",
     "Aetna Better Health of Texas",
     "VA Community Care",

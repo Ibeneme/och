@@ -105,10 +105,6 @@ export default function ReferralsPage() {
       {/* ===== Alternative Methods Bento Row ===== */}
       <section id="methods" className="px-4 sm:px-6">
         <div className={container}>
-          <div className="mb-5 text-center">
-            <Pill n="01" label={t.methodsEyebrow} />
-          </div>
-
           <div className="grid gap-4 md:grid-cols-3">
             {/* Email Intake Card */}
             <div className={`flex flex-col justify-between p-6 ${card}`}>
@@ -231,7 +227,7 @@ export default function ReferralsPage() {
       <section id="referral-form" className="px-4 pb-16 pt-4 sm:px-6 lg:pb-24">
         <div className={`mx-auto max-w-3xl ${cardWhite}`}>
           <div className="mb-8 text-center">
-            <Pill n="02" label="Online Submission" />
+            <Pill n="01" label="Online Submission" />
             <h2 className={`${HEADING} mt-4 text-3xl sm:text-4xl`}>
               {t.formTitle}
             </h2>

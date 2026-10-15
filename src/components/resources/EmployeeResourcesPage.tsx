@@ -5,8 +5,6 @@ import {
   ShieldAlert,
   Users,
   Wallet,
-  Clock,
-  ShieldCheck,
   AlertTriangle,
   ExternalLink,
   HeartPulse,
@@ -16,7 +14,9 @@ import {
   Lock,
   Scale,
   ArrowDown,
+  ArrowRight,
 } from "lucide-react";
+import Link from "@/src/components/LocaleLink";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/employee-resources.json";
 import { siteConfig } from "@/src/constants/siteConfig";
@@ -117,24 +117,6 @@ export default function EmployeeResourcesPage() {
     },
   ];
 
-  const evvSteps = [
-    {
-      icon: Clock,
-      title: "Clock in / out",
-      desc: "Use the official HHAeXchange mobile application or telephony system at the exact location of service delivery.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "EVV reminders",
-      desc: "Keep device GPS services enabled. Confirm visit tasks and applicable service codes before final submission.",
-    },
-    {
-      icon: AlertTriangle,
-      title: "Missed visits",
-      desc: "If a recording error or missed check-in happens, notify administration immediately and submit a manual adjustment ticket.",
-    },
-  ];
-
   const incidentTypes = [
     {
       icon: HeartPulse,
@@ -149,7 +131,7 @@ export default function EmployeeResourcesPage() {
     {
       icon: ShieldAlert,
       title: "Safety hazards",
-      desc: "Identify and report environmental risks in client homes or workplaces threatening staff or client well-being.",
+      desc: "Identify and report environmental risks in patient homes or workplaces threatening staff or patient well-being.",
     },
     {
       icon: ClipboardList,
@@ -384,23 +366,14 @@ export default function EmployeeResourcesPage() {
             <p className="mt-2 text-base text-[#07162C]/70">{t.evvDesc}</p>
           </div>
 
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {evvSteps.map((step) => (
-              <div
-                key={step.title}
-                className="rounded-3xl border border-[#07162C]/10 bg-[#F4F4F2] p-7"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07162C] text-[#E4B95A]">
-                  <step.icon size={18} />
-                </div>
-                <h4 className="ohh-serif mt-5 text-lg font-medium text-[#07162C]">
-                  {step.title}
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-[#07162C]/70">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+          <div className="mt-8">
+            <Link
+              href="/employee-resources/evv"
+              className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C] ${focusGold}`}
+            >
+              {language === "es" ? "Ver la guía completa de EVV" : "View the full EVV guide"}
+              <ArrowRight size={15} />
+            </Link>
           </div>
 
           <div className="mt-8 flex flex-col gap-6 rounded-3xl border border-[#07162C]/10 bg-[#E9EAE5] p-7 sm:p-9 lg:flex-row lg:items-center lg:justify-between">

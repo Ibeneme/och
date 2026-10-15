@@ -1,7 +1,7 @@
 export const siteConfig = {
-    name: "One Community Health",
+    name: "One Community Home Health",
     legalName: "JACOP Healthcare Services, Inc.",
-    dba: "One Community Health",
+    dba: "One Community Home Health",
     tagline: {
         en: "Compassionate, professional home health care across the Dallas-Fort Worth Metroplex",
         es: "Cuidado de salud a domicilio compasivo y profesional en todo el Metroplex de Dallas-Fort Worth"

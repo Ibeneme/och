@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   HeartHandshake,
   Phone,
@@ -13,6 +13,13 @@ import {
 import { useLanguage } from "@/src/context/LanguageContext";
 import footerContent from "@/src/locales/footer/footer.json";
 import { siteConfig } from "@/src/constants/siteConfig";
+import {
+  CITY_PAGE_SLUGS,
+  COUNTY_COUNT,
+  SERVICE_AREA_PATH,
+  cityNameFromSlug,
+  cityPagePath,
+} from "@/src/constants/serviceArea";
 
 /**
  * Responsive strategy
@@ -194,6 +201,10 @@ export default function Footer() {
       label: { en: "Who we serve", es: "A quién servimos" },
     },
     {
+      href: "/service-area",
+      label: { en: "Service area", es: "Área de servicio" },
+    },
+    {
       href: "/careers",
       label: { en: "Careers & hiring", es: "Empleos y contrataciones" },
     },
@@ -233,7 +244,10 @@ export default function Footer() {
     {
       icon: MapPin,
       label: footerContent.office.locationLabel[lang],
-      lines: [siteConfig.address.full, siteConfig.address.street],
+      lines: [
+        siteConfig.address.street,
+        `${siteConfig.address.city}, ${siteConfig.address.state} ${siteConfig.address.zip}`,
+      ],
       accent: siteConfig.address.note[lang],
     },
     {
@@ -246,13 +260,13 @@ export default function Footer() {
       icon: ShieldCheck,
       label: footerContent.office.coverageLabel[lang],
       lines: [footerContent.office.coverageLines[lang]],
-      accent: footerContent.office.coverageNote[lang],
+      accent: "",
     },
     {
       icon: Users,
       label: footerContent.office.portalsLabel[lang],
       lines: [footerContent.office.portalsLines[lang]],
-      accent: footerContent.office.portalsNote[lang],
+      accent: "",
     },
   ];
 
@@ -298,7 +312,7 @@ export default function Footer() {
             </span>
           </a>
           <Link
-            href="/contact"
+            href="/request-care"
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-yellow-400 px-5 py-3.5 text-center text-sm font-bold text-[#07162C] transition-colors hover:bg-[#D9A93F] sm:w-auto sm:px-6"
           >
             <HeartHandshake size={16} className="shrink-0" />
@@ -408,9 +422,11 @@ export default function Footer() {
                       {line}
                     </p>
                   ))}
-                  <p className="mt-0.5 break-words text-[12px] font-medium text-[#E4B95A]">
-                    {accent}
-                  </p>
+                  {accent ? (
+                    <p className="mt-0.5 break-words text-[12px] font-medium text-[#E4B95A]">
+                      {accent}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             ))}
@@ -422,6 +438,38 @@ export default function Footer() {
             {footerContent.office.directionsLink[lang]}
             <ArrowUpRight size={14} className="shrink-0" />
           </Link>
+        </div>
+      </div>
+
+      {/* ===== Areas we serve: internal links to every city page ===== */}
+      <div className={`${wrap} border-t border-white/10 py-8`}>
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-10">
+          <h4 className="shrink-0 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#E4B95A]/90 lg:w-40 lg:pt-1.5">
+            {lang === "es" ? "Áreas que atendemos" : "Areas we serve"}
+          </h4>
+          <ul className="flex min-w-0 flex-1 flex-wrap gap-x-5 gap-y-2">
+            {CITY_PAGE_SLUGS.map((slug) => (
+              <li key={slug}>
+                <Link
+                  href={cityPagePath(slug)}
+                  className="py-0.5 text-[13.5px] text-white/65 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4B95A]"
+                >
+                  {cityNameFromSlug(slug)}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href={SERVICE_AREA_PATH}
+                className="inline-flex items-center gap-1 py-0.5 text-[13.5px] font-semibold text-[#E4B95A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E4B95A]"
+              >
+                {lang === "es"
+                  ? `Los ${COUNTY_COUNT} condados`
+                  : `All ${COUNTY_COUNT} counties`}
+                <ArrowUpRight size={13} className="shrink-0" />
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
 

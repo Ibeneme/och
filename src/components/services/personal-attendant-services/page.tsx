@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Phone,
   ArrowRight,
@@ -241,7 +241,7 @@ export default function PersonalAttendantServicesPage() {
                   {t(`Call intake: ${PHONE}`, `Llamar a Admisiones: ${PHONE}`)}
                 </a>
                 <Link
-                  href="/contact"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C]"
                 >
                   {t("Request care", "Solicitar atención")}
@@ -492,10 +492,10 @@ export default function PersonalAttendantServicesPage() {
             </div>
             <div className="lg:col-span-4 lg:justify-self-end">
               <Link
-                href="/careers"
+                href="/services/get-paid-to-care-for-a-loved-one"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
               >
-                {t("Learn how it works", "Ver opciones de empleo")}
+                {t("Learn how it works", "Cómo funciona")}
                 <ArrowRight size={16} aria-hidden />
               </Link>
             </div>
@@ -554,7 +554,7 @@ export default function PersonalAttendantServicesPage() {
                 {PHONE}
               </a>
               <Link
-                href="/contact"
+                href="/request-care"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A]"
               >
                 {t("Request care", "Solicitar atención")}

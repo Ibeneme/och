@@ -111,7 +111,7 @@ const COPY = {
       <>
         Google ad personalization:{" "}
         <ExtLink
-          href="http://localhost:3001/privacy-policy#information-you-give-us1"
+          href="https://adssettings.google.com/"
           className={link}
         >
           adssettings.google.com
@@ -279,7 +279,7 @@ const COPY = {
       <>
         Google ad personalization:{" "}
         <ExtLink
-          href="http://localhost:3001/privacy-policy#information-you-give-us1"
+          href="https://adssettings.google.com/"
           className={link}
         >
           adssettings.google.com

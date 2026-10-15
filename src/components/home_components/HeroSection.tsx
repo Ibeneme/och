@@ -1,29 +1,28 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import { Phone, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
-import { siteConfig } from "@/src/constants/siteConfig";
 
 const heroContent = {
   en: {
-    badge: "NOW ACCEPTING ADULT REFERRALS · DFW METROPLEX",
+    badge: "NOW ACCEPTING REFERRALS · DFW METROPLEX",
     title: "Helping you stay where you belong",
     subtitle:
       "Compassionate, professional home health care across the Dallas-Fort Worth Metroplex — individualized plans of care, coordinated with your physicians, delivered where you’re most comfortable: home.",
     legacy:
-      "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Health.",
+      "JACOP Healthcare Services, Inc., serving patients since 2010, is now doing business as One Community Home Health.",
     requestCare: "Request Care",
     referPatient: "Refer a Patient",
   },
   es: {
-    badge: "AHORA SE ACEPTAN REFERENCIAS DE ADULTOS · DFW METROPLEX",
+    badge: "AHORA SE ACEPTAN REFERENCIAS · DFW METROPLEX",
     title: "Ayudándole a quedarse donde pertenece",
     subtitle:
       "Cuidado de salud a domicilio compasivo y profesional en todo el Metroplex de Dallas-Fort Worth: planes de atención individualizados, coordinados con sus médicos y entregados donde se siente más cómodo: su hogar.",
     legacy:
-      "JACOP Healthcare Services, Inc., que atiende a clientes desde 2010, ahora opera bajo el nombre de One Community Health.",
+      "JACOP Healthcare Services, Inc., que atiende a pacientes desde 2010, ahora opera bajo el nombre de One Community Home Health.",
     requestCare: "Solicitar Cuidado",
     referPatient: "Referir a un Paciente",
   },
@@ -150,10 +149,10 @@ export default function HeroSection() {
               {t.referPatient}
             </Link>
             <a
-              href={`tel:${siteConfig.contact.phoneTel}`}
+              href="tel:9728489174"
               className="inline-flex items-center gap-2 text-[14.5px] font-semibold text-white/85 px-3 py-3.5 hover:text-white transition-colors"
             >
-              <Phone size={15} /> {siteConfig.contact.phone}
+              <Phone size={15} /> (972) 848-9174
             </a>
           </div>
         </div>

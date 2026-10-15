@@ -27,7 +27,7 @@ const COPY = {
     respond: "We aim to respond within three business days.",
     thirdH: "Third-party content",
     third:
-      "Some content on our site is provided by third parties, such as embedded maps. We do not control the accessibility of that content, but we will help you get the same information another way \u2014 just call us.",
+      "Some content on our site is provided by third parties, such as our embedded patient request and referral forms. We do not control the accessibility of that content, but we will help you get the same information another way \u2014 just call us.",
   },
   es: {
     title: "Declaración de accesibilidad",
@@ -51,7 +51,7 @@ const COPY = {
     respond: "Procuramos responder en un plazo de tres días hábiles.",
     thirdH: "Contenido de terceros",
     third:
-      "Parte del contenido de nuestro sitio lo proporcionan terceros, como los mapas incrustados. No controlamos la accesibilidad de ese contenido, pero le ayudaremos a obtener la misma información de otra manera: simplemente llámenos.",
+      "Parte del contenido de nuestro sitio lo proporcionan terceros, como los formularios incrustados de solicitud de atención y de referidos. No controlamos la accesibilidad de ese contenido, pero le ayudaremos a obtener la misma información de otra manera: simplemente llámenos.",
   },
 } as const;
 

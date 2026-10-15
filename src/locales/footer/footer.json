@@ -161,15 +161,11 @@
     "locationLabel": { "en": "Location & office", "es": "Ubicación y oficina" },
     "hoursLabel": { "en": "Admin hours", "es": "Horario administrativo" },
     "hoursNote": {
-      "en": "24/7 on-call coming soon",
-      "es": "Próximamente servicio 24/7"
+      "en": "24/7 on-call for current patients",
+      "es": "Guardia 24/7 para pacientes actuales"
     },
     "coverageLabel": { "en": "Care & coverage", "es": "Cobertura de cuidado" },
     "coverageLines": {
-      "en": "Expanded payment pathways",
-      "es": "Vías de pago ampliadas"
-    },
-    "coverageNote": {
       "en": "DFW Metroplex wide",
       "es": "Todo el Metroplex DFW"
     },
@@ -177,10 +173,6 @@
     "portalsLines": {
       "en": "HHAeXchange employee access",
       "es": "Acceso de empleados HHAeXchange"
-    },
-    "portalsNote": {
-      "en": "2-year CNA workflow",
-      "es": "Flujo de trabajo CNA de 2 años"
     },
     "directionsLink": {
       "en": "Get directions & full contact info",

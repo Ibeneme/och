@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   ClipboardCheck,
   BookOpen,
@@ -64,7 +64,7 @@ export default function MedicationManagementComp() {
                   <span>Call {siteConfig.contact.phone}</span>
                 </a>
                 <Link
-                  href="/contact"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C]/20 bg-white px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:border-[#07162C]"
                 >
                   <span>{t.requestCare}</span>

@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import { Phone, ArrowRight, Printer } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
-import { siteConfig } from "@/src/constants/siteConfig";
 import transportData from "@/src/locales/resources/transportation-data.json";
 
 /* Restyled to match Request Care layout:
@@ -348,6 +347,14 @@ export default function RidesResourcePage() {
                       <a href={`tel:${plan.bookingNumber}`}>
                         {plan.bookingNumberDisplay}
                       </a>
+                      {"statusNumber" in plan && plan.statusNumber ? (
+                        <div className="mt-1 font-sans text-xs font-normal text-[#07162C]/70">
+                          {lang === "es" ? "¿Dónde está mi viaje? " : "Where’s my ride? "}
+                          <a href={`tel:${plan.statusNumber}`}>
+                            {plan.statusNumberDisplay}
+                          </a>
+                        </div>
+                      ) : null}
                     </td>
                   </tr>
                 ))}
@@ -505,16 +512,16 @@ export default function RidesResourcePage() {
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href={`tel:${siteConfig.contact.phoneTel}`}
+              href="tel:9728489174"
               className={`inline-flex items-center justify-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-semibold text-[#07162C] ${focusRing}`}
             >
               <Phone size={16} aria-hidden />
               <span>
-                {lang === "es" ? "Llamar" : "Call"} {siteConfig.contact.phone}
+                {lang === "es" ? "Llamar" : "Call"} (972) 848-9174
               </span>
             </a>
             <Link
-              href="/contact"
+              href="/request-care"
               className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold text-white ${focusRing}`}
             >
               <span>

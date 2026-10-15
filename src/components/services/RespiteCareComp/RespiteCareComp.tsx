@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Coffee,
   Smile,
@@ -78,7 +78,7 @@ export default function RespiteCareComp() {
             <div className="relative h-[320px] sm:h-[420px] overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3 shadow-xl">
               <img
                 src="/images/services/ot_d.svg"
-                alt="Supportive professional caregiver interacting with a senior client at home"
+                alt="Supportive professional caregiver interacting with a senior patient at home"
                 className="h-full w-full rounded-2xl object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent pointer-events-none rounded-2xl" />

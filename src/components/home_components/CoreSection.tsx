@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Stethoscope,
   Activity,
@@ -38,8 +38,8 @@ const card = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-8";
 export default function CoreServicesPage() {
   const { language } = useLanguage();
   const pageRef = useRef<HTMLElement>(null);
-  const [activeTab, setActiveTab] = useState<"clinical" | "specialty">(
-    "clinical"
+  const [activeTab, setActiveTab] = useState<"skilled" | "attendant">(
+    "skilled"
   );
 
   const clinicalServices = [
@@ -65,8 +65,8 @@ export default function CoreServicesPage() {
       title: language === "es" ? "Terapia Ocupacional" : "Occupational Therapy",
       description:
         language === "es"
-          ? "Ayudar a los clientes a recuperar la independencia en las actividades diarias y adaptar su entorno para mayor seguridad."
-          : "Helping clients regain independence in daily activities and adapt their environment for safety.",
+          ? "Ayudar a los pacientes a recuperar la independencia en las actividades diarias y adaptar su entorno para mayor seguridad."
+          : "Helping patients regain independence in daily activities and adapt their environment for safety.",
       icon: Hand,
       category: "clinical",
     },
@@ -216,19 +216,30 @@ export default function CoreServicesPage() {
     },
   ];
 
+  // B17: two groups, "Skilled care" and "Attendant & personal care".
+  // The first four specialty items (wound care, medication & chronic disease,
+  // post-surgical, fall prevention) are clinical and join the skilled group.
+  const skilledServices = [
+    ...clinicalServices,
+    ...specialtyServices.slice(0, 4),
+  ].map((s) => ({ ...s, category: "skilled" }));
+  const attendantServices = specialtyServices
+    .slice(4)
+    .map((s) => ({ ...s, category: "attendant" }));
+
   const displayedServices =
-    activeTab === "clinical" ? clinicalServices : specialtyServices;
+    activeTab === "skilled" ? skilledServices : attendantServices;
 
   const t = {
     en: {
       eyebrow: "What We Provide",
       heading: "Comprehensive care built around your independence",
       subheading:
-        "A full range of clinical disciplines and specialty support services delivered with compassion, expertise, and unwavering dedication.",
-      clinicalTab: `Clinical Disciplines (${clinicalServices.length})`,
-      specialtyTab: `Specialty Support (${specialtyServices.length})`,
-      clinicalBadge: "Clinical",
-      specialtyBadge: "Specialty",
+        "A full range of skilled care and attendant & personal care services delivered with compassion, expertise, and unwavering dedication.",
+      clinicalTab: `Skilled care (${skilledServices.length})`,
+      specialtyTab: `Attendant & personal care (${attendantServices.length})`,
+      clinicalBadge: "Skilled care",
+      specialtyBadge: "Attendant & personal",
       learnMore: "Learn more about care",
       bannerTag: "Personalized Plans",
       bannerHeading: "Not sure which care pathway is right for you?",
@@ -240,11 +251,11 @@ export default function CoreServicesPage() {
       eyebrow: "Lo Que Ofrecemos",
       heading: "Cuidado integral construido en torno a su independencia",
       subheading:
-        "Una gama completa de disciplinas clínicas y servicios de apoyo especializado brindados con compasión, experiencia y dedicación inquebrantable.",
-      clinicalTab: `Disciplinas Clínicas (${clinicalServices.length})`,
-      specialtyTab: `Apoyo Especializado (${specialtyServices.length})`,
-      clinicalBadge: "Clínico",
-      specialtyBadge: "Especializado",
+        "Una gama completa de cuidado especializado y servicios de asistente y cuidado personal brindados con compasión, experiencia y dedicación inquebrantable.",
+      clinicalTab: `Cuidado especializado (${skilledServices.length})`,
+      specialtyTab: `Asistente y cuidado personal (${attendantServices.length})`,
+      clinicalBadge: "Cuidado especializado",
+      specialtyBadge: "Asistente y personal",
       learnMore: "Conozca más sobre el cuidado",
       bannerTag: "Planes Personalizados",
       bannerHeading: "¿No está seguro de qué vía de atención es la adecuada?",
@@ -278,9 +289,9 @@ export default function CoreServicesPage() {
         <div className="mb-12 flex justify-center">
           <div className="inline-flex rounded-full border border-[#07162C]/10 bg-[#E9EAE5] p-1.5">
             <button
-              onClick={() => setActiveTab("clinical")}
+              onClick={() => setActiveTab("skilled")}
               className={`rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeTab === "clinical"
+                activeTab === "skilled"
                   ? "bg-[#07162C] text-[#E4B95A] shadow-sm"
                   : "text-[#07162C]/60 hover:text-[#07162C]"
               }`}
@@ -288,9 +299,9 @@ export default function CoreServicesPage() {
               {t.clinicalTab}
             </button>
             <button
-              onClick={() => setActiveTab("specialty")}
+              onClick={() => setActiveTab("attendant")}
               className={`rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeTab === "specialty"
+                activeTab === "attendant"
                   ? "bg-[#07162C] text-[#E4B95A] shadow-sm"
                   : "text-[#07162C]/60 hover:text-[#07162C]"
               }`}
@@ -313,7 +324,7 @@ export default function CoreServicesPage() {
                         <Icon className="h-5 w-5" strokeWidth={1.75} />
                       </div>
                       <span className="rounded-full border border-[#07162C]/10 bg-[#E9EAE5] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#07162C]/70">
-                        {service.category === "clinical"
+                        {service.category === "skilled"
                           ? t.clinicalBadge
                           : t.specialtyBadge}
                       </span>
@@ -350,7 +361,7 @@ export default function CoreServicesPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/contact"
+                href="/request-care"
                 className="inline-flex items-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
                 <PhoneCall className="h-4 w-4" /> {t.bannerBtn}

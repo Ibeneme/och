@@ -1,5 +1,7 @@
 "use client";
 
+
+import Link from "@/src/components/LocaleLink";
 import {
   MapPin,
   Phone,
@@ -11,6 +13,14 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
+import { siteConfig } from "@/src/constants/siteConfig";
+import {
+  COUNTY_COUNT,
+  FEATURED_CITIES,
+  SERVICE_AREA_PATH,
+  cityPageHref,
+} from "@/src/constants/serviceArea";
+import ZipConfirmation from "@/src/components/service-area/ZipConfirmation";
 
 /* Restyled to match Request Care layout (maintaining dark background):
    pill badge chips, large light serif headings, rounded bento cards,
@@ -18,17 +28,6 @@ import { useLanguage } from "@/src/context/LanguageContext";
 
 const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const heading = "ohh-serif font-bold leading-tight tracking-tight text-white";
-
-const SERVICE_AREAS = [
-  "Grand Prairie",
-  "Arlington",
-  "Fort Worth",
-  "Irving",
-  "Dallas",
-  "Mansfield",
-  "DeSoto",
-  "Duncanville",
-];
 
 export default function OneCommunityContact() {
   const { language } = useLanguage();
@@ -50,6 +49,7 @@ export default function OneCommunityContact() {
       hoursText: "Mon–Fri, 9:00 AM – 5:00 PM",
       appointmentOnly: "Office visits by appointment only",
       communitiesServed: "Communities we serve",
+      seeAllCounties: `See all ${COUNTY_COUNT} counties we serve →`,
       teamTitle: "Join our care team",
       teamDesc:
         "Licensed CNAs, nurses, and therapists are invited to join our rolling talent network for home health placements across the metroplex.",
@@ -71,6 +71,7 @@ export default function OneCommunityContact() {
       hoursText: "Lun–Vie, 9:00 AM – 5:00 PM",
       appointmentOnly: "Visitas a la oficina solo con cita previa",
       communitiesServed: "Comunidades a las que servimos",
+      seeAllCounties: `Ver los ${COUNTY_COUNT} condados que atendemos →`,
       teamTitle: "Únase a nuestro equipo de atención",
       teamDesc:
         "Se invita a enfermeros, terapeutas y auxiliares de enfermería certificados (CNA) a unirse a nuestra red de talento para ubicaciones de salud en el hogar en todo el área metropolitana.",
@@ -108,7 +109,7 @@ export default function OneCommunityContact() {
         {/* Contact Bento Row */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <a
-            href="tel:9723251598"
+            href="tel:9728489174"
             className="group flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-7 transition-colors hover:border-[#E4B95A]"
           >
             <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
@@ -119,7 +120,7 @@ export default function OneCommunityContact() {
                 {t.callLabel}
               </div>
               <div className="font-mono text-xl font-bold text-white group-hover:text-[#E4B95A] transition-colors">
-                972-325-1598
+                (972) 848-9174
               </div>
             </div>
           </a>
@@ -139,7 +140,7 @@ export default function OneCommunityContact() {
           </div>
 
           <a
-            href="mailto:info@onechh.com"
+            href="mailto:intake@onechh.com"
             className="group flex flex-col justify-between rounded-3xl border border-white/15 bg-white/5 p-7 transition-colors hover:border-[#E4B95A]"
           >
             <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#E4B95A]/15 text-[#E4B95A]">
@@ -150,7 +151,7 @@ export default function OneCommunityContact() {
                 {t.emailLabel}
               </div>
               <div className="truncate text-xl font-bold text-white group-hover:text-[#E4B95A] transition-colors">
-                info@onechh.com
+                intake@onechh.com
               </div>
             </div>
           </a>
@@ -181,14 +182,15 @@ export default function OneCommunityContact() {
                     {t.officeLocation}
                   </h3>
                   <a
-                    href="https://maps.google.com/?q=3560+Quannah+Drive,+Grand+Prairie,+TX+75052"
+                    href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.address.full)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-1.5 block text-sm leading-relaxed text-white/75 hover:text-[#E4B95A] transition-colors"
                   >
-                    3560 Quannah Drive
+                    {siteConfig.address.street}
                     <br />
-                    Grand Prairie, TX 75052
+                    {siteConfig.address.city}, {siteConfig.address.state}{" "}
+                    {siteConfig.address.zip}
                   </a>
                 </div>
               </div>
@@ -215,16 +217,36 @@ export default function OneCommunityContact() {
               <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white/50">
                 {t.communitiesServed}
               </h3>
-              <div className="flex flex-wrap gap-2">
-                {SERVICE_AREAS.map((city) => (
-                  <span
-                    key={city}
-                    className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-white"
-                  >
-                    {city}
-                  </span>
-                ))}
-              </div>
+              <ul className="flex flex-wrap gap-2">
+                {FEATURED_CITIES.map((city) => {
+                  const href = cityPageHref(city);
+                  const chip =
+                    "inline-block rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-white";
+                  return (
+                    <li key={city}>
+                      {href ? (
+                        <Link
+                          href={href}
+                          className={`${chip} transition-colors hover:border-[#E4B95A] hover:text-[#E4B95A]`}
+                        >
+                          {city}
+                        </Link>
+                      ) : (
+                        <span className={chip}>{city}</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <Link
+                href={SERVICE_AREA_PATH}
+                className="group mt-5 inline-flex items-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-5 py-2.5 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
+              >
+                <span>{t.seeAllCounties}</span>
+              </Link>
+
+              <ZipConfirmation tone="dark" className="mt-4" />
             </div>
           </div>
 
@@ -241,7 +263,7 @@ export default function OneCommunityContact() {
               </p>
             </div>
 
-            <a
+            <Link
               href="/careers"
               className="group mt-8 flex w-full items-center justify-between rounded-full border border-[#E4B95A] bg-[#E4B95A] px-6 py-3.5 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
             >
@@ -250,7 +272,7 @@ export default function OneCommunityContact() {
                 size={16}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

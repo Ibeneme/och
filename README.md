@@ -34,3 +34,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Bilingual routing (English + Spanish)
+- English: `/contact`  ·  Spanish: `/es/contact` (all pages live under `app/[locale]/`).
+- `proxy.ts` rewrites un-prefixed URLs to `/en/...` internally and 308-redirects `/en/...` to the clean URL.
+- SEO copy for every page, in both languages, is in `src/seo/pages.ts` (also drives the sitemap + hreflang).
+- Use `@/src/components/LocaleLink` instead of `next/link` so links keep the visitor's language.
+- Set `NEXT_PUBLIC_SITE_URL` to your production domain.
+- Fill `counties` in `app/local-business.ts`.

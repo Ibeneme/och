@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, type ReactNode } from "react";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   ChevronDown,
   Menu,
@@ -21,8 +21,17 @@ import {
   Home,
   CreditCard,
   Clock,
+  MapPin,
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
+import {
+  CITY_PAGE_SLUGS,
+  COUNTY_COUNT,
+  SERVICE_AREA_PATH,
+  cityNameFromSlug,
+  cityPagePath,
+  countyOfCity,
+} from "@/src/constants/serviceArea";
 
 /* Restyled to match Request Care layout:
    soft gray canvas #F4F4F2, pill badges, large light headings,
@@ -130,7 +139,7 @@ export default function Navbar() {
   const t = {
     en: {
       banner:
-        "JACOP Healthcare Services, Inc., doing business as One Community Home Health. Serving Clients Since 2010",
+        "JACOP Healthcare Services, Inc., doing business as One Community Home Health. Serving Patients Since 2010",
       referPatient: "Refer a patient",
       newPatients: "New patients & referrals:",
       newPatientsShort: "New patients:",
@@ -140,6 +149,14 @@ export default function Navbar() {
       services: "Services",
       about: "About",
       insurance: "Insurance & payment",
+      serviceArea: "Service area",
+      areaTag: "Where we serve",
+      areaTitle: `Care across ${COUNTY_COUNT} North Texas counties`,
+      areaDesc:
+        "Find home health care in your city, or check that we cover your address.",
+      areaAll: "View all counties & cities",
+      areaAllShort: "All counties & cities",
+      countySuffix: "County",
       resources: "Resources",
       requestCare: "Request care",
       evvHelp: "EVV Clock-In Help",
@@ -167,7 +184,7 @@ export default function Navbar() {
     },
     es: {
       banner:
-        "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health. Sirviendo a clientes desde 2010",
+        "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health. Sirviendo a pacientes desde 2010",
       referPatient: "Referir a un paciente",
       newPatients: "Pacientes nuevos y referencias:",
       newPatientsShort: "Pacientes nuevos:",
@@ -177,6 +194,14 @@ export default function Navbar() {
       services: "Servicios",
       about: "Nosotros",
       insurance: "Seguros y pagos",
+      serviceArea: "Área de servicio",
+      areaTag: "Dónde servimos",
+      areaTitle: `Atención en ${COUNTY_COUNT} condados del norte de Texas`,
+      areaDesc:
+        "Encuentre atención médica en el hogar en su ciudad o confirme que cubrimos su dirección.",
+      areaAll: "Ver todos los condados y ciudades",
+      areaAllShort: "Todos los condados y ciudades",
+      countySuffix: "Condado",
       resources: "Recursos",
       requestCare: "Solicitar atención",
       evvHelp: "Ayuda de Reloj EVV",
@@ -361,6 +386,15 @@ export default function Navbar() {
       label: language === "en" ? "Veteran care" : "Cuidado para veteranos",
     },
   ];
+
+  const cityLinks = CITY_PAGE_SLUGS.map((slug) => {
+    const name = cityNameFromSlug(slug);
+    return {
+      href: cityPagePath(slug),
+      label: name,
+      county: countyOfCity(name).name,
+    };
+  });
 
   const aboutLinks = [
     {
@@ -859,6 +893,74 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/* Service area dropdown */}
+            <div className="group relative">
+              <button
+                type="button"
+                className={`flex cursor-pointer items-center gap-1.5 ${desktopLink}`}
+              >
+                <span>{t.serviceArea}</span>
+                <ChevronDown
+                  size={14}
+                  className="opacity-50 transition-transform duration-300 group-hover:rotate-180"
+                />
+              </button>
+
+              <div
+                className={`absolute left-1/2 top-full z-[60] w-[min(600px,calc(100vw-2rem))] -translate-x-1/2 pt-3 ${reveal}`}
+              >
+                <div className="grid max-h-[calc(100dvh-10rem)] w-full grid-cols-12 overflow-y-auto overscroll-contain rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10">
+                  <div className="col-span-4 flex min-w-0 flex-col justify-between rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] p-5">
+                    <div>
+                      <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
+                        <MapPin size={18} />
+                      </div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#996515]">
+                        {t.areaTag}
+                      </span>
+                      <h3 className="ohh-serif mt-2.5 text-lg font-light leading-snug text-[#07162C]">
+                        {t.areaTitle}
+                      </h3>
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#07162C]/70">
+                        {t.areaDesc}
+                      </p>
+                    </div>
+                    <Link
+                      href={SERVICE_AREA_PATH}
+                      className="group/link mt-8 inline-flex w-max max-w-full items-center gap-2 text-sm font-semibold text-[#07162C] transition-colors hover:text-[#0A2140]"
+                    >
+                      <span className="border-b border-[#07162C] pb-0.5">
+                        {t.areaAll}
+                      </span>
+                      <ArrowRight
+                        size={14}
+                        className="shrink-0 transition-transform group-hover/link:translate-x-1"
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="col-span-8 min-w-0 p-3">
+                    <div className="grid grid-cols-2 gap-1">
+                      {cityLinks.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="group/sub block rounded-xl px-3 py-2 transition-colors hover:bg-[#F4F4F2]"
+                        >
+                          <div className="break-words text-[13px] font-semibold text-[#07162C] group-hover/sub:text-[#996515]">
+                            {item.label}
+                          </div>
+                          <p className="text-[11px] leading-snug text-[#07162C]/60">
+                            {item.county} {t.countySuffix}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <Link href="/insurance-payment-options" className={desktopLink}>
               {t.insurance}
             </Link>
@@ -1113,6 +1215,35 @@ export default function Navbar() {
                   </span>
                 </Link>
               ))
+            )}
+
+            {renderAccordion(
+              "area",
+              t.serviceArea,
+              <MapPin size={17} />,
+              "max-h-[900px]",
+              <>
+                <Link
+                  href={SERVICE_AREA_PATH}
+                  onClick={closeMobileMenu}
+                  className={`${mobileSubLink} text-[#996515]`}
+                >
+                  {t.areaAllShort} →
+                </Link>
+                {cityLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMobileMenu}
+                    className={mobileSubLink}
+                  >
+                    {item.label}
+                    <span className="mt-0.5 block text-[11.5px] font-normal leading-snug text-[#07162C]/60">
+                      {item.county} {t.countySuffix}
+                    </span>
+                  </Link>
+                ))}
+              </>
             )}
 
             <Link

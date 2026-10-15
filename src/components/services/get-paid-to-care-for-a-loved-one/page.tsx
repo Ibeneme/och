@@ -1,8 +1,7 @@
 
 "use client"
 
-import { siteConfig } from "@/src/constants/siteConfig";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import { Phone, ArrowRight, Check } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
@@ -15,8 +14,8 @@ import { useLanguage } from "@/src/context/LanguageContext";
    gold-tint  #FBF6E6  quiet gold background
    line       #E6E9F0  dividers on white                               */
 
-const PHONE = siteConfig.contact.phone;
-const PHONE_HREF = `tel:${siteConfig.contact.phoneTel}`;
+const PHONE = "(972) 848-9174";
+const PHONE_HREF = "tel:9728489174";
 
 const container = "mx-auto w-full max-w-6xl px-4 sm:px-8";
 
@@ -94,8 +93,8 @@ export default function GetPaidToCarePage() {
             </h1>
             <p className="max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
               {t(
-                `If you are already caring for a family member or friend, ${siteConfig.legalName} may be able to pay you for it.`,
-                `Si ya cuida a un familiar o amigo, ${siteConfig.legalName} puede pagarle por ello.`
+                "If you are already caring for a family member or friend, Texas Medicaid may be able to pay you for it.",
+                "Si ya cuida a un familiar o amigo, Medicaid de Texas puede pagarle por ello."
               )}
             </p>
             <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
@@ -103,7 +102,7 @@ export default function GetPaidToCarePage() {
                 <Phone size={17} aria-hidden className="shrink-0" />
                 {t(`Call ${PHONE}`, `Llamar al ${PHONE}`)}
               </a>
-              <Link href="/contact" className={btnGhost}>
+              <Link href="/request-care" className={btnGhost}>
                 {t("Request assessment", "Solicitar evaluación")}
                 <ArrowRight size={16} aria-hidden className="shrink-0" />
               </Link>

@@ -94,9 +94,6 @@ export default function NondiscriminationContent({ lastUpdated }: { lastUpdated:
   const L = language === "es" ? "es" : "en";
   const c = COPY[L];
 
-  const spanish = TAGLINES.find((t) => t.lang === "es");
-  const others = TAGLINES.filter((t) => t.lang !== "es");
-
   const ids = {
     commitment: "our-commitment",
     language: "free-language-assistance",
@@ -174,18 +171,23 @@ export default function NondiscriminationContent({ lastUpdated }: { lastUpdated:
         {TAGLINES.length === 0 && (
           <Pending what="HHS official taglines for the Texas top-15 languages (src/content/taglines.ts)" />
         )}
-  
-        {others.length > 0 && (
-          <div className="grid gap-4 sm:grid-cols-2">
-            {TAGLINES.map((t) =>
-              t.text ? (
-                <p key={t.lang} lang={t.lang} className="rounded-lg border border-[#CBD5E1] p-4 text-base leading-relaxed">
-                  {t.text}
-                </p>
-              ) : null,
-            )}
-          </div>
-        )}
+        {/* Each tagline carries its own lang (and dir for right-to-left scripts) so
+            screen readers switch voices and text renders in the right direction. */}
+        <ul className="grid list-none gap-4 p-0 sm:grid-cols-2">
+          {TAGLINES.map((t) =>
+            t.text ? (
+              <li
+                key={t.lang}
+                lang={t.lang}
+                dir={t.dir}
+                className="rounded-lg border border-[#CBD5E1] p-4 text-base leading-relaxed"
+              >
+                <strong className="mb-1 block font-semibold">{t.name}</strong>
+                <span>{t.text}</span>
+              </li>
+            ) : null,
+          )}
+        </ul>
       </Section>
     </LegalDocument>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Droplet,
   Sparkles,
@@ -106,7 +106,7 @@ export default function HomeHealthAideComponent() {
               <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/services/ot_m.svg"
-                  alt="Home health aide smiling with an elderly client"
+                  alt="Home health aide smiling with an elderly patient"
                   className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

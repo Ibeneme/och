@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   ArrowRight,
   Users,
@@ -46,7 +46,7 @@ const carePathways: CarePathway[] = [
     icon: Users,
     actionType: "button",
     footerKey: "requestConsultation",
-    href: "/who-we-serve/seniors",
+    href: "/request-care",
   },
   {
     titleKey: "veteransTitle",
@@ -64,13 +64,12 @@ const carePathways: CarePathway[] = [
     badgeKey: "personalizedBadge",
     actionType: "text",
     footerKey: "customSupport",
-    href: "/services/adults-with-disabilities",
+    href: "/services/personal-attendant-services",
   },
   {
     titleKey: "pediatricTitle",
     descKey: "pediatricDesc",
     icon: Bell,
-    badgeKey: "comingSoonBadge",
     isDark: true,
     actionType: "cta",
     footerKey: "explorePediatric",
@@ -98,10 +97,9 @@ export default function WhoWeServePage() {
         "Person-centered support that promotes dignity, everyday independence, and tailored assistance structured around unique personal needs.",
       pediatricTitle: "Pediatric Service",
       pediatricDesc:
-        "We are expanding our specialized care offerings to support children and young families. Stay connected for updates.",
+        "In-home respite and attendant care for children with medical needs or disabilities. We accept STAR Kids, STAR, and CHIP, as well as private pay.",
       trustedBadge: "Trusted",
       personalizedBadge: "Personalized",
-      comingSoonBadge: "Coming Soon",
       requestConsultation: "Request consultation",
       vaIntegration: "Official VA Resource Integration",
       customSupport: "Customized Daily Support",
@@ -109,7 +107,7 @@ export default function WhoWeServePage() {
       callBtn: "Call 972-325-1598",
       contactBtn: "Contact our team",
       commitmentTitle: "Our commitment to you",
-      commitmentSub: "Dedicated client-first philosophy",
+      commitmentSub: "Dedicated patient-first philosophy",
       commitPoints: [
         "Individualized care plans tailored to unique life stages",
         "Direct collaboration with families and physicians",
@@ -121,14 +119,14 @@ export default function WhoWeServePage() {
         "Specialized in-home programs built around the unique needs of the people and families we serve across North Texas.",
       detailEyebrow: "How we support each group",
       detailHeading: "Care built around real lives",
-      pediatricEyebrow: "Coming soon",
+      pediatricEyebrow: "Pediatric care",
       pediatricHeading: "Pediatric Home Health Services",
       pediatricPoints: [
         "Family-centered care planning",
         "Support for children with complex needs",
         "Coordination with pediatric providers",
       ],
-      pediatricBtn: "Stay updated",
+      pediatricBtn: "Explore pediatric services",
       transitionTitle: "Also supporting post-hospital recovery",
       transitionDesc:
         "Across all populations, our teams help patients transition safely from hospital to home — with skilled nursing, therapy coordination, medication education, and close communication with physicians to reduce readmission risk.",
@@ -150,10 +148,9 @@ export default function WhoWeServePage() {
         "Apoyo centrado en la persona que promueve la dignidad, la independencia diaria y asistencia personalizada estructurada según necesidades únicas.",
       pediatricTitle: "Servicio Pediátrico",
       pediatricDesc:
-        "Estamos expandiendo nuestras ofertas de cuidado especializado para apoyar a niños y jóvenes familias. Manténgase conectado.",
+        "Cuidado de relevo y asistencia en el hogar para niños con necesidades médicas o discapacidades. Aceptamos STAR Kids, STAR y CHIP, además de pago privado.",
       trustedBadge: "De Confianza",
       personalizedBadge: "Personalizado",
-      comingSoonBadge: "Próximamente",
       requestConsultation: "Solicitar consulta",
       vaIntegration: "Integración de Recursos Oficiales de VA",
       customSupport: "Apoyo Diario Personalizado",
@@ -161,7 +158,7 @@ export default function WhoWeServePage() {
       callBtn: "Llamar al 972-325-1598",
       contactBtn: "Contactar a nuestro equipo",
       commitmentTitle: "Nuestro compromiso con usted",
-      commitmentSub: "Filosofía dedicada a poner al cliente primero",
+      commitmentSub: "Filosofía dedicada a poner al paciente primero",
       commitPoints: [
         "Planes de atención individualizados adaptados a cada etapa de la vida",
         "Colaboración directa con familias y médicos",
@@ -173,14 +170,14 @@ export default function WhoWeServePage() {
         "Programas especializados en el hogar construidos en torno a las necesidades únicas de las personas y familias a las que servimos en el norte de Texas.",
       detailEyebrow: "Cómo apoyamos a cada grupo",
       detailHeading: "Cuidado construido en torno a vidas reales",
-      pediatricEyebrow: "Próximamente",
+      pediatricEyebrow: "Cuidado pediátrico",
       pediatricHeading: "Servicios de Salud en el Hogar Pediátrico",
       pediatricPoints: [
         "Planificación de atención centrada en la familia",
         "Apoyo para niños con necesidades complejas",
         "Coordinación con proveedores pediátricos",
       ],
-      pediatricBtn: "Mantenerse actualizado",
+      pediatricBtn: "Explorar servicios pediátricos",
       transitionTitle: "También apoyando la recuperación post-hospitalaria",
       transitionDesc:
         "En todas las poblaciones, nuestros equipos ayudan a los pacientes a hacer una transición segura del hospital al hogar — con enfermería especializada, coordinación de terapias y educación sobre medicamentos.",
@@ -270,6 +267,11 @@ export default function WhoWeServePage() {
         "Medicaid / STAR+PLUS",
         language === "es" ? "Programas de Texas" : "Texas programs",
       ],
+      href: "/services/personal-attendant-services",
+      linkLabel:
+        language === "es"
+          ? "Conozca los Servicios de Asistente Personal"
+          : "Learn about Personal Attendant Services",
       points:
         language === "es"
           ? [
@@ -522,6 +524,15 @@ export default function WhoWeServePage() {
                           {section.meta[1]}
                         </span>
                       </div>
+                      {"href" in section && section.href ? (
+                        <Link
+                          href={section.href}
+                          className="inline-flex items-center gap-2 pt-1 text-sm font-bold text-[#996515] underline underline-offset-4 transition-colors hover:text-[#07162C]"
+                        >
+                          {section.linkLabel}
+                          <ArrowRight size={15} />
+                        </Link>
+                      ) : null}
                     </div>
 
                     <div className="lg:col-span-7">
@@ -548,7 +559,7 @@ export default function WhoWeServePage() {
         </div>
       </section>
 
-      {/* ─── Pediatric Coming Soon Banner ─────────────────────── */}
+      {/* ─── Pediatric Banner ─────────────────────────────────── */}
       <section className="py-12">
         <div className={wrap}>
           <div className="relative overflow-hidden rounded-3xl bg-[#07162C] p-8 text-white sm:p-12 lg:p-14">
@@ -577,7 +588,7 @@ export default function WhoWeServePage() {
               </ul>
               <div className="pt-3">
                 <Link
-                  href="/contact"
+                  href="/services/pediatric-services"
                   className="inline-flex items-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-6 py-3 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#EDC878]"
                 >
                   {t.pediatricBtn}

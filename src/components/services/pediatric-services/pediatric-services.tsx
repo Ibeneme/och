@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Phone,
   ArrowRight,
@@ -46,7 +46,7 @@ export default function PediatricServicesComp() {
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <Link
-                  href="/contact"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <HeartHandshake size={17} aria-hidden />

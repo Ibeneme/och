@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import { useLanguage } from "@/src/context/LanguageContext";
 import { Phone, Check, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/src/constants/siteConfig";

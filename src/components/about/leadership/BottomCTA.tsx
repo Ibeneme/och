@@ -1,5 +1,7 @@
 "use client";
 
+
+import Link from "@/src/components/LocaleLink";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/about-us/cta.json";
 
@@ -21,18 +23,18 @@ export default function BottomCTA() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
-          <a
-            href="/contact"
+          <Link
+            href="/request-care"
             className="bg-[#D4AF37] hover:bg-[#E5C158] text-[#07162C] font-semibold px-8 py-4 rounded-xl transition-all text-sm"
           >
             {t.consultation}
-          </a>
-          <a
+          </Link>
+          <Link
             href="/referrals"
             className="bg-[#132E54] hover:bg-[#1E3A63] text-white border border-[#234575] font-medium px-8 py-4 rounded-xl transition-all text-sm"
           >
             {t.refer}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

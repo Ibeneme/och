@@ -1,43 +1,48 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "./seo";
+import { LOCALES } from "@/src/i18n/config";
+import { PAGES } from "@/src/seo/pages";
+import { LEGAL_LAST_UPDATED } from "@/src/constants/legalDates";
+import { taglinesPendingCount } from "@/src/content/taglines";
+import { a11yPendingCount } from "@/src/content/accessibility";
+import { absoluteUrl, languageAlternates, SITE_URL } from "./seo";
 
-const routes: { path: string; priority: number }[] = [
-  { path: "/", priority: 1 },
-  { path: "/about-us", priority: 0.7 },
-  { path: "/about-us/leadership", priority: 0.6 },
-  { path: "/who-we-serve", priority: 0.8 },
-  { path: "/insurance-payment-options", priority: 0.8 },
-  { path: "/referrals", priority: 0.8 },
-  { path: "/contact", priority: 0.9 },
-  { path: "/careers", priority: 0.6 },
-  { path: "/careers/cna-home-health-aide-application", priority: 0.6 },
-  { path: "/employee-resources", priority: 0.4 },
-  { path: "/resources", priority: 0.6 },
-  { path: "/services/skilled-nursing", priority: 0.9 },
-  { path: "/services/physical-therapy", priority: 0.9 },
-  { path: "/services/occupational-therapy", priority: 0.9 },
-  { path: "/services/speech-therapy", priority: 0.9 },
-  { path: "/services/home-health-aide", priority: 0.9 },
-  { path: "/services/medical-social-services", priority: 0.8 },
-  { path: "/services/wound-care", priority: 0.8 },
-  { path: "/services/post-surgical-care", priority: 0.8 },
-  { path: "/services/chronic-disease-management", priority: 0.8 },
-  { path: "/services/medication-management", priority: 0.8 },
-  { path: "/services/fall-prevention", priority: 0.8 },
-  { path: "/services/pediatric-services", priority: 0.8 },
-  { path: "/services/adults-with-disabilities", priority: 0.8 },
-  { path: "/services/veteran-care", priority: 0.8 },
-  { path: "/services/companion-care", priority: 0.7 },
-  { path: "/services/respite-care", priority: 0.7 },
-  { path: "/services/daily-lifestyle-support", priority: 0.7 },
-];
+// Legal pages 404 in production until finished, so keep them out of the sitemap too.
+const gatedReady: Record<string, boolean> = {
+  nondiscrimination:
+    !!LEGAL_LAST_UPDATED.nondiscrimination && taglinesPendingCount() === 0,
+  accessibility: !!LEGAL_LAST_UPDATED.accessibility && a11yPendingCount() === 0,
+};
 
+/**
+ * One entry per language per page (/x and /es/x), each carrying hreflang
+ * alternates so Google links the two versions together.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return routes.map(({ path, priority }) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified,
-    changeFrequency: "monthly",
-    priority,
-  }));
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const page of Object.values(PAGES)) {
+    const p = page as import("@/src/seo/pages").PageSeo;
+    if (p.noindex || p.canonicalPath) continue;
+    if (p.gated && !gatedReady[p.gated]) continue;
+
+    const alt = languageAlternates(p.path);
+    const languages = Object.fromEntries(
+      Object.entries(alt).map(([lang, path]) => [
+        lang,
+        path === "/" ? SITE_URL : `${SITE_URL}${path}`,
+      ]),
+    );
+
+    for (const locale of LOCALES) {
+      entries.push({
+        url: absoluteUrl(p.path, locale),
+        lastModified,
+        changeFrequency: "monthly",
+        priority: p.priority,
+        alternates: { languages },
+      });
+    }
+  }
+  return entries;
 }

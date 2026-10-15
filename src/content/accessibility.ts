@@ -1,37 +1,37 @@
 /**
- * C4: lists below must contain ONLY what was actually fixed / is still open
- * after the B15 accessibility work. While any is null the page 404s in
- * production (see src/lib/legalGate.ts). Fill both languages.
+ * C4: these lists contain ONLY what is verifiably true of the site today.
+ * Do not add claims such as "meets minimum contrast ratios" or "fully
+ * navigable by keyboard" until a Lighthouse/axe run plus a manual keyboard and
+ * screen-reader pass back them up; record the results (tool, version, date,
+ * pages tested) alongside the change.
  *
- * Example for A11Y_DONE.en:
- *   ["Text and background colors meet minimum contrast ratios",
- *    "All images have alternative text",
- *    "The site can be navigated by keyboard"]
- * A11Y_LIMITS entries should name the gap and a target date.
+ * While any list is null the page 404s in production (see src/lib/legalGate.ts).
  */
 export const A11Y_DONE: { en: string[] | null; es: string[] | null } = {
   en: [
-    "Text and background colors meet minimum contrast ratios across all pages",
-    "All functional images and icons include descriptive alternative text",
-    "The entire website can be fully navigated using a keyboard",
-    "ARIA landmarks and headings are properly structured for screen readers"
+    "A \"Skip to main content\" link is the first focusable item on every page, so keyboard and screen reader users can bypass the navigation menu",
+    "Every page declares its language (English or Spanish), and the full site is available in both",
+    "Pages use landmark regions (header, navigation, main, footer), and each page has its own descriptive title",
+    "Animations and smooth scrolling are reduced or turned off for visitors whose device is set to reduce motion",
   ],
   es: [
-    "Los colores de texto y fondo cumplen con las relaciones de contraste mínimo en todas las páginas",
-    "Todas las imágenes funcionales y los iconos incluyen texto alternativo descriptivo",
-    "Todo el sitio web se puede navegar completamente usando el teclado",
-    "Los puntos de referencia ARIA y los encabezados están estructurados adecuadamente para lectores de pantalla"
+    "Un enlace \"Saltar al contenido principal\" es el primer elemento enfocable de cada página, para que las personas que usan teclado o lector de pantalla puedan omitir el menú de navegación",
+    "Cada página declara su idioma (inglés o español), y todo el sitio está disponible en ambos",
+    "Las páginas usan regiones de referencia (encabezado, navegación, contenido principal y pie de página), y cada página tiene su propio título descriptivo",
+    "Las animaciones y el desplazamiento suave se reducen o se desactivan para los visitantes cuyo dispositivo está configurado para reducir el movimiento",
   ],
 };
 
 export const A11Y_LIMITS: { en: string[] | null; es: string[] | null } = {
   en: [
-    "Some older PDF documents may not be fully optimized for screen readers; full remediation targeted for December 31, 2026",
-    "Third-party embedded maps provider interface has minor keyboard navigation limitations; monitoring vendor updates"
+    "We have not yet completed a full audit of the site with automated tools (such as Lighthouse and axe) and manual keyboard and screen reader testing, so we cannot yet confirm that every page meets WCAG 2.1 Level AA",
+    "Background videos on the home page and page headers play automatically and do not yet have a pause control",
+    "The patient request and referral forms are provided by a third party (JotForm) and embedded in our pages; we do not control their accessibility",
   ],
   es: [
-    "Es posible que algunos documentos PDF más antiguos no estén completamente optimizados para lectores de pantalla; su corrección total está programada para el 31 de diciembre de 2026",
-    "La interfaz del proveedor de mapas incrustados de terceros presenta limitaciones menores de navegación por teclado; se monitorean las actualizaciones del proveedor"
+    "Aún no hemos completado una auditoría completa del sitio con herramientas automatizadas (como Lighthouse y axe) y pruebas manuales con teclado y lector de pantalla, por lo que todavía no podemos confirmar que cada página cumpla con WCAG 2.1 nivel AA",
+    "Los videos de fondo de la página de inicio y de los encabezados de página se reproducen automáticamente y todavía no tienen un control para pausarlos",
+    "Los formularios de solicitud de atención y de referidos los proporciona un tercero (JotForm) y están incrustados en nuestras páginas; no controlamos su accesibilidad",
   ],
 };
 

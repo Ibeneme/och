@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -31,7 +31,7 @@ const carePathways: CarePathway[] = [
     image: "/images/home_e.jpg",
     actionType: "button",
     footerKey: "requestConsultation",
-    href: "/who-we-serve/seniors",
+    href: "/request-care",
   },
   {
     titleKey: "veteransTitle",
@@ -51,13 +51,12 @@ const carePathways: CarePathway[] = [
     image: "/images/home_c.jpg",
     actionType: "text",
     footerKey: "customSupport",
-    href: "/services/adults-with-disabilities",
+    href: "/services/personal-attendant-services",
   },
   {
     titleKey: "pediatricTitle",
     descKey: "pediatricDesc",
     icon: Bell,
-    badgeKey: "comingSoonBadge",
     image: "/images/paediatric-care.jpg",
     isDark: true,
     actionType: "cta",
@@ -86,10 +85,9 @@ export default function ServicesLandingPage() {
         "Person-centered support that promotes dignity, everyday independence, and tailored assistance structured around unique personal needs.",
       pediatricTitle: "Pediatric Service",
       pediatricDesc:
-        "We are expanding our specialized care offerings to support children and young families. Stay connected for updates.",
+        "In-home respite and attendant care for children with medical needs or disabilities. We accept STAR Kids, STAR, and CHIP, as well as private pay.",
       trustedBadge: "Trusted",
       personalizedBadge: "Personalized",
-      comingSoonBadge: "Coming Soon",
       requestConsultation: "Request consultation",
       vaIntegration: "Official VA Resource Integration",
       customSupport: "Customized Daily Support",
@@ -111,10 +109,9 @@ export default function ServicesLandingPage() {
         "Apoyo centrado en la persona que promueve la dignidad, la independencia diaria y asistencia personalizada estructurada según necesidades únicas.",
       pediatricTitle: "Servicio Pediátrico",
       pediatricDesc:
-        "Estamos expandiendo nuestras ofertas de cuidado especializado para apoyar a niños y jóvenes familias. Manténgase conectado.",
+        "Cuidado de relevo y asistencia en el hogar para niños con necesidades médicas o discapacidades. Aceptamos STAR Kids, STAR y CHIP, además de pago privado.",
       trustedBadge: "De Confianza",
       personalizedBadge: "Personalizado",
-      comingSoonBadge: "Próximamente",
       requestConsultation: "Solicitar consulta",
       vaIntegration: "Integración de Recursos Oficiales de VA",
       customSupport: "Apoyo Diario Personalizado",

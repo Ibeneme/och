@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
+import Link from "@/src/components/LocaleLink";
 import {
   Award,
   ShieldCheck,
@@ -76,16 +76,16 @@ export default function AboutTrustSection() {
 
   const t = {
     en: {
-      badge: "Serving clients since 2010",
+      badge: "Serving patients since 2010",
       heading: "A trusted legacy of",
       headingHighlight: "compassionate care.",
-      paragraph: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, has served clients since 2010, carrying our nurse-founded care legacy forward under a clearer, community-centered brand.`,
+      paragraph: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, has served patients since 2010, carrying our nurse-founded care legacy forward under a clearer, community-centered brand.`,
       sealEst: "Est. 2010",
       legalName:
         "JACOP Healthcare Services, Inc., doing business as One Community Home Health",
       v1Title: "Nurse-founded",
       v1Desc:
-        "Over two decades of clinical leadership and professional accountability.",
+        "Serving DFW families since 2010, with clinical leadership and professional accountability.",
       v2Title: "Community focused",
       v2Desc:
         "Delivering individualized care across the Dallas-Fort Worth region.",
@@ -99,16 +99,16 @@ export default function AboutTrustSection() {
       brandName: "One Community",
     },
     es: {
-      badge: "Sirviendo a clientes desde 2010",
+      badge: "Sirviendo a pacientes desde 2010",
       heading: "Un legado de confianza en",
       headingHighlight: "cuidado compasivo.",
-      paragraph: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, atiende a clientes desde 2010, llevando nuestro legado de cuidado fundado por enfermeras hacia adelante bajo una marca más clara y centrada en la comunidad.`,
+      paragraph: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, atiende a pacientes desde 2010, llevando nuestro legado de cuidado fundado por enfermeras hacia adelante bajo una marca más clara y centrada en la comunidad.`,
       sealEst: "Fundada 2010",
       legalName:
         "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health",
       v1Title: "Fundada por enfermeras",
       v1Desc:
-        "Más de dos décadas de liderazgo clínico y responsabilidad profesional.",
+        "Atendiendo a familias de DFW desde 2010, con liderazgo clínico y responsabilidad profesional.",
       v2Title: "Enfoque comunitario",
       v2Desc:
         "Brindando atención individualizada en toda la región de Dallas-Fort Worth.",

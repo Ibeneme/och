@@ -23,7 +23,7 @@ export default function AboutTrustSection() {
   const { language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const parallaxSectionRef = useRef<HTMLDivElement>(null);
+  const parallaxSectionRef = useRef<HTMLElement>(null);
   const parallaxBgRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -51,12 +51,16 @@ export default function AboutTrustSection() {
         }
       );
 
+      // Parallax: layer is scaled up 1.25x (12.5% overscan top and bottom)
+      // and moves only +/-10% of its height, so it always covers the section.
       gsap.fromTo(
         parallaxBgRef.current,
-        { yPercent: -15 },
+        { yPercent: -10, scale: 1.25 },
         {
-          yPercent: 15,
+          yPercent: 10,
+          scale: 1.25,
           ease: "none",
+          transformOrigin: "center center",
           scrollTrigger: {
             trigger: parallaxSectionRef.current,
             start: "top bottom",
@@ -230,13 +234,13 @@ export default function AboutTrustSection() {
         </div>
       </section>
 
-      <section
+      {/* <section
         ref={parallaxSectionRef}
-        className="relative w-full h-[60vh] sm:h-[65vh] overflow-hidden flex items-center justify-center"
+        className="relative w-full h-screen h-[100svh] min-h-[500px] overflow-hidden flex items-center justify-center bg-black"
       >
-        <div
+      <div
           ref={parallaxBgRef}
-          className="absolute inset-0 -top-[0%] -bottom-[0%] w-full h-full will-change-transform pointer-events-none overflow-hidden"
+          className="absolute inset-0 will-change-transform pointer-events-none"
         >
           <video
             ref={videoRef}
@@ -244,7 +248,8 @@ export default function AboutTrustSection() {
             muted
             loop
             playsInline
-            className="w-full h-full object-cover"
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/assets/care.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -257,11 +262,11 @@ export default function AboutTrustSection() {
           <span className="inline-block text-[11px] uppercase tracking-[0.3em] text-[#E4B95A] font-bold mb-4">
             {t.since}
           </span>
-          <h2 className=" text-4xl sm:text-8xl lg:text-9xl font-bold tracking-tight text-white drop-shadow-md">
+          <h2 className="text-4xl sm:text-8xl lg:text-9xl font-bold tracking-tight text-white drop-shadow-md">
             {t.brandName}
           </h2>
         </div>
-      </section>
+      </section>*/}
     </>
   );
 }

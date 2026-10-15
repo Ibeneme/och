@@ -27,6 +27,13 @@ const wrap = "relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12";
    legally required one, so it is first. Plain <Link> = real <a href>. */
 const LEGAL_LINKS: { href: string; label: { en: string; es: string } }[] = [
   {
+    href: "/notice-of-privacy-practices",
+    label: {
+      en: "Notice of Privacy Practices",
+      es: "Aviso de prácticas de privacidad",
+    },
+  },
+  {
     href: "/privacy-policy",
     label: { en: "Privacy Policy", es: "Política de privacidad" },
   },
@@ -298,6 +305,28 @@ export default function Footer() {
             <span className="min-w-0">
               {footerContent.buttons.requestConsultation[lang]}
             </span>
+          </Link>
+        </div>
+      </div>
+
+      {/* ===== Additional Care Consultation Request CTA link block pointing to Notice of Privacy Practices ===== */}
+      <div
+        className={`${wrap} border-b border-white/10 py-5 text-center sm:text-left`}
+      >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-white/80">
+            {lang === "es"
+              ? "¿Tiene preguntas sobre nuestros servicios de atención o cobertura de seguro? Revise nuestro Aviso de Prácticas de Privacidad."
+              : "Have questions about our care services or insurance coverage? Review our Notice of Privacy Practices."}
+          </p>
+          <Link
+            href="/notice-of-privacy-practices"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E4B95A] underline underline-offset-4 hover:text-white"
+          >
+            {lang === "es"
+              ? "Ver Aviso de Prácticas de Privacidad"
+              : "View Notice of Privacy Practices"}
+            <ArrowUpRight size={14} className="shrink-0" />
           </Link>
         </div>
       </div>

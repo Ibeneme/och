@@ -1,6 +1,7 @@
 import { buildMetadata } from "@/app/seo";
 import PrivacyPolicy from "../privacy-policy/page";
-import PrintButton from "./PrintButton"; 
+import PrintButton from "./PrintButton";
+import NoticeOfPrivacyPracticesContent from "@/src/components/legal/NoticeOfPrivacyPractices";
 
 export const metadata = {
   ...buildMetadata({
@@ -14,14 +15,9 @@ export const metadata = {
 
 export default function NoticeOfPrivacyPracticesPrintRoute() {
   return (
-    <div className="bg-white py-8">
-      {/* Interactive print trigger for users */}
-      <div className="no-print mx-auto mb-8 max-w-[720px] px-6 text-right">
-        <PrintButton />
-      </div>
-
+    <div className="bg-white">
       {/* Renders the full NPP content cleanly styled for physical or PDF output */}
-      <PrivacyPolicy />
+      <NoticeOfPrivacyPracticesContent />
     </div>
   );
 }

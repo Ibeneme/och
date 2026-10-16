@@ -62,7 +62,7 @@ export default function ChronicDiseaseManagementComp() {
 
               <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
                 <Link
-                  href="/contact#consultation-form"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <span>{t.requestCare}</span>

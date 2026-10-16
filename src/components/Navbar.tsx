@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import Link from "@/src/components/LocaleLink";
 import {
   ChevronDown,
@@ -24,6 +25,9 @@ import {
   MapPin,
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
+import { LOCALES } from "@/src/i18n/config";
+import ThemeToggle from "@/src/components/ThemeToggle";
+import { LANGUAGE_META } from "@/src/i18n/languages";
 import {
   CITY_PAGE_SLUGS,
   COUNTY_COUNT,
@@ -61,7 +65,7 @@ const reveal =
   "opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto transition-all duration-200";
 
 export default function Navbar() {
-  const { language, setLanguage } = useLanguage();
+  const { language, locale, setLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<
     string | null
@@ -70,6 +74,8 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
   const [headerH, setHeaderH] = useState(120);
   const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 16);
@@ -95,6 +101,13 @@ export default function Navbar() {
     return () => ro.disconnect();
   }, []);
 
+  // Close the drawer whenever the route changes (back/forward, any link).
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setActiveMobileDropdown(null);
+    setLangOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1280px)");
     const onChange = () => {
@@ -105,7 +118,10 @@ export default function Navbar() {
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setMobileMenuOpen(false);
+        setMobileMenuOpen((open) => {
+          if (open) menuButtonRef.current?.focus();
+          return false;
+        });
         setLangOpen(false);
       }
     };
@@ -119,12 +135,12 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!langOpen) return;
-    const onDown = (e: MouseEvent) => {
+    const onDown = (e: PointerEvent) => {
       const target = e.target as HTMLElement;
       if (!target.closest("[data-lang-toggle]")) setLangOpen(false);
     };
-    document.addEventListener("mousedown", onDown);
-    return () => document.removeEventListener("mousedown", onDown);
+    document.addEventListener("pointerdown", onDown);
+    return () => document.removeEventListener("pointerdown", onDown);
   }, [langOpen]);
 
   const toggleMobileDropdown = (name: string) => {
@@ -511,10 +527,10 @@ export default function Navbar() {
       >
         <Globe size={14} className="shrink-0 opacity-70" />
         <span className="font-semibold tracking-wide">
-          {language === "en" ? "EN" : "ES"}
+          {LANGUAGE_META[locale].short}
         </span>
         <span className="text-[14px] leading-none" aria-hidden>
-          {language === "en" ? "🇺🇸" : "🇪🇸"}
+          {LANGUAGE_META[locale].flag}
         </span>
         <ChevronDown
           size={12}
@@ -526,12 +542,7 @@ export default function Navbar() {
 
       {langOpen && (
         <div className="absolute right-0 top-full z-[70] mt-1.5 min-w-[140px] max-w-[calc(100vw-1.5rem)] rounded-2xl border border-[#07162C]/10 bg-white py-1 shadow-lg shadow-[#07162C]/[0.08]">
-          {(
-            [
-              ["en", "🇺🇸", "English"],
-              ["es", "🇪🇸", "Español"],
-            ] as const
-          ).map(([code, flag, name]) => (
+          {LOCALES.map((code) => [code, LANGUAGE_META[code].flag, LANGUAGE_META[code].name] as const).map(([code, flag, name]) => (
             <button
               key={code}
               type="button"
@@ -540,14 +551,14 @@ export default function Navbar() {
                 setLangOpen(false);
               }}
               className={`flex w-full cursor-pointer items-center gap-2.5 px-3 py-2 text-left text-[13px] transition-colors ${
-                language === code
+                locale === code
                   ? "bg-[#07162C] font-semibold text-white"
                   : "text-[#07162C]/80 hover:bg-[#F4F4F2]"
               }`}
             >
               <span className="text-[15px]">{flag}</span>
               <span>{name}</span>
-              {language === code && (
+              {locale === code && (
                 <span className="ml-auto h-1.5 w-1.5 rounded-full bg-[#E4B95A]" />
               )}
             </button>
@@ -588,7 +599,7 @@ export default function Navbar() {
         </button>
         <div
           className={`overflow-hidden transition-all duration-300 ease-in-out ${
-            open ? `${maxH} px-2 pb-3.5 opacity-150` : "max-h-0 opacity-0"
+            open ? `${maxH} px-2 pb-3.5 opacity-100` : "max-h-0 opacity-0"
           }`}
         >
           <div className="space-y-1 rounded-2xl border border-[#07162C]/10 bg-[#F4F4F2] p-3 text-sm">
@@ -607,10 +618,10 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 w-full overflow-x-clip border-b border-[#07162C]/10 bg-[#F4F4F2]"
+      className="sticky top-0 z-50 w-full overflow-x-clip border-b border-[#07162C]/10 bg-[#F4F4F2] pt-[env(safe-area-inset-top)]"
     >
       {/* ===== Top utility bar ===== */}
-      <div className="relative z-50 bg-[#07162C] px-3 py-2 text-[11px] text-white sm:px-6 sm:text-[12px] lg:px-8">
+      <div className="relative z-50 bg-[#07162C] py-2 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] text-[11px] text-white sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] sm:text-[12px] lg:pl-[max(2rem,env(safe-area-inset-left))] lg:pr-[max(2rem,env(safe-area-inset-right))]">
         <div className="mx-auto flex w-full max-w-7xl min-w-0 flex-col gap-1 xl:flex-row xl:items-center xl:justify-between xl:gap-6">
           <span className="hidden min-w-0 items-start gap-1.5 leading-snug text-white/75 md:inline-flex">
             <span className="relative mt-[5px] flex h-1.5 w-1.5 shrink-0">
@@ -672,7 +683,7 @@ export default function Navbar() {
 
       {/* ===== Main navbar ===== */}
       <div
-        className={`relative z-50 bg-[#F4F4F2] px-3 transition-all duration-300 sm:px-6 lg:px-8 ${
+        className={`relative z-50 bg-[#F4F4F2] pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] transition-all duration-300 sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] lg:pl-[max(2rem,env(safe-area-inset-left))] lg:pr-[max(2rem,env(safe-area-inset-right))] ${
           isScrolled
             ? "py-2 shadow-[0_1px_12px_rgba(7,22,44,0.04)]"
             : "py-3 sm:py-3.5"
@@ -1039,24 +1050,27 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
-            <div className="hidden sm:block">
+            <div className="hidden items-center gap-2 sm:flex">
+              <ThemeToggle />
               <LangToggle />
             </div>
 
             <Link
               href="/request-care"
-              className="hidden items-center gap-2 whitespace-nowrap rounded-full border border-[#07162C] bg-[#07162C] px-5 py-2.5 text-[13px] font-semibold text-[#E4B95A] transition-all hover:bg-[#0A2140] active:scale-[0.98] sm:inline-flex"
+              className="hidden items-center gap-1.5 whitespace-nowrap rounded-full border border-[#07162C] bg-[#07162C] px-3.5 py-2 text-[12px] font-semibold text-[#E4B95A] transition-all hover:bg-[#0A2140] active:scale-[0.98] min-[480px]:inline-flex sm:gap-2 sm:px-5 sm:py-2.5 sm:text-[13px]"
             >
               <HeartHandshake size={16} className="shrink-0" />
               <span>{t.requestCare}</span>
             </Link>
 
             <button
+              ref={menuButtonRef}
               type="button"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label={mobileMenuOpen ? t.closeMenu : t.openMenu}
               aria-expanded={mobileMenuOpen}
-              className="cursor-pointer rounded-2xl border border-[#07162C]/10 bg-white p-2.5 text-[#07162C] transition-colors hover:border-[#07162C]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/40 active:scale-95 xl:hidden"
+              aria-controls="mobile-nav-drawer"
+              className="flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-2xl border border-[#07162C]/10 bg-white text-[#07162C] transition-colors hover:border-[#07162C]/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#07162C]/40 active:scale-95 xl:hidden"
             >
               <div className="relative flex h-5 w-5 items-center justify-center">
                 <span
@@ -1095,6 +1109,11 @@ export default function Navbar() {
       />
 
       <div
+        id="mobile-nav-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label={t.openMenu}
+        inert={!mobileMenuOpen}
         className={`absolute inset-x-0 top-full z-[55] px-3 pt-2 transition-all duration-300 ease-in-out sm:px-6 xl:hidden ${
           mobileMenuOpen
             ? "visible translate-y-0 opacity-100"
@@ -1103,9 +1122,9 @@ export default function Navbar() {
       >
         <div
           className="mx-auto flex w-full max-w-xl flex-col overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-2 shadow-2xl shadow-[#07162C]/10 md:max-w-3xl"
-          style={{ maxHeight: `calc(100dvh - ${headerH}px - 1.25rem)` }}
+          style={{ maxHeight: `calc(100dvh - ${headerH}px - 1.25rem - env(safe-area-inset-bottom))` }}
         >
-          <div className="min-w-0 space-y-1 overflow-y-auto overscroll-contain p-2 sm:p-3">
+          <div className="min-w-0 space-y-1 overflow-y-auto overscroll-contain p-2 [-webkit-overflow-scrolling:touch] sm:p-3">
             <div
               role="group"
               aria-label={t.language}
@@ -1115,20 +1134,15 @@ export default function Navbar() {
                 <Globe size={14} className="shrink-0" />
                 {t.language}
               </span>
-              <div className="flex rounded-full border border-[#07162C]/10 bg-white p-0.5">
-                {(
-                  [
-                    ["en", "EN", "🇺🇸"],
-                    ["es", "ES", "🇪🇸"],
-                  ] as const
-                ).map(([code, short, flag]) => (
+              <div className="flex flex-wrap justify-end rounded-full border border-[#07162C]/10 bg-white p-0.5">
+                {LOCALES.map((code) => [code, LANGUAGE_META[code].short, LANGUAGE_META[code].flag] as const).map(([code, short, flag]) => (
                   <button
                     key={code}
                     type="button"
                     onClick={() => setLanguage(code)}
-                    aria-pressed={language === code}
+                    aria-pressed={locale === code}
                     className={`flex cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[12px] font-semibold transition-colors ${
-                      language === code
+                      locale === code
                         ? "bg-[#07162C] text-[#E4B95A]"
                         : "text-[#07162C]/80 hover:bg-[#F4F4F2]"
                     }`}
@@ -1138,6 +1152,13 @@ export default function Navbar() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            <div className="mb-1 flex items-center justify-between gap-3 rounded-2xl border border-[#07162C]/10 bg-[#E9EAE5] px-4 py-3">
+              <span className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#996515]">
+                {language === "es" ? "Tema" : "Theme"}
+              </span>
+              <ThemeToggle />
             </div>
 
             <Link

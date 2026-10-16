@@ -1,8 +1,22 @@
 @import "tailwindcss";
+@import "../src/styles/dark-theme.generated.css";
+
+/* Tailwind `dark:` variant follows the <html class="dark"> toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --font-sans: var(--font-parkinsans), sans-serif;
-  color-scheme: light dark;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #0B1322;
+}
+
+/* Dark mode: soften photos slightly so they sit on dark surfaces. */
+html.dark img:not([src$=".svg"]) {
+  filter: brightness(0.92);
 }
 
 @theme inline {

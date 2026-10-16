@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
 import "../globals.css";
@@ -7,6 +7,7 @@ import Footer from "@/src/components/Footer";
 import Navbar from "@/src/components/Navbar";
 import { notFound } from "next/navigation";
 import JsonLd from "../JsonLd";
+import { THEME_INIT_SCRIPT } from "@/src/components/ThemeToggle";
 import { buildLocalBusinessJsonLd } from "../local-business";
 import {
   OG_TAGLINE,
@@ -16,7 +17,9 @@ import {
   SITE_TAGLINE,
   SITE_URL,
 } from "../seo";
-import { LOCALES, OG_LOCALE, isLocale } from "@/src/i18n/config";
+import { LOCALES, OG_LOCALE, contentLocale, isLocale } from "@/src/i18n/config";
+import { LANGUAGE_META } from "@/src/i18n/languages";
+import { getMessages } from "@/src/i18n/messages";
 
 const parkinsans = localFont({
   src: [
@@ -68,20 +71,29 @@ export function generateStaticParams() {
  * hreflang through `pageMetadata()` in app/seo.ts.
  * (No canonical here on purpose: it would leak onto pages that forget their own.)
  */
+// viewport-fit=cover lets the navbar respect phone notches / landscape safe areas.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export async function generateMetadata({
   params,
 }: Pick<LayoutProps, "params">): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
+  const { locale: siteLocale } = await params;
+  if (!isLocale(siteLocale)) return {};
+  const extra = getMessages(siteLocale);
+  const locale = contentLocale(siteLocale);
   const other = locale === "es" ? "en" : "es";
 
   return {
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${SITE_NAME} | ${SITE_TAGLINE[locale]}`,
+      default: `${SITE_NAME} | ${extra?.siteTagline ?? SITE_TAGLINE[locale]}`,
       template: `%s | ${SITE_NAME}`,
     },
-    description: SITE_DESCRIPTION[locale],
+    description: extra?.siteDescription ?? SITE_DESCRIPTION[locale],
     applicationName: SITE_NAME,
     keywords: SITE_KEYWORDS[locale],
     icons: {
@@ -111,7 +123,7 @@ export async function generateMetadata({
           alt: `${SITE_NAME} ${locale === "es" ? "vista previa" : "preview"}`,
         },
       ],
-      locale: OG_LOCALE[locale],
+      locale: LANGUAGE_META[siteLocale].og,
       alternateLocale: [OG_LOCALE[other]],
       type: "website",
     },
@@ -127,17 +139,23 @@ export async function generateMetadata({
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  const skipLabel =
+    getMessages(locale)?.skipToContent ??
+    (locale === "es" ? "Saltar al contenido principal" : "Skip to main content");
 
   return (
-    <html lang={locale} className={`${parkinsans.variable} h-full antialiased`}>
+    <html lang={LANGUAGE_META[locale].htmlLang} className={`${parkinsans.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="min-h-full flex flex-col font-sans overflow-x-hidden">
-        <JsonLd data={buildLocalBusinessJsonLd(locale)} />
+        <JsonLd data={buildLocalBusinessJsonLd(contentLocale(locale))} />
         <LanguageProvider locale={locale}>
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#07162C] focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#E4B95A]"
           >
-            {locale === "es" ? "Saltar al contenido principal" : "Skip to main content"}
+            {skipLabel}
           </a>
           <Navbar />
           <main id="main-content" tabIndex={-1} className="flex-1 w-full overflow-x-hidden focus:outline-none">

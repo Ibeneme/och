@@ -1,20 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import type { FormEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
   MapPin,
   Phone,
   Mail,
   Clock,
   ShieldAlert,
-  CheckCircle2,
   ChevronDown,
   ArrowRight,
 } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 import content from "@/src/locales/resources/contact.json";
 import { siteConfig } from "@/src/constants/siteConfig";
+import RequestCareEmbed from "@/src/components/RequestCareEmbed";
 
 /* Restyled to match Request Care layout:
    soft gray page #F4F4F2, pill labels with a number chip, large light headings,
@@ -80,20 +79,6 @@ function Field({
 export default function ContactPage() {
   const { language } = useLanguage();
   const t = content[language as "en" | "es"] || content.en;
-
-  const [formStatus, setFormStatus] = useState<"idle" | "success">("idle");
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    inquiryType: "General Inquiry",
-    message: "",
-  });
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setFormStatus("success");
-  };
 
   const quickInfo = [
     {
@@ -196,129 +181,9 @@ export default function ContactPage() {
               <p className="text-sm text-[#07162C]/70">{t.formDesc}</p>
             </div>
 
-            {formStatus === "success" ? (
-              <div role="status" className="space-y-5 py-10 text-center">
-                <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#07162C] text-[#E4B95A]">
-                  <CheckCircle2 size={32} aria-hidden />
-                </span>
-                <h3 className={`${HEADING} text-xl font-semibold`}>
-                  {t.successTitle}
-                </h3>
-                <p className="mx-auto max-w-md text-sm text-[#07162C]/70">
-                  {t.successDesc}
-                </p>
-                <button
-                  onClick={() => setFormStatus("idle")}
-                  className={`rounded-full border border-[#07162C] px-6 py-3 text-sm font-semibold text-[#07162C] transition-colors hover:bg-[#07162C] hover:text-[#E4B95A] ${FOCUS}`}
-                >
-                  {t.sendAnother}
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="fullName" label={t.fullName}>
-                    <input
-                      id="fullName"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      value={formData.fullName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, fullName: e.target.value })
-                      }
-                      placeholder="John Doe"
-                      className={input}
-                    />
-                  </Field>
-                  <Field id="email" label={t.emailAddr}>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      placeholder="john@example.com"
-                      className={input}
-                    />
-                  </Field>
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <Field id="phone" label={t.phoneNum}>
-                    <input
-                      id="phone"
-                      type="tel"
-                      required
-                      autoComplete="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      placeholder="(972) 000-0000"
-                      className={input}
-                    />
-                  </Field>
-                  <Field id="inquiryType" label={t.inquiryType}>
-                    <div className="relative">
-                      <select
-                        id="inquiryType"
-                        value={formData.inquiryType}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            inquiryType: e.target.value,
-                          })
-                        }
-                        className={`${input} appearance-none pr-11`}
-                      >
-                        <option value="General Inquiry">{t.optGeneral}</option>
-                        <option value="Request a Consultation">
-                          {t.optConsult}
-                        </option>
-                        <option value="Patient Referral">
-                          {t.optReferral}
-                        </option>
-                      </select>
-                      <ChevronDown
-                        size={20}
-                        aria-hidden
-                        className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#07162C]"
-                      />
-                    </div>
-                  </Field>
-                </div>
-
-                <Field id="message" label={t.messageLabel}>
-                  <textarea
-                    id="message"
-                    required
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder={t.messagePlaceholder}
-                    className={input}
-                  />
-                </Field>
-
-                <button
-                  type="submit"
-                  className={`group flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full border border-[#07162C] bg-[#07162C] py-4 text-base font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140] ${FOCUS}`}
-                >
-                  {t.submitReq}
-                  <ArrowRight
-                    size={20}
-                    aria-hidden
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </button>
-              </form>
-            )}
+            <div className="mt-8">
+              <RequestCareEmbed sourcePage="/contact" />
+            </div>
           </div>
 
           {/* Side Notices Stack */}

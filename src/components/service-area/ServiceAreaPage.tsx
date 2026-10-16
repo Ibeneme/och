@@ -146,7 +146,7 @@ export default function ServiceAreaPage() {
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                href="/contact#consultation-form"
+                href="/request-care"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
                 <span>{t.request}</span>

@@ -2,14 +2,15 @@
 
 import React, { createContext, useCallback, useContext, useMemo, ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import { type Locale, switchLocalePath } from "@/src/i18n/config";
-
-type Language = Locale;
+import { type Locale, type SiteLocale, contentLocale, switchLocalePath } from "@/src/i18n/config";
 
 interface LanguageContextType {
-  language: Language;
-  /** Navigates to the same page in the other language (/x <-> /es/x). */
-  setLanguage: (lang: Language) => void;
+  /** Content language ("en" | "es"). Extra languages use "en" for untranslated copy. */
+  language: Locale;
+  /** The language actually selected in the URL (en, es, de, fr, zh, it, pt). */
+  locale: SiteLocale;
+  /** Navigates to the same page in another language (/x <-> /es/x <-> /de/x). */
+  setLanguage: (lang: SiteLocale) => void;
   t: (key: string) => string;
 }
 
@@ -24,13 +25,13 @@ export function LanguageProvider({
   locale,
   children,
 }: {
-  locale: Language;
+  locale: SiteLocale;
   children: ReactNode;
 }) {
   const router = useRouter();
 
   const setLanguage = useCallback(
-    (lang: Language) => {
+    (lang: SiteLocale) => {
       if (lang === locale) return;
       // Read the live URL at click time (keeps this provider fully static).
       const { pathname, search, hash } = window.location;
@@ -43,7 +44,7 @@ export function LanguageProvider({
   const t = useCallback((key: string): string => key, []);
 
   const value = useMemo(
-    () => ({ language: locale, setLanguage, t }),
+    () => ({ language: contentLocale(locale), locale, setLanguage, t }),
     [locale, setLanguage, t],
   );
 

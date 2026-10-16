@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { LOCALES } from "@/src/i18n/config";
 
 /**
  * Locale routing.
@@ -9,7 +10,8 @@ import { NextResponse, type NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (pathname === "/es" || pathname.startsWith("/es/")) {
+  // /es plus any extra language switched on in src/i18n/languages.ts
+  if (LOCALES.some((l) => l !== "en" && (pathname === `/${l}` || pathname.startsWith(`/${l}/`)))) {
     return NextResponse.next();
   }
 

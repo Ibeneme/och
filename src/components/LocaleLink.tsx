@@ -10,13 +10,13 @@ import { localizeHref, localizePath } from "@/src/i18n/config";
  * internal links get the `/es` prefix when the page is Spanish.
  */
 export default function Link({ href, ...props }: ComponentProps<typeof NextLink>) {
-  const { language } = useLanguage();
+  const { locale } = useLanguage();
 
   let localized: typeof href = href;
   if (typeof href === "string") {
-    localized = localizeHref(href, language);
+    localized = localizeHref(href, locale);
   } else if (href && typeof href.pathname === "string") {
-    localized = { ...href, pathname: localizePath(href.pathname, language) };
+    localized = { ...href, pathname: localizePath(href.pathname, locale) };
   }
 
   return <NextLink href={localized} {...props} />;

@@ -15,6 +15,7 @@ import { CITY_CONTENT } from "@/src/content/cityPages";
 import { PAGES, type PageKey } from "@/src/seo/pages";
 import insurance from "@/src/locales/insurance/insurance-payment.json";
 import ZipConfirmation from "./ZipConfirmation";
+import RequestCareEmbed from "@/src/components/RequestCareEmbed";
 
 const wrap = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const heading = "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
@@ -122,7 +123,7 @@ export default function CityPage({ slug }: { slug: CitySlug }) {
               </p>
               <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
                 <Link
-                  href="/contact#consultation-form"
+                  href="/request-care"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#07162C] bg-[#07162C] px-7 py-3.5 text-sm font-semibold text-[#E4B95A] transition-colors hover:bg-[#0A2140]"
                 >
                   <span>{t.request}</span>
@@ -287,7 +288,7 @@ export default function CityPage({ slug }: { slug: CitySlug }) {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/75">{t.ctaDesc}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
-                href="/contact#consultation-form"
+                href="/request-care"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E4B95A] bg-[#E4B95A] px-7 py-3.5 text-sm font-bold text-[#07162C] transition-colors hover:bg-[#EDC878]"
               >
                 <span>{t.request}</span>
@@ -313,6 +314,13 @@ export default function CityPage({ slug }: { slug: CitySlug }) {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Request Care form (E4) */}
+      <section id="request-care-form" className="px-4 pb-16 pt-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10">
+          <RequestCareEmbed sourcePage={`/home-health-care/${slug}`} />
         </div>
       </section>
     </div>

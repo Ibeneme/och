@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef } from "react";
 import Link from "@/src/components/LocaleLink";
 import { Phone, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
+import { getMessages } from "@/src/i18n/messages";
 
 const heroContent = {
   en: {
@@ -29,9 +30,11 @@ const heroContent = {
 };
 
 export default function HeroSection() {
-  const { language } = useLanguage();
+  const { language, locale } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const t = heroContent[language as "en" | "es"] || heroContent.en;
+  const t =
+    getMessages(locale)?.hero ??
+    (heroContent[language as "en" | "es"] || heroContent.en);
 
   useLayoutEffect(() => {
     const v = videoRef.current;

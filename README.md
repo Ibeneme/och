@@ -42,3 +42,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - Use `@/src/components/LocaleLink` instead of `next/link` so links keep the visitor's language.
 - Set `NEXT_PUBLIC_SITE_URL` to your production domain.
 - Fill `counties` in `app/local-business.ts`.
+
+## Extra languages (German, French, Mandarin Chinese, Italian, Portuguese)
+- Off by default: the site is English + Spanish only.
+- Turn on: set `ENABLE_EXTRA_LANGUAGES = true` in `src/i18n/languages.ts`, or set the env var `NEXT_PUBLIC_ENABLE_EXTRA_LANGUAGES=true` and rebuild.
+- Pick individual languages with `EXTRA_LANGUAGE_SWITCHES` in the same file (`de`, `fr`, `zh`, `it`, `pt`).
+- URLs: `/de/...`, `/fr/...`, `/zh/...`, `/it/...`, `/pt/...`. Disabled languages return 404 and are not shown in the picker.
+- Translated today (`src/i18n/messages.ts`): homepage hero, skip link, site tagline/description. Everything else shows English until translated.
+- SEO: extra-language pages canonicalize to the English page and stay out of the sitemap/hreflang until fully translated.
+- Machine-quality drafts: have native speakers review before launch.
+
+## Dark / light mode
+- Toggle (sun/moon) is in the navbar (desktop) and the mobile menu. The choice is saved in `localStorage` (`theme`); with no saved choice the site follows the visitor's OS setting. `app/[locale]/layout.tsx` sets the class before first paint, so there is no flash.
+- The site uses literal brand colors in its classes, so dark mode is produced by `scripts/generate-dark-theme.mjs`, which scans the source and writes `src/styles/dark-theme.generated.css` (`.dark` overrides). It runs automatically on `npm run dev` and `npm run build`.
+- Retune the dark palette at the top of that script. After adding new color classes (e.g. `bg-[#123456]`), re-run `npm run theme:gen`. Tailwind's `dark:` variant also works.

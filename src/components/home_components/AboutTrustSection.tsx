@@ -135,7 +135,7 @@ export default function AboutTrustSection() {
         >
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center mb-16">
             <div className="lg:col-span-8 space-y-6">
-              <div className="inline-flex items-center space-x-2 text-[#8A7B5C] px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase bg-[#FBF8F2] border border-[#F0E9D9]">
+              <div className="inline-flex items-center space-x-2 text-[#8A7B5C] px-4 py-2 rounded-full text-xs font-bold tracking-[0.2em] uppercase bg-[#FBF8F2] ">
                 <Sparkles className="w-3.5 h-3.5 text-[#C89B3C]" />
                 <span>{t.badge}</span>
               </div>

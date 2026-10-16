@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { LOCALES } from "@/src/i18n/config";
+import { CONTENT_LOCALES as LOCALES } from "@/src/i18n/config";
 import { PAGES } from "@/src/seo/pages";
 import { LEGAL_LAST_UPDATED } from "@/src/constants/legalDates";
 import { taglinesPendingCount } from "@/src/content/taglines";

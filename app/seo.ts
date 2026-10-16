@@ -3,6 +3,7 @@ import {
   HREFLANG,
   OG_LOCALE,
   isLocale,
+  contentLocale,
   localizePath,
   type Locale,
   DEFAULT_LOCALE,
@@ -55,7 +56,7 @@ export const SITE_KEYWORDS: Record<Locale, string[]> = {
 
 /** Parses the `[locale]` route param; falls back to English. */
 export function toLocale(value: unknown): Locale {
-  return isLocale(value) ? value : DEFAULT_LOCALE;
+  return isLocale(value) ? contentLocale(value) : DEFAULT_LOCALE;
 }
 
 /** Absolute URL for a given English-path + locale. */

@@ -11,7 +11,7 @@ import { siteConfig } from "@/src/constants/siteConfig";
 
 const PHONE = siteConfig.contact.phone;
 
-const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
+const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const heading =
   "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
 const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";

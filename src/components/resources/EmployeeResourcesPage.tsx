@@ -23,7 +23,7 @@ import { siteConfig } from "@/src/constants/siteConfig";
 
 const PHONE = siteConfig.contact.phone;
 
-const container = "mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8";
+const container = "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8";
 const heading =
   "ohh-serif font-light leading-tight tracking-tight text-[#07162C]";
 const cardWhite = "rounded-3xl border border-[#07162C]/10 bg-white p-6 sm:p-10";
@@ -182,7 +182,7 @@ export default function EmployeeResourcesPage() {
 
           <nav
             aria-label="Quick links"
-            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3"
+            className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2"
           >
             {quickNav.map((m) => (
               <a
@@ -430,7 +430,7 @@ export default function EmployeeResourcesPage() {
             <h3 className="ohh-serif text-2xl font-light text-[#E4B95A]">
               {t.emergencyRefTitle}
             </h3>
-            <div className="mt-7 grid gap-6 border-t border-white/10 pt-7 md:grid-cols-3 md:gap-8">
+            <div className="mt-7 grid gap-6 border-t border-white/10 pt-7 md:grid-cols-2 md:gap-8">
               <div>
                 <strong className="block text-sm font-semibold uppercase tracking-wider text-white">
                   {t.medEmerg}

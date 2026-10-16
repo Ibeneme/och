@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "check:seo": "node scripts/check-seo.mjs",
-    "prebuild": "node scripts/check-seo.mjs"
+    "prebuild": "node scripts/generate-dark-theme.mjs && node scripts/check-seo.mjs",
+    "theme:gen": "node scripts/generate-dark-theme.mjs",
+    "predev": "node scripts/generate-dark-theme.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

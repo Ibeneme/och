@@ -107,7 +107,7 @@ export default function WhoWeServePage() {
       callBtn: "Call 972-325-1598",
       contactBtn: "Contact our team",
       commitmentTitle: "Our commitment to you",
-      commitmentSub: "Dedicated patient-first philosophy",
+      commitmentSub: "Dedicated client-first philosophy",
       commitPoints: [
         "Individualized care plans tailored to unique life stages",
         "Direct collaboration with families and physicians",
@@ -129,7 +129,7 @@ export default function WhoWeServePage() {
       pediatricBtn: "Explore pediatric services",
       transitionTitle: "Also supporting post-hospital recovery",
       transitionDesc:
-        "Across all populations, our teams help patients transition safely from hospital to home — with skilled nursing, therapy coordination, medication education, and close communication with physicians to reduce readmission risk.",
+        "Across all populations, our teams help clients transition safely from hospital to home — with skilled nursing, therapy coordination, medication education, and close communication with physicians to reduce readmission risk.",
       transitionBtn: "Talk to our team",
     },
     es: {
@@ -158,7 +158,7 @@ export default function WhoWeServePage() {
       callBtn: "Llamar al 972-325-1598",
       contactBtn: "Contactar a nuestro equipo",
       commitmentTitle: "Nuestro compromiso con usted",
-      commitmentSub: "Filosofía dedicada a poner al paciente primero",
+      commitmentSub: "Filosofía dedicada a poner al cliente primero",
       commitPoints: [
         "Planes de atención individualizados adaptados a cada etapa de la vida",
         "Colaboración directa con familias y médicos",
@@ -180,7 +180,7 @@ export default function WhoWeServePage() {
       pediatricBtn: "Explorar servicios pediátricos",
       transitionTitle: "También apoyando la recuperación post-hospitalaria",
       transitionDesc:
-        "En todas las poblaciones, nuestros equipos ayudan a los pacientes a hacer una transición segura del hospital al hogar — con enfermería especializada, coordinación de terapias y educación sobre medicamentos.",
+        "En todas las poblaciones, nuestros equipos ayudan a los clientes a hacer una transición segura del hospital al hogar — con enfermería especializada, coordinación de terapias y educación sobre medicamentos.",
       transitionBtn: "Hable con nuestro equipo",
     },
   };

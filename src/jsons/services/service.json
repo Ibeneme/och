@@ -5,7 +5,7 @@
     "url": "/services",
     "title": "Comprehensive Clinical & Support Services",
     "subtitle": "Physician-directed healthcare and supportive assistance, delivered with steady hands in the comfort of home.",
-    "overviewText": "Our comprehensive suite of in-home skilled clinical services, specialized medical programs, and personal support is designed to promote healing, independence, and comfort. Each service is tailored to meet the individual needs of patients and their families.",
+    "overviewText": "Our comprehensive suite of in-home skilled clinical services, specialized medical programs, and personal support is designed to promote healing, independence, and comfort. Each service is tailored to meet the individual needs of clients and their families.",
     "categories": [
       {
         "categoryTitle": "Clinical Disciplines",
@@ -130,14 +130,14 @@
       "url": "/services/skilled-nursing",
       "title": "Skilled Nursing",
       "subtitle": "Professional clinical care delivered right to your doorstep.",
-      "overview": "Our skilled nursing services provide comprehensive, physician-directed medical care administered by licensed Registered Nurses (RNs) and Licensed Practical Nurses (LPNs). We focus on managing complex health conditions, preventing hospital readmissions, and empowering patients through education.",
+      "overview": "Our skilled nursing services provide comprehensive, physician-directed medical care administered by licensed Registered Nurses (RNs) and Licensed Practical Nurses (LPNs). We focus on managing complex health conditions, preventing hospital readmissions, and empowering clients through education.",
       "topics": [
         "Health assessments",
         "Medication management and education",
         "Vital-sign monitoring",
         "Physician-order implementation",
         "Chronic-condition monitoring",
-        "Patient and caregiver education",
+        "Client and caregiver education",
         "Care coordination",
         "Disease-management support"
       ]
@@ -162,7 +162,7 @@
       "url": "/services/occupational-therapy",
       "title": "Occupational Therapy",
       "subtitle": "Enhancing daily living skills and personal independence.",
-      "overview": "Occupational therapy helps patients adapt to physical changes, regain vital fine-motor skills, and safely navigate daily routines and household environments with confidence.",
+      "overview": "Occupational therapy helps clients adapt to physical changes, regain vital fine-motor skills, and safely navigate daily routines and household environments with confidence.",
       "topics": [
         "Activities of daily living",
         "Dressing, bathing, and grooming skills",
@@ -183,19 +183,19 @@
         "Swallowing difficulties",
         "Cognitive-communication skills",
         "Memory and problem-solving support",
-        "Patient and caregiver education"
+        "Client and caregiver education"
       ]
     },
     "medical-social-services": {
       "url": "/services/medical-social-services",
       "title": "Medical Social Services",
       "subtitle": "Navigating social, emotional, and resource challenges.",
-      "overview": "Medical social workers help patients and families cope with the social, emotional, and financial challenges associated with acute or chronic health conditions by connecting them with vital community resources.",
+      "overview": "Medical social workers help clients and families cope with the social, emotional, and financial challenges associated with acute or chronic health conditions by connecting them with vital community resources.",
       "topics": [
         "Psychosocial assessments",
         "Community-resource coordination",
         "Long-term care planning",
-        "Support for patients and families",
+        "Support for clients and families",
         "Financial and social-service referrals",
         "Assistance navigating care-related challenges"
       ]
@@ -227,14 +227,14 @@
         "Post-surgical wound support",
         "Diabetic wound support",
         "Infection-prevention education",
-        "Patient and caregiver instruction"
+        "Client and caregiver instruction"
       ]
     },
     "chronic-disease-management": {
       "url": "/services/chronic-disease-management",
       "title": "Chronic Disease Management",
       "subtitle": "Proactive oversight and management for long-term health conditions.",
-      "overview": "We empower patients living with ongoing health conditions to maintain stability, manage symptoms effectively, and avoid unnecessary hospital visits through structured in-home care.",
+      "overview": "We empower clients living with ongoing health conditions to maintain stability, manage symptoms effectively, and avoid unnecessary hospital visits through structured in-home care.",
       "topics": [
         "Diabetes",
         "Heart disease",
@@ -251,7 +251,7 @@
       "url": "/services/medication-management",
       "title": "Medication Management",
       "subtitle": "Ensuring safety, adherence, and clarity with your prescriptions.",
-      "overview": "Our clinical team reviews, reconciles, and educates patients on their medication regimens to prevent adverse interactions and ensure proper administration.",
+      "overview": "Our clinical team reviews, reconciles, and educates clients on their medication regimens to prevent adverse interactions and ensure proper administration.",
       "topics": [
         "Medication reconciliation",
         "Medication education",
@@ -271,7 +271,7 @@
         "Wound care",
         "Medication support",
         "Mobility and rehabilitation",
-        "Patient education",
+        "Client education",
         "Coordination with physicians",
         "Hospital-to-home transition support"
       ]
@@ -321,7 +321,7 @@
       "url": "/services/daily-lifestyle-support",
       "title": "Daily Lifestyle Support",
       "subtitle": "Practical assistance for everyday comfort and ease.",
-      "overview": "We help patients manage routine household tasks and personal organization to foster maximum independence and enhance quality of life at home.",
+      "overview": "We help clients manage routine household tasks and personal organization to foster maximum independence and enhance quality of life at home.",
       "topics": [
         "Assistance with daily routines",
         "Meal-related support",

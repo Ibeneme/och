@@ -18,7 +18,7 @@
       ],
       "servicesTag": "Specialized care areas",
       "servicesTitle": "Medication management scope of services",
-      "servicesDesc": "Our clinical protocol addresses every phase of prescription organization, patient education, and safety monitoring.",
+      "servicesDesc": "Our clinical protocol addresses every phase of prescription organization, client education, and safety monitoring.",
       "servicesList": [
         { "title": "Medication Reconciliation", "desc": "Careful comparison and verification of all current prescriptions to eliminate duplicates and prevent harmful interactions." },
         { "title": "Medication Education", "desc": "Clear explanations regarding what each medication does, correct timing, and proper administration methods." },
@@ -47,7 +47,7 @@
       ],
       "servicesTag": "Áreas de atención especializada",
       "servicesTitle": "Alcance de los servicios de gestión de medicamentos",
-      "servicesDesc": "Nuestro protocolo clínico aborda cada fase de la organización de recetas, educación del paciente y monitoreo de seguridad.",
+      "servicesDesc": "Nuestro protocolo clínico aborda cada fase de la organización de recetas, educación del cliente y monitoreo de seguridad.",
       "servicesList": [
         { "title": "Reconciliación de Medicamentos", "desc": "Comparación y verificación cuidadosa de todas las recetas actuales para eliminar duplicados." },
         { "title": "Educación sobre Medicamentos", "desc": "Explicaciones claras sobre lo que hace cada medicamento y sus métodos de administración." },

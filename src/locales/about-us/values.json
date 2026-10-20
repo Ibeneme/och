@@ -6,7 +6,7 @@
     "featuredTag": "(care)",
     "featuredLabel": "why we start here",
     "featuredTitle": "Compassion",
-    "featuredDesc": "Treating every patient and family with genuine empathy, warmth, and kindness — the value every other one is built on.",
+    "featuredDesc": "Treating every client and family with genuine empathy, warmth, and kindness — the value every other one is built on.",
     "valuesList": [
       {
         "title": "Clinical Excellence",
@@ -22,7 +22,7 @@
       },
       {
         "title": "Reliability",
-        "description": "Providing dependable, responsive service that patients and referral partners can count on every day.",
+        "description": "Providing dependable, responsive service that clients and referral partners can count on every day.",
         "tag": "(daily)",
         "panel": "dark"
       },
@@ -47,7 +47,7 @@
     "featuredTag": "(cuidado)",
     "featuredLabel": "por dónde empezamos",
     "featuredTitle": "Compasión",
-    "featuredDesc": "Tratar a cada paciente y familia con genuina empatía, calidez y amabilidad.",
+    "featuredDesc": "Tratar a cada cliente y familia con genuina empatía, calidez y amabilidad.",
     "valuesList": [
       {
         "title": "Excelencia Clínica",
@@ -63,7 +63,7 @@
       },
       {
         "title": "Confiabilidad",
-        "description": "Servicio receptivo en el que los pacientes pueden confiar.",
+        "description": "Servicio receptivo en el que los clientes pueden confiar.",
         "tag": "(diario)",
         "panel": "dark"
       },

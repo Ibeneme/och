@@ -16,7 +16,7 @@ const COPY = {
     badge: "Service area",
     h1: "Home Health Care Across the Dallas–Fort Worth Metroplex",
     intro:
-      "One Community Home Health serves patients across eight North Texas counties. Our nurses, therapists, and aides travel to you — at home, in an assisted living community, or wherever you are recovering.",
+      "One Community Home Health serves clients across eight North Texas counties. Our nurses, therapists, and aides travel to you — at home, in an assisted living community, or wherever you are recovering.",
     county: (n: string) => `${n} County`,
     citiesCount: (n: number) => `${n} cities`,
     linkedNote: "Cities with a dedicated page are linked.",
@@ -35,7 +35,7 @@ const COPY = {
     badge: "Área de servicio",
     h1: "Atención médica en el hogar en todo el Metroplex de Dallas–Fort Worth",
     intro:
-      "One Community Home Health atiende a pacientes en ocho condados del norte de Texas. Nuestras enfermeras, terapeutas y asistentes van a donde usted está: en casa, en una comunidad de vida asistida o dondequiera que se esté recuperando.",
+      "One Community Home Health atiende a clientes en ocho condados del norte de Texas. Nuestras enfermeras, terapeutas y asistentes van a donde usted está: en casa, en una comunidad de vida asistida o dondequiera que se esté recuperando.",
     county: (n: string) => `Condado de ${n}`,
     citiesCount: (n: number) => `${n} ciudades`,
     linkedNote: "Las ciudades con página propia tienen enlace.",

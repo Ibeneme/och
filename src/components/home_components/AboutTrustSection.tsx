@@ -76,10 +76,10 @@ export default function AboutTrustSection() {
 
   const t = {
     en: {
-      badge: "Serving patients since 2010",
+      badge: "Serving clients since 2010",
       heading: "A trusted legacy of",
       headingHighlight: "compassionate care.",
-      paragraph: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, has served patients since 2010, carrying our nurse-founded care legacy forward under a clearer, community-centered brand.`,
+      paragraph: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, has served clients since 2010, carrying our nurse-founded care legacy forward under a clearer, community-centered brand.`,
       sealEst: "Est. 2010",
       legalName:
         "JACOP Healthcare Services, Inc., doing business as One Community Home Health",
@@ -93,16 +93,16 @@ export default function AboutTrustSection() {
       v3Desc:
         "Dedicated care backed by institutional experience and oversight.",
       storyTag: "Our story",
-      storyDesc: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, partners with patients, families, and physicians from our Grand Prairie base to deliver personalized home care that promotes independence, dignity, and peace of mind.`,
+      storyDesc: `JACOP Healthcare Services, Inc., doing business as One Community Home Health, partners with clients, families, and physicians from our Grand Prairie base to deliver personalized home care that promotes independence, dignity, and peace of mind.`,
       readStory: "Read our full story",
       since: "Since 2010",
       brandName: "One Community",
     },
     es: {
-      badge: "Sirviendo a pacientes desde 2010",
+      badge: "Sirviendo a clientes desde 2010",
       heading: "Un legado de confianza en",
       headingHighlight: "cuidado compasivo.",
-      paragraph: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, atiende a pacientes desde 2010, llevando nuestro legado de cuidado fundado por enfermeras hacia adelante bajo una marca más clara y centrada en la comunidad.`,
+      paragraph: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, atiende a clientes desde 2010, llevando nuestro legado de cuidado fundado por enfermeras hacia adelante bajo una marca más clara y centrada en la comunidad.`,
       sealEst: "Fundada 2010",
       legalName:
         "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health",
@@ -116,7 +116,7 @@ export default function AboutTrustSection() {
       v3Desc:
         "Atención dedicada respaldada por experiencia institucional y supervisión.",
       storyTag: "Nuestra historia",
-      storyDesc: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, se asocia con pacientes, familias y médicos desde nuestra base en Grand Prairie para brindar atención domiciliaria personalizada que promueve la independencia, la dignidad y la tranquilidad.`,
+      storyDesc: `JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health, se asocia con clientes, familias y médicos desde nuestra base en Grand Prairie para brindar atención domiciliaria personalizada que promueve la independencia, la dignidad y la tranquilidad.`,
       readStory: "Lea nuestra historia completa",
       since: "Desde 2010",
       brandName: "One Community",

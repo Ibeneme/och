@@ -225,8 +225,8 @@ export default function Footer() {
     {
       href: "/resources",
       label: {
-        en: "Patient & Family Resources",
-        es: "Recursos para Pacientes",
+        en: "Client & Family Resources",
+        es: "Recursos para Clientes",
       },
     },
     {

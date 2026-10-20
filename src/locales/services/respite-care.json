@@ -23,11 +23,11 @@
       "servicesDesc": "Our respite programs provide flexible, compassionate coverage tailored directly to your family schedule and lifestyle.",
       "servicesList": [
         { "title": "Temporary Family Relief", "desc": "Scheduled short-term care giving family members reliable time away for rest, travel, and personal appointments." },
-        { "title": "Supervision & Companionship", "desc": "Attentive oversight and friendly conversation to keep patients safe, stimulated, and comfortable throughout the day." },
+        { "title": "Supervision & Companionship", "desc": "Attentive oversight and friendly conversation to keep clients safe, stimulated, and comfortable throughout the day." },
         { "title": "Assistance with Daily Routines", "desc": "Support with meals, personal schedules, and daily habits while regular primary caregivers are away." },
         { "title": "Flexible Scheduling", "desc": "Hourly, daily, or overnight coverage options designed seamlessly around your family's unique routine." },
         { "title": "Peace of Mind", "desc": "Professional caregivers who follow established routines and communicate clearly with the family upon return." },
-        { "title": "In-Home Comfort", "desc": "Care delivered in the familiar home environment so patients remain comfortable, secure, and relaxed." },
+        { "title": "In-Home Comfort", "desc": "Care delivered in the familiar home environment so clients remain comfortable, secure, and relaxed." },
         { "title": "Overnight Respite Coverage", "desc": "Dedicated overnight presence to ensure safe monitoring, giving primary family caregivers a full night of restorative sleep." },
         { "title": "Emergency & Backup Support", "desc": "Reliable short-notice assistance when unexpected events or personal emergencies arise for primary caregivers." }
       ],
@@ -58,11 +58,11 @@
       "servicesDesc": "Nuestros programas de relevo proporcionan cobertura flexible y compasiva adaptada al horario de su familia.",
       "servicesList": [
         { "title": "Alivio Familiar Temporal", "desc": "Cuidado a corto plazo programado que otorga a los familiares tiempo confiable para descansar y viajar." },
-        { "title": "Supervisión y Compañía", "desc": "Supervisión atenta y conversación amistosa para mantener seguros y cómodos a los pacientes." },
+        { "title": "Supervisión y Compañía", "desc": "Supervisión atenta y conversación amistosa para mantener seguros y cómodos a los clientes." },
         { "title": "Asistencia con Rutinas Diarias", "desc": "Apoyo con comidas, horarios personales y hábitos diarios mientras los cuidadores principales están ausentes." },
         { "title": "Horarios Flexibles", "desc": "Opciones de cobertura por horas, diaria o nocturna diseñadas para la rutina de su familia." },
         { "title": "Tranquilidad", "desc": "Cuidadores profesionales que siguen rutinas establecidas y se comunican claramente con la familia." },
-        { "title": "Comodidad en el Hogar", "desc": "Atención entregada en el ambiente hogareño familiar para que los pacientes permanezcan seguros." },
+        { "title": "Comodidad en el Hogar", "desc": "Atención entregada en el ambiente hogareño familiar para que los clientes permanezcan seguros." },
         { "title": "Cobertura de Relevo Nocturno", "desc": "Presencia nocturna dedicada para asegurar un monitoreo seguro y una noche de sueño reparador." },
         { "title": "Apoyo de Emergencia", "desc": "Asistencia confiable a corto plazo cuando surgen eventos inesperados." }
       ],

@@ -65,8 +65,8 @@ export default function CoreServicesPage() {
       title: language === "es" ? "Terapia Ocupacional" : "Occupational Therapy",
       description:
         language === "es"
-          ? "Ayudar a los pacientes a recuperar la independencia en las actividades diarias y adaptar su entorno para mayor seguridad."
-          : "Helping patients regain independence in daily activities and adapt their environment for safety.",
+          ? "Ayudar a los clientes a recuperar la independencia en las actividades diarias y adaptar su entorno para mayor seguridad."
+          : "Helping clients regain independence in daily activities and adapt their environment for safety.",
       icon: Hand,
       category: "clinical",
     },

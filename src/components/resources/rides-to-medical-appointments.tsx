@@ -183,8 +183,8 @@ export default function RidesResourcePage() {
         <div className="rounded-3xl border border-[#E4B95A] bg-[#F6EBD2] p-6 text-sm font-medium text-[#07162C] leading-relaxed">
           <p>
             {lang === "es"
-              ? "One Community Home Health no proporciona transporte. Creamos esta página porque nuestros pacientes nos consultan al respecto todas las semanas. Todo lo indicado a continuación es un programa administrado por terceros. Use los números telefónicos para comunicarse directamente con ellos."
-              : "One Community Home Health does not provide transportation. We put this page together because our patients ask us about it every week. Everything below is a program run by someone else. Use the phone numbers to reach them directly."}
+              ? "One Community Home Health no proporciona transporte. Creamos esta página porque nuestros clientes nos consultan al respecto todas las semanas. Todo lo indicado a continuación es un programa administrado por terceros. Use los números telefónicos para comunicarse directamente con ellos."
+              : "One Community Home Health does not provide transportation. We put this page together because our clients ask us about it every week. Everything below is a program run by someone else. Use the phone numbers to reach them directly."}
           </p>
         </div>
 
@@ -507,8 +507,8 @@ export default function RidesResourcePage() {
           </h3>
           <p className="mt-4 max-w-2xl leading-relaxed text-white/75">
             {lang === "es"
-              ? "Si usted es paciente de One Community o está pensando en serlo, nuestra oficina puede ayudarle a averiguar cuál de estas opciones aplica y qué solicitar."
-              : "If you are a One Community patient, or thinking about becoming one, our office can help you figure out which of these applies and what to ask for."}
+              ? "Si usted es cliente de One Community o está pensando en serlo, nuestra oficina puede ayudarle a averiguar cuál de estas opciones aplica y qué solicitar."
+              : "If you are a One Community client, or thinking about becoming one, our office can help you figure out which of these applies and what to ask for."}
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a

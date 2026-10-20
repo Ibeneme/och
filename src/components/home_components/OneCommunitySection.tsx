@@ -33,19 +33,19 @@ export default function OneCommunitySection() {
       quote:
         '"Founder-led clinical leadership and responsive communication gave our family complete peace of mind."',
       networkTitle: "The Family Care Network",
-      reviewLabel: "Verified Patient Review",
+      reviewLabel: "Verified Client Review",
       card1Title: "Decades of Nursing Experience",
       card1Desc:
         "Founder-led clinical leadership. Serving DFW families since 2010.",
       card2Title: "A Proven Care Legacy",
       card2Desc:
-        "A care legacy serving patients since 2010, now presented under JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
+        "A care legacy serving clients since 2010, now presented under JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
       card3Title: "Individualized Coordination",
       card3Desc:
         "Individualized care closely coordinated with physicians, families, and caregivers.",
       card4Title: "Responsive Communication",
       card4Desc:
-        "Responsive communication and dedicated patient/caregiver education every step of the way.",
+        "Responsive communication and dedicated client/caregiver education every step of the way.",
       missionBadge: "Our Core Mission",
       missionHeading: "A focus on recovery, safety, independence, and dignity.",
       missionDesc:
@@ -63,19 +63,19 @@ export default function OneCommunitySection() {
       quote:
         '"El liderazgo clínico dirigido por el fundador y la comunicación receptiva le dieron a nuestra familia total tranquilidad."',
       networkTitle: "La Red de Cuidado Familiar",
-      reviewLabel: "Reseña de Paciente Verificada",
+      reviewLabel: "Reseña de Cliente Verificada",
       card1Title: "Décadas de Experiencia en Enfermería",
       card1Desc:
         "Liderazgo clínico dirigido por el fundador. Atendiendo a familias de DFW desde 2010.",
       card2Title: "Un Legado de Cuidado Comprobado",
       card2Desc:
-        "Un legado de atención que atiende a pacientes desde 2010, ahora presentado bajo JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
+        "Un legado de atención que atiende a clientes desde 2010, ahora presentado bajo JACOP Healthcare Services, Inc., doing business as One Community Home Health.",
       card3Title: "Coordinación Individualizada",
       card3Desc:
         "Cuidado individualizado estrechamente coordinado con médicos, familias y cuidadores.",
       card4Title: "Comunicación Receptiva",
       card4Desc:
-        "Comunicación receptiva y educación dedicada para pacientes y cuidadores en cada paso del camino.",
+        "Comunicación receptiva y educación dedicada para clientes y cuidadores en cada paso del camino.",
       missionBadge: "Nuestra Misión Principal",
       missionHeading:
         "Un enfoque en la recuperación, la seguridad, la independencia y la dignidad.",

@@ -1,7 +1,7 @@
 {
   "en": {
-    "badge": "Actively Accepting Patients",
-    "bannerText": "JACOP Healthcare Services, Inc., serving patients since 2010, is now doing business as One Community Home Health.",
+    "badge": "Actively Accepting Clients",
+    "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
     "titleMain": "Skilled nursing",
     "titleHighlight": "care at home",
     "description": "Physician-directed clinical support delivered by licensed nurses to promote healing, manage chronic conditions, and ensure a safe, dignified recovery in the comfort of home.",
@@ -12,7 +12,7 @@
     "cardDesc": "Professional, individualized medical oversight delivered directly to families across the community.",
     "overviewTag": "Professional clinical support",
     "overviewTitle": "Expert nursing care tailored to your recovery plan",
-    "overviewDesc": "Our skilled nursing services provide comprehensive, individualized medical care directly in your home. Working closely with your physician, our licensed nurses monitor health status, manage complex medications, and provide essential education to empower patients and caregivers.",
+    "overviewDesc": "Our skilled nursing services provide comprehensive, individualized medical care directly in your home. Working closely with your physician, our licensed nurses monitor health status, manage complex medications, and provide essential education to empower clients and caregivers.",
     "features": [
       "Licensed Registered Nurses (RN)",
       "Physician-Directed Plans",
@@ -46,7 +46,7 @@
       },
       {
         "title": "Medication Management & Education",
-        "desc": "Medication reconciliation, adherence tracking, side-effect monitoring, and clear patient teaching."
+        "desc": "Medication reconciliation, adherence tracking, side-effect monitoring, and clear client teaching."
       },
       {
         "title": "Vital-Sign Monitoring",
@@ -61,7 +61,7 @@
         "desc": "Ongoing clinical oversight for conditions such as diabetes, heart failure, COPD, and hypertension."
       },
       {
-        "title": "Patient & Caregiver Education",
+        "title": "Client & Caregiver Education",
         "desc": "Empowering families with knowledge regarding disease management, self-care techniques, and safety."
       },
       {
@@ -78,8 +78,8 @@
     "ctaContact": "Contact our team"
   },
   "es": {
-    "badge": "Aceptando Pacientes Actualmente",
-    "bannerText": "JACOP Healthcare Services, Inc., sirviendo a pacientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+    "badge": "Aceptando Clientes Actualmente",
+    "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
     "titleMain": "Enfermería especializada",
     "titleHighlight": "en el hogar",
     "description": "Apoyo clínico dirigido por médicos y proporcionado por enfermeros licenciados para promover la sanación, manejar condiciones crónicas y asegurar una recuperación segura y digna en la comodidad del hogar.",
@@ -124,7 +124,7 @@
       },
       {
         "title": "Gestión y Educación de Medicamentos",
-        "desc": "Reconciliación de medicamentos, seguimiento de adherencia, control de efectos secundarios y enseñanza clara al paciente."
+        "desc": "Reconciliación de medicamentos, seguimiento de adherencia, control de efectos secundarios y enseñanza clara al cliente."
       },
       {
         "title": "Monitoreo de Signos Vitales",
@@ -139,7 +139,7 @@
         "desc": "Supervisión clínica continua para afecciones como diabetes, insuficiencia cardíaca, EPOC e hipertensión."
       },
       {
-        "title": "Educación al Paciente y Cuidador",
+        "title": "Educación al Cliente y Cuidador",
         "desc": "Empoderamiento de las familias con conocimientos sobre el manejo de enfermedades, técnicas de autocuidado y seguridad."
       },
       {

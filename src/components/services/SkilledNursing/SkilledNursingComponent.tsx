@@ -90,7 +90,7 @@ export default function SkilledNursingComponent() {
                 <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/home_a.jpg"
-                    alt="Nurse caring for a patient at home"
+                    alt="Nurse caring for a client at home"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />
@@ -127,7 +127,7 @@ export default function SkilledNursingComponent() {
               <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/home_e.jpg"
-                  alt="Compassionate home healthcare nurse smiling with a senior patient"
+                  alt="Compassionate home healthcare nurse smiling with a senior client"
                   className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

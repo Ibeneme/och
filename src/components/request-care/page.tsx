@@ -82,7 +82,7 @@ export default function RequestCarePage() {
 
   const t = {
     en: {
-      badge: "Patient Inquiry Form",
+      badge: "Client Inquiry Form",
       title: "Request care or ask a question",
       subtitle:
         "Fill out the secure form below and a member of our intake team will call you within one business day.",

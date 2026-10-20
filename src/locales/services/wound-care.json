@@ -18,7 +18,7 @@
     ],
     "servicesTag": "Specialized care areas",
     "servicesTitle": "Wound care scope of services",
-    "servicesDesc": "Our clinical wound care programs cover every aspect of monitoring, treatment, prevention, and patient education.",
+    "servicesDesc": "Our clinical wound care programs cover every aspect of monitoring, treatment, prevention, and client education.",
     "servicesList": [
       {
         "title": "Wound Assessment",
@@ -45,8 +45,8 @@
         "desc": "Guidance on identifying early warning signs of infection and maintaining proper hygiene standards."
       },
       {
-        "title": "Patient & Caregiver Instruction",
-        "desc": "Clear, hands-on training for patients and family members on home monitoring, safe hygiene habits, and supportive care techniques."
+        "title": "Client & Caregiver Instruction",
+        "desc": "Clear, hands-on training for clients and family members on home monitoring, safe hygiene habits, and supportive care techniques."
       }
     ],
     "ctaTitle": "Need expert wound care at home?",
@@ -71,7 +71,7 @@
     ],
     "servicesTag": "Áreas de atención especializada",
     "servicesTitle": "Alcance de los servicios de heridas",
-    "servicesDesc": "Nuestros programas cubren todos los aspectos de monitoreo, tratamiento, prevención y educación del paciente.",
+    "servicesDesc": "Nuestros programas cubren todos los aspectos de monitoreo, tratamiento, prevención y educación del cliente.",
     "servicesList": [
       {
         "title": "Evaluación de Heridas",
@@ -98,7 +98,7 @@
         "desc": "Guía sobre cómo identificar signos tempranos de infección y mantener normas de higiene."
       },
       {
-        "title": "Instrucción al Paciente y Cuidador",
+        "title": "Instrucción al Cliente y Cuidador",
         "desc": "Capacitación práctica y clara sobre monitoreo domiciliario y hábitos de higiene seguros."
       }
     ],

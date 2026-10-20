@@ -155,10 +155,10 @@ export default function Navbar() {
   const t = {
     en: {
       banner:
-        "JACOP Healthcare Services, Inc., doing business as One Community Home Health. Serving Patients Since 2010",
+        "JACOP Healthcare Services, Inc., doing business as One Community Home Health. Serving Clients Since 2010",
       referPatient: "Refer a patient",
-      newPatients: "New patients & referrals:",
-      newPatientsShort: "New patients:",
+      newPatients: "New clients & referrals:",
+      newPatientsShort: "New clients:",
       mainOffice: "Main office:",
       mainOfficeShort: "Office:",
       home: "Home",
@@ -192,7 +192,7 @@ export default function Navbar() {
       support: "Support",
       guidesRes: "Guides & resources",
       guidesResDesc:
-        "Forms, FAQs, and support for patients, families, and our care team.",
+        "Forms, FAQs, and support for clients, families, and our care team.",
       browseAllRes: "Browse all resources",
       language: "Language",
       openMenu: "Open navigation menu",
@@ -200,10 +200,10 @@ export default function Navbar() {
     },
     es: {
       banner:
-        "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health. Sirviendo a pacientes desde 2010",
+        "JACOP Healthcare Services, Inc., haciendo negocios como One Community Home Health. Sirviendo a clientes desde 2010",
       referPatient: "Referir a un paciente",
-      newPatients: "Pacientes nuevos y referencias:",
-      newPatientsShort: "Pacientes nuevos:",
+      newPatients: "Clientes nuevos y referencias:",
+      newPatientsShort: "Clientes nuevos:",
       mainOffice: "Oficina principal:",
       mainOfficeShort: "Oficina:",
       home: "Inicio",
@@ -237,7 +237,7 @@ export default function Navbar() {
       support: "Apoyo",
       guidesRes: "Guías y recursos",
       guidesResDesc:
-        "Formularios, preguntas frecuentes y apoyo para pacientes, familias y nuestro equipo de atención.",
+        "Formularios, preguntas frecuentes y apoyo para clientes, familias y nuestro equipo de atención.",
       browseAllRes: "Ver todos los recursos",
       language: "Idioma",
       openMenu: "Abrir menú de navegación",
@@ -478,12 +478,12 @@ export default function Navbar() {
       href: "/resources",
       label:
         language === "en"
-          ? "Patient & Family Resources"
-          : "Recursos para Pacientes",
+          ? "Client & Family Resources"
+          : "Recursos para Clientes",
       icon: BookOpen,
       desc:
         language === "en"
-          ? "Educational guides, FAQs, and forms for patients"
+          ? "Educational guides, FAQs, and forms for clients"
           : "Guías, preguntas frecuentes y formularios",
     },
     {

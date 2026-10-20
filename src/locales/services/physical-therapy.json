@@ -1,7 +1,7 @@
 {
     "en": {
       "badge": "Active clinical discipline",
-      "bannerText": "JACOP Healthcare Services, Inc., serving patients since 2010, is now doing business as One Community Home Health.",
+      "bannerText": "JACOP Healthcare Services, Inc., serving clients since 2010, is now doing business as One Community Home Health.",
       "titleMain": "Physical therapy",
       "titleHighlight": "care at home",
       "description": "Physician-directed physical therapy designed to restore mobility, rebuild strength, and empower safe, independent living right in the comfort of your home.",
@@ -32,7 +32,7 @@
         },
         {
           "title": "Gait Training",
-          "desc": "Guidance and hands-on practice to help patients regain a safe, natural, and confident walking pattern."
+          "desc": "Guidance and hands-on practice to help clients regain a safe, natural, and confident walking pattern."
         },
         {
           "title": "Fall Prevention",
@@ -48,7 +48,7 @@
         },
         {
           "title": "Home Exercise Programs",
-          "desc": "Custom routines tailored for patients to practice safely and effectively between therapist visits."
+          "desc": "Custom routines tailored for clients to practice safely and effectively between therapist visits."
         },
         {
           "title": "Assistive-Device Education",
@@ -58,7 +58,7 @@
     },
     "es": {
       "badge": "Disciplina clínica activa",
-      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a pacientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
+      "bannerText": "JACOP Healthcare Services, Inc., sirviendo a clientes desde 2010, opera bajo el nombre comercial de One Community Home Health.",
       "titleMain": "Fisioterapia",
       "titleHighlight": "en el hogar",
       "description": "Fisioterapia dirigida por médicos diseñada para restaurar la movilidad, reconstruir la fuerza y fomentar una vida independiente y segura en la comodidad del hogar.",
@@ -89,7 +89,7 @@
         },
         {
           "title": "Entrenamiento de la Marcha",
-          "desc": "Orientación y práctica guiada para ayudar a los pacientes a recuperar un patrón de caminata seguro y natural."
+          "desc": "Orientación y práctica guiada para ayudar a los clientes a recuperar un patrón de caminata seguro y natural."
         },
         {
           "title": "Prevención de Caídas",
@@ -105,7 +105,7 @@
         },
         {
           "title": "Programas de Ejercicios en Casa",
-          "desc": "Rutinas personalizadas para que los pacientes las practiquen de forma segura entre las visitas del terapeuta."
+          "desc": "Rutinas personalizadas para que los clientes las practiquen de forma segura entre las visitas del terapeuta."
         },
         {
           "title": "Educación sobre Dispositivos de Asistencia",

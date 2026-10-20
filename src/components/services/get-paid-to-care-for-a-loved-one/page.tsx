@@ -63,7 +63,7 @@ export default function GetPaidToCarePage() {
     ),
     t(
       "Completes training for the person's specific needs",
-      "Completa la capacitación para las necesidades específicas del paciente"
+      "Completa la capacitación para las necesidades específicas del cliente"
     ),
     t(
       "Records each visit through the state's Electronic Visit Verification (EVV) system",
@@ -186,7 +186,7 @@ export default function GetPaidToCarePage() {
             <p className="rounded-2xl border-l-4 border-[#E4B95A] bg-[#FBF6E6] p-5 text-sm leading-relaxed text-[#07162C]/80">
               {t(
                 "Some restrictions apply depending on which program the person is enrolled in. We will tell you exactly where you stand before anyone gets their hopes up.",
-                "Nota: Se aplican algunas restricciones según el programa en el que esté inscrito el paciente. Le diremos exactamente dónde se encuentra antes de crear falsas expectativas."
+                "Nota: Se aplican algunas restricciones según el programa en el que esté inscrito el cliente. Le diremos exactamente dónde se encuentra antes de crear falsas expectativas."
               )}
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function GetPaidToCarePage() {
               .
               {t(
                 " We will look at the program the person is enrolled in and tell you honestly whether this works for your family.",
-                " Revisaremos el programa en el que está inscrito el paciente y le diremos honestamente si esto funciona para su familia."
+                " Revisaremos el programa en el que está inscrito el cliente y le diremos honestamente si esto funciona para su familia."
               )}
             </p>
           </div>

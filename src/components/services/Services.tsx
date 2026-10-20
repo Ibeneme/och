@@ -188,7 +188,7 @@ export default function ServicesRouterApp() {
                       trusting relationships while ensuring safety and comfort
                       in familiar home surroundings. From engaging conversations
                       to light routine assistance, we provide dependable
-                      presence and peace of mind for patients and their families.
+                      presence and peace of mind for clients and their families.
                     </p>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4 text-sm font-medium text-slate-700">
@@ -454,7 +454,7 @@ export default function ServicesRouterApp() {
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     Attentive oversight and friendly conversation to keep
-                    patients safe, stimulated, and comfortable.
+                    clients safe, stimulated, and comfortable.
                   </p>
                 </div>
 
@@ -505,7 +505,7 @@ export default function ServicesRouterApp() {
                     In-Home Comfort
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Care delivered in the familiar home environment so patients
+                    Care delivered in the familiar home environment so clients
                     remain comfortable and secure.
                   </p>
                 </div>
@@ -541,7 +541,7 @@ export default function ServicesRouterApp() {
                 </h1>
                 <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
                   Practical assistance with everyday activities that help
-                  patients maintain independence, comfort, and a high quality of
+                  clients maintain independence, comfort, and a high quality of
                   life at home.
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -571,7 +571,7 @@ export default function ServicesRouterApp() {
                       Daily lifestyle support focuses on the practical tasks
                       that keep a household running smoothly. Our caregivers
                       assist with meal preparation, light housekeeping, errands,
-                      and personal routines so patients can remain independent
+                      and personal routines so clients can remain independent
                       and comfortable in their own homes.
                     </p>
                   </div>
@@ -1051,7 +1051,7 @@ export default function ServicesRouterApp() {
                     Independence with Daily Activities
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
-                    Empowering patients to perform daily tasks with confidence
+                    Empowering clients to perform daily tasks with confidence
                     and appropriate adaptive support.
                   </p>
                 </div>
@@ -1153,7 +1153,7 @@ export default function ServicesRouterApp() {
                       Pediatric Service Is Coming Soon
                     </h2>
                     <p className="text-xs text-slate-600">
-                      We are expanding our care offerings to pediatric patients.
+                      We are expanding our care offerings to pediatric clients.
                       Please note that services for children are not currently
                       available.
                     </p>
@@ -1172,7 +1172,7 @@ export default function ServicesRouterApp() {
                     services to support children and their families. Our future
                     pediatric care programs will bring the same high standards
                     of clinical excellence and compassionate in-home support to
-                    young patients requiring specialized medical attention in
+                    young clients requiring specialized medical attention in
                     familiar home environments.
                   </p>
                   <p className="text-slate-600 text-sm leading-relaxed">
@@ -1249,7 +1249,7 @@ export default function ServicesRouterApp() {
             </span>
           </div>
           <p className="text-xs text-slate-400 max-w-xl mx-auto">
-            JACOP Healthcare Services, Inc., serving patients since 2010, is now
+            JACOP Healthcare Services, Inc., serving clients since 2010, is now
             doing business as One Community Home Health. Providing trusted
             clinical excellence and supportive home care.
           </p>

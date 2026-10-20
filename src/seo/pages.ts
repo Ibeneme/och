@@ -30,12 +30,12 @@ export const PAGES = {
     en: {
       title: "One Community Home Health | Skilled Nursing & In-Home Care",
       description:
-        "One Community Home Health delivers skilled nursing, physical therapy, and daily assistance at home, so patients can recover and live well in familiar surroundings.",
+        "One Community Home Health delivers skilled nursing, physical therapy, and daily assistance at home, so clients can recover and live well in familiar surroundings.",
     },
     es: {
       title: "One Community Home Health | Enfermería Especializada y Cuidado en el Hogar",
       description:
-        "One Community Home Health ofrece enfermería especializada, fisioterapia y asistencia diaria en casa para que los pacientes se recuperen en un entorno familiar.",
+        "One Community Home Health ofrece enfermería especializada, fisioterapia y asistencia diaria en casa para que los clientes se recuperen en un entorno familiar.",
     },
   },
   aboutUs: {
@@ -44,12 +44,12 @@ export const PAGES = {
     en: {
       title: "About Us",
       description:
-        "Learn about One Community Home Health, our core values, and our commitment to compassionate, patient-centered home health care.",
+        "Learn about One Community Home Health, our core values, and our commitment to compassionate, client-centered home health care.",
     },
     es: {
       title: "Sobre Nosotros",
       description:
-        "Conozca One Community Home Health, nuestros valores fundamentales y nuestro compromiso con una atención médica a domicilio compasiva y centrada en el paciente.",
+        "Conozca One Community Home Health, nuestros valores fundamentales y nuestro compromiso con una atención médica a domicilio compasiva y centrada en el cliente.",
     },
   },
   leadership: {
@@ -58,12 +58,12 @@ export const PAGES = {
     en: {
       title: "Leadership & Our Story",
       description:
-        "Meet the leadership behind One Community Home Health, formerly JACOP Healthcare Services, Inc., serving patients since 2010.",
+        "Meet the leadership behind One Community Home Health, formerly JACOP Healthcare Services, Inc., serving clients since 2010.",
     },
     es: {
       title: "Liderazgo y Nuestra Historia",
       description:
-        "Conozca al equipo directivo de One Community Home Health, antes JACOP Healthcare Services, Inc., al servicio de nuestros pacientes desde 2010.",
+        "Conozca al equipo directivo de One Community Home Health, antes JACOP Healthcare Services, Inc., al servicio de nuestros clientes desde 2010.",
     },
   },
   whoWeServe: {
@@ -72,12 +72,12 @@ export const PAGES = {
     en: {
       title: "Who We Serve",
       description:
-        "Home health care for seniors, adults with disabilities, children, veterans, and patients recovering from surgery, illness, or injury.",
+        "Home health care for seniors, adults with disabilities, children, veterans, and clients recovering from surgery, illness, or injury.",
     },
     es: {
       title: "A Quién Servimos",
       description:
-        "Atención médica a domicilio para adultos mayores, adultos con discapacidades, niños, veteranos y pacientes que se recuperan de una cirugía, enfermedad o lesión.",
+        "Atención médica a domicilio para adultos mayores, adultos con discapacidades, niños, veteranos y clientes que se recuperan de una cirugía, enfermedad o lesión.",
     },
   },
   insurance: {
@@ -143,12 +143,12 @@ export const PAGES = {
     en: {
       title: "Careers",
       description:
-        "Join the One Community Home Health team. Explore nursing, therapy, and caregiver opportunities and help care for patients at home.",
+        "Join the One Community Home Health team. Explore nursing, therapy, and caregiver opportunities and help care for clients at home.",
     },
     es: {
       title: "Empleos",
       description:
-        "Únase al equipo de One Community Home Health. Explore oportunidades en enfermería, terapia y cuidado, y ayude a atender a pacientes en casa.",
+        "Únase al equipo de One Community Home Health. Explore oportunidades en enfermería, terapia y cuidado, y ayude a atender a clientes en casa.",
     },
   },
   cnaApplication: {
@@ -197,14 +197,14 @@ export const PAGES = {
     path: "/resources",
     priority: 0.6,
     en: {
-      title: "Patient & Family Resources",
+      title: "Client & Family Resources",
       description:
-        "Helpful information and resources for patients and families receiving home health care from One Community Home Health.",
+        "Helpful information and resources for clients and families receiving home health care from One Community Home Health.",
     },
     es: {
-      title: "Recursos para Pacientes y Familias",
+      title: "Recursos para Clientes y Familias",
       description:
-        "Información y recursos útiles para pacientes y familias que reciben atención médica a domicilio de One Community Home Health.",
+        "Información y recursos útiles para clientes y familias que reciben atención médica a domicilio de One Community Home Health.",
     },
   },
   rides: {
@@ -283,12 +283,12 @@ export const PAGES = {
     en: {
       title: "Home Health Aide Services",
       description:
-        "Home health aides assist with personal care, bathing, and daily routines so patients stay safe and comfortable at home.",
+        "Home health aides assist with personal care, bathing, and daily routines so clients stay safe and comfortable at home.",
     },
     es: {
       title: "Servicios de Asistente de Salud en el Hogar",
       description:
-        "Los asistentes de salud en el hogar ayudan con el cuidado personal, el baño y las rutinas diarias para que los pacientes estén seguros y cómodos en casa.",
+        "Los asistentes de salud en el hogar ayudan con el cuidado personal, el baño y las rutinas diarias para que los clientes estén seguros y cómodos en casa.",
     },
   },
   medicalSocial: {
@@ -297,12 +297,12 @@ export const PAGES = {
     en: {
       title: "Medical Social Services",
       description:
-        "Medical social workers connect patients and families with community resources, emotional support, and long-term care planning.",
+        "Medical social workers connect clients and families with community resources, emotional support, and long-term care planning.",
     },
     es: {
       title: "Servicios Sociales Médicos",
       description:
-        "Los trabajadores sociales médicos conectan a pacientes y familias con recursos comunitarios, apoyo emocional y planificación de cuidados a largo plazo.",
+        "Los trabajadores sociales médicos conectan a clientes y familias con recursos comunitarios, apoyo emocional y planificación de cuidados a largo plazo.",
     },
   },
   woundCare: {
@@ -353,12 +353,12 @@ export const PAGES = {
     en: {
       title: "Medication Management at Home",
       description:
-        "Nurse-led medication management to help patients take the right medications correctly and safely at home.",
+        "Nurse-led medication management to help clients take the right medications correctly and safely at home.",
     },
     es: {
       title: "Manejo de Medicamentos en Casa",
       description:
-        "Manejo de medicamentos dirigido por enfermeras para que los pacientes tomen los medicamentos correctos de forma adecuada y segura en casa.",
+        "Manejo de medicamentos dirigido por enfermeras para que los clientes tomen los medicamentos correctos de forma adecuada y segura en casa.",
     },
   },
   fallPrevention: {

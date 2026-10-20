@@ -38,8 +38,8 @@ export const seedTestimonials: TestimonialItem[] = [
     quoteEs:
       "El papeleo del VA decía que califiqué para recibir ayuda. Conseguir que alguien realmente se presentara fue otra historia. One Community se quedó al teléfono con mi coordinador hasta que se aprobaron las horas, y luego volvieron a hacerlo cuando caducó la autorización. Serví veintidós años en el Ejército. Conozco la diferencia entre alguien que dice que se encargará y alguien que realmente lo hace.",
     author: "James W.",
-    details: "Fort Worth - Veteran, patient since 2023",
-    detailsEs: "Fort Worth - Veterano, paciente desde 2023",
+    details: "Fort Worth - Veteran, client since 2023",
+    detailsEs: "Fort Worth - Veterano, cliente desde 2023",
     seed: false,
     category: "Veteran Care",
     categoryEs: "Cuidado de Veteranos",
@@ -62,8 +62,8 @@ export const seedTestimonials: TestimonialItem[] = [
     quoteEs:
       "La enfermera Angela vino en persona la primera semana. Se sentó a la mesa de mi cocina y me preguntó cómo es realmente mi día, no lo que decía un formulario. Nadie me había preguntado eso antes.",
     author: "Ruby T.",
-    details: "DeSoto - Patient",
-    detailsEs: "DeSoto - Paciente",
+    details: "DeSoto - Client",
+    detailsEs: "DeSoto - Cliente",
     seed: false,
     category: "Skilled Nursing",
     categoryEs: "Enfermería Especializada",
@@ -74,11 +74,11 @@ export const seedTestimonials: TestimonialItem[] = [
     quoteEs:
       "Vivo en Houston y mi padre vive en Arlington. Solía llamarlo dos veces al día y aun así no sabía cómo estaba. Ahora recibo una llamada de su asistente si algo parece extraño, y Angela me ha llamado ella misma dos veces cuando la presión arterial de papá no estaba bien. Tiene noventa y un años y sigue en la casa que compró en 1974. Eso es gracias a ellos.",
     author: "Marcus B.",
-    details: "Arlington - Son of a patient",
-    detailsEs: "Arlington - Hijo de un paciente",
+    details: "Arlington - Son of a client",
+    detailsEs: "Arlington - Hijo de un cliente",
     seed: false,
     category: "Family Member",
-    categoryEs: "Familiar del Paciente",
+    categoryEs: "Familiar del Cliente",
   },
   {
     quote:
@@ -129,7 +129,7 @@ const copy = {
     whoBody1:
       "One Community Home Health is a DBA of JACOP Healthcare Services, Inc., based in Grand Prairie, Texas. Our care is led by a registered nurse, and it starts with a conversation about what a normal day looks like, not a form.",
     whoBody2:
-      "From there we handle the parts that wear families out: confirming coverage, coordinating authorizations and paperwork, and keeping everyone who cares for the patient on the same plan.",
+      "From there we handle the parts that wear families out: confirming coverage, coordinating authorizations and paperwork, and keeping everyone who cares for the client on the same plan.",
     founderRole: "Founder, Administrator, and Director of Nursing",
     founderTag: "Clinical leadership",
     founderLink: "Meet our leadership",
@@ -202,7 +202,7 @@ const copy = {
     whoBody1:
       "One Community Home Health es un nombre comercial (DBA) de JACOP Healthcare Services, Inc., con sede en Grand Prairie, Texas. Nuestra atención está dirigida por una enfermera registrada y comienza con una conversación sobre cómo es un día normal, no con un formulario.",
     whoBody2:
-      "A partir de ahí nos encargamos de lo que más cansa a las familias: confirmar la cobertura, coordinar autorizaciones y trámites, y mantener a todos los que cuidan al paciente con el mismo plan.",
+      "A partir de ahí nos encargamos de lo que más cansa a las familias: confirmar la cobertura, coordinar autorizaciones y trámites, y mantener a todos los que cuidan al cliente con el mismo plan.",
     founderRole: "Fundadora, Administradora y Directora de Enfermería",
     founderTag: "Liderazgo clínico",
     founderLink: "Conozca a nuestro liderazgo",

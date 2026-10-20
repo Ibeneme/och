@@ -81,7 +81,7 @@ export default function PhysicalTherapyComponent() {
                 <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/services/ot.svg"
-                    alt="Physical therapist assisting a patient with rehabilitation exercises"
+                    alt="Physical therapist assisting a client with rehabilitation exercises"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />

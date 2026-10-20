@@ -97,7 +97,7 @@ export default function EmployeeResourcesPage() {
     },
     {
       label: "Urgent clinical need",
-      desc: "Use the 24/7 on-call clinical extension for immediate patient needs.",
+      desc: "Use the 24/7 on-call clinical extension for immediate client needs.",
       action: "On-call line",
     },
     {
@@ -120,7 +120,7 @@ export default function EmployeeResourcesPage() {
   const incidentTypes = [
     {
       icon: HeartPulse,
-      title: "Patient incidents",
+      title: "Client incidents",
       desc: "Report sudden clinical changes, falls, or unexpected adverse events immediately to clinical supervision.",
     },
     {
@@ -131,7 +131,7 @@ export default function EmployeeResourcesPage() {
     {
       icon: ShieldAlert,
       title: "Safety hazards",
-      desc: "Identify and report environmental risks in patient homes or workplaces threatening staff or patient well-being.",
+      desc: "Identify and report environmental risks in client homes or workplaces threatening staff or client well-being.",
     },
     {
       icon: ClipboardList,

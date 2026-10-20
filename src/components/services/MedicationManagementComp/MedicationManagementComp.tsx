@@ -78,7 +78,7 @@ export default function MedicationManagementComp() {
                 <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/services/ot_p.svg"
-                    alt="Nurse reviewing medication schedules with a patient at home"
+                    alt="Nurse reviewing medication schedules with a client at home"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />
@@ -129,7 +129,7 @@ export default function MedicationManagementComp() {
               <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/services/ot_q.svg"
-                  alt="Nurse checking medication instructions with a patient"
+                  alt="Nurse checking medication instructions with a client"
                   className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

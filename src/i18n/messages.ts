@@ -43,7 +43,7 @@ export const MESSAGES: Record<ExtraLocale, Messages> = {
       subtitle:
         "Einfühlsame, professionelle häusliche Gesundheitspflege im Großraum Dallas-Fort Worth – individuelle Pflegepläne, abgestimmt mit Ihren Ärzten, dort erbracht, wo Sie sich am wohlsten fühlen: zu Hause.",
       legacy:
-        "JACOP Healthcare Services, Inc., seit 2010 für Patienten da, firmiert jetzt unter One Community Home Health.",
+        "JACOP Healthcare Services, Inc., seit 2010 für Kunden da, firmiert jetzt unter One Community Home Health.",
       requestCare: "Pflege anfragen",
       referPatient: "Patienten überweisen",
     },
@@ -62,7 +62,7 @@ export const MESSAGES: Record<ExtraLocale, Messages> = {
       subtitle:
         "Des soins de santé à domicile attentionnés et professionnels dans la région de Dallas-Fort Worth — des plans de soins individualisés, coordonnés avec vos médecins, dispensés là où vous êtes le plus à l'aise : chez vous.",
       legacy:
-        "JACOP Healthcare Services, Inc., au service des patients depuis 2010, exerce désormais sous le nom One Community Home Health.",
+        "JACOP Healthcare Services, Inc., au service des clients depuis 2010, exerce désormais sous le nom One Community Home Health.",
       requestCare: "Demander des soins",
       referPatient: "Orienter un patient",
     },
@@ -118,7 +118,7 @@ export const MESSAGES: Record<ExtraLocale, Messages> = {
       subtitle:
         "Cuidados de saúde domiciliares atenciosos e profissionais na região de Dallas-Fort Worth — planos de cuidado individualizados, coordenados com seus médicos, prestados onde você se sente mais à vontade: em casa.",
       legacy:
-        "A JACOP Healthcare Services, Inc., atendendo pacientes desde 2010, agora opera como One Community Home Health.",
+        "A JACOP Healthcare Services, Inc., atendendo clientes desde 2010, agora opera como One Community Home Health.",
       requestCare: "Solicitar cuidados",
       referPatient: "Encaminhar um paciente",
     },

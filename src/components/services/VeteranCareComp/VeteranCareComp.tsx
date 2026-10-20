@@ -122,7 +122,7 @@ export default function VeteranCareComp() {
               <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/services/ot_k.svg"
-                  alt="Compassionate veteran care team member supporting a patient"
+                  alt="Compassionate veteran care team member supporting a client"
                   className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

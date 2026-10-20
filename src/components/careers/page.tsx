@@ -92,7 +92,7 @@ export default function CareersPage() {
 
   const stats = [
     { label: "Nurse-Founded Leadership", sub: "Clinical Excellence" },
-    { label: "Serving Patients Since 2010", sub: "Trusted Track Record" },
+    { label: "Serving Clients Since 2010", sub: "Trusted Track Record" },
     { label: "Individualized Care", sub: "Person-Centered Approach" },
     { label: "Dignity & Independence", sub: "At-Home Living" },
   ];
@@ -135,7 +135,7 @@ export default function CareersPage() {
     },
     {
       role: "Intake & Office Support",
-      desc: "Patient onboarding & referral management",
+      desc: "Client onboarding & referral management",
       tag: "Operations",
     },
     {
@@ -148,7 +148,7 @@ export default function CareersPage() {
   const whyItems = [
     {
       title: "Compassion & Dignity",
-      desc: "Every interaction is grounded in respect for the patient and family.",
+      desc: "Every interaction is grounded in respect for the client and family.",
     },
     {
       title: "Clinical Accountability",
@@ -156,7 +156,7 @@ export default function CareersPage() {
     },
     {
       title: "Reliable Support",
-      desc: "We support patients, families, caregivers—and our team members.",
+      desc: "We support clients, families, caregivers—and our team members.",
     },
     {
       title: "Nurse-Founded Culture",

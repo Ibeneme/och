@@ -301,8 +301,8 @@ export default function PersonalAttendantServicesPage() {
             </p>
             <p className="mt-4 text-sm leading-relaxed text-[#07162C]/75 sm:text-base">
               {t(
-                "That is what our attendants do. It is the largest part of what this agency does every day, and it is the reason most of our patients stay in their own homes instead of moving into a facility.",
-                "Eso es lo que hacen nuestros asistentes. Es la parte más grande de lo que esta agencia hace cada día, y es la razón por la que la mayoría de nuestros pacientes se quedan en sus hogares en lugar de mudarse a un centro."
+                "That is what our attendants do. It is the largest part of what this agency does every day, and it is the reason most of our clients stay in their own homes instead of moving into a facility.",
+                "Eso es lo que hacen nuestros asistentes. Es la parte más grande de lo que esta agencia hace cada día, y es la razón por la que la mayoría de nuestros clientes se quedan en sus hogares en lugar de mudarse a un centro."
               )}
             </p>
           </div>

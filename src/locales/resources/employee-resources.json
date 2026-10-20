@@ -48,9 +48,9 @@
       "safetyDesc": "Personnel should follow the established reporting channels below for all safety incidents, hazards, or compliance flags.",
       "emergencyRefTitle": "Emergency vs. routine protocol reference",
       "medEmerg": "Medical emergencies",
-      "medEmergText": "For any immediate life-threatening situation involving a patient or staff member, dial 911 immediately.",
+      "medEmergText": "For any immediate life-threatening situation involving a client or staff member, dial 911 immediately.",
       "urgentClin": "Urgent clinical needs",
-      "urgentClinText": "Active patients maintain access to a 24/7 on-call clinical extension. This does not replace 911.",
+      "urgentClinText": "Active clients maintain access to a 24/7 on-call clinical extension. This does not replace 911.",
       "routineMatters": "Routine & HR matters",
       "routineMattersText": "Submit standard incident logs, HR queries, or tickets during regular operating hours (Monday–Friday, 9 AM–5 PM)."
     },
@@ -105,7 +105,7 @@
       "medEmerg": "Emergencias médicas",
       "medEmergText": "Para cualquier situación potencialmente mortal, marque 911 de inmediato.",
       "urgentClin": "Necesidades clínicas urgentes",
-      "urgentClinText": "Los pacientes activos mantienen acceso a una extensión clínica 24/7.",
+      "urgentClinText": "Los clientes activos mantienen acceso a una extensión clínica 24/7.",
       "routineMatters": "Asuntos de rutina y RRHH",
       "routineMattersText": "Envíe registros estándar durante el horario regular de atención (Lunes a viernes, 9 AM–5 PM)."
     }

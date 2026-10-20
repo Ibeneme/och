@@ -62,7 +62,7 @@ const copy = {
       },
       {
         title: "One plan for everyone",
-        body: "Nurses, therapists, aides, and family caregivers work from the same plan, built around the patient's actual day.",
+        body: "Nurses, therapists, aides, and family caregivers work from the same plan, built around the client's actual day.",
       },
     ],
   },
@@ -101,7 +101,7 @@ const copy = {
       },
       {
         title: "Un solo plan para todos",
-        body: "Enfermeras, terapeutas, asistentes y familiares cuidadores trabajan con el mismo plan, basado en el día real del paciente.",
+        body: "Enfermeras, terapeutas, asistentes y familiares cuidadores trabajan con el mismo plan, basado en el día real del cliente.",
       },
     ],
   },
@@ -153,7 +153,7 @@ export default function LeadershipHero() {
           </p>
           <p className="mx-auto mt-4 max-w-xl text-sm text-[#07162C]/70 sm:text-base">
             Angela Ananti, BSN, RN, has practiced nursing since 2003. She brings
-            high standards for clinical accountability and patient dignity to
+            high standards for clinical accountability and client dignity to
             families across the Dallas–Fort Worth Metroplex.
           </p>
 

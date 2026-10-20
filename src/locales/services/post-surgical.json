@@ -24,7 +24,7 @@
         { "title": "Wound Care", "desc": "Sterile dressing changes, incision maintenance, and expert monitoring to ensure clean, infection-free tissue healing." },
         { "title": "Medication Support", "desc": "Management of new prescriptions, pain medication schedules, side-effect tracking, and safety instruction." },
         { "title": "Mobility & Rehabilitation", "desc": "Assistance with safe movement, strengthening exercises, and physical rehabilitation tailored to surgical limitations." },
-        { "title": "Patient Education", "desc": "Comprehensive guidance for patients and caregivers on activity restrictions, warning signs, and home safety." },
+        { "title": "Client Education", "desc": "Comprehensive guidance for clients and caregivers on activity restrictions, warning signs, and home safety." },
         { "title": "Physician Coordination", "desc": "Seamless communication with surgeons and primary care providers regarding status updates and follow-up plans." },
         { "title": "Hospital-to-Home Transition Support", "desc": "Structured discharge assistance to bridge the gap between hospital care and safe independent living at home, minimizing readmission risks." }
       ],
@@ -56,7 +56,7 @@
         { "title": "Cuidado de Heridas", "desc": "Cambios de apósitos estériles, mantenimiento de incisiones y monitoreo experto." },
         { "title": "Apoyo con Medicamentos", "desc": "Manejo de nuevas recetas, horarios de analgésicos, seguimiento de efectos secundarios." },
         { "title": "Movilidad y Rehabilitación", "desc": "Asistencia con movimientos seguros, ejercicios de fortalecimiento y rehabilitación física." },
-        { "title": "Educación del Paciente", "desc": "Guía integral para pacientes y cuidadores sobre restricciones de actividad y señales de advertencia." },
+        { "title": "Educación del Cliente", "desc": "Guía integral para clientes y cuidadores sobre restricciones de actividad y señales de advertencia." },
         { "title": "Coordinación Médica", "desc": "Comunicación fluida con cirujanos y proveedores de atención primaria sobre planes de seguimiento." },
         { "title": "Apoyo de Transición Hospital-Hogar", "desc": "Asistencia estructurada de alta para minimizar riesgos de reingreso." }
       ],

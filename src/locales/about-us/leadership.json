@@ -4,7 +4,7 @@
       "name": "Angela Ananti,",
       "nameHighlight": "BSN, RN",
       "role": "Founder, Administrator, and Director of Nursing",
-      "desc": "Angela Ananti, BSN, RN, has practiced nursing since 2003. She brings high standards for clinical accountability and patient dignity to families across the Dallas–Fort Worth Metroplex.",
+      "desc": "Angela Ananti, BSN, RN, has practiced nursing since 2003. She brings high standards for clinical accountability and client dignity to families across the Dallas–Fort Worth Metroplex.",
       "callBtn": "Call Our Team: 972-325-1598",
       "referBtn": "Refer a Patient",
       "clinicalExpert": "Clinical Expert",
@@ -14,7 +14,7 @@
       "milestone1Tag": "(begin)",
       "milestone1Kicker": "career /",
       "milestone1KickerRest": "nursing begins",
-      "milestone1Body": "Angela began her professional nursing career, cultivating deep expertise in clinical care, patient advocacy, and healthcare administration. Serving DFW families since 2010.",
+      "milestone1Body": "Angela began her professional nursing career, cultivating deep expertise in clinical care, client advocacy, and healthcare administration. Serving DFW families since 2010.",
       "milestone1Footer": "Director of Nursing, multiple agencies",
       "milestone2Tag": "(found)",
       "milestone2Kicker": "founding /",
@@ -29,16 +29,16 @@
       "philEyebrow": "Core values",
       "philTitle": "Leadership philosophy & core commitments",
       "phil1Title": "Quality, dignity & independence",
-      "phil1Desc": "Angela's clinical philosophy centers on a deep commitment to preserving each patient's dignity, promoting independence, and ensuring high standards for clinical accountability and patient dignity in the home.",
-      "phil2Title": "Patients, families & caregivers",
-      "phil2Desc": "Home health is profoundly personal. Angela is deeply committed to supporting patients, reassuring families, empowering caregivers, and uplifting every employee on the care team."
+      "phil1Desc": "Angela's clinical philosophy centers on a deep commitment to preserving each client's dignity, promoting independence, and ensuring high standards for clinical accountability and client dignity in the home.",
+      "phil2Title": "Clients, families & caregivers",
+      "phil2Desc": "Home health is profoundly personal. Angela is deeply committed to supporting clients, reassuring families, empowering caregivers, and uplifting every employee on the care team."
     },
     "es": {
       "eyebrow": "Fundadora y Liderazgo Clínico",
       "name": "Angela Ananti,",
       "nameHighlight": "BSN, RN",
       "role": "Fundadora, Administradora y Directora de Enfermería",
-      "desc": "Angela Ananti, BSN, RN, ha ejercido la enfermería desde 2003. Aporta altos estándares de responsabilidad clínica y dignidad del paciente a las familias del Metroplex de Dallas–Fort Worth.",
+      "desc": "Angela Ananti, BSN, RN, ha ejercido la enfermería desde 2003. Aporta altos estándares de responsabilidad clínica y dignidad del cliente a las familias del Metroplex de Dallas–Fort Worth.",
       "callBtn": "Llamar a nuestro equipo: 972-325-1598",
       "referBtn": "Remitir a un paciente",
       "clinicalExpert": "Experta Clínica",
@@ -48,7 +48,7 @@
       "milestone1Tag": "(inicio)",
       "milestone1Kicker": "carrera /",
       "milestone1KickerRest": "inicia enfermería",
-      "milestone1Body": "Angela comenzó su carrera profesional en enfermería, cultivando una profunda experiencia en atención clínica, defensa del paciente y administración de salud. Atendiendo a familias de DFW desde 2010.",
+      "milestone1Body": "Angela comenzó su carrera profesional en enfermería, cultivando una profunda experiencia en atención clínica, defensa del cliente y administración de salud. Atendiendo a familias de DFW desde 2010.",
       "milestone1Footer": "Directora de Enfermería, múltiples agencias",
       "milestone2Tag": "(fundación)",
       "milestone2Kicker": "fundación /",
@@ -63,8 +63,8 @@
       "philEyebrow": "Valores fundamentales",
       "philTitle": "Filosofía de liderazgo y compromisos principales",
       "phil1Title": "Calidad, dignidad e independencia",
-      "phil1Desc": "La filosofía clínica de Angela se centra en un profundo compromiso con preservar la dignidad de cada paciente, promover la independencia y asegurar altos estándares de responsabilidad clínica y dignidad del paciente en el hogar.",
-      "phil2Title": "Pacientes, familias y cuidadores",
-      "phil2Desc": "La atención domiciliaria es profundamente personal. Angela está profundamente comprometida con apoyar a los pacientes, tranquilizar a las familias, empoderar a los cuidadores y elevar a cada empleado del equipo de atención."
+      "phil1Desc": "La filosofía clínica de Angela se centra en un profundo compromiso con preservar la dignidad de cada cliente, promover la independencia y asegurar altos estándares de responsabilidad clínica y dignidad del cliente en el hogar.",
+      "phil2Title": "Clientes, familias y cuidadores",
+      "phil2Desc": "La atención domiciliaria es profundamente personal. Angela está profundamente comprometida con apoyar a los clientes, tranquilizar a las familias, empoderar a los cuidadores y elevar a cada empleado del equipo de atención."
     }
   }

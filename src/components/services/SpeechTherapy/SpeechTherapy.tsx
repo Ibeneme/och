@@ -69,7 +69,7 @@ export default function SpeechTherapyComponent() {
                 <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/services/ot_h.svg"
-                    alt="Speech therapist assisting a patient with communication exercises at home"
+                    alt="Speech therapist assisting a client with communication exercises at home"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />
@@ -96,7 +96,7 @@ export default function SpeechTherapyComponent() {
               <div className="overflow-hidden rounded-3xl border border-[#07162C]/10 bg-white p-3">
                 <img
                   src="/images/services/ot_i.svg"
-                  alt="Speech therapist engaging with a patient during a home session"
+                  alt="Speech therapist engaging with a client during a home session"
                   className="h-[380px] w-full rounded-2xl object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

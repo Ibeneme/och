@@ -77,7 +77,7 @@ export default function MedicalSocialServicesComponent() {
                 <div className="relative mb-6 h-64 w-full overflow-hidden rounded-2xl">
                   <img
                     src="/images/services/ot_n.svg"
-                    alt="Professional social worker warmly consulting with a senior patient at home"
+                    alt="Professional social worker warmly consulting with a senior client at home"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#07162C]/70 via-transparent to-transparent" />

@@ -1,8 +1,8 @@
 {
   "banner": {
     "title": {
-      "en": "Now accepting new patients",
-      "es": "Ahora aceptando nuevos pacientes"
+      "en": "Now accepting new clients",
+      "es": "Ahora aceptando nuevos clientes"
     },
     "subtitle": {
       "en": "Compassionate home care, right where family is.",
@@ -161,8 +161,8 @@
     "locationLabel": { "en": "Location & office", "es": "Ubicación y oficina" },
     "hoursLabel": { "en": "Admin hours", "es": "Horario administrativo" },
     "hoursNote": {
-      "en": "24/7 on-call for current patients",
-      "es": "Guardia 24/7 para pacientes actuales"
+      "en": "24/7 on-call for current clients",
+      "es": "Guardia 24/7 para clientes actuales"
     },
     "coverageLabel": { "en": "Care & coverage", "es": "Cobertura de cuidado" },
     "coverageLines": {
@@ -185,8 +185,8 @@
       "es": "© 2026 JACOP Healthcare Services, Inc. Todos los derechos reservados."
     },
     "operatedBy": {
-      "en": "Operated by JACOP Healthcare Services, Inc. — now serving new patients and accepting referrals.",
-      "es": "Operado por JACOP Healthcare Services, Inc. — sirviendo nuevos pacientes y aceptando referencias."
+      "en": "Operated by JACOP Healthcare Services, Inc. — now serving new clients and accepting referrals.",
+      "es": "Operado por JACOP Healthcare Services, Inc. — sirviendo nuevos clientes y aceptando referencias."
     },
     "privacy": { "en": "Privacy policy", "es": "Política de privacidad" },
     "terms": { "en": "Terms of service", "es": "Términos de servicio" },
